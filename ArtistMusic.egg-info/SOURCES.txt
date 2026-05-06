@@ -1,0 +1,13 @@
+pyproject.toml
+AloneMusic/__init__.py
+AloneMusic/__main__.py
+AloneMusic/logging.py
+AloneMusic/misc.py
+AloneMusic.egg-info/PKG-INFO
+AloneMusic.egg-info/SOURCES.txt
+AloneMusic.egg-info/dependency_links.txt
+AloneMusic.egg-info/entry_points.txt
+AloneMusic.egg-info/requires.txt
+AloneMusic.egg-info/top_level.txt
+strings/__init__.py
+strings/helpers.py
