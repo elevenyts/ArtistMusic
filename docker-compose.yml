@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  alonemusic:
+    build: .
+    container_name: alonemusic_bot
+    restart: always
+    command: python3 -m AloneMusic
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    networks:
+      - botnet
+
+networks:
+  botnet:
+    driver: bridge

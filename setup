@@ -1,0 +1,64 @@
+#!/bin/bash
+
+set -e
+
+green='\033[0;32m'
+yellow='\033[1;33m'
+blue='\033[0;34m'
+reset='\033[0m'
+
+echo -e "${blue}
+==============================
+   AloneMusic Auto Setup
+==============================
+${reset}"
+
+sleep 1
+
+echo -e "${yellow}Updating system...${reset}"
+sudo apt update -y && sudo apt upgrade -y
+
+echo -e "${yellow}Installing system packages...${reset}"
+sudo apt install -y python3 python3-pip python3-venv git ffmpeg libffi-dev libopus0
+
+if [ ! -d "AloneMusic" ]; then
+  git clone https://github.com/TheAloneTeam/AloneMusic.git
+else
+  cd AloneMusic && git pull && cd ..
+fi
+
+cd AloneMusic
+
+echo -e "${yellow}Creating venv...${reset}"
+python3 -m venv venv
+source venv/bin/activate
+
+pip install --upgrade pip setuptools wheel
+pip install .
+
+echo -e "${green}
+Enter your config values:
+${reset}"
+
+read -p "API_ID: " API_ID
+read -p "API_HASH: " API_HASH
+read -p "BOT_TOKEN: " BOT_TOKEN
+read -p "LOGGER_ID (-100xxxx): " LOGGER_ID
+read -p "MONGO_DB_URI: " MONGO_DB_URI
+read -p "OWNER_ID: " OWNER_ID
+read -p "STRING_SESSION (optional, press enter to skip): " STRING_SESSION
+
+cat > .env <<EOF
+API_ID=$API_ID
+API_HASH=$API_HASH
+BOT_TOKEN=$BOT_TOKEN
+LOGGER_ID=$LOGGER_ID
+MONGO_DB_URI=$MONGO_DB_URI
+OWNER_ID=$OWNER_ID
+STRING_SESSION=$STRING_SESSION
+EOF
+
+echo -e "${green}.env created successfully${reset}"
+
+echo -e "${green}Starting AloneMusic...${reset}"
+python3 -m AloneMusic.bot
