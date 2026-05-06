@@ -1,0 +1,126 @@
+Metadata-Version: 2.4
+Name: ArtistMusic
+Version: 0.1.0
+Summary: 🎵 Advanced Telegram Music Bot by ElevenYtsmusic — PyroFork + ntgcalls + YouTube + Spotify
+License: MIT
+Project-URL: Repository, https://github.com/elevenyts/ArtistMusic
+Project-URL: Issues, https://github.com/elevenyts/ArtistMusic
+Project-URL: Changelog, https://github.com/elevenyts/ArtistMusic
+Keywords: telegram,music,bot,pyrogram,pyrofork,pytgcalls,youtube,spotify
+Classifier: Environment :: Console
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Internet
+Classifier: Topic :: Utilities
+Requires-Python: <3.13,>=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiofiles>=25.1.0
+Requires-Dist: aiohttp>=3.13.5
+Requires-Dist: apscheduler>=3.11.2
+Requires-Dist: beautifulsoup4>=4.12.3
+Requires-Dist: dnspython>=2.8.0
+Requires-Dist: gitpython>=3.1.43
+Requires-Dist: hachoir>=3.3.0
+Requires-Dist: httpx>=0.27.0
+Requires-Dist: humanize>=4.15.0
+Requires-Dist: requests>=2.32.3
+Requires-Dist: python-dotenv==1.2.2
+Requires-Dist: pyyaml>=6.0.1
+Requires-Dist: unidecode>=1.4.0
+Requires-Dist: tgcrypto>=1.2.5
+Requires-Dist: pyrofork>=2.3.45
+Requires-Dist: ffmpeg-python>=0.2.0
+Requires-Dist: py-tgcalls==2.2.12
+Requires-Dist: ntgcalls==2.2.1b3
+Requires-Dist: motor>=3.7.1
+Requires-Dist: psutil>=5.9.8
+Requires-Dist: heroku3>=5.2.1
+Requires-Dist: Pillow==12.2.0
+Requires-Dist: speedtest-cli>=2.1.3
+Requires-Dist: yt-dlp==2026.3.17
+Requires-Dist: youtube-search>=2.2.0
+Requires-Dist: youtube-search-python>=1.6.6
+Requires-Dist: py-yt-search==0.6.2
+Requires-Dist: spotipy==2.26.0
+Requires-Dist: prettytable>=3.12.0
+Requires-Dist: openai>=2.31.0
+Dynamic: license-file
+
+
+## 🚀 Introduction
+**ArtistMusic** is a Python-based **music bot/service** that allows users to play, pause, skip, and manage playlists with ease.  
+It’s designed to be lightweight, fast, and customizable.  
+
+---
+
+## ✨ Features
+- 🎶 Play / Pause / Skip / Stop songs  
+- 📂 Playlist management (add/remove/list)  
+- 🔗 Play via song name or URL  
+- ⚡ Fast and smooth performance  
+- ⚙️ Easy configuration with `.env` file  
+- 🐳 Docker & Heroku deployment support  
+
+---
+## ❤️ Support
+
+💬 **Telegram:** [ArtistMusic](https://t.me/elevenytsmusic)  
+
+---
+
+## 📜 License
+
+🧾 This project is licensed under the **GNU GPLv3 License** — see the [LICENSE](/LICENSE) file for details.
+
+---
+
+
+- **Update System and Install Dependencies**:  
+  ```bash
+  sudo apt update && sudo apt upgrade -y && sudo apt install -y ffmpeg git python3-pip tmux nano
+  ```
+
+- **Install uv for Efficient Dependency Management**:
+  ```bash
+  pip install uv
+  ```
+- **Clone the Repository:**  
+  ```bash
+  git clone https://github.com/elevenyts/ArtistMusic cd ArtistMusic
+  ```
+  
+- **Create and Activate a Virtual Environment:**
+  - You can create and activate the virtual Environment before cloning the repo.
+  ```bash
+  uv venv .venv && source .venv/bin/activate
+  ```
+
+- Install Python Requirements:  
+  ```bash
+  uv pip install -e .
+  ```
+
+- Copy and Edit Environment Variables:  
+  ```bash
+  cp sample.env .env && nano .env
+  ```
+  After editing, press `Ctrl+X`, then `Y`, and press **Enter** to save the changes.
+
+- Start a tmux Session to Keep the Bot Running:  
+  ```bash
+  tmux
+  ```
+
+- Run the Bot:  
+  ```bash
+  python3 -m ArtistMusic
+  ```
+
+- Detach from the **tmux** Session (Bot keeps running):  
+  Press `Ctrl+b`, then `d`
