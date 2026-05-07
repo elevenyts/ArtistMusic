@@ -1,19 +1,10 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter, ChatMemberStatus, ChatType
 from pyrogram.types import Message
 
-from AloneMusic import app
-from AloneMusic.utils.database import set_cmode
-from AloneMusic.utils.decorators.admins import AdminActual
+from ArtistMusic import app
+from ArtistMusic.utils.database import set_cmode
+from ArtistMusic.utils.decorators.admins import AdminActual
 from config import BANNED_USERS
 
 
