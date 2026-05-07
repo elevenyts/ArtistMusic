@@ -1,18 +1,9 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import time
 
 import psutil
 
-from AloneMusic.misc import _boot_
-from AloneMusic.utils.formatters import get_readable_time
+from ArtistMusic.misc import _boot_
+from ArtistMusic.utils.formatters import get_readable_time
 
 
 async def bot_sys_stats():
