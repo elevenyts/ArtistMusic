@@ -1,11 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import os
 import sys
 import traceback
@@ -15,20 +7,17 @@ from functools import wraps
 import aiofiles
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
-from AloneMusic import app
-from AloneMusic.utils.exceptions import is_ignored_error
-from AloneMusic.utils.pastebin import AloneBin
+from ArtistMusic import app
+from ArtistMusic.utils.exceptions import is_ignored_error
+from ArtistMusic.utils.pastebin import ArtistBin
 from config import DEBUG_IGNORE_LOG, LOGGER_ID
 
 DEBUG_LOG_FILE = "ignored_errors.log"
 
 
-# ========== Paste Fallback ==========
-
-
 async def send_large_error(text: str, caption: str, filename: str):
     try:
-        paste_url = await AloneBin(text)
+        paste_url = await ArtistBin(text)
         if paste_url:
             await app.send_message(LOGGER_ID, f"{caption}\n\n🔗 Paste: {paste_url}")
             return
@@ -40,9 +29,6 @@ async def send_large_error(text: str, caption: str, filename: str):
         await f.write(text)
     await app.send_document(LOGGER_ID, path, caption="❌ Error Log (Fallback)")
     os.remove(path)
-
-
-# ========== Formatting & Routing ==========
 
 
 def format_traceback(err, tb, label: str, extras: dict = None) -> str:
@@ -86,15 +72,7 @@ async def log_ignored_error(err, tb, label, extras=None):
         await log.write("\n".join(lines))
 
 
-# ========== Decorators ==========
-
-
 def capture_err(func):
-    """
-    Handles errors in command message handlers.
-    Logs only unignored errors.
-    """
-
     @wraps(func)
     async def wrapper(client, message, *args, **kwargs):
         try:
@@ -116,11 +94,6 @@ def capture_err(func):
 
 
 def capture_callback_err(func):
-    """
-    Handles errors in callback query handlers.
-    Logs only unignored errors.
-    """
-
     @wraps(func)
     async def wrapper(client, callback_query, *args, **kwargs):
         try:
@@ -143,10 +116,6 @@ def capture_callback_err(func):
 
 
 def capture_internal_err(func):
-    """
-    Handles errors in background/internal async bot functions.
-    """
-
     @wraps(func)
     async def wrapper(*args, **kwargs):
         try:
