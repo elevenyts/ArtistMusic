@@ -1,18 +1,9 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from pyrogram import filters
 
-from AloneMusic import app
-from AloneMusic.misc import SUDOERS
-from AloneMusic.utils.database import add_off, add_on
-from AloneMusic.utils.decorators.language import language
+from ArtistMusic import app
+from ArtistMusic.misc import SUDOERS
+from ArtistMusic.utils.database import add_off, add_on
+from ArtistMusic.utils.decorators.language import language
 
 
 @app.on_message(filters.command(["logger"]) & SUDOERS)
