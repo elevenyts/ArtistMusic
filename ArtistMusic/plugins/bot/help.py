@@ -1,23 +1,14 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from typing import Union
 
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
 
-from AloneMusic import app
-from AloneMusic.misc import SUDOERS
-from AloneMusic.utils import help_pannel
-from AloneMusic.utils.database import get_lang
-from AloneMusic.utils.decorators.language import LanguageStart, languageCB
-from AloneMusic.utils.inline.help import help_back_markup, private_help_panel
+from ArtistMusic import app
+from ArtistMusic.misc import SUDOERS
+from ArtistMusic.utils import help_pannel
+from ArtistMusic.utils.database import get_lang
+from ArtistMusic.utils.decorators.language import LanguageStart, languageCB
+from ArtistMusic.utils.inline.help import help_back_markup, private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
 
