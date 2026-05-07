@@ -1,21 +1,12 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import random
 
 from pyrogram import filters
 from pyrogram.types import Message
 
-from AloneMusic import app
-from AloneMusic.misc import db
-from AloneMusic.utils.decorators import AdminRightsCheck
-from AloneMusic.utils.inline import close_markup
+from ArtistMusic import app
+from ArtistMusic.misc import db
+from ArtistMusic.utils.decorators import AdminRightsCheck
+from ArtistMusic.utils.inline import close_markup
 from config import BANNED_USERS
 
 
