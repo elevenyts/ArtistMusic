@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 import os
 
@@ -15,13 +6,13 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import CallbackQuery, InputMediaPhoto, Message
 
 import config
-from AloneMusic import app
-from AloneMusic.misc import db
-from AloneMusic.utils import AloneBin, get_channeplayCB, seconds_to_min
-from AloneMusic.utils.database import (get_cmode, is_active_chat,
+from ArtistMusic import app
+from ArtistMusic.misc import db
+from ArtistMusic.utils import ArtistBin, get_channeplayCB, seconds_to_min
+from ArtistMusic.utils.database import (get_cmode, is_active_chat,
                                        is_music_playing)
-from AloneMusic.utils.decorators.language import language, languageCB
-from AloneMusic.utils.inline import queue_back_markup, queue_markup
+from ArtistMusic.utils.decorators.language import language, languageCB
+from ArtistMusic.utils.inline import queue_back_markup, queue_markup
 from config import BANNED_USERS
 
 basic = {}
@@ -186,7 +177,7 @@ async def queued_tracks(client, CallbackQuery: CallbackQuery, _):
             return await CallbackQuery.edit_message_text(msg, reply_markup=buttons)
         if "✨" in msg:
             msg = msg.replace("✨", "")
-        link = await AloneBin(msg)
+        link = await ArtistBin(msg)
         med = InputMediaPhoto(media=link, caption=_["queue_3"].format(link))
         await CallbackQuery.edit_message_media(media=med, reply_markup=buttons)
     else:
