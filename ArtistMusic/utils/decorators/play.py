@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 
 from pyrogram.enums import ChatMemberStatus
@@ -14,12 +5,12 @@ from pyrogram.errors import (ChatAdminRequired, InviteRequestSent,
                              UserAlreadyParticipant, UserNotParticipant)
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from AloneMusic import YouTube, app
-from AloneMusic.misc import SUDOERS
-from AloneMusic.utils.database import (get_assistant, get_cmode, get_lang,
+from ArtistMusic import YouTube, app
+from ArtistMusic.misc import SUDOERS
+from ArtistMusic.utils.database import (get_assistant, get_cmode, get_lang,
                                        get_playmode, get_playtype,
                                        is_active_chat, is_maintenance)
-from AloneMusic.utils.inline import botplaylist_markup
+from ArtistMusic.utils.inline import botplaylist_markup
 from config import PLAYLIST_IMG_URL, SUPPORT_CHAT, adminlist
 from strings import get_string
 
