@@ -1,17 +1,8 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 from typing import Union
 
-from AloneMusic.misc import db
-from AloneMusic.utils.formatters import check_duration, seconds_to_min
+from Artist.misc import db
+from Artist.utils.formatters import check_duration, seconds_to_min
 from config import autoclean, time_to_seconds
 
 
