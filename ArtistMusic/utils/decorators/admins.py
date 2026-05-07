@@ -1,18 +1,9 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from AloneMusic import app
-from AloneMusic.misc import SUDOERS, db
-from AloneMusic.utils.database import (get_authuser_names, get_cmode, get_lang,
+from ArtistMusic import app
+from ArtistMusic.misc import SUDOERS, db
+from ArtistMusic.utils.database import (get_authuser_names, get_cmode, get_lang,
                                        get_upvote_count, is_active_chat,
                                        is_maintenance, is_nonadmin_chat,
                                        is_skipmode)
@@ -27,7 +18,7 @@ def AdminRightsCheck(mystic):
         if await is_maintenance() is False:
             if message.from_user.id not in SUDOERS:
                 return await message.reply_text(
-                    text=f"{app.mention} ɪs ᴜɴᴅᴇʀ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ, ᴠɪsɪᴛ <a href={SUPPORT_CHAT}>sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ</a> ғᴏʀ ᴋɴᴏᴡɪɴɢ ᴛʜᴇ ʀᴇᴀsᴏɴ.",
+                    text=f"{app.mention} …™s біЬ…ібіЕбіЗ А біНбіА…™…ібіЫбіЗ…ібіА…ібіДбіЗ, бі†…™s…™біЫ <a href={SUPPORT_CHAT}>sбіЬбіШбіШбіП АбіЫ біД ЬбіАбіЫ</a> “УбіП А біЛ…ібіПбі°…™…і…Ґ біЫ ЬбіЗ  АбіЗбіАsбіП…і.",
                     disable_web_page_preview=True,
                 )
 
@@ -46,7 +37,7 @@ def AdminRightsCheck(mystic):
                 [
                     [
                         InlineKeyboardButton(
-                            text="ʜᴏᴡ ᴛᴏ ғɪx ?",
+                            text=" ЬбіПбі° біЫбіП “У…™x ?",
                             callback_data="AnonymousAdmin",
                         ),
                     ]
@@ -75,11 +66,11 @@ def AdminRightsCheck(mystic):
                     if message.from_user.id not in admins:
                         if await is_skipmode(message.chat.id):
                             upvote = await get_upvote_count(chat_id)
-                            text = f"""<b>ᴀᴅᴍɪɴ ʀɪɢʜᴛs ɴᴇᴇᴅᴇᴅ</b>
+                            text = f"""<b>біАбіЕбіН…™…і  А…™…Ґ ЬбіЫs …ібіЗбіЗбіЕбіЗбіЕ</b>
 
-ʀᴇғʀᴇsʜ ᴀᴅᴍɪɴ ᴄᴀᴄʜᴇ ᴠɪᴀ : /reload
+ АбіЗ“У АбіЗs Ь біАбіЕбіН…™…і біДбіАбіД ЬбіЗ бі†…™біА : /reload
 
-» {upvote} ᴠᴏᴛᴇs ɴᴇᴇᴅᴇᴅ ғᴏʀ ᴘᴇʀғᴏʀᴍɪɴɢ ᴛʜɪs ᴀᴄᴛɪᴏɴ."""
+¬ї {upvote} бі†біПбіЫбіЗs …ібіЗбіЗбіЕбіЗбіЕ “УбіП А біШбіЗ А“УбіП АбіН…™…і…Ґ біЫ Ь…™s біАбіДбіЫ…™біП…і."""
 
                             command = message.command[0]
                             if command[0] == "c":
@@ -91,7 +82,7 @@ def AdminRightsCheck(mystic):
                                 [
                                     [
                                         InlineKeyboardButton(
-                                            text="ᴠᴏᴛᴇ",
+                                            text="бі†біПбіЫбіЗ",
                                             callback_data=f"ADMIN  UpVote|{chat_id}_{MODE}",
                                         ),
                                     ]
@@ -123,7 +114,7 @@ def AdminActual(mystic):
         if await is_maintenance() is False:
             if message.from_user.id not in SUDOERS:
                 return await message.reply_text(
-                    text=f"{app.mention} ɪs ᴜɴᴅᴇʀ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ, ᴠɪsɪᴛ <a href={SUPPORT_CHAT}>sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ</a> ғᴏʀ ᴋɴᴏᴡɪɴɢ ᴛʜᴇ ʀᴇᴀsᴏɴ.",
+                    text=f"{app.mention} …™s біЬ…ібіЕбіЗ А біНбіА…™…ібіЫбіЗ…ібіА…ібіДбіЗ, бі†…™s…™біЫ <a href={SUPPORT_CHAT}>sбіЬбіШбіШбіП АбіЫ біД ЬбіАбіЫ</a> “УбіП А біЛ…ібіПбі°…™…і…Ґ біЫ ЬбіЗ  АбіЗбіАsбіП…і.",
                     disable_web_page_preview=True,
                 )
 
@@ -138,13 +129,12 @@ def AdminActual(mystic):
         except:
             _ = get_string("en")
 
-        # Anonymous admin block
         if message.sender_chat:
             upl = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="ʜᴏᴡ ᴛᴏ ғɪx ?",
+                            text=" ЬбіПбі° біЫбіП “У…™x ?",
                             callback_data="AnonymousAdmin",
                         ),
                     ]
@@ -152,7 +142,6 @@ def AdminActual(mystic):
             )
             return await message.reply_text(_["general_3"], reply_markup=upl)
 
-        # Admin permission check
         if message.from_user.id not in SUDOERS:
             try:
                 chat_member = await app.get_chat_member(
@@ -178,7 +167,7 @@ def ActualAdminCB(mystic):
         if await is_maintenance() is False:
             if CallbackQuery.from_user.id not in SUDOERS:
                 return await CallbackQuery.answer(
-                    f"{app.mention} ɪs ᴜɴᴅᴇʀ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ, ᴠɪsɪᴛ sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ ғᴏʀ ᴋɴᴏᴡɪɴɢ ᴛʜᴇ ʀᴇᴀsᴏɴ.",
+                    f"{app.mention} …™s біЬ…ібіЕбіЗ А біНбіА…™…ібіЫбіЗ…ібіА…ібіДбіЗ, бі†…™s…™біЫ sбіЬбіШбіШбіП АбіЫ біД ЬбіАбіЫ “УбіП А біЛ…ібіПбі°…™…і…Ґ біЫ ЬбіЗ  АбіЗбіАsбіП…і.",
                     show_alert=True,
                 )
         try:
