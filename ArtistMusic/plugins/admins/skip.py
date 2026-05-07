@@ -218,3 +218,39 @@ async def skip(cli, message: Message, _, chat_id):
                     config.SUPPORT_CHAT, title[:23], check[0]["dur"], user
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
+            )
+            db[chat_id][0]["mystic"] = run
+            db[chat_id][0]["markup"] = "tg"
+        elif videoid == "soundcloud":
+            button = stream_markup(_, chat_id)
+            await delete_old_message(chat_id)
+            run = await message.reply_photo(
+                photo=(
+                    config.SOUNCLOUD_IMG_URL
+                    if str(streamtype) == "audio"
+                    else config.TELEGRAM_VIDEO_URL
+                ),
+                caption=_["stream_1"].format(
+                    config.SUPPORT_CHAT, title[:23], check[0]["dur"], user
+                ),
+                reply_markup=InlineKeyboardMarkup(button),
+            )
+            db[chat_id][0]["mystic"] = run
+            db[chat_id][0]["markup"] = "tg"
+        else:
+            button = stream_markup(_, chat_id)
+            img = await get_thumb(videoid)
+            await delete_old_message(chat_id)
+            run = await message.reply_photo(
+                photo=img,
+                has_spoiler=True,
+                caption=_["stream_1"].format(
+                    f"https://t.me/{app.username}?start=info_{videoid}",
+                    title[:23],
+                    check[0]["dur"],
+                    user,
+                ),
+                reply_markup=InlineKeyboardMarkup(button),
+            )
+            db[chat_id][0]["mystic"] = run
+            db[chat_id][0]["markup"] = "stream"
