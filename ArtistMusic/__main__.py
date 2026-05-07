@@ -1,7 +1,8 @@
 import asyncio
 import importlib
 import os
-import sys
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from threading import Thread
 from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
@@ -13,38 +14,36 @@ from Artist.plugins import ALL_MODULES
 from Artist.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
-# Web server for free deployment platforms (Render, Koyeb, etc.)
-WEB_SERVER = False
 PORT = int(os.environ.get("PORT", 8080))
 
-async def start_web_server():
-    """Start a simple web server to keep the bot alive on free platforms"""
+class HealthCheckHandler(BaseHTTPRequestHandler):
+    """Simple HTTP handler for health checks"""
+    
+    def do_GET(self):
+        if self.path in ['/', '/health', '/ping']:
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b'Bot is running!')
+        else:
+            self.send_response(404)
+            self.end_headers()
+    
+    def log_message(self, format, *args):
+        # Suppress HTTP server logs
+        pass
+
+def start_web_server():
+    """Start a simple web server in a separate thread"""
     try:
-        from aiohttp import web
-        
-        async def health_check(request):
-            return web.Response(text="Bot is running!", status=200)
-        
-        async def home(request):
-            return web.Response(text="Artist Music Bot is Active!", status=200)
-        
-        app_web = web.Application()
-        app_web.router.add_get('/', home)
-        app_web.router.add_get('/health', health_check)
-        app_web.router.add_get('/ping', health_check)
-        
-        runner = web.AppRunner(app_web)
-        await runner.setup()
-        site = web.TCPSite(runner, "0.0.0.0", PORT)
-        await site.start()
+        server = HTTPServer(('0.0.0.0', PORT), HealthCheckHandler)
+        thread = Thread(target=server.serve_forever, daemon=True)
+        thread.start()
         LOGGER(__name__).info(f"Web server started on port {PORT}")
-        return True
-    except ImportError:
-        LOGGER(__name__).warning("aiohttp not installed. Web server disabled.")
-        return False
+        return server
     except Exception as e:
         LOGGER(__name__).warning(f"Failed to start web server: {e}")
-        return False
+        return None
 
 
 async def init():
@@ -59,8 +58,7 @@ async def init():
         exit()
     
     # Start web server for free platforms
-    global WEB_SERVER
-    WEB_SERVER = await start_web_server()
+    http_server = start_web_server()
     
     await sudo()
     try:
@@ -94,27 +92,16 @@ async def init():
     await Artist.decorators()
     LOGGER("Artist").info("Bot started successfully!")
     
-    # Keep the bot running with web server
+    # Keep the bot running
     try:
         await idle()
     finally:
+        if http_server:
+            http_server.shutdown()
         await app.stop()
         await userbot.stop()
         LOGGER("Artist").info("Stopping Bot...")
 
 
 if __name__ == "__main__":
-    # Handle replit specific requirements
-    if "REPLIT" in os.environ or "REPL_ID" in os.environ:
-        try:
-            from replit import web
-            web.run()
-        except:
-            pass
-    
-    # Handle render, koyeb, railway deployments
-    if "RENDER" in os.environ or "KOYEB" in os.environ or "RAILWAY" in os.environ:
-        LOGGER(__name__).info("Detected free platform deployment")
-    
-    # Run the bot
     asyncio.get_event_loop().run_until_complete(init())
