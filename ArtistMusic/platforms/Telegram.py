@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 import os
 import time
@@ -15,8 +6,8 @@ from typing import Union
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Voice
 
 import config
-from AloneMusic import app
-from AloneMusic.utils.formatters import (check_duration, convert_bytes,
+from ArtistMusic import app
+from ArtistMusic.utils.formatters import (check_duration, convert_bytes,
                                          get_readable_time, seconds_to_min)
 
 
