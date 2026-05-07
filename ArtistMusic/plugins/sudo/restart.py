@@ -1,10 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-# All rights reserved.
 import asyncio
 import os
 import shutil
@@ -17,11 +10,11 @@ from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import filters
 
 import config
-from AloneMusic import app
-from AloneMusic.misc import HAPP, SUDOERS, XCB
-from AloneMusic.utils.database import (get_active_chats, remove_active_chat,
+from ArtistMusic import app
+from ArtistMusic.misc import HAPP, SUDOERS, XCB
+from ArtistMusic.utils.database import (get_active_chats, remove_active_chat,
                                        remove_active_video_chat)
-from AloneMusic.utils.decorators.language import language
+from ArtistMusic.utils.decorators.language import language
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -133,7 +126,7 @@ async def update_(client, message, _):
             )
     else:
         os.system("uv pip install -e .")
-        os.system(f"kill -9 {os.getpid()} && python3 -m AloneMusic")
+        os.system(f"kill -9 {os.getpid()} && python3 -m ArtistMusic")
 
 
 # ---------------- RESTART ----------------
@@ -160,4 +153,4 @@ async def restart_(_, message):
             shutil.rmtree(folder, ignore_errors=True)
 
     await response.edit("» ʀᴇsᴛᴀʀᴛ ᴘʀᴏᴄᴇss sᴛᴀʀᴛᴇᴅ, " "ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ғᴏʀ ғᴇᴡ sᴇᴄᴏɴᴅs...")
-    os.system(f"kill -9 {os.getpid()} && python3 -m AloneMusic")
+    os.system(f"kill -9 {os.getpid()} && python3 -m ArtistMusic")
