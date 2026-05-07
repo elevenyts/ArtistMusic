@@ -1,22 +1,13 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from datetime import datetime
 
 from pyrogram import filters
 from pyrogram.types import Message
 
-from AloneMusic import app
-from AloneMusic.core.call import Alone
-from AloneMusic.utils import bot_sys_stats
-from AloneMusic.utils.decorators.language import language
-from AloneMusic.utils.inline import supp_markup
+from ArtistMusic import app
+from ArtistMusic.core.call import Artist
+from ArtistMusic.utils import bot_sys_stats
+from ArtistMusic.utils.decorators.language import language
+from ArtistMusic.utils.inline import supp_markup
 from config import BANNED_USERS, PING_IMG_URL
 
 
@@ -28,7 +19,7 @@ async def ping_com(client, message: Message, _):
         photo=PING_IMG_URL,
         caption=_["ping_1"].format(app.mention),
     )
-    pytgping = await Alone.ping()
+    pytgping = await Artist.ping()
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
     await response.edit_text(
