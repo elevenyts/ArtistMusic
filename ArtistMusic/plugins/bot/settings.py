@@ -1,11 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
 from time import time
 
 from pyrogram import filters
@@ -15,20 +7,20 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
 import config
-from AloneMusic import app
-from AloneMusic.utils.database import (add_nonadmin_chat, get_authuser,
+from ArtistMusic import app
+from ArtistMusic.utils.database import (add_nonadmin_chat, get_authuser,
                                        get_authuser_names, get_playmode,
                                        get_playtype, get_upvote_count,
                                        is_nonadmin_chat, is_skipmode,
                                        remove_nonadmin_chat, set_playmode,
                                        set_playtype, set_upvotes, skip_off,
                                        skip_on)
-from AloneMusic.utils.decorators.admins import ActualAdminCB
-from AloneMusic.utils.decorators.language import language, languageCB
-from AloneMusic.utils.inline.settings import (auth_users_markup,
+from ArtistMusic.utils.decorators.admins import ActualAdminCB
+from ArtistMusic.utils.decorators.language import language, languageCB
+from ArtistMusic.utils.inline.settings import (auth_users_markup,
                                               playmode_users_markup,
                                               setting_markup, vote_mode_markup)
-from AloneMusic.utils.inline.start import private_panel
+from ArtistMusic.utils.inline.start import private_panel
 from config import BANNED_USERS, OWNER_ID
 
 
