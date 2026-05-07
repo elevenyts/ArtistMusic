@@ -1,17 +1,8 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from AloneMusic import app
-from AloneMusic.utils.database import add_served_chat
+from ArtistMusic import app
+from ArtistMusic.utils.database import add_served_chat
 from config import LOGGER_ID as LOG_GROUP_ID
 
 
@@ -27,7 +18,7 @@ async def on_new_chat_members(client: Client, message: Message):
         username = f"@{message.chat.username}"
         chat_id = message.chat.id
         chat_members = await client.get_chat_members_count(chat_id)
-        am = f"✫ <b><u>ɴᴇᴡ ɢʀᴏᴜᴘ</u></b> :\n\nᴄʜᴀᴛ ɪᴅ : {chat_id}\nᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ : {username}\nᴄʜᴀᴛ ᴛɪᴛʟᴇ : {title}\nᴛᴏᴛᴀʟ ᴄʜᴀᴛ ᴍᴇᴍʙᴇʀꜱ : {chat_members}\n\nᴀᴅᴅᴇᴅ ʙʏ : {added_by}"
+        am = f"✫ <b><u>ɴᴇᴡ ɢʀᴏᴜᴘ</u></b> :\n\nᴄʜᴀᴛ ɪᴅ : {chat_id}\nᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ : {username}\nᴄʜᴀᴛ ᴛɪᴛʟᴇ : {title}\nᴛᴏᴛᴀʟ ᴄʜᴀᴛ ᴍᴇᴍʙᴇʀs : {chat_members}\n\nᴀᴅᴅᴇᴅ ʙʏ : {added_by}"
         reply_markup = InlineKeyboardMarkup(
             [
                 [
