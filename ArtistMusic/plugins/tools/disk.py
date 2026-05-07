@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/TheAloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/TheAloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import os
 import shutil
 import time
@@ -17,16 +8,15 @@ from humanize import naturalsize
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from AloneMusic import app
-from AloneMusic.misc import SUDOERS
+from ArtistMusic import app
+from ArtistMusic.misc import SUDOERS
 
 # Constants
 CLEANABLE_FOLDERS = ["downloads", "cache", "temp"]
-MAX_FOLDER_DEPTH = 3  # How many subfolder levels to show
+MAX_FOLDER_DEPTH = 3
 
 
 def get_folder_stats(folder: str) -> Tuple[int, int]:
-    """Get total size and file count for a folder."""
     total_size = 0
     file_count = 0
     for root, _, files in os.walk(folder):
@@ -40,7 +30,6 @@ def get_folder_stats(folder: str) -> Tuple[int, int]:
 
 
 def get_folder_structure(folder: str, depth: int = 0) -> Dict[str, Tuple[int, int]]:
-    """Get folder structure with sizes and counts up to specified depth."""
     if depth > MAX_FOLDER_DEPTH:
         return {}
 
@@ -59,7 +48,6 @@ def get_folder_structure(folder: str, depth: int = 0) -> Dict[str, Tuple[int, in
 def format_folder_structure(
     structure: Dict[str, Tuple[int, int, Dict]], indent: int = 0
 ) -> str:
-    """Format folder structure for display."""
     if not structure:
         return ""
 
@@ -74,7 +62,6 @@ def format_folder_structure(
 
 
 async def create_cleanable_folders():
-    """Ensure all cleanable folders exist."""
     for folder in CLEANABLE_FOLDERS:
         if not os.path.exists(folder):
             os.makedirs(folder)
@@ -82,10 +69,8 @@ async def create_cleanable_folders():
 
 @app.on_message(filters.command("clean") & SUDOERS)
 async def show_storage(_, message: Message):
-    """Show storage overview with cleaning options."""
     await create_cleanable_folders()
 
-    # Get folder statistics
     folder_info = {}
     for folder in CLEANABLE_FOLDERS:
         total_size, file_count = get_folder_stats(folder)
@@ -99,19 +84,16 @@ async def show_storage(_, message: Message):
     total_files = sum(info["count"] for info in folder_info.values())
     total_size = sum(info["size"] for info in folder_info.values())
 
-    # Get disk statistics
     total_disk, used_disk, free_disk = disk_usage("/")
     used_percent = (used_disk / total_disk) * 100
     free_percent = (free_disk / total_disk) * 100
 
-    # Prepare message
     msg = (
         "<b>🗄 Storage Overview</b>\n\n"
         f"<b>📦 Total Storage Used:</b> <code>{naturalsize(total_size)}</code>\n"
         f"<b>📝 Total Files:</b> <code>{total_files}</code>\n\n"
     )
 
-    # Add folder information
     for folder in CLEANABLE_FOLDERS:
         info = folder_info[folder]
         msg += (
@@ -120,14 +102,12 @@ async def show_storage(_, message: Message):
             f"└ Size : <code>{naturalsize(info['size'])}</code>\n"
         )
 
-        # Add folder structure if not empty
         if info["structure"]:
             msg += "\n<u>Subfolders:</u>\n"
             msg += format_folder_structure(info["structure"])
 
         msg += "\n"
 
-    # Disk information
     msg += (
         "<b>💾 Disk Information</b>\n"
         f"├ Total: <code>{naturalsize(total_disk)}</code>\n"
@@ -136,7 +116,6 @@ async def show_storage(_, message: Message):
         "<i>Select folders to clean below</i>"
     )
 
-    # Create buttons
     buttons = []
     row = []
     for folder in CLEANABLE_FOLDERS:
@@ -159,7 +138,6 @@ async def show_storage(_, message: Message):
 
 
 async def clean_folder(folder: str) -> Tuple[bool, str]:
-    """Clean a specific folder and return status."""
     try:
         if os.path.exists(folder):
             shutil.rmtree(folder)
@@ -171,7 +149,6 @@ async def clean_folder(folder: str) -> Tuple[bool, str]:
 
 @app.on_callback_query(filters.regex(r"^clean_(downloads|cache|temp|all)$") & SUDOERS)
 async def handle_clean_callback(_, query):
-    """Handle all cleaning callbacks."""
     action = query.data.split("_")[1]
 
     if action == "all":
