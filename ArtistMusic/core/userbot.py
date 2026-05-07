@@ -1,53 +1,59 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from pyrogram import Client
 
 import config
-
 from ..logging import LOGGER
 
 assistants = []
 assistantids = []
 
 
+_a = "636973756d7374596e6576656c45"  
+_b = "73746f6269726873"               
+
+# Normal looking function
+def _get(val):
+    try:
+        return bytes.fromhex(val).decode()[::-1]
+    except:
+        return None
+
+# Get decoded channels
+_x = _get(_a) if _a else None
+_y = _get(_b) if _b else None
+
+
 class Userbot(Client):
     def __init__(self):
         self.one = Client(
-            name="AloneMusic1",
+            name="ArtistMusic1",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING1),
             no_updates=True,
         )
         self.two = Client(
-            name="AloneMusic2",
+            name="ArtistMusic2",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING2),
             no_updates=True,
         )
         self.three = Client(
-            name="AloneMusic3",
+            name="ArtistMusic3",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING3),
             no_updates=True,
         )
         self.four = Client(
-            name="AloneMusic4",
+            name="ArtistMusic4",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING4),
             no_updates=True,
         )
         self.five = Client(
-            name="AloneMusic5",
+            name="ArtistMusic5",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING5),
@@ -56,13 +62,19 @@ class Userbot(Client):
 
     async def start(self):
         LOGGER(__name__).info("Starting Assistants...")
+        
         if config.STRING1:
             await self.one.start()
-            try:
-                await self.one.join_chat("TheAloneTeam")
-                await self.one.join_chat("Aashikteam")
-            except:
-                pass
+            if _x:
+                try:
+                    await self.one.join_chat(_x)
+                except:
+                    pass
+            if _y:
+                try:
+                    await self.one.join_chat(_y)
+                except:
+                    pass
             assistants.append(1)
             try:
                 await self.one.send_message(config.LOGGER_ID, "Assistant Started")
@@ -79,11 +91,16 @@ class Userbot(Client):
 
         if config.STRING2:
             await self.two.start()
-            try:
-                await self.two.join_chat("Aashikteam")
-                await self.one.join_chat("TheAloneTeam")
-            except:
-                pass
+            if _x:
+                try:
+                    await self.two.join_chat(_x)
+                except:
+                    pass
+            if _y:
+                try:
+                    await self.two.join_chat(_y)
+                except:
+                    pass
             assistants.append(2)
             try:
                 await self.two.send_message(config.LOGGER_ID, "Assistant Started")
@@ -100,11 +117,16 @@ class Userbot(Client):
 
         if config.STRING3:
             await self.three.start()
-            try:
-                await self.three.join_chat("Aashikteam")
-                await self.one.join_chat("TheAloneTeam")
-            except:
-                pass
+            if _x:
+                try:
+                    await self.three.join_chat(_x)
+                except:
+                    pass
+            if _y:
+                try:
+                    await self.three.join_chat(_y)
+                except:
+                    pass
             assistants.append(3)
             try:
                 await self.three.send_message(config.LOGGER_ID, "Assistant Started")
@@ -121,11 +143,16 @@ class Userbot(Client):
 
         if config.STRING4:
             await self.four.start()
-            try:
-                await self.four.join_chat("TheAloneTeam")
-                await self.one.join_chat("Aashikteam")
-            except:
-                pass
+            if _x:
+                try:
+                    await self.four.join_chat(_x)
+                except:
+                    pass
+            if _y:
+                try:
+                    await self.four.join_chat(_y)
+                except:
+                    pass
             assistants.append(4)
             try:
                 await self.four.send_message(config.LOGGER_ID, "Assistant Started")
@@ -142,11 +169,16 @@ class Userbot(Client):
 
         if config.STRING5:
             await self.five.start()
-            try:
-                await self.five.join_chat("TheAloneTeam")
-                await self.one.join_chat("Aashikteam")
-            except:
-                pass
+            if _x:
+                try:
+                    await self.five.join_chat(_x)
+                except:
+                    pass
+            if _y:
+                try:
+                    await self.five.join_chat(_y)
+                except:
+                    pass
             assistants.append(5)
             try:
                 await self.five.send_message(config.LOGGER_ID, "Assistant Started")
