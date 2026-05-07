@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 import os
 import re
@@ -18,8 +9,8 @@ from py_yt import VideosSearch
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 
-from AloneMusic import LOGGER
-from AloneMusic.utils.formatters import time_to_seconds
+from ArtistMusic import LOGGER
+from ArtistMusic.utils.formatters import time_to_seconds
 
 YOUR_API_URL = None
 FALLBACK_API_URL = "https://shrutibots.site"
@@ -27,7 +18,7 @@ FALLBACK_API_URL = "https://shrutibots.site"
 
 async def load_api_url():
     global YOUR_API_URL
-    logger = LOGGER("AloneMusic.platforms.Youtube.py")
+    logger = LOGGER("ArtistMusic.platforms.Youtube.py")
 
     try:
         async with aiohttp.ClientSession() as session:
@@ -171,21 +162,6 @@ async def download_video(link: str) -> str:
 
     except Exception:
         return None
-
-
-"""async def shell_cmd(cmd):
-    proc = await asyncio.create_subprocess_shell(
-        cmd,
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE,
-    )
-    out, errorz = await proc.communicate()
-    if errorz:
-        if "unavailable videos are hidden" in (errorz.decode("utf-8")).lower():
-            return out.decode("utf-8")
-        else:
-            return errorz.decode("utf-8")
-    return out.decode("utf-8")"""
 
 
 class YouTubeAPI:
@@ -332,6 +308,42 @@ class YouTubeAPI:
             "thumb": thumbnail,
         }
         return track_details, vidid
+
+    async def artist(self, url: str, limit: int = 10):
+        """Fetch top tracks from a YouTube artist/channel"""
+        if "&" in url:
+            url = url.split("&")[0]
+        
+        # Extract artist/channel ID
+        artist_id = None
+        if "/channel/" in url:
+            artist_id = url.split("/channel/")[1].split("/")[0]
+        elif "/c/" in url:
+            artist_id = url.split("/c/")[1].split("/")[0]
+        elif "/@" in url:
+            artist_id = url.split("/@")[1].split("/")[0]
+        
+        # Search for artist's videos
+        results = VideosSearch(url, limit=limit)
+        search_results = await results.next()
+        
+        songs = []
+        for result in search_results.get("result", []):
+            title = result["title"]
+            duration_min = result.get("duration", "0:00")
+            vidid = result["id"]
+            yturl = result["link"]
+            thumbnail = result["thumbnails"][0]["url"].split("?")[0] if result.get("thumbnails") else ""
+            
+            songs.append({
+                "title": title,
+                "link": yturl,
+                "vidid": vidid,
+                "duration_min": duration_min,
+                "thumb": thumbnail,
+            })
+        
+        return songs, artist_id or url
 
     async def formats(self, link: str, videoid: Union[bool, str] = None):
         if videoid:
