@@ -1,10 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
 import asyncio
 import os
 from datetime import datetime, timedelta
@@ -17,20 +10,20 @@ from pytgcalls import PyTgCalls, exceptions, types
 from pytgcalls.pytgcalls_session import PyTgCallsSession
 
 import config
-from AloneMusic import LOGGER, YouTube, app
-from AloneMusic.misc import db
-from AloneMusic.utils.database import (add_active_chat, add_active_video_chat,
+from ArtistMusic import LOGGER, YouTube, app
+from ArtistMusic.misc import db
+from ArtistMusic.utils.database import (add_active_chat, add_active_video_chat,
                                        get_lang, get_loop, group_assistant,
                                        is_autoend, music_on,
                                        remove_active_chat,
                                        remove_active_video_chat, set_loop)
-from AloneMusic.utils.errors import capture_internal_err
-from AloneMusic.utils.exceptions import AssistantErr
-from AloneMusic.utils.formatters import (check_duration, seconds_to_min,
+from ArtistMusic.utils.errors import capture_internal_err
+from ArtistMusic.utils.exceptions import AssistantErr
+from ArtistMusic.utils.formatters import (check_duration, seconds_to_min,
                                          speed_converter)
-from AloneMusic.utils.inline.play import stream_markup
-from AloneMusic.utils.stream.autoclear import auto_clean
-from AloneMusic.utils.thumbnails import get_thumb
+from ArtistMusic.utils.inline.play import stream_markup
+from ArtistMusic.utils.stream.autoclear import auto_clean
+from ArtistMusic.utils.thumbnails import get_thumb
 from strings import get_string
 
 
@@ -58,7 +51,7 @@ class Call(PyTgCalls):
         PyTgCallsSession.notice_displayed = True
 
         self.userbot1 = Client(
-            name="AloneMusic1",
+            name="ArtistMusic1",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING1),
@@ -66,7 +59,7 @@ class Call(PyTgCalls):
         self.one = PyTgCalls(self.userbot1, cache_duration=100)
 
         self.userbot2 = Client(
-            name="AloneMusic2",
+            name="ArtistMusic2",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING2),
@@ -74,7 +67,7 @@ class Call(PyTgCalls):
         self.two = PyTgCalls(self.userbot2, cache_duration=100)
 
         self.userbot3 = Client(
-            name="AloneMusic3",
+            name="ArtistMusic3",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING3),
@@ -82,7 +75,7 @@ class Call(PyTgCalls):
         self.three = PyTgCalls(self.userbot3, cache_duration=100)
 
         self.userbot4 = Client(
-            name="AloneMusic4",
+            name="ArtistMusic4",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING4),
@@ -90,7 +83,7 @@ class Call(PyTgCalls):
         self.four = PyTgCalls(self.userbot4, cache_duration=100)
 
         self.userbot5 = Client(
-            name="AloneMusic5",
+            name="ArtistMusic5",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING5),
@@ -601,4 +594,4 @@ class Call(PyTgCalls):
                         await self.stop_stream(update.chat_id)
 
 
-Alone = Call()
+Artist = Call()
