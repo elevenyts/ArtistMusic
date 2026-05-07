@@ -1,11 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-# All rights reserved.
-
 import asyncio
 import random
 import string
@@ -15,31 +7,31 @@ from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from AloneMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube,
+from ArtistMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube,
                         app)
-from AloneMusic.core.call import Alone
-from AloneMusic.utils import seconds_to_min, time_to_seconds
-from AloneMusic.utils.channelplay import get_channeplayCB
-from AloneMusic.utils.decorators.language import languageCB
-from AloneMusic.utils.decorators.play import PlayWrapper
-from AloneMusic.utils.formatters import formats
-from AloneMusic.utils.inline import (botplaylist_markup, livestream_markup,
+from ArtistMusic.core.call import Artist
+from ArtistMusic.utils import seconds_to_min, time_to_seconds
+from ArtistMusic.utils.channelplay import get_channeplayCB
+from ArtistMusic.utils.decorators.language import languageCB
+from ArtistMusic.utils.decorators.play import PlayWrapper
+from ArtistMusic.utils.formatters import formats
+from ArtistMusic.utils.inline import (botplaylist_markup, livestream_markup,
                                      playlist_markup, slider_markup,
                                      track_markup)
-from AloneMusic.utils.logger import play_logs
-from AloneMusic.utils.stream.stream import stream
+from ArtistMusic.utils.logger import play_logs
+from ArtistMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 
 EMOJII = [
-    "🔥",
+    "🔮",
     "💋",
-    "🥺",
-    "😒",
+    "🥇",
+    "😢",
     "💖",
     "💘",
     "💕",
     "✨",
-    "🧪",
+    "🪢",
     "🥰",
     "🚩",
     "🫦",
@@ -94,7 +86,6 @@ async def play_commnd(
 
     asyncio.create_task(delete_after_delay(sticker_msg))
 
-    # स्टिकर के बाद का play message
     mystic = await message.reply_text(_["play_2"].format(channel) if channel else emoji)
     plist_id = None
     slider = None
@@ -228,7 +219,7 @@ async def play_commnd(
             spotify = True
             if not config.SPOTIFY_CLIENT_ID and not config.SPOTIFY_CLIENT_SECRET:
                 return await mystic.edit_text(
-                    "» sᴘᴏᴛɪғʏ ɪs ɴᴏᴛ sᴜᴘᴘᴏʀᴛᴇᴅ ʏᴇᴛ.\n\nᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ."
+                    "» sᴘᴏᴛɪғʏ ɪs ɴᴏᴛ sᴜᴘᴘᴏʀᴛᴇᴅ ʀɪɢʜᴛ ɴᴏᴡ.\n\nᴘʟᴇᴀsᴇ ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ᴀʀᴇ ᴘʀᴏᴠɪᴅɪɴɢ ᴀ ᴠᴀʟɪᴅ sᴘᴏᴛɪғʏ ᴄʟɪᴇɴᴛ ɪᴅ/ sᴇᴄʀᴇᴛ."
                 )
             if "track" in url:
                 try:
@@ -328,7 +319,7 @@ async def play_commnd(
             return await mystic.delete()
         else:
             try:
-                await Alone.stream_call(url)
+                await Artist.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(_["black_9"])
                 return await app.send_message(
@@ -548,14 +539,14 @@ async def play_music(client, CallbackQuery, _):
 async def anonymous_check(client, CallbackQuery):
     try:
         await CallbackQuery.answer(
-            "» ʀᴇᴠᴇʀᴛ ʙᴀᴄᴋ ᴛᴏ ᴜsᴇʀ ᴀᴄᴄᴏᴜɴᴛ :\n\nᴏᴘᴇɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs.\n-> ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀs\n-> ᴄʟɪᴄᴋ ᴏɴ ʏᴏᴜʀ ɴᴀᴍᴇ\n-> ᴜɴᴄʜᴇᴄᴋ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs.",
+            "» ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ ᴄᴀɴ ɴᴏᴛ ᴜsᴇ ᴛʜᴇ ʙᴏᴛ :\n\nᴏɴʟʏ ᴛʜᴇ ʀᴇᴀʟ ᴀᴅᴍɪɴs ᴄᴀɴ sᴇᴛᴛɪɴɢs.\n-> ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀs\n-> ᴄʀᴇᴀᴛᴏʀ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ\n-> ᴡɪᴛʜ ᴛʜᴇɪʀ ᴀᴄᴄᴏᴜɴᴛ ᴏʀ ʀᴇᴀʟ ᴀᴅᴍɪɴɪssɪᴏɴs.",
             show_alert=True,
         )
     except:
         pass
 
 
-@app.on_callback_query(filters.regex("AlonePlaylists") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("ArtistPlaylists") & ~BANNED_USERS)
 @languageCB
 async def play_playlists_command(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
