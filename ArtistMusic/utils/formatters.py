@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import json
 import subprocess
 
@@ -36,7 +27,6 @@ def get_readable_time(seconds: int) -> str:
 
 
 def convert_bytes(size: float) -> str:
-    """humanize size"""
     if not size:
         return ""
     power = 1024
