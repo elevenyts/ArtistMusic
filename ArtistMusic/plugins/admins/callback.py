@@ -1,31 +1,22 @@
-##
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 import config
-from AloneMusic import YouTube, app
-from AloneMusic.core.call import Alone
-from AloneMusic.misc import SUDOERS, db
-from AloneMusic.utils.database import (get_active_chats, get_lang,
+from ArtistMusic import YouTube, app
+from ArtistMusic.core.call import Artist
+from ArtistMusic.misc import SUDOERS, db
+from ArtistMusic.utils.database import (get_active_chats, get_lang,
                                        get_upvote_count, is_active_chat,
                                        is_music_playing, is_nonadmin_chat,
                                        music_off, music_on, set_loop)
-from AloneMusic.utils.decorators.language import languageCB
-from AloneMusic.utils.formatters import seconds_to_min
-from AloneMusic.utils.inline import (close_markup, stream_markup,
+from ArtistMusic.utils.decorators.language import languageCB
+from ArtistMusic.utils.formatters import seconds_to_min
+from ArtistMusic.utils.inline import (close_markup, stream_markup,
                                      stream_markup_timer)
-from AloneMusic.utils.stream.autoclear import auto_clean
-from AloneMusic.utils.thumbnails import get_thumb
+from ArtistMusic.utils.stream.autoclear import auto_clean
+from ArtistMusic.utils.thumbnails import get_thumb
 from config import (BANNED_USERS, SOUNCLOUD_IMG_URL, STREAM_IMG_URL,
                     TELEGRAM_AUDIO_URL, TELEGRAM_VIDEO_URL, adminlist,
                     confirmer, votemode)
@@ -132,7 +123,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             return await CallbackQuery.answer(_["admin_1"], show_alert=True)
         await CallbackQuery.answer()
         await music_off(chat_id)
-        await Alone.pause_stream(chat_id)
+        await Artist.pause_stream(chat_id)
         await CallbackQuery.message.reply_text(
             _["admin_2"].format(mention), reply_markup=close_markup(_)
         )
@@ -141,13 +132,13 @@ async def del_back_playlist(client, CallbackQuery, _):
             return await CallbackQuery.answer(_["admin_3"], show_alert=True)
         await CallbackQuery.answer()
         await music_on(chat_id)
-        await Alone.resume_stream(chat_id)
+        await Artist.resume_stream(chat_id)
         await CallbackQuery.message.reply_text(
             _["admin_4"].format(mention), reply_markup=close_markup(_)
         )
     elif command == "Stop" or command == "End":
         await CallbackQuery.answer()
-        await Alone.stop_stream(chat_id)
+        await Artist.stop_stream(chat_id)
         await set_loop(chat_id, 0)
         await CallbackQuery.message.reply_text(
             _["admin_5"].format(mention), reply_markup=close_markup(_)
@@ -173,7 +164,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                         reply_markup=close_markup(_),
                     )
                     try:
-                        return await Alone.stop_stream(chat_id)
+                        return await Artist.stop_stream(chat_id)
                     except:
                         return
             except:
@@ -187,7 +178,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                         ),
                         reply_markup=close_markup(_),
                     )
-                    return await Alone.stop_stream(chat_id)
+                    return await Artist.stop_stream(chat_id)
                 except:
                     return
         else:
@@ -219,7 +210,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 image = None
             try:
-                await Alone.skip_stream(chat_id, link, video=status, image=image)
+                await Artist.skip_stream(chat_id, link, video=status, image=image)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             button = stream_markup(_, chat_id)
@@ -256,7 +247,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 image = None
             try:
-                await Alone.skip_stream(chat_id, file_path, video=status, image=image)
+                await Artist.skip_stream(chat_id, file_path, video=status, image=image)
             except:
                 return await mystic.edit_text(_["call_6"])
             button = stream_markup(_, chat_id)
@@ -278,7 +269,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             await mystic.delete()
         elif "index_" in queued:
             try:
-                await Alone.skip_stream(chat_id, videoid, video=status)
+                await Artist.skip_stream(chat_id, videoid, video=status)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             button = stream_markup(_, chat_id)
@@ -302,7 +293,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 except:
                     image = None
             try:
-                await Alone.skip_stream(chat_id, queued, video=status, image=image)
+                await Artist.skip_stream(chat_id, queued, video=status, image=image)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             if videoid == "telegram":
