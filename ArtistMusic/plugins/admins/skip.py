@@ -1,24 +1,15 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 
 import config
-from AloneMusic import YouTube, app
-from AloneMusic.core.call import Alone
-from AloneMusic.misc import db
-from AloneMusic.utils.database import get_loop
-from AloneMusic.utils.decorators import AdminRightsCheck
-from AloneMusic.utils.inline import close_markup, stream_markup
-from AloneMusic.utils.stream.autoclear import auto_clean
-from AloneMusic.utils.thumbnails import get_thumb
+from ArtistMusic import YouTube, app
+from ArtistMusic.core.call import Artist
+from ArtistMusic.misc import db
+from ArtistMusic.utils.database import get_loop
+from ArtistMusic.utils.decorators import AdminRightsCheck
+from ArtistMusic.utils.inline import close_markup, stream_markup
+from ArtistMusic.utils.stream.autoclear import auto_clean
+from ArtistMusic.utils.thumbnails import get_thumb
 from config import BANNED_USERS
 
 
@@ -67,7 +58,7 @@ async def skip(cli, message: Message, _, chat_id):
                                         ),
                                         reply_markup=close_markup(_),
                                     )
-                                    await Alone.stop_stream(chat_id)
+                                    await Artist.stop_stream(chat_id)
                                 except:
                                     return
                                 break
@@ -94,7 +85,7 @@ async def skip(cli, message: Message, _, chat_id):
                     reply_markup=close_markup(_),
                 )
                 try:
-                    return await Alone.stop_stream(chat_id)
+                    return await Artist.stop_stream(chat_id)
                 except:
                     return
         except:
@@ -105,7 +96,7 @@ async def skip(cli, message: Message, _, chat_id):
                     ),
                     reply_markup=close_markup(_),
                 )
-                return await Alone.stop_stream(chat_id)
+                return await Artist.stop_stream(chat_id)
             except:
                 return
     queued = check[0]["file"]
@@ -130,7 +121,7 @@ async def skip(cli, message: Message, _, chat_id):
         except:
             image = None
         try:
-            await Alone.skip_stream(chat_id, link, video=status, image=image)
+            await Artist.skip_stream(chat_id, link, video=status, image=image)
         except:
             return await message.reply_text(_["call_6"])
         button = stream_markup(_, chat_id)
@@ -165,7 +156,7 @@ async def skip(cli, message: Message, _, chat_id):
         except:
             image = None
         try:
-            await Alone.skip_stream(chat_id, file_path, video=status, image=image)
+            await Artist.skip_stream(chat_id, file_path, video=status, image=image)
         except:
             return await mystic.edit_text(_["call_6"])
         button = stream_markup(_, chat_id)
@@ -187,7 +178,7 @@ async def skip(cli, message: Message, _, chat_id):
         await mystic.delete()
     elif "index_" in queued:
         try:
-            await Alone.skip_stream(chat_id, videoid, video=status)
+            await Artist.skip_stream(chat_id, videoid, video=status)
         except:
             return await message.reply_text(_["call_6"])
         button = stream_markup(_, chat_id)
@@ -211,7 +202,7 @@ async def skip(cli, message: Message, _, chat_id):
             except:
                 image = None
         try:
-            await Alone.skip_stream(chat_id, queued, video=status, image=image)
+            await Artist.skip_stream(chat_id, queued, video=status, image=image)
         except:
             return await message.reply_text(_["call_6"])
         if videoid == "telegram":
@@ -227,39 +218,3 @@ async def skip(cli, message: Message, _, chat_id):
                     config.SUPPORT_CHAT, title[:23], check[0]["dur"], user
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
-            )
-            db[chat_id][0]["mystic"] = run
-            db[chat_id][0]["markup"] = "tg"
-        elif videoid == "soundcloud":
-            button = stream_markup(_, chat_id)
-            await delete_old_message(chat_id)
-            run = await message.reply_photo(
-                photo=(
-                    config.SOUNCLOUD_IMG_URL
-                    if str(streamtype) == "audio"
-                    else config.TELEGRAM_VIDEO_URL
-                ),
-                caption=_["stream_1"].format(
-                    config.SUPPORT_CHAT, title[:23], check[0]["dur"], user
-                ),
-                reply_markup=InlineKeyboardMarkup(button),
-            )
-            db[chat_id][0]["mystic"] = run
-            db[chat_id][0]["markup"] = "tg"
-        else:
-            button = stream_markup(_, chat_id)
-            img = await get_thumb(videoid)
-            await delete_old_message(chat_id)
-            run = await message.reply_photo(
-                photo=img,
-                has_spoiler=True,
-                caption=_["stream_1"].format(
-                    f"https://t.me/{app.username}?start=info_{videoid}",
-                    title[:23],
-                    check[0]["dur"],
-                    user,
-                ),
-                reply_markup=InlineKeyboardMarkup(button),
-            )
-            db[chat_id][0]["mystic"] = run
-            db[chat_id][0]["markup"] = "stream"
