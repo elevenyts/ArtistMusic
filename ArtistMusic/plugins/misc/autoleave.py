@@ -1,27 +1,18 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 from datetime import datetime
 
 from pyrogram.enums import ChatType
 
 import config
-from AloneMusic import app
-from AloneMusic.core.call import Alone, autoend
-from AloneMusic.utils.database import get_client, is_active_chat, is_autoend
+from ArtistMusic import app
+from ArtistMusic.core.call import Alone, autoend
+from ArtistMusic.utils.database import get_client, is_active_chat, is_autoend
 
 
 async def auto_leave():
     if config.AUTO_LEAVING_ASSISTANT:
         while not await asyncio.sleep(1800):
-            from AloneMusic.core.userbot import assistants
+            from ArtistMusic.core.userbot import assistants
 
             for num in assistants:
                 client = await get_client(num)
