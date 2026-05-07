@@ -1,25 +1,16 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 
 from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.errors import FloodWait
 
-from AloneMusic import app
-from AloneMusic.misc import SUDOERS
-from AloneMusic.utils.database import (get_active_chats, get_authuser_names,
+from ArtistMusic import app
+from ArtistMusic.misc import SUDOERS
+from ArtistMusic.utils.database import (get_active_chats, get_authuser_names,
                                        get_client, get_served_chats,
                                        get_served_users)
-from AloneMusic.utils.decorators.language import language
-from AloneMusic.utils.formatters import alpha_to_int
+from ArtistMusic.utils.decorators.language import language
+from ArtistMusic.utils.formatters import alpha_to_int
 from config import adminlist
 
 IS_BROADCASTING = False
@@ -159,7 +150,7 @@ async def braodcast_message(client, message, _):
     if "-assistant" in message.text:
         aw = await message.reply_text(_["broad_5"])
         text = _["broad_6"]
-        from AloneMusic.core.userbot import assistants
+        from ArtistMusic.core.userbot import assistants
 
         for num in assistants:
             sent = 0
