@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import os
 import re
 
@@ -60,8 +51,8 @@ async def get_thumb(videoid):
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
 
-        GLOW_COLOR = "#ff0099"  # Neon Pink
-        BORDER_COLOR = "#FF1493"  # Deep Pink
+        GLOW_COLOR = "#ff0099"
+        BORDER_COLOR = "#FF1493"
         image1 = changeImageSize(1280, 720, youtube)
         image1 = image1.filter(ImageFilter.GaussianBlur(20))
         image1 = ImageEnhance.Brightness(image1).enhance(0.4)
@@ -117,9 +108,9 @@ async def get_thumb(videoid):
         draw = ImageDraw.Draw(image1)
 
         try:
-            font_title = ImageFont.truetype("AloneMusic/assets/font.ttf", 45)
-            font_details = ImageFont.truetype("AloneMusic/assets/font2.ttf", 30)
-            font_watermark = ImageFont.truetype("AloneMusic/assets/font2.ttf", 25)
+            font_title = ImageFont.truetype("ArtistMusic/assets/font.ttf", 45)
+            font_details = ImageFont.truetype("ArtistMusic/assets/font2.ttf", 30)
+            font_watermark = ImageFont.truetype("ArtistMusic/assets/font2.ttf", 25)
         except:
             font_title = ImageFont.truetype("arial.ttf", 45)
             font_details = ImageFont.truetype("arial.ttf", 30)
@@ -146,7 +137,7 @@ async def get_thumb(videoid):
             stroke_fill="black",
         )
 
-        stats_text = f"YouTube : {views} | Time : {duration} | Player : @aashikmusicbot"
+        stats_text = f"YouTube : {views} | Time : {duration} | Player : @elevenytsbot"
         w_stats = get_text_width(stats_text, font_details)
         draw.text(
             ((1280 - w_stats) / 2, text_y_pos + 70),
@@ -157,7 +148,7 @@ async def get_thumb(videoid):
             stroke_fill="black",
         )
 
-        text_classy = "AloneMusic"
+        text_classy = "ArtistMusic"
         w_classy = get_text_width(text_classy, font_watermark)
 
         draw.text(
@@ -171,7 +162,7 @@ async def get_thumb(videoid):
 
         draw.text(
             (30, 680),
-            text="AloneMusic",
+            text="ArtistMusic",
             fill="white",
             font=font_watermark,
             stroke_width=1,
