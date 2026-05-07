@@ -1,11 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import os
 from random import randint
 from typing import Union
@@ -13,15 +5,15 @@ from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 
 import config
-from AloneMusic import Carbon, YouTube, app
-from AloneMusic.core.call import Alone
-from AloneMusic.misc import db
-from AloneMusic.utils.database import add_active_video_chat, is_active_chat
-from AloneMusic.utils.exceptions import AssistantErr
-from AloneMusic.utils.inline import aq_markup, close_markup, stream_markup
-from AloneMusic.utils.pastebin import AloneBin
-from AloneMusic.utils.stream.queue import put_queue, put_queue_index
-from AloneMusic.utils.thumbnails import get_thumb
+from Artist import Carbon, YouTube, app
+from Artist.core.call import Artist
+from Artist.misc import db
+from Artist.utils.database import add_active_video_chat, is_active_chat
+from Artist.utils.exceptions import AssistantErr
+from Artist.utils.inline import aq_markup, close_markup, stream_markup
+from Artist.utils.pastebin import ArtistBin
+from Artist.utils.stream.queue import put_queue, put_queue_index
+from Artist.utils.thumbnails import get_thumb
 
 
 async def stream(
@@ -40,7 +32,7 @@ async def stream(
     if not result:
         return
     if forceplay:
-        await Alone.force_stop_stream(chat_id)
+        await Artist.force_stop_stream(chat_id)
     if streamtype == "playlist":
         msg = f"{_['play_19']}\n\n"
         count = 0
@@ -87,7 +79,7 @@ async def stream(
                     )
                 except:
                     raise AssistantErr(_["play_14"])
-                await Alone.join_call(
+                await Artist.join_call(
                     chat_id,
                     original_chat_id,
                     file_path,
@@ -125,7 +117,7 @@ async def stream(
         if count == 0:
             return
         else:
-            link = await AloneBin(msg)
+            link = await ArtistBin(msg)
             lines = msg.count("\n")
             if lines >= 17:
                 car = os.linesep.join(msg.split(os.linesep)[:17])
@@ -176,7 +168,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Alone.join_call(
+            await Artist.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -237,7 +229,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Alone.join_call(chat_id, original_chat_id, file_path, video=None)
+            await Artist.join_call(chat_id, original_chat_id, file_path, video=None)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -290,7 +282,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Alone.join_call(chat_id, original_chat_id, file_path, video=status)
+            await Artist.join_call(chat_id, original_chat_id, file_path, video=status)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -347,7 +339,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await Alone.join_call(
+            await Artist.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -406,7 +398,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Alone.join_call(
+            await Artist.join_call(
                 chat_id,
                 original_chat_id,
                 link,
