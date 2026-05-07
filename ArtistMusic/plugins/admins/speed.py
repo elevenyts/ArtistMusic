@@ -1,22 +1,13 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from pyrogram import filters
 from pyrogram.types import Message
 
-from AloneMusic import app
-from AloneMusic.core.call import Alone
-from AloneMusic.misc import SUDOERS, db
-from AloneMusic.utils import AdminRightsCheck
-from AloneMusic.utils.database import is_active_chat, is_nonadmin_chat
-from AloneMusic.utils.decorators.language import languageCB
-from AloneMusic.utils.inline import close_markup, speed_markup
+from ArtistMusic import app
+from ArtistMusic.core.call import Artist
+from ArtistMusic.misc import SUDOERS, db
+from ArtistMusic.utils import AdminRightsCheck
+from ArtistMusic.utils.database import is_active_chat, is_nonadmin_chat
+from ArtistMusic.utils.decorators.language import languageCB
+from ArtistMusic.utils.inline import close_markup, speed_markup
 from config import BANNED_USERS, adminlist
 
 checker = []
@@ -103,7 +94,7 @@ async def del_back_playlist(client, CallbackQuery, _):
         text=_["admin_32"].format(CallbackQuery.from_user.mention),
     )
     try:
-        await Alone.speedup_stream(
+        await Artist.speedup_stream(
             chat_id,
             file_path,
             speed,
