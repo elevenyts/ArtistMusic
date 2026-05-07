@@ -1,11 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import random
 import time
 
@@ -15,15 +7,15 @@ from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 import config
-from AloneMusic import app
-from AloneMusic.misc import _boot_
-from AloneMusic.plugins.sudo.sudoers import sudoers_list
-from AloneMusic.utils.database import (add_served_chat, add_served_user,
+from ArtistMusic import app
+from ArtistMusic.misc import _boot_
+from ArtistMusic.plugins.sudo.sudoers import sudoers_list
+from ArtistMusic.utils.database import (add_served_chat, add_served_user,
                                        blacklisted_chats, get_lang,
                                        is_banned_user, is_on_off)
-from AloneMusic.utils.decorators.language import LanguageStart
-from AloneMusic.utils.formatters import get_readable_time
-from AloneMusic.utils.inline import help_pannel, private_panel, start_panel
+from ArtistMusic.utils.decorators.language import LanguageStart
+from ArtistMusic.utils.formatters import get_readable_time
+from ArtistMusic.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
@@ -39,7 +31,7 @@ EFFECT_ID = [
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
-    await message.react("🍓", big=True)
+    await message.react("🌹", big=True)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
