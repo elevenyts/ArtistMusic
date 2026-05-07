@@ -1,21 +1,12 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from pyrogram import filters
 from pyrogram.types import Message
 
-from AloneMusic import app
-from AloneMusic.utils import extract_user, int_to_alpha
-from AloneMusic.utils.database import (delete_authuser, get_authuser,
+from ArtistMusic import app
+from ArtistMusic.utils import extract_user, int_to_alpha
+from ArtistMusic.utils.database import (delete_authuser, get_authuser,
                                        get_authuser_names, save_authuser)
-from AloneMusic.utils.decorators import AdminActual, language
-from AloneMusic.utils.inline import close_markup
+from ArtistMusic.utils.decorators import AdminActual, language
+from ArtistMusic.utils.inline import close_markup
 from config import BANNED_USERS, adminlist
 
 
