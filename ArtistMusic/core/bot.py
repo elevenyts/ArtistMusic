@@ -19,6 +19,26 @@ from typing import Optional
 from ArtistMusic import config, logger
 
 
+class MutableUserFilter(pyrogram.filters.Filter, set):
+    """
+    A Pyrogram filter that is ALSO a mutable set of user ids.
+
+    Plain `pyrogram.filters.user()` only supports being called as a
+    filter — it has no `.add()`, `.discard()`, `.update()`, `in`, or
+    `len()`. This project's plugins (blacklist.py, sudoers.py,
+    stats.py, start.py, __main__.py) all treat `app.bl_users` and
+    `app.sudo_filter` as if they were sets, so we give them a real
+    set underneath a real filter.
+    """
+
+    def __init__(self, user_ids=None):
+        set.__init__(self, user_ids or [])
+
+    async def __call__(self, _, update):
+        user = getattr(update, "from_user", None)
+        return bool(user and user.id in self)
+
+
 class Bot(pyrogram.Client):
     """
     Main bot client class extending Pyrogram's Client.
@@ -53,10 +73,9 @@ class Bot(pyrogram.Client):
 
         self.owner: int = config.OWNER_ID
         self.logger: int = config.LOGGER_ID
-        self.bl_users: pyrogram.filters.Filter = pyrogram.filters.user()
+        self.bl_users: MutableUserFilter = MutableUserFilter()
         self.sudoers: set = {self.owner}  # Set of sudo user IDs
-        self.sudo_filter: pyrogram.filters.Filter = pyrogram.filters.user(
-            self.owner)
+        self.sudo_filter: MutableUserFilter = MutableUserFilter({self.owner})
 
         # These will be set after boot()
         self.id: Optional[int] = None
