@@ -1,4 +1,5 @@
 from ArtistMusic import app
+from ArtistMusic.helpers import utils
 from pyrogram import Client, filters
 
 from pyrogram.enums import ParseMode
@@ -28,7 +29,7 @@ async def getid(client, message):
             text += f"**[ᴜsᴇʀ ɪᴅ:](tg://user?id={user_id})** `{user_id}`\n"
 
         except Exception:
-            return await message.reply_text("ᴛʜɪs ᴜsᴇʀ ᴅᴏᴇsɴ'ᴛ ᴇxɪsᴛ.", quote=True)
+            return await utils.reply(message, text="ᴛʜɪs ᴜsᴇʀ ᴅᴏᴇsɴ'ᴛ ᴇxɪsᴛ.", quote=True)
 
     text += f"**[ᴄʜᴀᴛ ɪᴅ:](https://t.me/{chat.username})** `{chat.id}`\n\n"
 

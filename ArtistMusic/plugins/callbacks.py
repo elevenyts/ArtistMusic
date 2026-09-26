@@ -22,7 +22,7 @@ from pyrogram import filters, types
 from pyrogram.errors import FloodWait, QueryIdInvalid
 
 from ArtistMusic import tune, app, config, db, lang, logger, queue, tg, yt
-from ArtistMusic.helpers import admin_check, buttons, can_manage_vc
+from ArtistMusic.helpers import admin_check, buttons, can_manage_vc, utils
 
 
 def safe_callback(func):
@@ -212,12 +212,12 @@ async def _controls(_, query: types.CallbackQuery):
         if action in ["skip", "replay", "stop"]:
             sent_msg = None
             try:
-                sent_msg = await query.message.reply_text(reply, quote=False)
+                sent_msg = await utils.reply(query.message, text=reply, quote=False)
             except FloodWait as e:
                 # If FloodWait occurs, wait and retry once
                 await asyncio.sleep(e.value)
                 try:
-                    sent_msg = await query.message.reply_text(reply, quote=False)
+                    sent_msg = await utils.reply(query.message, text=reply, quote=False)
                 except Exception:
                     pass
             except Exception:
@@ -313,9 +313,10 @@ async def handle_seek(query: types.CallbackQuery, chat_id: int, action: str, use
         
         # Try to send reply message with FloodWait handling and auto-delete after 5 seconds
         try:
-            sent_msg = await query.message.reply_text(
-                f"<blockquote><b>{_dir}</b>\n\n⏱  ᴅᴜʀᴀᴛɪᴏɴ ╌ {time_str}\n👤  ʙʏ ╌ {user}</blockquote>",
-                quote=False
+            sent_msg = await utils.reply(
+                query.message,
+                text=f"<blockquote><b>{_dir}</b>\n\n⏱  ᴅᴜʀᴀᴛɪᴏɴ ╌ {time_str}\n👤  ʙʏ ╌ {user}</blockquote>",
+                quote=False,
             )
             # Auto-delete after 5 seconds
             await asyncio.sleep(5)
@@ -350,7 +351,7 @@ async def handle_loop(query: types.CallbackQuery, chat_id: int, user: str):
     
     await db.set_loop(chat_id, new_loop)
     await query.answer(text, show_alert=False)
-    await query.message.reply_text(message, quote=False)
+    await utils.reply(query.message, text=message, quote=False)
 
 
 async def handle_shuffle(query: types.CallbackQuery, chat_id: int, user: str):
@@ -379,9 +380,10 @@ async def handle_shuffle(query: types.CallbackQuery, chat_id: int, user: str):
         queue.add(chat_id, item)
     
     await query.answer("🔀 Queue shuffled!", show_alert=False)
-    await query.message.reply_text(
-        f"🔀 Queue <b>shuffled</b> ({len(remaining)} tracks)",
-        quote=False
+    await utils.reply(
+        query.message,
+        text=f"🔀 Queue <b>shuffled</b> ({len(remaining)} tracks)",
+        quote=False,
     )
 
 

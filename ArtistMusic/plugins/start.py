@@ -30,14 +30,16 @@ async def _help(_, m: types.Message):
         pass
 
     try:
-        await m.reply_photo(
+        await utils.reply(
+            m,
             photo=config.START_IMG,
             caption=m.lang["help_menu"],
             reply_markup=buttons.help_markup(m.lang),
             quote=True,
         )
     except Exception:
-        await m.reply_text(
+        await utils.reply(
+            m,
             text=m.lang["help_menu"],
             reply_markup=buttons.help_markup(m.lang),
             quote=True,
@@ -73,7 +75,8 @@ async def start(_, message: types.Message):
     key = buttons.start_key(message.lang, private)
 
     try:
-        await message.reply_photo(
+        await utils.reply(
+            message,
             photo=config.START_IMG,
             caption=_text,
             reply_markup=key,
@@ -81,7 +84,8 @@ async def start(_, message: types.Message):
         )
     except errors.ChatSendPhotosForbidden:
         try:
-            await message.reply_text(
+            await utils.reply(
+                message,
                 text=_text,
                 reply_markup=key,
                 quote=not private,
