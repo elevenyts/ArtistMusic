@@ -109,6 +109,43 @@ class Utilities:
             ),
         )
 
+    async def reply(
+        self,
+        message: types.Message,
+        *,
+        text: str | None = None,
+        photo=None,
+        caption: str | None = None,
+        quote: bool = True,
+        reply_markup=None,
+        **kwargs,
+    ) -> types.Message | None:
+        """Send a message/photo into ``message``'s chat, replicating the
+        ``quote=True/False`` behaviour that Kurigram >= 2.2.x removed from
+        ``Message.reply_text`` / ``Message.reply_photo`` (it now raises
+        ``TypeError: unexpected keyword argument 'quote'``). Kurigram's
+        replacement is an explicit ``reply_parameters`` on the client-level
+        send methods, which this centralizes so call sites keep the same
+        ``quote=`` interface they had before.
+        """
+        reply_parameters = types.ReplyParameters(message_id=message.id) if quote else None
+        if photo is not None:
+            return await app.send_photo(
+                chat_id=message.chat.id,
+                photo=photo,
+                caption=caption,
+                reply_markup=reply_markup,
+                reply_parameters=reply_parameters,
+                **kwargs,
+            )
+        return await app.send_message(
+            chat_id=message.chat.id,
+            text=text,
+            reply_markup=reply_markup,
+            reply_parameters=reply_parameters,
+            **kwargs,
+        )
+
     async def safe_text(
         self,
         message: types.Message,
@@ -121,21 +158,23 @@ class Utilities:
         if not message:
             return None
         try:
-            return await message.reply_text(
+            return await self.reply(
+                message,
                 text=text,
                 reply_markup=reply_markup,
-                quote=quote,
+                quote=bool(quote),
             )
         except (errors.ChatSendPlainForbidden, errors.ChatWriteForbidden):
             fallback_photo = getattr(config, "START_IMG", None)
             if not fallback_photo:
                 return None
             try:
-                return await message.reply_photo(
+                return await self.reply(
+                    message,
                     photo=fallback_photo,
                     caption=text,
                     reply_markup=reply_markup,
-                    quote=quote,
+                    quote=bool(quote),
                 )
             except errors.RPCError:
                 return None
