@@ -45,8 +45,7 @@ async def _sudo(_, m: types.Message):
             return await m.reply_text(m.lang["sudo_not"].format(user.mention))
 
         app.sudoers.discard(user.id)
-        app.sudo_filter.update([])  # Reset filter
-        app.sudo_filter.update(app.sudoers)  # Rebuild with remaining users
+        app.sudo_filter.discard(user.id)
         await db.del_sudo(user.id)
         await m.reply_text(m.lang["sudo_removed"].format(user.mention))
 
