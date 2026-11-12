@@ -1,9 +1,0 @@
-services:
-  artistmusic:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: artistmusic
-    env_file:
-      - .env
-    restart: unless-stopped

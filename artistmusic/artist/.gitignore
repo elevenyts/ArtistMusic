@@ -1,7 +1,0 @@
-.env
-.idea
-*.so
-database
-*.binlog
-db_*
-libtdjson.so.*
