@@ -1,0 +1,332 @@
+/*
+ * ● KanhaMusic
+ * ○ A high-performance engine for streaming music in Telegram voicechats.
+ *
+ * Copyright (C) 2026 Kanha
+ *
+ * This program is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * Repository: https://github.com/Oyekanhaa/KanhaMusic
+ */
+
+package modules
+
+import (
+	"context"
+	"strconv"
+	"time"
+
+	"KanhaMusic/kanha/logger"
+
+	td "github.com/Kanha/Meow"
+
+	"KanhaMusic/kanha/core"
+	"KanhaMusic/kanha/locales"
+	"KanhaMusic/kanha/platforms"
+	"KanhaMusic/kanha/utils"
+)
+
+func init() {
+	helpTexts["/skip"] = `<i>Skip the currently playing track and play the next in queue.</i>
+
+<u>Usage:</u>
+<b>/skip</b> — Skip current track
+
+<b>⚙️ Behavior:</b>
+• Downloads next track in queue
+• Starts playback automatically
+• If queue is empty and loop is 0, stops playback
+
+<b>🔒 Restrictions:</b>
+• Only <b>chat admins</b> or <b>authorized users</b> can use this
+
+<b>⚠️ Notes:</b>
+• Cannot be undone
+• If no tracks in queue, playback stops
+• Loop count affects skip behavior`
+
+	helpTexts["/askip"] = `<i>Skip the current track and immediately play the next recommended autoplay track.</i>
+
+<u>Usage:</u>
+<b>/askip</b> — Skip current track to next autoplay track
+
+<b>⚙️ Behavior:</b>
+• Automatically picks a non-repeating recommendation
+• Skips tracks already played in the current session
+• Seamlessly continues playback
+
+<b>🔒 Restrictions:</b>
+• Only <b>chat admins</b> or <b>authorized users</b> can use this`
+}
+
+func skipHandler(c *td.Client, m *td.Message) error {
+	if !isSuperGroup(c, m) || !filterAuthUsers(c, m) {
+		return nil
+	}
+	return handleSkip(c, m, false)
+}
+
+func cskipHandler(c *td.Client, m *td.Message) error {
+	if !isSuperGroup(c, m) || !filterAuthUsers(c, m) {
+		return nil
+	}
+	return handleSkip(c, m, true)
+}
+
+func askipHandler(c *td.Client, m *td.Message) error {
+	if !isSuperGroup(c, m) || !filterAuthUsers(c, m) {
+		return nil
+	}
+	return handleAutoplaySkip(c, m, false)
+}
+
+func caskipHandler(c *td.Client, m *td.Message) error {
+	if !isSuperGroup(c, m) || !filterAuthUsers(c, m) {
+		return nil
+	}
+	return handleAutoplaySkip(c, m, true)
+}
+
+func handleSkip(c *td.Client, m *td.Message, cplay bool) error {
+	r, err := getEffectiveRoom(m.ChatID(), cplay)
+	if err != nil {
+		_, err := m.ReplyText(c, err.Error(), nil)
+		return err
+	}
+
+	chatID := m.ChatID()
+	if !r.Active() {
+		_, err := m.ReplyText(c, F(chatID, "room_no_active"), nil)
+		return err
+	}
+
+	mention := mentionOf(nil, m.SenderID())
+	skipCount := 1
+
+	if args := m.Args(); args != "" {
+		parsed, parseErr := strconv.Atoi(args)
+		if parseErr != nil {
+			_, err := m.ReplyText(c, F(chatID, "skip_invalid_number"), nil)
+			return err
+		}
+
+		queuedTracks := len(r.Queue())
+		if queuedTracks == 0 {
+			_, err := m.ReplyText(c, F(chatID, "skip_queue_empty_for_count"), nil)
+			return err
+		}
+
+		if parsed < 1 || parsed > queuedTracks {
+			_, err := m.ReplyText(c, F(chatID, "skip_count_exceeds_queue", locales.Arg{
+				"requested": parsed,
+				"available": queuedTracks,
+			}), nil)
+			return err
+		}
+
+		// /skip N means: skip current + N queued tracks.
+		skipCount = parsed + 1
+	}
+
+	if len(r.Queue()) == 0 {
+		if r.Autoplay() {
+			return handleAutoplaySkip(c, m, cplay)
+		}
+		scheduleOldPlayingMessage(r)
+		core.DropRoom(r.ID)
+		_, err := m.ReplyText(c, F(chatID, "skip_stopped", locales.Arg{
+			"user": mention,
+		}), nil)
+		return err
+	}
+
+	r.SetLoop(0)
+
+	for i := 1; i < skipCount; i++ {
+		if len(r.Queue()) == 0 {
+
+			scheduleOldPlayingMessage(r)
+			core.DropRoom(r.ID)
+			_, err := m.ReplyText(c, F(chatID, "skip_stopped", locales.Arg{
+				"user": mention,
+			}), nil)
+			return err
+		}
+		_ = r.NextTrack()
+	}
+
+	if len(r.Queue()) == 0 {
+
+		scheduleOldPlayingMessage(r)
+		core.DropRoom(r.ID)
+		_, err := m.ReplyText(c, F(chatID, "skip_stopped", locales.Arg{
+			"user": mention,
+		}), nil)
+		return err
+	}
+
+	t := r.NextTrack()
+	if t == nil {
+
+		scheduleOldPlayingMessage(r)
+		core.DropRoom(r.ID)
+		_, err := m.ReplyText(c, F(chatID, "skip_stopped", locales.Arg{
+			"user": mention,
+		}), nil)
+		return err
+	}
+
+	statusMsg, err := core.Bot.SendTextMessage(
+		chatID,
+		F(chatID, "stream_downloading_next"),
+		nil,
+	)
+	if err != nil {
+		logger.Errorf("[skip.go] err: %v", err)
+	}
+
+	path, err := platforms.Download(context.Background(), t, statusMsg)
+	if err != nil {
+		txt := F(chatID, "stream_download_fail", locales.Arg{
+			"error": err.Error(),
+		})
+
+		if statusMsg != nil {
+			utils.EOR(c, statusMsg, txt, nil)
+		} else {
+			core.Bot.SendTextMessage(chatID, txt, nil)
+		}
+
+		scheduleOldPlayingMessage(r)
+		core.DropRoom(r.ID)
+		return nil
+	}
+
+	if err := r.Play(t, path, true); err != nil {
+		txt := F(chatID, "stream_play_fail")
+		if statusMsg != nil {
+			utils.EOR(c, statusMsg, txt, nil)
+		} else {
+			core.Bot.SendTextMessage(chatID, txt, nil)
+		}
+		scheduleOldPlayingMessage(r)
+		core.DropRoom(r.ID)
+		return nil
+	}
+
+	statusMsg = sendNowPlaying(c, statusMsg, chatID, r, t)
+	if statusMsg != nil {
+		r.SetStatusMsg(statusMsg)
+	}
+
+	return nil
+}
+
+func handleAutoplaySkip(c *td.Client, m *td.Message, cplay bool) error {
+	r, err := getEffectiveRoom(m.ChatID(), cplay)
+	if err != nil {
+		_, err := m.ReplyText(c, err.Error(), nil)
+		return err
+	}
+
+	chatID := m.ChatID()
+	if !r.Active() {
+		_, err := m.ReplyText(c, F(chatID, "room_no_active"), nil)
+		return err
+	}
+
+	if !r.Autoplay() {
+		_, err := m.ReplyText(c, F(chatID, "askip_disabled"), nil)
+		return err
+	}
+
+	last := r.Track()
+	if last == nil {
+		_, err := m.ReplyText(c, F(chatID, "room_no_active"), nil)
+		return err
+	}
+
+	statusMsg, err := core.Bot.SendTextMessage(
+		chatID,
+		F(chatID, "stream_downloading_next"),
+		nil,
+	)
+	if err != nil {
+		logger.Errorf("[skip.go] askip send err: %v", err)
+	}
+
+	next := PickAutoplayTrack(r, last)
+	if next == nil {
+		txt := F(chatID, "askip_no_recommendations")
+		if statusMsg != nil {
+			utils.EOR(c, statusMsg, txt, nil)
+		} else {
+			_, _ = m.ReplyText(c, txt, nil)
+		}
+		return nil
+	}
+
+	r.SetLoop(0)
+	scheduleOldPlayingMessage(r)
+
+	var path string
+	var dlErr error
+	const maxRetries = 5
+	const downloadTimeout = 60 * time.Second
+	for attempt := 0; attempt < maxRetries; attempt++ {
+		dlCtx, cancel := context.WithTimeout(context.Background(), downloadTimeout)
+		path, dlErr = platforms.Download(dlCtx, next, statusMsg)
+		cancel()
+		if dlErr == nil {
+			break
+		}
+		logger.Warnf("[Autoplay] /askip download failed (attempt %d/%d) for %q: %v — trying next candidate", attempt+1, maxRetries, next.Title, dlErr)
+		nextT := pickAutoplayCandidate(chatID, next)
+		if nextT == nil {
+			break
+		}
+		next = nextT
+	}
+
+	if dlErr != nil {
+		txt := F(chatID, "stream_download_fail", locales.Arg{
+			"error": dlErr.Error(),
+		})
+		if statusMsg != nil {
+			utils.EOR(c, statusMsg, txt, nil)
+		} else {
+			core.Bot.SendTextMessage(chatID, txt, nil)
+		}
+		scheduleOldPlayingMessage(r)
+		core.DropRoom(r.ID)
+		return nil
+	}
+
+	if err := r.Play(next, path, true); err != nil {
+		txt := F(chatID, "stream_play_fail")
+		if statusMsg != nil {
+			utils.EOR(c, statusMsg, txt, nil)
+		} else {
+			core.Bot.SendTextMessage(chatID, txt, nil)
+		}
+		scheduleOldPlayingMessage(r)
+		core.DropRoom(r.ID)
+		return nil
+	}
+
+	statusMsg = sendNowPlaying(c, statusMsg, chatID, r, next)
+	if statusMsg != nil {
+		r.SetStatusMsg(statusMsg)
+	}
+
+	go sendAutoplayLogs(c, chatID, next, statusMsg)
+
+	return nil
+}
+

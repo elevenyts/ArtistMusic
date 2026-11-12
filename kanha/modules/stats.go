@@ -1,0 +1,178 @@
+/*
+ * ● KanhaMusic
+ * ○ A high-performance engine for streaming music in Telegram voicechats.
+ *
+ * Copyright (C) 2026 Kanha
+ *
+ * This program is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * Repository: https://github.com/Oyekanhaa/KanhaMusic
+ */
+
+package modules
+
+import (
+	"fmt"
+	"runtime"
+	"runtime/debug"
+	"time"
+
+	td "github.com/Kanha/Meow"
+	"github.com/shirou/gopsutil/v3/cpu"
+	"github.com/shirou/gopsutil/v3/disk"
+	"github.com/shirou/gopsutil/v3/mem"
+
+	"KanhaMusic/config"
+	"KanhaMusic/kanha/database"
+	"KanhaMusic/kanha/locales"
+	"KanhaMusic/ntgcalls"
+)
+
+func init() {
+	helpTexts["/stats"] = `<i>View detailed bot statistics.</i>
+
+<u>Usage:</u>
+<b>/stats</b> — Show statistics
+
+<b>📊 Information Shown:</b>
+• System stats (OS, CPU, RAM, disk)
+• Go runtime stats (memory, GC)
+• Server resources
+• Served chats count
+• Served users count
+
+<b>🔒 Restrictions:</b>
+• <b>Sudo users</b> only`
+}
+
+func resolveTdVersion() string {
+	if info, ok := debug.ReadBuildInfo(); ok {
+		for _, dep := range info.Deps {
+			if dep.Path == "github.com/Kanha/Meow" {
+				if dep.Replace != nil && dep.Replace.Version != "" {
+					return dep.Replace.Version
+				}
+				if dep.Version != "" {
+					return dep.Version
+				}
+			}
+		}
+	}
+
+	return td.Version
+}
+
+func statsHandler(c *td.Client, m *td.Message) error {
+	if !checkSudo(c, m) {
+		return nil
+	}
+	chatID := m.ChatID()
+	var memStats runtime.MemStats
+
+	runtime.ReadMemStats(&memStats)
+
+	uptime := time.Since(config.StartTime).Minutes()
+	gcPerMin := float64(memStats.NumGC) / uptime
+
+	gcEmoji := "🟢"
+	switch {
+	case gcPerMin > 20:
+		gcEmoji = "🔴"
+	case gcPerMin > 10:
+		gcEmoji = "🟠"
+	}
+
+	sysMem, _ := mem.VirtualMemory()
+	cpuPercent, _ := cpu.Percent(0, false)
+	diskStat, _ := disk.Usage("/")
+
+	cpuEmoji := "🟢"
+	if len(cpuPercent) > 0 {
+		switch {
+		case cpuPercent[0] > 70:
+			cpuEmoji = "🔴"
+		case cpuPercent[0] > 40:
+			cpuEmoji = "🟡"
+		}
+	}
+
+	ramUsagePercent := (float64(sysMem.Used) / float64(sysMem.Total)) * 100
+	ramEmoji := "🟢"
+	switch {
+	case ramUsagePercent > 80:
+		ramEmoji = "🔴"
+	case ramUsagePercent > 50:
+		ramEmoji = "🟡"
+	}
+
+	servedChats, err1 := database.ServedChats()
+	servedUsers, err2 := database.ServedUsers()
+	dbStats, _ := database.GetMongoDBStats()
+
+	var servedChatsVal any = len(servedChats)
+	if err1 != nil {
+		servedChatsVal = err1.Error()
+	}
+
+	var servedUsersVal any = len(servedUsers)
+	if err2 != nil {
+		servedUsersVal = err2.Error()
+	}
+
+	dbDataSize := dbStats["dataSize"]
+	dbStorageSize := dbStats["storageSize"]
+	dbCollections := dbStats["collections"]
+	dbObjects := dbStats["objects"]
+	_, err := m.ReplyText(c, F(chatID, "stats_overview", locales.Arg{
+		"os":                runtime.GOOS,
+		"arch":              runtime.GOARCH,
+		"cpus":              runtime.NumCPU(),
+		"goroutines":        runtime.NumGoroutine(),
+		"alloc":             memStats.Alloc / 1024 / 1024,
+		"sys":               memStats.Sys / 1024 / 1024,
+		"gc_count":          memStats.NumGC,
+		"gc_emoji":          gcEmoji,
+		"gc_rate":           fmt.Sprintf("%.1f", gcPerMin),
+		"cpu_emoji":         cpuEmoji,
+		"cpu":               fmt.Sprintf("%.2f", cpuPercent[0]),
+		"ram_emoji":         ramEmoji,
+		"ram_used_gib":      fmt.Sprintf("%.2f", float64(sysMem.Used)/1073741824),
+		"ram_total_gib":     fmt.Sprintf("%.2f", float64(sysMem.Total)/1073741824),
+		"storage_used_gib":  fmt.Sprintf("%.2f", float64(diskStat.Used)/1073741824),
+		"storage_total_gib": fmt.Sprintf("%.2f", float64(diskStat.Total)/1073741824),
+		"db_storage":        fmt.Sprintf("%.2f", interfaceToFloat(dbStorageSize)/1024/1024),
+		"db_data":           fmt.Sprintf("%.2f", interfaceToFloat(dbDataSize)/1024/1024),
+		"db_collections":    dbCollections,
+		"db_objects":        dbObjects,
+		"served_chats":      servedChatsVal,
+		"served_users":      servedUsersVal,
+		"go_version":        runtime.Version(),
+		"gogram_api_layer":  td.TDLibVersion,
+		"gogram_version":    resolveTdVersion(),
+		"ntgcalls_version":  ntgcalls.Version(),
+	}), nil)
+	return err
+}
+
+func interfaceToFloat(v any) float64 {
+	switch i := v.(type) {
+	case float64:
+		return i
+	case float32:
+		return float64(i)
+	case int64:
+		return float64(i)
+	case int32:
+		return float64(i)
+	case int:
+		return float64(i)
+	default:
+		return 0
+	}
+}

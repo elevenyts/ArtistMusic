@@ -1,0 +1,82 @@
+/*
+ * ● KanhaMusic
+ * ○ A high-performance engine for streaming music in Telegram voicechats.
+ *
+ * Copyright (C) 2026 Kanha
+ *
+ * This program is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * Repository: https://github.com/Oyekanhaa/KanhaMusic
+ */
+
+package database
+
+import (
+	"context"
+	"time"
+
+	"KanhaMusic/config"
+	"KanhaMusic/kanha/logger"
+
+	"go.mongodb.org/mongo-driver/v2/bson"
+	"go.mongodb.org/mongo-driver/v2/mongo"
+	"go.mongodb.org/mongo-driver/v2/mongo/options"
+
+	"KanhaMusic/kanha/utils"
+)
+
+var (
+	client           *mongo.Client
+	database         *mongo.Database
+	settingsColl     *mongo.Collection
+	chatSettingsColl *mongo.Collection
+	playlistColl     *mongo.Collection
+	vcLoggerColl     *mongo.Collection
+
+	logr              = logger.GetLogger("Database")
+	dbCache           = utils.NewCache[string, any](60 * time.Minute)
+	chatSettingsCache = utils.NewCache[int64, *ChatSettings](60 * time.Minute)
+)
+
+func Init(mongoURL string) (func(), error) {
+	var err error
+	logr.Debug("Initializing MongoDB...")
+	client, err = mongo.Connect(options.Client().ApplyURI(mongoURL))
+	if err != nil {
+		return nil, err
+	}
+
+	logr.Debug("Successfully connected to MongoDB.")
+
+	database = client.Database(config.DBName)
+	settingsColl = database.Collection("bot_settings")
+	chatSettingsColl = database.Collection("chat_settings")
+	playlistColl = database.Collection("playlists")
+	vcLoggerColl = database.Collection("vclogger")
+
+	migrateData()
+
+	return func() {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		if err := client.Disconnect(ctx); err != nil {
+			logr.Errorf("Error while disconnecting MongoDB: %v", err)
+		} else {
+			logr.Info("MongoDB disconnected successfully")
+		}
+	}, nil
+}
+
+func GetMongoDBStats() (bson.M, error) {
+	ctx, cancel := ctx()
+	defer cancel()
+	var result bson.M
+	err := database.RunCommand(ctx, bson.D{{Key: "dbStats", Value: 1}}).Decode(&result)
+	return result, err
+}

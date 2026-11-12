@@ -1,0 +1,59 @@
+name: format codes
+
+permissions:
+  contents: write
+  
+on:
+  workflow_dispatch:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version: "1.26"
+          cache: true
+          cache-dependency-path: '**/go.sum'
+
+      - name: Cache Go tools
+        id: cache-tools
+        uses: actions/cache@v5
+        with:
+          path: |
+            ~/go/bin
+            ~/.cache/go-build
+          key: ${{ runner.os }}-go-tools-1
+
+      - name: Install Tools
+        if: steps.cache-tools.outputs.cache-hit != 'true'
+        run: |
+          go install golang.org/x/tools/cmd/goimports@latest
+          
+      - name: Format Code
+        run: |
+          go mod tidy
+          gofmt -w .
+          goimports -w .
+          bash install.sh -n
+          go fix ./...
+          go mod tidy
+
+      - name: Commit changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          BRANCH_NAME="${GITHUB_REF##*/}"
+
+          git add $(find . -name '*.go') go.mod go.sum
+          git diff --cached --quiet || git commit -m "style: format codes"
+
+          git fetch origin "$BRANCH_NAME"
+          git rebase --autostash "origin/$BRANCH_NAME" || (echo "Rebase conflict, aborting" && git rebase --abort && exit 1)
+          git push origin "HEAD:$BRANCH_NAME"

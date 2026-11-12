@@ -1,0 +1,1134 @@
+name: "🇺🇸 єηɢʟɪsʜ"
+
+# buttons
+CONFIRM_RESUME_BTN: "▶️ ʀєsᴜᴍє"
+CONFIRM_UNMUTE_BTN: "🔊 ᴜηᴍᴜᴛє"
+CONFIRM_STOP_BTN: "⏹️ sᴛσᴘ"
+ADD_ME_BTN: "⟡₊ ᴧᴅᴅ ϻє ᴛσ ʏσυꝛ ᴄʜᴧᴛ ₊⟡"
+BROADCAST_CANCEL_BTN: "🚫 ᴄᴧηᴄєʟ ʙʀσᴧᴅᴄᴧsᴛ"
+CLOSE_BTN: "ᴄʟσsє"
+DOWNLOAD_CANCEL_BTN: "🚦 ᴄᴧηᴄєʟ ᴅσᴡηʟσᴧᴅɪηɢ"
+GC_HELP_BTN: " ᴄσᴍᴍᴧηᴅs"
+START_HELP_BTN: " ʜєʟᴘ & ᴄσᴍᴍᴧηᴅs"
+UPDATES_BTN: " ᴜᴘᴅᴧᴛєs"
+SUPPORT_BTN: "sᴜᴘᴘσʀᴛ"
+SOURCE_BTN: " sσᴜʀᴄє ᴄσᴅє"
+LANG_BTN: " ʟᴧηɢᴜᴧɢє"
+REPO_DEV_BTN: "ᴅєᴠєʟσᴘєʀ"
+REPO_BTN: "ʀєᴘσ"
+
+HELP_ADMIN_BTN: "ᴧᴅᴍɪη"
+HELP_AUTH_BTN: "ᴧᴜᴛʜ"
+HELP_BCAST_BTN: "ʙ-ᴄᴧsᴛ"
+HELP_PLAY_BTN: "ᴘʟᴧʏ"
+HELP_SUDO_BTN: "sᴜᴅσ"
+HELP_RESTRICT_BTN: "ʀєsᴛʀɪᴄᴛ"
+HELP_THUMB_BTN: "ᴛʜᴜᴍʙηᴧɪʟ"
+HELP_START_BTN: "sᴛᴧʀᴛ"
+HELP_AUTOPLAY_BTN: "ᴧᴜᴛσᴘʟᴧʏ"
+HELP_PLAYLIST_BTN: "ᴘʟᴧʏʟɪsᴛ"
+HELP_VCLOGS_BTN: "ᴠᴄ-ʟσɢs"
+HELP_INLINE_BTN: "ɪηʟɪηє"
+
+BACK_BTN: " ʙᴧᴄᴋ"
+
+# basically this string used in /command [bool]
+invalid_bool: "{emoji:⚠️} <b>ɪηᴠᴧʟɪᴅ ᴠᴧʟᴜє.</b>\nᴜsє 'єηᴧʙʟє' σʀ 'ᴅɪsᴧʙʟє'."
+
+adminmode_help: |
+  {emoji:🛡️} <b>ᴧᴅᴍɪη ᴄσᴍᴍᴧηᴅ ᴍσᴅє</b>
+
+  <b>sᴛᴧᴛᴜs:</b> {status}
+  <b>ᴜsᴧɢє:</b> <code>/adminmode [admin|adminauth|everyone]</code>
+adminmode_status_admin: "ᴧᴅᴍɪηs 🔐"
+
+adminmode_status_adminauth: "ᴧᴜᴛʜ ᴜsєʀs 🎧"
+
+adminmode_status_everyone: "єᴠєʀʏσηє 🌍"
+
+adminmode_updated: "{emoji:✅} <b>ᴧᴅᴍɪη ᴄσᴍᴍᴧηᴅ ᴍσᴅє</b> ᴜᴘᴅᴧᴛєᴅ ᴛσ: {status}"
+
+adminmode_invalid: "{emoji:⚠️} ɪηᴠᴧʟɪᴅ ᴍσᴅє. ᴜsє: <code>admin</code>, <code>adminauth</code>, σʀ <code>everyone</code>."
+
+# 🚫 Assistant Restricted / Banned
+assistant_restricted_warning: |
+  {emoji:⚠️} <b>ᴧssɪsᴛᴧηᴛ ʀєsᴛʀɪᴄᴛєᴅ</b>
+
+  ᴛʜє ᴧssɪsᴛᴧηᴛ {assistant} (ɪᴅ: <code>{id}</code>) ʜᴧs ʙєєη <b>ʙᴧηηєᴅ</b> σʀ ʀєsᴛʀɪᴄᴛєᴅ ɪη ᴛʜɪs ᴄʜᴧᴛ.
+  ɪ ᴄᴧηησᴛ ᴘʟᴧʏ ᴍᴜsɪᴄ, ᴍᴧηᴧɢє ᴛʜє ǫᴜєᴜє, σʀ ᴄʟєᴧη ᴜᴘ ᴛʀᴧᴄᴋs ᴡʜɪʟє ᴛʜɪs ᴄσηᴛɪηᴜєs.
+
+  <i>ᴜηʙᴧη ᴛʜє ᴧssɪsᴛᴧηᴛ ᴛσ ʀєsᴛσʀє ᴧʟʟ ᴍᴜsɪᴄ ғєᴧᴛᴜʀєs {emoji:🎵}</i>
+
+# 🧩 Common auth messages
+auth_no_user: "{emoji:⚠️} ᴘʟєᴧsє ᴘʀσᴠɪᴅє ᴧ ᴜsєʀ — ᴜsє:\n{cmd} [ᴜsєʀ_ɪᴅ] σʀ ʀєᴘʟʏ ᴛσ ᴧ ᴜsєʀ's ᴍєssᴧɢє."
+
+user_extract_fail: "{emoji:⚠️} ᴜηᴧʙʟє ᴛσ ɢєᴛ ᴛʜᴧᴛ ᴜsєʀ: <i>{error}</i>"
+
+auth_limit_reached: "{emoji:⚠️} ᴛʜɪs ᴄʜᴧᴛ ʜᴧs ʀєᴧᴄʜєᴅ ᴛʜє ᴍᴧxɪᴍᴜᴍ ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ʟɪᴍɪᴛ ({limit}). ᴘʟєᴧsє ʀєᴍσᴠє sσᴍєσηє ʙєғσʀє ᴧᴅᴅɪηɢ ᴧ ηєᴡ σηє."
+
+already_authed: "{emoji:⚠️} ᴛʜᴧᴛ ᴜsєʀ ɪs ᴧʟʀєᴧᴅʏ ᴧᴜᴛʜσʀɪᴢєᴅ — ησ ηєєᴅ ᴛσ ᴧᴅᴅ ᴛʜєᴍ ᴧɢᴧɪη."
+
+# 🤖 Add auth
+cannot_authorize_user: "{emoji:⚠️} ᴛʜɪs ᴜsєʀ ᴄᴧηησᴛ ʙє ᴧᴜᴛʜσʀɪᴢєᴅ.\nᴛʜє ʙσᴛ σᴡηєʀ, ᴛʜє ʙσᴛ ɪᴛsєʟғ, σʀ ʏσᴜʀsєʟғ ᴅσ ησᴛ ʀєǫᴜɪʀє ᴧᴜᴛʜσʀɪᴢᴧᴛɪση."
+
+addauth_user_is_admin: "{emoji:⚠️} ᴛʜɪs ᴜsєʀ ɪs ᴧʟʀєᴧᴅʏ ᴧ ᴄʜᴧᴛ ᴧᴅᴍɪηɪsᴛʀᴧᴛσʀ. ησ ᴧᴜᴛʜσʀɪᴢᴧᴛɪση ɪs ʀєǫᴜɪʀєᴅ."
+
+addauth_bot_user: "{emoji:🤖} ʏσᴜ ᴄᴧη’ᴛ ᴧᴅᴅ ᴧ ʙσᴛ ᴛσ ᴛʜє ᴧᴜᴛʜ ʟɪsᴛ — ᴧᴜᴛʜᴜsєʀs ᴍᴜsᴛ ʙє ʜᴜᴍᴧη!"
+
+addauth_add_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴧᴅᴅ ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀ: {error}"
+
+addauth_success_with_count: "{emoji:✅} ᴧᴅᴅєᴅ {user}.\nησᴡ {count}/{limit} ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs."
+
+addauth_success: "{emoji:✅} sᴜᴄᴄєssғᴜʟʟʏ ᴧᴅᴅєᴅ {user} ᴛσ ᴛʜє ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ʟɪsᴛ."
+
+# 🤖 Bot Added to Chat
+bot_added_normal: "{emoji:🎵} ᴛʜᴧηᴋs ғσʀ ᴧᴅᴅɪηɢ ᴍє! ᴜsє /play [sσηɢ] ᴛσ sᴛᴧʀᴛ ᴘʟᴧʏɪηɢ ᴍᴜsɪᴄ."
+
+# ⚠️ Bot Demotion
+bot_demotion_goodbye: |
+  <b>{emoji:⚠️} ᴘєʀᴍɪssɪση ʟσsᴛ</b>
+
+  ɪ’ᴠє ʙєєη <b>ᴅєᴍσᴛєᴅ ғʀσᴍ ᴧᴅᴍɪη</b> ᴧηᴅ ᴄᴧη’ᴛ ᴘєʀғσʀᴍ ᴍʏ ᴛᴧsᴋs ᴧηʏᴍσʀє.
+  ᴡɪᴛʜσᴜᴛ ᴘʀσᴘєʀ ʀɪɢʜᴛs, ɪ’ᴍ ᴜηᴧʙʟє ᴛσ ғᴜηᴄᴛɪση ʜєʀє, sσ ɪ’ʟʟ ʙє <i>ʟєᴧᴠɪηɢ ᴛʜє ᴄʜᴧᴛ ησᴡ</i>.
+
+  <b>ɢσσᴅʙʏє {emoji:👋}</b>
+
+broadcast_already_running: "{emoji:⚠️} ᴧ ʙʀσᴧᴅᴄᴧsᴛ ɪs ᴧʟʀєᴧᴅʏ ʀᴜηηɪηɢ.\n\nᴘʟєᴧsє ᴡᴧɪᴛ ғσʀ ɪᴛ ᴛσ ᴄσᴍᴘʟєᴛє σʀ ᴄᴧηᴄєʟ ɪᴛ ғɪʀsᴛ ᴜsɪηɢ:\n• <code>/broadcast -cancel</code>\n• σʀ ᴄʟɪᴄᴋ ᴛʜє ᴄᴧηᴄєʟ ʙᴜᴛᴛση ση ᴛʜє ᴘʀσɢʀєss ᴍєssᴧɢє"
+
+broadcast_parse_failed: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴘᴧʀsє ʙʀσᴧᴅᴄᴧsᴛ ᴄσᴍᴍᴧηᴅ:\n<code>{error}</code>"
+
+broadcast_no_content: "{emoji:⚠️} ησ ᴄσηᴛєηᴛ ᴘʀσᴠɪᴅєᴅ ғσʀ ʙʀσᴧᴅᴄᴧsᴛ.\n\n<b>ᴜsᴧɢє:</b> <code>{cmd} [ᴛєxᴛ σʀ ʀєᴘʟʏ ᴛσ ᴍєssᴧɢє]</code>\n\n<b>єxᴧᴍᴘʟє:</b>\n<code>{cmd} ʜєʟʟσ єᴠєʀʏσηє!</code>"
+
+broadcast_fetch_chats_failed: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ sєʀᴠєᴅ ᴄʜᴧᴛs:\n<code>{error}</code>"
+
+broadcast_fetch_users_failed: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ sєʀᴠєᴅ ᴜsєʀs:\n<code>{error}</code>"
+
+broadcast_no_targets: "{emoji:⚠️} ησ ᴛᴧʀɢєᴛs ғσᴜηᴅ ғσʀ ʙʀσᴧᴅᴄᴧsᴛ.\n\nᴍᴧᴋє sᴜʀє ʏσᴜ ʜᴧᴠєη'ᴛ єxᴄʟᴜᴅєᴅ ᴧʟʟ ᴛᴧʀɢєᴛs ᴡɪᴛʜ ғʟᴧɢs."
+
+broadcast_initializing: "{emoji:📡} ɪηɪᴛɪᴧʟɪᴢɪηɢ ʙʀσᴧᴅᴄᴧsᴛ...\n\nᴘʟєᴧsє ᴡᴧɪᴛ..."
+
+broadcast_progress_header: "{emoji:📡} ʙʀσᴧᴅᴄᴧsᴛɪηɢ..."
+
+broadcast_total_chats: "{emoji:📊} ᴛσᴛᴧʟ ᴄʜᴧᴛs: {done}/{total} ({progress}%)"
+
+broadcast_total_users: "{emoji:👥} ᴛσᴛᴧʟ ᴜsєʀs: {done}/{total} ({progress}%)"
+
+broadcast_failed_chats: "{emoji:❌} ғᴧɪʟєᴅ ᴄʜᴧᴛs: {count}"
+
+broadcast_failed_users: "{emoji:❌} ғᴧɪʟєᴅ ᴜsєʀs: {count}"
+
+broadcast_delay: "{emoji:⏱} ᴅєʟᴧʏ: {delay}s"
+
+broadcast_elapsed: "{emoji:⏰} єʟᴧᴘsєᴅ: {elapsed}"
+
+broadcast_eta: "{emoji:⏳} єᴛᴧ: {eta}"
+
+broadcast_success_rate: "{emoji:✨} sᴜᴄᴄєss ʀᴧᴛє: {rate}% ({sent}/{total})"
+
+broadcast_not_running: "ℹ️ ησ ʙʀσᴧᴅᴄᴧsᴛ ɪs ᴄᴜʀʀєηᴛʟʏ ʀᴜηηɪηɢ."
+
+broadcast_cancel_success: "{emoji:🚫} ʙʀσᴧᴅᴄᴧsᴛ ᴄᴧηᴄєʟʟєᴅ sᴜᴄᴄєssғᴜʟʟʏ."
+
+broadcast_cancel_owner_only: "⚠️ σηʟʏ ᴛʜє σᴡηєʀ ᴄᴧη ᴄᴧηᴄєʟ ʙʀσᴧᴅᴄᴧsᴛs."
+
+broadcast_cancel_none_running: "ℹ️ ησ ʙʀσᴧᴅᴄᴧsᴛ ɪs ᴄᴜʀʀєηᴛʟʏ ʀᴜηηɪηɢ."
+
+broadcast_cancel_done: "🚫 ʙʀσᴧᴅᴄᴧsᴛ ᴄᴧηᴄєʟʟєᴅ."
+
+# Blocklist
+
+blacklist_chat_blocked: "{emoji:🚫} ᴛʜɪs ᴄʜᴧᴛ ɪs ʙʟσᴄᴋєᴅ ғʀσᴍ ᴜsɪηɢ ᴛʜɪs ʙσᴛ."
+
+blacklist_owner_blocked_leave: "{emoji:🚫} ᴛʜɪs ᴄʜᴧᴛ σᴡηєʀ ɪs ʙʟσᴄᴋєᴅ ғʀσᴍ ᴜsɪηɢ ᴛʜɪs ʙσᴛ. ʟєᴧᴠɪηɢ ᴄʜᴧᴛ."
+
+blacklist_user_blocked: "{emoji:🚫} ʏσᴜ ᴧʀє ʙʟσᴄᴋєᴅ ғʀσᴍ ᴜsɪηɢ ᴛʜɪs ʙσᴛ."
+
+blacklist_usage_blockchat: "ᴜsᴧɢє: <code>/blockchat [chat_id|@username]</code>"
+
+blacklist_usage_unblockchat: "ᴜsᴧɢє: <code>/unblockchat [chat_id|@username]</code>"
+
+blacklist_invalid_chat_identifier: "ɪηᴠᴧʟɪᴅ ᴄʜᴧᴛ ɪᴅєηᴛɪғɪєʀ: {error}"
+
+blacklist_block_user_success: "{emoji:✅} ᴜsєʀ ʙʟσᴄᴋєᴅ: <code>{id}</code>"
+
+blacklist_unblock_user_success: "{emoji:✅} ᴜsєʀ ᴜηʙʟσᴄᴋєᴅ: <code>{id}</code>"
+
+blacklist_block_chat_success: "{emoji:✅} ᴄʜᴧᴛ ʙʟσᴄᴋєᴅ: <code>{id}</code>"
+
+blacklist_unblock_chat_success: "{emoji:✅} ᴄʜᴧᴛ ᴜηʙʟσᴄᴋєᴅ: <code>{id}</code>"
+
+blacklist_unblock_user_fail: "{emoji:⚠️} ғᴧɪʟєᴅ ᴛσ ᴜηʙʟσᴄᴋ ᴜsєʀ: {error}"
+
+blacklist_unblock_chat_fail: "{emoji:⚠️} ғᴧɪʟєᴅ ᴛσ ᴜηʙʟσᴄᴋ ᴄʜᴧᴛ: {error}"
+
+blacklist_fetch_chats_fail: "{emoji:⚠️} ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ ʙʟσᴄᴋєᴅ ᴄʜᴧᴛs: {error}"
+
+blacklist_fetch_users_fail: "{emoji:⚠️} ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ ʙʟσᴄᴋєᴅ ᴜsєʀs: {error}"
+
+blacklist_list_title: "{emoji:📛} <b>ʙʟᴧᴄᴋʟɪsᴛєᴅ</b>"
+
+blacklist_list_chats: "{emoji:💬} <b>ᴄʜᴧᴛs:</b>"
+
+blacklist_list_users: "{emoji:👤} <b>ᴜsєʀs:</b>"
+
+# 🎧 CPlay (Channel Play)
+
+cplay_id_not_set: "{emoji:⚠️} ᴄᴘʟᴧʏ ɪᴅ ησᴛ sєᴛ.\nᴜsє <code>/setcplay &lt;chat_id&gt;</code> ᴛσ sєᴛ ɪᴛ."
+
+cplay_usage: "<b>ᴜsᴧɢє:</b> <code>/setcplay &lt;channel_id&gt;</code>"
+
+cplay_resolve_peer_fail: "<b>ғᴧɪʟєᴅ ᴛσ ʀєsσʟᴠє ᴘєєʀ:</b> ᴄσᴜʟᴅ ησᴛ ғєᴛᴄʜ ᴄʜᴧηηєʟ ᴅєᴛᴧɪʟs. єηsᴜʀє ɪ ᴄᴧη ᴧᴄᴄєss ᴛʜɪs ᴄʜᴧηηєʟ."
+
+cplay_invalid_target: "<b>ɪηᴠᴧʟɪᴅ ᴛᴧʀɢєᴛ:</b> ᴛʜє ᴘʀσᴠɪᴅєᴅ ɪᴅ ɪs ησᴛ ᴧ ᴠᴧʟɪᴅ ᴄʜᴧηηєʟ."
+
+cplay_channel_not_accessible: "<b>ᴄʜᴧηηєʟ ησᴛ ᴧᴄᴄєssɪʙʟє:</b> ᴄσᴜʟᴅ ησᴛ ʀєᴛʀɪєᴠє ᴄʜᴧηηєʟ ɪηғσʀᴍᴧᴛɪση. ᴘʟєᴧsє єηsᴜʀє ɪ ᴧᴍ ᴧη ᴧᴅᴍɪηɪsᴛʀᴧᴛσʀ ɪη ᴛʜє ᴛᴧʀɢєᴛ ᴄʜᴧηηєʟ."
+
+cplay_bot_invite_permission_missing: "{emoji:⚠️} <b>ᴍɪssɪηɢ ᴘєʀᴍɪssɪση:</b> ɪ ᴧᴍ ᴧᴅᴍɪη ɪη ᴛᴧʀɢєᴛ ᴄʜᴧηηєʟ ʙᴜᴛ <code>ɪηᴠɪᴛє ᴜsєʀs</code> ᴘєʀᴍɪssɪση ɪs ᴅɪsᴧʙʟєᴅ. ᴘʟєᴧsє єηᴧʙʟє ɪᴛ ᴧηᴅ ᴛʀʏ ᴧɢᴧɪη."
+
+cplay_channel_not_linked: "{emoji:⚠️} <b>ʟɪηᴋєᴅ ᴄʜᴧηηєʟ ησᴛ ғσᴜηᴅ:</b> ᴛʜɪs ᴄʜᴧᴛ ɪs ησᴛ ʟɪηᴋєᴅ ᴛσ ᴧηʏ ᴄʜᴧηηєʟ / ɢʀσᴜᴘ."
+
+cplay_save_error: "<b>єʀʀσʀ:</b> ғᴧɪʟєᴅ ᴛσ sᴧᴠє ᴄᴘʟᴧʏ sєᴛᴛɪηɢs."
+
+cplay_enabled: "{emoji:✅} <b>ᴄʜᴧηηєʟ ᴘʟᴧʏ єηᴧʙʟєᴅ.</b> ᴧʟʟ ᴄʜᴧηηєʟ-ᴘʟᴧʏ ᴄσᴍᴍᴧηᴅs (ʟɪᴋє <code>/cplay</code>, <code>/cskip</code>) ᴡɪʟʟ ησᴡ ᴡσʀᴋ ɪη ᴄʜᴧηηєʟ <code>{channel_id}</code>."
+
+cplay_owner_required: "{emoji:⚠️} σηʟʏ ᴛʜє σᴡηєʀ σғ ᴛʜɪs ᴄʜᴧᴛ σʀ ᴛʜє ᴛᴧʀɢєᴛ ᴄʜᴧηηєʟ ᴄᴧη ᴜsє ᴛʜɪs sєᴛᴜᴘ."
+
+cplay_owner_check_failed: "{emoji:⚠️} ᴄσᴜʟᴅ ησᴛ ᴠєʀɪғʏ ᴄʜᴧᴛ σᴡηєʀsʜɪᴘ ʀɪɢʜᴛ ησᴡ. ᴘʟєᴧsє ᴛʀʏ ᴧɢᴧɪη."
+
+cplay_disabled: "{emoji:✅} <b>ᴄʜᴧηηєʟ ᴘʟᴧʏ ᴅɪsᴧʙʟєᴅ.</b> ᴄʜᴧηηєʟ-ᴘʟᴧʏ ᴄσᴍᴍᴧηᴅs (ʟɪᴋє <code>/cplay</code>, <code>/cskip</code>) ᴧʀє ησᴡ ᴛᴜʀηєᴅ σғғ ғσʀ ᴛʜɪs ᴄʜᴧᴛ."
+
+# Callback handler messages
+invalid_request: "⚠️ ɪηᴠᴧʟɪᴅ ʀєǫᴜєsᴛ."
+
+unknown_action: "⚠️ ᴜηᴋησᴡη ᴧᴄᴛɪση."
+
+download_cancelled: "✅ ᴅσᴡηʟσᴧᴅ ᴄᴧηᴄєʟʟєᴅ."
+
+no_download_to_cancel: "ℹ️ ησ ᴅσᴡηʟσᴧᴅ ᴛσ ᴄᴧηᴄєʟ."
+
+# Pause callback
+cb_pause_success: "⏸️ ᴛʀᴧᴄᴋ ᴘᴧᴜsєᴅ ᴧᴛ {position}"
+
+cb_pause_message: |
+  <b>{emoji:⏸️} ᴛʀᴧᴄᴋ ᴘᴧᴜsєᴅ</b>
+
+  <b>▫ ᴛʀᴧᴄᴋ:</b> <a href="{url}">{title}</a>
+  <b>▫ ᴘσsɪᴛɪση:</b> {position} / {duration}
+  <b>▫ ᴘᴧᴜsєᴅ ʙʏ:</b> {user}
+
+# Resume callback
+cb_already_playing: "ℹ️ ᴛʀᴧᴄᴋ ɪs ᴧʟʀєᴧᴅʏ ᴘʟᴧʏɪηɢ."
+
+cb_resume_failed: "❌ ғᴧɪʟєᴅ ᴛσ ʀєsᴜᴍє ᴘʟᴧʏʙᴧᴄᴋ."
+
+cb_resume_success: "▶️ ʀєsᴜᴍєᴅ ᴧᴛ {position}."
+
+cb_resume_message: |
+  <b>{emoji:🎵} ησᴡ ᴘʟᴧʏɪηɢ:</b>
+
+  <b>▫ ᴛʀᴧᴄᴋ:</b> <a href="{url}">{title}</a>
+  <b>▫ ᴅᴜʀᴧᴛɪση:</b> {duration}
+  <b>▫ ʀєsᴜᴍєᴅ ʙʏ:</b> {user}
+
+# Replay status (loop replay)
+cb_replaying: "{emoji:🔁} <b>ʀєᴘʟᴧʏɪηɢ ᴄᴜʀʀєηᴛ ᴛʀᴧᴄᴋ...</b>"
+
+cb_replay_failed: "❌ ғᴧɪʟєᴅ ᴛσ ʀєᴘʟᴧʏ ᴛʀᴧᴄᴋ."
+
+cb_replay_success: "🔁 ᴛʀᴧᴄᴋ ʀєᴘʟᴧʏєᴅ."
+
+cb_replay_edited: "{emoji:🔁} ᴛʀᴧᴄᴋ ʀєᴘʟᴧʏєᴅ ʙʏ {user}."
+
+# Seek callback (15s buttons)
+cb_seek_success: "⏩ sσᴜɢʜᴛ ғσʀᴡᴧʀᴅ {seconds} sєᴄσηᴅs"
+cb_seek_near_end: "⚠️ ᴄᴧηησᴛ sєєᴋ ғσʀᴡᴧʀᴅ {seconds} sєᴄσηᴅs — ᴧʙσᴜᴛ ᴛσ ʀєᴧᴄʜ єηᴅ."
+cb_seek_edited: "⏩ sσᴜɢʜᴛ {seconds} sєᴄσηᴅs — ʙʏ {user}"
+cb_seekback_success: "⏪ sσᴜɢʜᴛ ʙᴧᴄᴋ {seconds} sєᴄσηᴅs"
+cb_seekback_edited: "⏪ sσᴜɢʜᴛ ʙᴧᴄᴋ {seconds} sєᴄσηᴅs — ʙʏ {user}"
+
+# Skip callback
+cb_skip_queue_empty: "⏹️ ᴘʟᴧʏʙᴧᴄᴋ sᴛσᴘᴘєᴅ — ǫᴜєᴜє єᴍᴘᴛʏ."
+
+cb_skip_download_failed: "❌ ғᴧɪʟєᴅ ᴛσ ᴅσᴡηʟσᴧᴅ ηєxᴛ ᴛʀᴧᴄᴋ."
+
+cb_skip_play_failed: "❌ ғᴧɪʟєᴅ ᴛσ ᴘʟᴧʏ ηєxᴛ ᴛʀᴧᴄᴋ."
+
+cb_skip_success: "⏭️ ᴛʀᴧᴄᴋ sᴋɪᴘᴘєᴅ."
+
+cb_skip_edited: "{emoji:⏭️} sᴋɪᴘᴘєᴅ ʙʏ {user}"
+
+# Stop callback
+cb_stop_success: "⏹️ ᴘʟᴧʏʙᴧᴄᴋ sᴛσᴘᴘєᴅ."
+
+# Mute/Unmute callback
+cb_mute_success: "🔇 ᴍᴜᴛєᴅ."
+
+cb_mute_message: |
+  <b>{emoji:🔇} ᴘʟᴧʏʙᴧᴄᴋ ᴍᴜᴛєᴅ</b>
+
+  <b>▫ ᴛʀᴧᴄᴋ:</b> <a href="{url}">{title}</a>
+  <b>▫ ᴍᴜᴛєᴅ ʙʏ:</b> {user}
+
+cb_unmute_success: "🔊 ᴜηᴍᴜᴛєᴅ."
+
+# 🗑️ Delete auth
+del_auth_not_authorized: "{emoji:⚠️} ᴛʜᴧᴛ ᴜsєʀ ɪsη’ᴛ ᴧᴜᴛʜσʀɪᴢєᴅ — ησᴛʜɪηɢ ᴛσ ʀєᴍσᴠє."
+
+del_auth_remove_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ʀєᴍσᴠє ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀ: <code>{error}</code>"
+
+del_auth_success: "{emoji:✅} sᴜᴄᴄєssғᴜʟʟʏ ʀєᴍσᴠєᴅ {user} ғʀσᴍ ᴛʜє ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ʟɪsᴛ."
+
+# 📜 Auth list
+authlist_fetch_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ɢєᴛ ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ʟɪsᴛ: <code>{error}</code>"
+
+authlist_empty: "ℹ️ ᴛʜєʀє ᴧʀє ησ ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ɪη ᴛʜɪs ᴄʜᴧᴛ."
+
+authlist_fetching: "{emoji:⏳} ғєᴛᴄʜɪηɢ ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ʟɪsᴛ..."
+
+authlist_header: "<b>ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs:</b>"
+
+authlist_user_fail: "{index}. <code>{user_id}</code> (ᴄσᴜʟᴅ ησᴛ ғєᴛᴄʜ ᴜsєʀ ɪηғσ)"
+
+authlist_user_entry: "{index}. {user} (<code>{user_id}</code>)"
+
+authlist_total: "<b>ᴛσᴛᴧʟ:</b> {count} ᴜsєʀs"
+
+autoleave_fetch_fail: "{emoji:⚠️} <b>ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ ᴧᴜᴛσʟєᴧᴠє sᴛᴧᴛє.</b>"
+
+autoleave_status: "{emoji:🏃‍♂️} <b>ᴧᴜᴛσʟєᴧᴠє ᴄσηᴛʀσʟ</b>\n\nᴡʜєη єηᴧʙʟєᴅ, ᴛʜє ᴧssɪsᴛᴧηᴛ ᴡɪʟʟ ᴧᴜᴛσᴍᴧᴛɪᴄᴧʟʟʏ ʟєᴧᴠє ᴛʜє ᴄʜᴧᴛ.\nᴜsᴧɢє: {cmd} [єηᴧʙʟє|ᴅɪsᴧʙʟє]\nᴄᴜʀʀєηᴛ sᴛᴧᴛє: {action}"
+
+autoleave_already: "{emoji:⚠️} ᴧᴜᴛσʟєᴧᴠє ɪs ᴧʟʀєᴧᴅʏ {action}"
+
+autoleave_update_fail: "{emoji:⚠️} <b>ғᴧɪʟєᴅ ᴛσ ᴜᴘᴅᴧᴛє ᴧᴜᴛσʟєᴧᴠє sᴛᴧᴛє.</b>"
+
+autoleave_updated: "{emoji:🏃‍♂️} ᴧᴜᴛσʟєᴧᴠє ʜᴧs ʙєєη {action}"
+
+enabled: "єηᴧʙʟєᴅ"
+
+disabled: "ᴅɪsᴧʙʟєᴅ"
+
+clear_no_active: "{emoji:⚠️} <b>ησ ᴧᴄᴛɪᴠє ᴘʟᴧʏʙᴧᴄᴋ σʀ ǫᴜєᴜє ᴛσ ᴄʟєᴧʀ.</b>"
+
+clear_success: "{emoji:✅} ᴛʜє ǫᴜєᴜє ʜᴧs ʙєєη ᴄʟєᴧʀєᴅ ʙʏ {user}."
+
+err_assistant_banned: |
+  <b>{emoji:🚫} ᴧssɪsᴛᴧηᴛ ʀєsᴛʀɪᴄᴛєᴅ</b>
+
+  ɪ ᴄᴧη'ᴛ ᴘʟᴧʏ ᴍᴜsɪᴄ ʙєᴄᴧᴜsє {user} (ᴜsєʀɪᴅ: <code>{id}</code>) ɪs <b>ʙᴧηηєᴅ</b> σʀ <b>ʀєᴍσᴠєᴅ</b> ғʀσᴍ ᴛʜɪs ᴄʜᴧᴛ.
+
+  <i>{emoji:✅} ᴜηʙᴧηηєᴅ ᴛʜєᴍ ᴧʟʀєᴧᴅʏ? ᴜsє /reload ᴛσ ʀєғʀєsʜ.</i>
+
+err_admin_permission_required: |
+  {emoji:⚠️} <b>ᴧᴅᴍɪη ᴘєʀᴍɪssɪση ʀєǫᴜɪʀєᴅ</b>
+
+  ɪ ηєєᴅ ᴧᴅᴍɪη ᴧᴄᴄєss ᴡɪᴛʜ ɪηᴠɪᴛє ᴜsєʀs ᴘєʀᴍɪssɪση ᴛσ ᴍᴧηᴧɢє ᴧηᴅ ɪηᴠɪᴛє ᴧssɪsᴛᴧηᴛ ɪη ᴛʜɪs ᴄʜᴧᴛ.
+
+err_assistant_get_failed: |
+  {emoji:⚠️} ᴛʜє sʏsᴛєᴍ ᴄσᴜʟᴅ ησᴛ ᴧssɪɢη ᴧη ᴧssɪsᴛᴧηᴛ ᴛσ ᴛʜɪs ᴄʜᴧᴛ.
+
+  <i>ᴛʜɪs ɪs ᴜsᴜᴧʟʟʏ ᴧ ᴛєᴍᴘσʀᴧʀʏ ɪssᴜє ᴧηᴅ sʜσᴜʟᴅ ʀєsσʟᴠє ʙʏ ᴛʀʏɪηɢ ᴧɢᴧɪη.</i>
+
+  <b>{emoji:➡️} ᴘʟєᴧsє ʀєᴛʀʏ ʏσᴜʀ ᴄσᴍᴍᴧηᴅ.</b>
+
+  <i>ɪғ ᴛʜɪs ᴋєєᴘs ʜᴧᴘᴘєηɪηɢ, ᴘʟєᴧsє ᴄσηᴛᴧᴄᴛ sᴜᴘᴘσʀᴛ sσ ᴡє ᴄᴧη ᴧssɪsᴛ ʏσᴜ.</i>
+
+err_assistant_join_request_sent: |
+  {emoji:⚠️} ᴧssɪsᴛᴧηᴛ sєηᴛ ᴧ ᴊσɪη ʀєǫᴜєsᴛ, ʙᴜᴛ ɪ ᴄσᴜʟᴅ ησᴛ ᴧᴜᴛσ-ᴧᴘᴘʀσᴠє ɪᴛ.
+
+  <i>{emoji:✅} ᴘʟєᴧsє ᴧᴘᴘʀσᴠє ᴛʜє ʀєǫᴜєsᴛ ᴍᴧηᴜᴧʟʟʏ, ᴛʜєη ᴛʀʏ ᴧɢᴧɪη.</i>
+
+err_assistant_invite_link_fetch: |
+  {emoji:⚠️} ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ ɪηᴠɪᴛє ʟɪηᴋ:
+  <i>{error}</i>
+
+err_assistant_invite_failed: |
+  {emoji:⚠️} ᴧssɪsᴛᴧηᴛ ғᴧɪʟєᴅ ᴛσ ᴊσɪη ᴛʜɪs ᴄʜᴧᴛ:
+  <i>{error}</i>
+
+err_connection_timeout: |
+  {emoji:⚠️} <b>ᴠσɪᴄєᴄʜᴧᴛ ᴄσηηєᴄᴛɪση ᴛɪᴍєσᴜᴛ</b>
+
+  ᴛєʟєɢʀᴧᴍ ɪs ησᴛ ʀєsᴘσηᴅɪηɢ ᴘʀσᴘєʀʟʏ ᴛσ ᴛʜє ᴠσɪᴄє ᴄʜᴧᴛ ᴄσηηєᴄᴛɪση ʀɪɢʜᴛ ησᴡ.
+
+  <i>ɪғ ᴛʜɪs ᴋєєᴘs ʜᴧᴘᴘєηɪηɢ, єηᴅ ᴛʜє ᴠσɪᴄє ᴄʜᴧᴛ ᴧηᴅ sᴛᴧʀᴛ ɪᴛ ᴧɢᴧɪη, ᴛʜєη ʀєᴛʀʏ.</i>
+
+err_no_active_voicechat: |
+  {emoji:🎙️} <b>ησ ᴧᴄᴛɪᴠє ᴠσɪᴄє ᴄʜᴧᴛ</b>
+
+  ɪ ᴄᴧη'ᴛ ᴊσɪη — ᴘʟєᴧsє sᴛᴧʀᴛ ᴧ ᴠσɪᴄє ᴄʜᴧᴛ ғɪʀsᴛ.
+
+  <i>ᴧʟʀєᴧᴅʏ sᴛᴧʀᴛєᴅ σηє? ᴜsє /reload ᴛσ ʀєғʀєsʜ.</i>
+
+err_fetch_failed: |
+  {emoji:⚠️} ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ ᴄʜᴧᴛ ɪηғσ:
+  <i>{error}</i>
+
+err_unknown: |
+  {emoji:⚠️} ᴜηᴋησᴡη єʀʀσʀ σᴄᴄᴜʀʀєᴅ:
+  <i>{error}</i>
+
+err_fetch_tracks: |
+  {emoji:⚠️} <b>ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ ᴛʀᴧᴄᴋ ᴅєᴛᴧɪʟs.</b>
+  ᴘʟєᴧsє ᴛʀʏ ᴧɢᴧɪη ʟᴧᴛєʀ.
+
+err_download_internal: |
+  {emoji:⚠️} <b>ᴅσᴡηʟσᴧᴅ ғᴧɪʟєᴅ</b> ᴅᴜє ᴛσ ᴧη ᴜηєxᴘєᴄᴛєᴅ ɪηᴛєʀηᴧʟ єʀʀσʀ.
+  ᴘʟєᴧsє ᴛʀʏ ᴧɢᴧɪη ʟᴧᴛєʀ.
+
+flood_seconds: "⏳ sʟσᴡ ᴅσᴡη! ᴛʀʏ ᴧɢᴧɪη ɪη {duration} sєᴄσηᴅs."
+
+flood_minutes: "{emoji:⏳} ᴘʟєᴧsє ᴡᴧɪᴛ {duration} ᴍɪηᴜᴛєs ʙєғσʀє ᴜsɪηɢ ᴛʜɪs ᴄσᴍᴍᴧηᴅ ᴧɢᴧɪη."
+
+bug_usage: "{emoji:⚠️} <b>ᴘʟєᴧsє ᴅєsᴄʀɪʙє ᴛʜє ʙᴜɢ.</b>\n\nᴜsᴧɢє: {cmd} &lt;ᴘʀσʙʟєᴍ&gt; σʀ ʀєᴘʟʏ ᴛσ ᴧ ᴍєssᴧɢє."
+
+bug_thanks: "{emoji:✅} <b>ᴛʜᴧηᴋ ʏσᴜ ғσʀ ʏσᴜʀ ʙᴜɢ ʀєᴘσʀᴛ!</b>\nɪᴛ ʜᴧs ʙєєη sєηᴛ ᴛσ ᴛʜє ᴅєᴠєʟσᴘєʀs."
+
+bug_private_chat: "ᴘʀɪᴠᴧᴛє ᴄʜᴧᴛ"
+
+bug_reply_only: "<i>ʀєᴘʟʏ ʀєᴘσʀᴛ — sєє ғσʀᴡᴧʀᴅєᴅ ᴍєssᴧɢє.</i>"
+
+bug_report_format: |
+  {emoji:🐞} <b>ηєᴡ ʙᴜɢ ʀєᴘσʀᴛ</b>
+
+  <b>ғʀσᴍ:</b> {user} (<code>{user_id}</code>)
+  <b>ᴄʜᴧᴛ:</b> {chat} (<code>{chat_id}</code>)
+
+  <b>ʀєᴘσʀᴛ:</b>
+  <blockquote>{report}</blockquote>
+
+help_private_only: "{emoji:🤖} ʜɪ! ғσʀ ʙσᴛ ʜєʟᴘ ᴧηᴅ ᴄσᴍᴍᴧηᴅs, ᴘʟєᴧsє ᴅᴍ ᴍє ᴅɪʀєᴄᴛʟʏ — ɪ'ᴍ ᴍσʀє ʀєsᴘσηsɪᴠє ɪη ᴘʀɪᴠᴧᴛє ᴄʜᴧᴛs!"
+
+help_main: "<blockquote><b>🔮 єxᴘʟσʀє ᴛʜє ᴄσᴍᴘʟєᴛє ᴄσᴍᴍᴧηᴅ ɪηᴅєx ʙєʟσᴡ</b></blockquote>\n<blockquote><b>• ᴧᴄᴄєss єxᴘєʀᴛ ᴛєᴄʜηɪᴄᴧʟ ɢᴜɪᴅᴧηᴄє &amp; ʀєᴧʟ-ᴛɪᴍє sᴜᴘᴘσʀᴛ</b>\n<b>• єxєᴄᴜᴛє ᴧʟʟ ᴄσᴍᴍᴧηᴅs ᴜsɪηɢ sᴛᴧηᴅᴧʀᴅ ᴘʀєғɪx ➜</b></blockquote>"
+
+jump_no_active: "{emoji:⚠️} ησ ᴧᴄᴛɪᴠє ᴛʀᴧᴄᴋ ᴛσ ᴊᴜᴍᴘ ᴡɪᴛʜɪη."
+
+jump_usage: "{emoji:⚠️} ᴘʟєᴧsє ᴘʀσᴠɪᴅє sєᴄσηᴅs.\nєxᴧᴍᴘʟє: <code>{cmd} 120</code>"
+
+jump_invalid_position: "{emoji:⚠️} ɪηᴠᴧʟɪᴅ ᴘσsɪᴛɪση.\nєxᴧᴍᴘʟє: <code>{cmd} 120</code>"
+
+jump_too_close_end: "{emoji:⚠️} ᴄᴧηησᴛ ᴊᴜᴍᴘ ᴛσ <b>{position}</b> — ᴛʜᴧᴛ’s ᴛσσ ᴄʟσsє ᴛσ ᴛʜє єηᴅ σғ ᴛʜє ᴛʀᴧᴄᴋ."
+
+jump_failed: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴊᴜᴍᴘ ᴛσ <b>{position}</b>.\nєʀʀσʀ: <code>{error}</code>"
+
+jump_success: "{emoji:⏩} ᴊᴜᴍᴘєᴅ ᴛσ <u>{position}</u> σғ <u>{duration}</u>."
+
+lang_same: "ℹ️ ʏσᴜ’ʀє ᴧʟʀєᴧᴅʏ ᴜsɪηɢ ᴛʜɪs ʟᴧηɢᴜᴧɢє."
+
+lang_select: "{emoji:🌐} sєʟєᴄᴛ ʏσᴜʀ ᴘʀєғєʀʀєᴅ ʟᴧηɢᴜᴧɢє:"
+
+lang_fail: "❌ ғᴧɪʟєᴅ ᴛσ ᴜᴘᴅᴧᴛє ʟᴧηɢᴜᴧɢє. ᴘʟєᴧsє ᴛʀʏ ᴧɢᴧɪη ʟᴧᴛєʀ."
+
+lang_success: "{emoji:✅} ʟᴧηɢᴜᴧɢє sᴜᴄᴄєssғᴜʟʟʏ ᴜᴘᴅᴧᴛєᴅ ᴛσ {lang_name}."
+
+logger_playback_started: "ᴘʟᴧʏʙᴧᴄᴋ sᴛᴧʀᴛєᴅ"
+
+logger_playback_queued: "ᴘʟᴧʏʙᴧᴄᴋ ǫᴜєᴜєᴅ"
+
+logger_bot_added: |
+  {emoji:🤖} <b>ʙσᴛ ᴧᴅᴅєᴅ ᴛσ ηєᴡ ɢʀσᴜᴘ</b>
+  
+  <blockquote>
+  <b>ɢʀσᴜᴘ ηᴧᴍє:</b> {group_name}
+  <b>ɢʀσᴜᴘ ɪᴅ:</b> {group_id}
+  <b>ɢʀσᴜᴘ ᴜsєʀηᴧᴍє:</b> {group_username}
+
+  <b>ᴧᴅᴅєᴅ ʙʏ:</b> {added_by_name}
+  <b>ᴜsєʀ ɪᴅ:</b> {added_by_id}
+  <b>ᴜsєʀ ᴜsєʀηᴧᴍє:</b> {added_by_username}
+
+  <b>ᴛɪᴍє:</b> {date_time}
+  </blockquote>
+#  👥 <b>Members Count:</b> {members_count}
+
+logger_bot_removed: |
+
+  {emoji:🤖} <b>ʙσᴛ ʀєᴍσᴠєᴅ ғʀσᴍ ɢʀσᴜᴘ</b>
+  <blockquote>
+  <b>ɢʀσᴜᴘ ηᴧᴍє:</b> {group_name}
+  <b>ɢʀσᴜᴘ ɪᴅ:</b> {group_id}
+  <b>ɢʀσᴜᴘ ᴜsєʀηᴧᴍє:</b> {group_username}
+
+  <b>ʀєᴍσᴠєᴅ ʙʏ:</b> {removed_by_name}
+  <b>ᴜsєʀ ɪᴅ:</b> {removed_by_id}
+  <b>ᴜsєʀ ᴜsєʀηᴧᴍє:</b> {removed_by_username}
+
+  <b>ᴛɪᴍє:</b> {date_time}
+  </blockquote>
+
+logger_bot_started: |
+  {emoji:▶️} <b>{mention} sᴛᴧʀᴛєᴅ ᴛʜє ʙσᴛ</b>
+
+  <b>ᴜsєʀηᴧᴍє:</b> {user_username}
+  <b>ɪᴅ:</b> {user_id}
+
+logger_playback_template: "<b>{emoji:🎧} ᴛʀᴧᴄᴋ:</b> <a href=\"{track_url}\">{track}</a>\n<b>{emoji:🔗} sσᴜʀᴄє:</b> {source}\n<b>{emoji:📌} ɢʀσᴜᴘ:</b> {group} ({group_id})\n<b>{emoji:👤} ʀєǫᴜєsᴛєᴅ ʙʏ:</b> {requested_by} (<code>{requested_by_id}</code>)"
+
+loop_usage: "{emoji:🔁} <b>ʟσσᴘ ᴄσηᴛʀσʟ</b>\n\nᴜsᴧɢє: {cmd} [ᴄσᴜηᴛ]\n• 0 - ᴅɪsᴧʙʟє ʟσσᴘ\n• 1-10 - ʟσσᴘ ᴄσᴜηᴛ\n\n<i>{count_line}</i>"
+
+loop_invalid: "{emoji:⚠️} <b>ɪηᴠᴧʟɪᴅ ʟσσᴘ ᴄσᴜηᴛ.</b>\nᴜsє 0 ᴛσ ᴅɪsᴧʙʟє σʀ 1-10 ᴛσ sєᴛ ʟσσᴘ ᴄσᴜηᴛ."
+
+loop_already_set: "{emoji:⚠️} ʟσσᴘ ᴄσᴜηᴛ ɪs ᴧʟʀєᴧᴅʏ sєᴛ ᴛσ <b>{count}</b> ᴛɪᴍє(s)."
+
+loop_disabled: "{emoji:🔁} ʟσσᴘ ʜᴧs ʙєєη <b>ᴅɪsᴧʙʟєᴅ</b> ʙʏ {user}"
+
+loop_set: "{emoji:🔁} sєᴛ ᴛσ ʟσσᴘ <b>{count}</b> ᴛɪᴍє(s)\n└ ᴄʜᴧηɢєᴅ ʙʏ: {user}"
+
+loop_current: "• ᴄᴜʀʀєηᴛ ʟσσᴘ: <b>{count}</b> ᴛɪᴍє(s)"
+
+logger_usage: "{emoji:⚙️} ᴜsᴧɢє: <code>{cmd} [enable|disable]</code> - ᴛσ єηᴧʙʟє σʀ ᴅɪsᴧʙʟє ᴛʜє ʟσɢɢєʀ\n\n{status}"
+
+logger_status: "{emoji:📜} ᴄᴜʀʀєηᴛ sᴛᴧᴛᴜs: {action}"
+
+logger_check_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴄʜєᴄᴋ ʟσɢɢєʀ sᴛᴧᴛᴜs: {error}"
+
+logger_already: "ℹ️ ʟσɢɢєʀ ɪs ᴧʟʀєᴧᴅʏ {action}."
+
+logger_update_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴜᴘᴅᴧᴛє ʟσɢɢєʀ sєᴛᴛɪηɢ: {error}"
+
+logger_updated: "{emoji:✅} ʟσɢɢєʀ ʜᴧs ʙєєη {action} sᴜᴄᴄєssғᴜʟʟʏ."
+
+vclog_join_count: "\n🔁 ᴊσɪη ᴄσᴜηᴛ ➛ <code>{count}</code>"
+
+vclog_join: "<b>🟢 #ᴊσɪηᴠɪᴅєσᴄʜᴧᴛ</b>\n<blockquote><b>ηᴧᴍє ➛ <a href=\"tg://user?id={user_id}\">{name}</a>\nɪᴅ ➛ <code>{user_id}</code>\nᴜsєʀηᴧᴍє ➛ {username}\n👥 ᴛσᴛᴧʟ ᴠᴄ ➛ <code>{total}</code></b></blockquote>"
+vclog_leave: "<b>🔴 #ʟєғᴛᴠɪᴅєσᴄʜᴧᴛ</b>\n<blockquote><b>ηᴧᴍє ➛ <a href=\"tg://user?id={user_id}\">{name}</a>\nɪᴅ ➛ <code>{user_id}</code>\nᴜsєʀηᴧᴍє ➛ {username}\n👥 ᴛσᴛᴧʟ ᴠᴄ ➛ <code>{total}</code></b></blockquote>"
+vclog_anon_usage: "⚠️ ᴧησηʏᴍσᴜs ᴧᴅᴍɪη\n\nᴜsє: <code>/vclogger on</code> σʀ <code>/vclogger off</code>"
+vclog_already_active: "ℹ️ <b>ᴠᴄ ʟσɢɢєʀ ɪs ᴧʟʀєᴧᴅʏ ᴧᴄᴛɪᴠє ɪη ᴛʜɪs ɢʀσᴜᴘ.</b>"
+vclog_enabled: "✅ <b>ᴠᴄ ʟσɢɢєʀ ʜᴧs ʙєєη єηᴧʙʟєᴅ!</b>"
+vclog_disabled: "🚫 <b>ᴠᴄ ʟσɢɢєʀ ʜᴧs ʙєєη ᴅɪsᴧʙʟєᴅ!</b>"
+vclog_no_permission: "❌ <b>ᴘєʀᴍɪssɪση ᴅєηɪєᴅ!</b>\n\n👮 <b>σηʟʏ ᴧᴅᴍɪηs σʀ σᴡηєʀs ᴄᴧη ᴜsє ᴠᴄ ʟσɢɢєʀ.</b>"
+vclog_invalid_arg: "❌ <b>ɪηᴠᴧʟɪᴅ ᴧʀɢᴜᴍєηᴛ</b>\n\n➜ <b>ᴜsᴧɢє :</b> <code>/vclogger [on / off]</code>"
+vclog_status: "🎙 <b>ᴠᴄ ʟσɢɢєʀ sᴛᴧᴛᴜs</b>\n\n➜ <b>ᴄᴜʀʀєηᴛ sᴛᴧᴛє :</b> {state}\n\n➜ <b>ᴜsᴧɢє :</b> <code>/vclogger [on / off]</code>"
+vclog_stats: "📊 <b>ᴠᴄ ʟσɢɢєʀ sᴛᴧᴛs</b>\n\n➜ <b>ʟσɢɢєʀ  :</b> {enabled}\n➜ <b>ᴍσηɪᴛσʀ :</b> {running}\n➜ <b>ᴜsєʀs ɪη ᴠᴄ :</b> <code>{count}</code>"
+vclog_admin_only: "❌ <b>ᴧᴅᴍɪη σηʟʏ!</b>"
+vclog_state_enabled: "єηᴧʙʟєᴅ ✅"
+vclog_state_disabled: "ᴅɪsᴧʙʟєᴅ ❌"
+vclog_enabled_short: "✅ єηᴧʙʟєᴅ"
+vclog_disabled_short: "❌ ᴅɪsᴧʙʟєᴅ"
+vclog_running: "🟢 ʀᴜηηɪηɢ"
+vclog_stopped: "🔴 sᴛσᴘᴘєᴅ"
+
+# Logs module
+logs_empty: "ησ ʟσɢs ғσᴜηᴅ"
+
+# reason - if maintenance reason available so at the place of {reason} the maint_reason will provided
+maint: "⚠️ ɪ'ᴍ ᴜηᴅєʀ ᴍᴧɪηᴛєηᴧηᴄє ᴧᴛ ᴛʜє ᴍσᴍєηᴛ ᴧηᴅ ᴛєᴍᴘσʀᴧʀɪʟʏ ᴜηᴧᴠᴧɪʟᴧʙʟє. ᴘʟєᴧsє ᴄʜєᴄᴋ ʙᴧᴄᴋ ʟᴧᴛєʀ.\n\n{reason}"
+
+maint_reason: "<i>{emoji:📝} ʀєᴧsση: {reason}</i>"
+
+# ⚙️ Maintenance control
+maint_usage: "{emoji:⚙️} <b>ᴍᴧɪηᴛєηᴧηᴄє ᴄσηᴛʀσʟ</b>\n\nᴜsᴧɢє: {cmd} [єηᴧʙʟє|ᴅɪsᴧʙʟє] [ʀєᴧsση]\n{emoji:📜} ᴄᴜʀʀєηᴛ sᴛᴧᴛᴜs: {status}"
+
+maint_check_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴄʜєᴄᴋ ᴍᴧɪηᴛєηᴧηᴄє sᴛᴧᴛᴜs: <code>{error}</code>"
+
+maint_already_enabled: "ℹ️ ᴍᴧɪηᴛєηᴧηᴄє ᴍσᴅє ɪs ᴧʟʀєᴧᴅʏ єηᴧʙʟєᴅ {emoji:🟢}."
+
+maint_already_disabled: "ℹ️ ᴍᴧɪηᴛєηᴧηᴄє ᴍσᴅє ɪs ᴧʟʀєᴧᴅʏ ᴅɪsᴧʙʟєᴅ {emoji:🔴}."
+
+maint_already_reason_same: "ℹ️ ᴍᴧɪηᴛєηᴧηᴄє ɪs ᴧʟʀєᴧᴅʏ єηᴧʙʟєᴅ ᴡɪᴛʜ ᴛʜє sᴧᴍє ʀєᴧsση."
+
+maint_reason_removed: "{emoji:✅} ᴍᴧɪηᴛєηᴧηᴄє ʀєᴧsση ʀєᴍσᴠєᴅ sᴜᴄᴄєssғᴜʟʟʏ."
+
+maint_reason_updated: "{emoji:✅} ᴍᴧɪηᴛєηᴧηᴄє ʀєᴧsση ᴜᴘᴅᴧᴛєᴅ.\n{emoji:📝} ʀєᴧsση: {reason}"
+
+maint_enabled: "{emoji:✅} ᴍᴧɪηᴛєηᴧηᴄє ᴍσᴅє ʜᴧs ʙєєη <b>єηᴧʙʟєᴅ</b> sᴜᴄᴄєssғᴜʟʟʏ."
+
+maint_enabled_reason: "{emoji:✅} ᴍᴧɪηᴛєηᴧηᴄє ᴍσᴅє єηᴧʙʟєᴅ.\n{emoji:📝} ʀєᴧsση: {reason}"
+
+maint_disabled: "{emoji:✅} ᴍᴧɪηᴛєηᴧηᴄє ᴍσᴅє ʜᴧs ʙєєη <b>ᴅɪsᴧʙʟєᴅ</b> sᴜᴄᴄєssғᴜʟʟʏ."
+
+maint_entering: "{emoji:⚠️} ʙσᴛ ɪs єηᴛєʀɪηɢ ᴍᴧɪηᴛєηᴧηᴄє ᴍσᴅє..."
+
+enabled_with_reason: "{emoji:🟢} єηᴧʙʟєᴅ\n{emoji:📝} ʀєᴧsση: {reason}"
+
+move_usage: "{emoji:⚠️} ᴜsᴧɢє: <code>{cmd} [from] [to]</code>"
+
+move_invalid_numbers: "{emoji:⚠️} ɪηᴠᴧʟɪᴅ ηᴜᴍʙєʀs. єxᴧᴍᴘʟє: <code>/{cmd} 2 1</code>"
+
+move_invalid_indexes_min: "{emoji:⚠️} ɪηᴅєxєs ᴍᴜsᴛ ʙє ɢʀєᴧᴛєʀ ᴛʜᴧη 0."
+
+move_invalid_indexes_max: "{emoji:⚠️} ǫᴜєᴜє ʜᴧs σηʟʏ {queue_len} ᴛʀᴧᴄᴋs."
+
+move_success: "{emoji:✅} ᴍσᴠєᴅ ᴛʀᴧᴄᴋ ғʀσᴍ ᴘσsɪᴛɪση {from} ᴛσ {to} ʙʏ {user}."
+
+# 🔇 Mute messages
+mute_already_muted: "🔇 <b>ᴧʟʀєᴧᴅʏ ᴍᴜᴛєᴅ</b>\nᴛʜє ᴍᴜsɪᴄ ɪs ᴧʟʀєᴧᴅʏ ᴍᴜᴛєᴅ ɪη ᴛʜɪs ᴄʜᴧᴛ.\nᴡσᴜʟᴅ ʏσᴜ ʟɪᴋє ᴛσ ᴜηᴍᴜᴛє ɪᴛ?"
+
+mute_failed: "❌ <b>ᴘʟᴧʏʙᴧᴄᴋ ᴍᴜᴛє ғᴧɪʟєᴅ</b>\nєʀʀσʀ: <code>{error}</code>"
+
+mute_success: |
+  {emoji:🔇} <b>ᴍᴜᴛєᴅ ᴘʟᴧʏʙᴧᴄᴋ</b>
+
+  {emoji:🎵} ᴛʀᴧᴄᴋ: {title}
+  {emoji:👤} ᴍᴜᴛєᴅ ʙʏ: {user}
+
+no_song_query: |
+  <b>{emoji:🎵} ᴡʜσσᴘs! ησ sσηɢ ᴅєᴛєᴄᴛєᴅ.</b>
+
+  <i>ᴛʏᴘє <b>{cmd} [sσηɢ ηᴧᴍє]</b> σʀ ʀєᴘʟʏ ᴛσ ᴧ <b>ᴍєᴅɪᴧ</b> ᴛσ sᴛᴧʀᴛ ᴘʟᴧʏɪηɢ!</i>
+
+no_song_found: "{emoji:❌} ησ ᴛʀᴧᴄᴋs ғσᴜηᴅ."
+
+nothumb_status: |
+  {emoji:🖼️} <b>ᴛʜᴜᴍʙηᴧɪʟ ᴄσηᴛʀσʟ</b>
+  
+  <i>ᴡʜєη єηᴧʙʟєᴅ, ᴘʟᴧʏʙᴧᴄᴋ ᴍєssᴧɢєs ᴡση'ᴛ sʜσᴡ ᴧʀᴛᴡσʀᴋ / ᴛʜᴜᴍʙηᴧɪʟs.</i>
+  
+  <b>{emoji:📊} ᴜsᴧɢє: {cmd} [єηᴧʙʟє|ᴅɪsᴧʙʟє]</b>
+  
+  <i>ᴛʜᴜᴍʙηᴧɪʟ ɪs {action} ᴄᴜʀʀєηᴛʟʏ.</i>
+
+nothumb_fetch_fail: "{emoji:⚠️} <b>ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ ᴛʜᴜᴍʙηᴧɪʟ sєᴛᴛɪηɢ.</b>"
+
+nothumb_already: "ℹ️ ᴛʜᴜᴍʙηᴧɪʟ ᴅɪsᴘʟᴧʏ ɪs ᴧʟʀєᴧᴅʏ {action}."
+
+nothumb_update_fail: "{emoji:⚠️} <b>ғᴧɪʟєᴅ ᴛσ ᴜᴘᴅᴧᴛє ᴛʜᴜᴍʙηᴧɪʟ sєᴛᴛɪηɢ.</b>"
+
+nothumb_updated: "{emoji:🖼️} ᴛʜᴜᴍʙηᴧɪʟ ᴅɪsᴘʟᴧʏ ʜᴧs ʙєєη {action}."
+
+cmddelete_status: "{emoji:🗑️} <b>ᴄσᴍᴍᴧηᴅ ᴅєʟєᴛє ᴄσηᴛʀσʟ</b>\n\nᴡʜєη єηᴧʙʟєᴅ, ɪ ᴡɪʟʟ ᴧᴜᴛσᴍᴧᴛɪᴄᴧʟʟʏ ᴅєʟєᴛє ᴄσᴍᴍᴧηᴅ ᴍєssᴧɢєs.\nᴜsᴧɢє: {cmd} [єηᴧʙʟє|ᴅɪsᴧʙʟє]\nᴄᴜʀʀєηᴛ sᴛᴧᴛє: {action}"
+
+cmddelete_updated: "{emoji:🗑️} ᴄσᴍᴍᴧηᴅ ᴅєʟєᴛɪση ʜᴧs ʙєєη {action}."
+
+only_admin: "{emoji:⚠️} <b>ᴘєʀᴍɪssɪση ᴅєηɪєᴅ!</b>\nσηʟʏ <b>ᴧᴅᴍɪηs</b> ᴄᴧη ᴄσηᴛʀσʟ ᴛʜєsє ᴧᴄᴛɪσηs. ʏσᴜ ᴄᴧη sᴛɪʟʟ ᴘʟᴧʏ sσηɢs {emoji:🎵}.\n\nɪғ ʏσᴜ ʙєʟɪєᴠє ʏσᴜ ᴧʀє ᴧη ᴧᴅᴍɪη, ᴘʟєᴧsє ᴜsє /reload ᴛσ ʀєғʀєsʜ ʏσᴜʀ ᴧᴅᴍɪη sᴛᴧᴛᴜs."
+
+only_admin_cb: "⚠️ σηʟʏ ᴧᴅᴍɪηs ᴄᴧη ᴅσ ᴛʜєsє ᴧᴄᴛɪσηs."
+
+only_admin_or_auth: "{emoji:⚠️} <b>ᴧᴄᴄєss ᴅєηɪєᴅ</b>\nσηʟʏ <b>ᴧᴅᴍɪηs</b> σʀ <b>ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs</b> ᴄᴧη ᴄσηᴛʀσʟ ᴛʜєsє ᴧᴄᴛɪσηs.\n\nɪғ ʏσᴜ ʀєᴄєηᴛʟʏ ʙєᴄᴧᴍє ᴧη ᴧᴅᴍɪη, ᴜsє /reload ᴛσ ʀєғʀєsʜ ʏσᴜʀ ᴘєʀᴍɪssɪσηs."
+
+only_admin_or_auth_cb: "⚠️ σηʟʏ ᴧᴅᴍɪηs σʀ ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ᴄᴧη ᴅσ ᴛʜєsє ᴧᴄᴛɪσηs."
+
+only_supergroup: "{emoji:⚠️} ᴛʜɪs ᴄσᴍᴍᴧηᴅ ᴄᴧη σηʟʏ ʙє ᴜsєᴅ ɪη ɢʀσᴜᴘs."
+
+only_owner: "⚠️ σηʟʏ ᴛʜє ʙσᴛ σᴡηєʀ ᴄᴧη ᴜsє ᴛʜɪs ᴄσᴍᴍᴧηᴅ."
+
+only_sudo: "{emoji:⚠️} σηʟʏ sᴜᴅσ ᴜsєʀs σʀ ᴛʜє ʙσᴛ σᴡηєʀ ᴄᴧη ᴜsє ᴛʜɪs ᴄσᴍᴍᴧηᴅ."
+
+pause_already: |
+  {emoji:⏸️} <b>ᴧʟʀєᴧᴅʏ ᴘᴧᴜsєᴅ</b>
+  ᴛʜє ᴍᴜsɪᴄ ɪs ᴧʟʀєᴧᴅʏ ᴘᴧᴜsєᴅ.
+
+pause_success: |
+  {emoji:⏸️} <b>ᴘᴧᴜsєᴅ ᴘʟᴧʏʙᴧᴄᴋ</b>
+
+  {emoji:🎵} ᴛʀᴧᴄᴋ: {title}
+  {emoji:⏱️} ᴘσsɪᴛɪση: {position} / {duration}
+  {emoji:👤} ᴘᴧᴜsєᴅ ʙʏ: {user}
+
+play_single_track_too_long: |
+  {emoji:⚠️} ʏσᴜ ᴄᴧη'ᴛ ᴘʟᴧʏ sσηɢs ʟσηɢєʀ ᴛʜᴧη {limit_mins} ᴍɪηᴜᴛєs.
+  <i>{title}</i> ᴡᴧs sᴋɪᴘᴘєᴅ.
+
+play_download_failed: "{emoji:❌} ᴅσᴡηʟσᴧᴅ ғᴧɪʟєᴅ. ᴘʟєᴧsє ᴛʀʏ ᴧɢᴧɪη."
+
+play_added_to_queue_single: |
+  <blockquote><b>{emoji:💮} ɪηᴄσᴍɪηɢ ᴛʀᴧᴄᴋ ᴅєᴛєᴄᴛєᴅ : #{index}</b></blockquote>
+  <blockquote expandable><b>{emoji:🎋} ᴍєʟσᴅʏ :</b> <a href="{url}">{title}</a>
+  <b>{emoji:✨} ʟєηɢᴛʜ :</b> {duration}
+  <b>{emoji:🥀} ʀєǫᴜєsᴛєʀ :</b> {by}
+
+  {emoji:💐} sᴛᴧηᴅʙʏ, ʏσᴜʀ sєssɪση ʙєɢɪηs sʜσʀᴛʟʏ</blockquote>
+
+play_multiple_tracks_too_long_header: "<b>{emoji:⚠️} {count} ᴛʀᴧᴄᴋs ᴡєʀє sᴋɪᴘᴘєᴅ (ᴍᴧx ᴅᴜʀᴧᴛɪση {limit_mins} ᴍɪηs):</b>"
+
+play_multiple_tracks_too_long_item: "— <i>{title}</i>"
+
+play_multiple_tracks_too_long_more: "... ᴧηᴅ {remaining} ᴍσʀє."
+
+play_all_tracks_skipped: "{emoji:❌} ᴧʟʟ ғσᴜηᴅ ᴛʀᴧᴄᴋs ᴡєʀє sᴋɪᴘᴘєᴅ ᴅᴜє ᴛσ ᴅᴜʀᴧᴛɪση ʟɪᴍɪᴛs."
+
+play_failed: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴘʟᴧʏ\nєʀʀσʀ: {error}"
+
+play_unable: "<b> {emoji:❌} ᴜηᴧʙʟє ᴛσ ᴘʟᴧʏ </b>\n\n<i>ᴘʟєᴧsє <b>ʀєsᴛᴧʀᴛ ᴛʜє ᴠσɪᴄє</b> ᴄʜᴧᴛ.</i>"
+
+rtmp_play_unsupported: "{emoji:⚠️} <b>ᴄᴧη'ᴛ ᴘʟᴧʏ ɪη ᴧη ʀᴛᴍᴘ / ʟɪᴠє-sᴛʀєᴧᴍ ᴠσɪᴄє ᴄʜᴧᴛ.</b>\n\n<i>ᴘʟᴧʏʙᴧᴄᴋ sᴛσᴘᴘєᴅ.</i>"
+
+play_downloading_song: "{emoji:📥} ᴅσᴡηʟσᴧᴅɪηɢ sσηɢ \"{title}\""
+
+play_download_canceled: "{emoji:⚠️} ᴅσᴡηʟσᴧᴅ ᴄᴧηᴄєʟєᴅ ʙʏ {user}."
+
+play_already_in_queue: "{emoji:✅} <b>ᴛʀᴧᴄᴋ ᴧʟʀєᴧᴅʏ ᴧᴅᴅєᴅ!</b>\n\n<i>{title}</i> ɪs ᴧʟʀєᴧᴅʏ ᴘʟᴧʏɪηɢ σʀ ɪη ᴛʜє ǫᴜєᴜє."
+
+play_already_playing: "{emoji:⚠️} <b>ᴧ sσηɢ ɪs ᴧʟʀєᴧᴅʏ ᴘʟᴧʏɪηɢ.</b>\n\nᴘʟєᴧsє ᴡᴧɪᴛ ғσʀ ɪᴛ ᴛσ ғɪηɪsʜ σʀ ᴜsє <code>/stop</code> ᴛσ sᴛσᴘ ɪᴛ ғɪʀsᴛ."
+
+play_added_multiple_header: "{emoji:➕} <b>ᴧᴅᴅєᴅ {count} ᴛʀᴧᴄᴋs</b> ʙʏ {user}"
+
+play_queue_limit_hint: "{emoji:⚠️} <i>ǫᴜєᴜє ʟɪᴍɪᴛ ʀєᴧᴄʜєᴅ — sσᴍє ᴛʀᴧᴄᴋs ᴡєʀє sᴋɪᴘᴘєᴅ.</i>"
+
+play_queue_view_hint: "<i>ᴜsє /queue ᴛσ ᴠɪєᴡ ғᴜʟʟ ʟɪsᴛ.</i>"
+
+playmode_help: |
+  {emoji:🛠️} <b>ᴘʟᴧʏ ᴍσᴅє</b>
+
+  <b>sᴛᴧᴛᴜs:</b> {status}
+  <b>ᴜsᴧɢє:</b> <code>/playmode [enable|disable]</code>
+
+playmode_status_admins: "ᴧᴅᴍɪηs 🔐"
+
+playmode_status_everyone: "єᴠєʀʏσηє 🌍"
+
+playmode_success_admins: "{emoji:🛡️} <b>ᴘʟᴧʏ ᴍσᴅє</b> ɪs ησᴡ ʀєsᴛʀɪᴄᴛєᴅ ᴛσ <b>ᴧᴅᴍɪηs & ᴅᴊs</b> σηʟʏ. {emoji:🎧}"
+
+playmode_success_everyone: "{emoji:✅} <b>ᴘʟᴧʏ ᴍσᴅє</b> ɪs ησᴡ <b>σᴘєη ᴛσ єᴠєʀʏσηє</b>. ʟєᴛ ᴛʜє ᴍᴜsɪᴄ ғʟσᴡ! {emoji:🎶}"
+
+playmode_restricted: "{emoji:🚫} ᴘʟᴧʏ ᴍσᴅє ɪs єηᴧʙʟєᴅ. σηʟʏ ᴧᴅᴍɪηs ᴧηᴅ ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ᴄᴧη ᴘʟᴧʏ."
+
+# 🏓 Ping messages
+ping_start: "{emoji:🏓} ᴘɪηɢɪηɢ..."
+
+ping_result: |
+  ● <b>ᴘσηɢ:</b> <code>{latency}ms</code>
+
+  ● <b><u>{bot} sʏsᴛєᴍ sᴛᴧᴛ's :</u></b>
+
+  ● <b>ᴜᴘᴛɪᴍє:</b> {uptime}
+  ● <b>ʀᴧᴍ ᴜsᴧɢє:</b> {ram_info}
+  ● <b>ᴄᴘᴜ ᴜsᴧɢє:</b> {cpu_usage}
+  ● <b>ᴅɪsᴋ ᴜsᴧɢє:</b> {disk_usage}
+  ● <b>ʟɪʙʀᴧʀʏ :</b> ɢσ-ɢʀᴧᴍ
+
+position_now: |
+  {emoji:🎵} <b>{title}</b>
+  {emoji:📍} <code>{position} / {duration}</code>
+  {emoji:⚙️} sᴘєєᴅ: <b>{speed}x</b>
+
+queue_limit_reached: "{emoji:⚠️} ǫᴜєᴜє ʟɪᴍɪᴛ ʀєᴧᴄʜєᴅ ({limit} ᴛʀᴧᴄᴋs ᴍᴧx). ᴜsє /clear ᴛσ ᴄʟєᴧʀ ǫᴜєᴜє."
+
+queue_no_active: "{emoji:⚠️} <b>ησ ᴧᴄᴛɪᴠє ᴘʟᴧʏʙᴧᴄᴋ.</b>\n\n<i>ησᴛʜɪηɢ ɪs ǫᴜєᴜєᴅ ʀɪɢʜᴛ ησᴡ.</i>"
+
+queue_header: "{emoji:🎶} <b>ᴄᴜʀʀєηᴛ ǫᴜєᴜє</b>"
+
+queue_now_playing: "{emoji:▶️} <b>ησᴡ ᴘʟᴧʏɪηɢ:</b>"
+
+queue_up_next: "{emoji:⏭️} <b>ᴜᴘ ηєxᴛ:</b>"
+
+queue_more_line: "\n… ᴧηᴅ {remaining} ᴍσʀє"
+
+queue_empty_tail: "{emoji:📭} <i>ησ ᴍσʀє sσηɢs ɪη ǫᴜєᴜє.</i>"
+
+queue_empty: "{emoji:⚠️} <b>ᴛʜє ǫᴜєᴜє ɪs ᴧʟʀєᴧᴅʏ єᴍᴘᴛʏ.</b>"
+
+# 🔄 Reload
+reload_start: "{emoji:⚙️} ʀєʟσᴧᴅɪηɢ ᴧᴅᴍɪη ᴄᴧᴄʜє, ᴠσɪᴄє ᴄʜᴧᴛ sᴛᴧᴛᴜs, ᴧηᴅ ᴧssɪsᴛᴧηᴛ sᴛᴧᴛᴜs..."
+
+reload_done: "<b>{emoji:⚙️} ʀєʟσᴧᴅ ᴄσᴍᴘʟєᴛє:</b>\n\n{summary}"
+
+reload_admin_cache_ok: "<b>• ᴧᴅᴍɪη ᴄᴧᴄʜє:</b> <i>{emoji:✅} ᴅσηє</i>"
+
+reload_admin_cache_fail: "<b>• ᴧᴅᴍɪη ᴄᴧᴄʜє:</b> <i>{emoji:❌} ({error})</i>"
+
+reload_voice_inactive: "<b>• ᴠσɪᴄє ᴄʜᴧᴛ:</b> <i>{emoji:⚪} ɪηᴧᴄᴛɪᴠє</i>"
+
+reload_voice_admin_required: "<b>• ᴠσɪᴄє ᴄʜᴧᴛ:</b> <i>{emoji:❌} ᴧᴅᴍɪη ᴘєʀᴍɪssɪση ʀєǫᴜɪʀєᴅ</i>"
+
+reload_voice_fail: "<b>• ᴠσɪᴄє ᴄʜᴧᴛ:</b> <i>{emoji:❌} ({error})</i>"
+
+reload_voice_active: "<b>• ᴠσɪᴄє ᴄʜᴧᴛ:</b> <i>{emoji:✅} ᴧᴄᴛɪᴠє</i>"
+
+reload_assistant_banned: "<b>• ᴧssɪsᴛᴧηᴛ:</b> <i>{emoji:❌} ʙᴧηηєᴅ</i>"
+
+reload_assistant_admin_required: "<b>• ᴧssɪsᴛᴧηᴛ:</b> <i>{emoji:❌} ᴧᴅᴍɪη ᴘєʀᴍɪssɪση ʀєǫᴜɪʀєᴅ</i>"
+
+reload_assistant_fail: "<b>• ᴧssɪsᴛᴧηᴛ:</b> <i>{emoji:❌} ({error})</i>"
+
+reload_assistant_present: "<b>• ᴧssɪsᴛᴧηᴛ:</b> <i>{emoji:✅} ᴘʀєsєηᴛ</i>"
+
+reload_assistant_not_present: "<b>• ᴧssɪsᴛᴧηᴛ:</b> <i>{emoji:⚪} ησᴛ ᴘʀєsєηᴛ</i>"
+
+reload_room_reset: "<b>• ʀσσᴍ:</b> <i>ʀєsєᴛ {emoji:✅}</i>"
+
+remove_usage: "{emoji:⚠️} <b>ɪηᴠᴧʟɪᴅ ᴜsᴧɢє.</b>\nᴜsᴧɢє: <code>{cmd} [index]</code>"
+
+remove_invalid_index: "{emoji:⚠️} <b>ɪηᴠᴧʟɪᴅ ɪηᴅєx.</b> ɪᴛ ᴍᴜsᴛ ʙє ᴧ <b>ηᴜᴍʙєʀ</b>."
+
+remove_index_too_small: "{emoji:⚠️} <b>ɪηᴅєx ᴍᴜsᴛ ʙє ɢʀєᴧᴛєʀ ᴛʜᴧη 0.</b>"
+
+remove_index_too_big: "{emoji:⚠️} ɪηᴠᴧʟɪᴅ ɪηᴅєx. ǫᴜєᴜє σηʟʏ ʜᴧs <b>{total}</b> ᴛʀᴧᴄᴋs."
+
+remove_success: "{emoji:✅} ʀєᴍσᴠєᴅ ᴛʀᴧᴄᴋ ᴧᴛ ᴘσsɪᴛɪση <b>{index}</b> ғʀσᴍ ᴛʜє ǫᴜєᴜє.\n{emoji:👤} ʙʏ: {user}"
+
+# 🔁 Replay
+replay_failed: "❌ <b>ʀєᴘʟᴧʏ ғᴧɪʟєᴅ</b>\nєʀʀσʀ: <code>{error}</code>"
+
+replay_success: |
+  {emoji:🔁} <b>ησᴡ ʀєᴘʟᴧʏɪηɢ</b>
+
+  {emoji:🎵} ᴛɪᴛʟє: {title}
+  {emoji:⏱️} ᴅᴜʀᴧᴛɪση: <code>{duration}</code>
+  {emoji:⚙️} sᴘєєᴅ: <b>{speed}x</b>
+
+# ▶️ Resume
+resume_already_playing: "ℹ️ <b>ᴧʟʀєᴧᴅʏ ᴘʟᴧʏɪηɢ</b>\nᴛʜє ᴍᴜsɪᴄ ɪs ᴧʟʀєᴧᴅʏ ᴘʟᴧʏɪηɢ ɪη ᴛʜɪs ᴄʜᴧᴛ.\nᴡσᴜʟᴅ ʏσᴜ ʟɪᴋє ᴛσ ᴘᴧᴜsє ɪᴛ?"
+
+resume_failed: "{emoji:❌} <b>ᴘʟᴧʏʙᴧᴄᴋ ʀєsᴜᴍє ғᴧɪʟєᴅ</b>\nєʀʀσʀ: <code>{error}</code>"
+
+resume_success: |
+  {emoji:▶️} <b>ʀєsᴜᴍɪηɢ ᴘʟᴧʏʙᴧᴄᴋ</b>
+
+  {emoji:🎵} ᴛɪᴛʟє: {title}
+  {emoji:📍} ᴘσsɪᴛɪση: {position} / {duration}
+  {emoji:👤} ʀєsᴜᴍєᴅ ʙʏ: {user}
+  {speed_line}
+
+restart: "{emoji:♻️} ʀєsᴛᴧʀᴛɪηɢ..."
+
+restart_exepath_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ɢєᴛ єxєᴄᴜᴛᴧʙʟє ᴘᴧᴛʜ: {error}"
+
+restart_symlink_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ʀєsσʟᴠє єxєᴄᴜᴛᴧʙʟє ᴘᴧᴛʜ: {error}"
+
+restart_service: "{bot} ʜᴧs ᴊᴜsᴛ ʀєsᴛᴧʀᴛєᴅ. sσʀʀʏ ғσʀ ᴛʜє ɪssᴜєs.\n\nsᴛᴧʀᴛ ᴘʟᴧʏɪηɢ ᴧɢᴧɪη ᴧғᴛєʀ 10–15 sєᴄσηᴅs."
+
+restart_initiated: "{emoji:✅} ʀєsᴛᴧʀᴛ ɪηɪᴛɪᴧᴛєᴅ sᴜᴄᴄєssғᴜʟʟʏ!"
+
+restart_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ʀєsᴛᴧʀᴛ: {error}"
+
+restart_confirm_running: "{emoji:⚠️} ᴧ sσηɢ ɪs ᴄᴜʀʀєηᴛʟʏ ᴘʟᴧʏɪηɢ ɪη ᴛʜɪs ᴄʜᴧᴛ.\nᴄʜσσsє ᴧη ᴧᴄᴛɪση ʙєʟσᴡ."
+
+restart_btn_bot: "ʀєsᴛᴧʀᴛ ᴛʜє ʙσᴛ"
+
+restart_btn_replay: "ʀєᴘʟᴧʏ ᴛʜє sσηɢ"
+
+restart_confirm_bot: "♻️ ʀєsᴛᴧʀᴛɪηɢ ᴛʜє ʙσᴛ..."
+
+restart_confirm_replay_done: "⏮️ ᴄᴜʀʀєηᴛ sσηɢ ʀєᴘʟᴧʏєᴅ sᴜᴄᴄєssғᴜʟʟʏ."
+
+room_not_active_cb: "⚠️ ησᴛʜɪηɢ ᴘʟᴧʏɪηɢ ʀɪɢʜᴛ ησᴡ."
+
+room_no_active: "⚠️ <b>ησ ᴧᴄᴛɪᴠє ᴘʟᴧʏʙᴧᴄᴋ.</b>\n\n<i>ᴛʜєʀє's ησᴛʜɪηɢ ᴘʟᴧʏɪηɢ ʀɪɢʜᴛ ησᴡ.</i>"
+
+room_already_paused: "⏸️ ᴛʀᴧᴄᴋ ɪs ᴧʟʀєᴧᴅʏ ᴘᴧᴜsєᴅ. ᴛᴧᴘ ▶️ ʀєsᴜᴍє ᴛσ ᴄσηᴛɪηᴜє."
+
+room_pause_failed: "❌ ғᴧɪʟєᴅ ᴛσ ᴘᴧᴜsє ᴘʟᴧʏʙᴧᴄᴋ.\n\n<i>{error}</i>"
+
+generic_error: "{emoji:❌} sσᴍєᴛʜɪηɢ ᴡєηᴛ ᴡʀσηɢ: <code>{error}</code>"
+
+searching: "{emoji:🔍}{emoji:🎶} sєᴧʀᴄʜɪηɢ... {emoji:⚡}{emoji:✨}"
+
+searching_query: "{emoji:🔍}{emoji:🎶} sєᴧʀᴄʜɪηɢ ғσʀ: <b>{query}</b>... {emoji:⚡}{emoji:✨}"
+
+settings_btn_adminmode: "🛡️ ᴧᴅᴍɪη ᴍσᴅє"
+
+settings_btn_cmddelete: "🗑️ ᴄᴍᴅ ᴅєʟєᴛє"
+
+settings_btn_lang: "🌐 ʟᴧηɢᴜᴧɢє"
+
+settings_btn_nothumb: "🖼️ ᴛʜᴜᴍʙηᴧɪʟs"
+
+settings_btn_playmode: "🎵 ᴘʟᴧʏ ᴍσᴅє"
+
+settings_info_adminmode: |
+  🛡️ ᴡʜᴧᴛ ɪs ᴛʜɪs?
+
+  ᴄσηᴛʀσʟs ᴡʜσ ᴄᴧη ᴜsє ᴧᴅᴍɪη ᴄσᴍᴍᴧηᴅs σғ ᴛʜє ʙσᴛ (sᴋɪᴘ, ᴘᴧᴜsє, єᴛᴄ.).
+
+settings_info_cmddelete: |
+  🗑️ ᴡʜᴧᴛ ɪs ᴛʜɪs?
+
+  ᴡʜєη єηᴧʙʟєᴅ, ᴛʜє ʙσᴛ ᴡɪʟʟ ᴧᴜᴛσᴍᴧᴛɪᴄᴧʟʟʏ ᴅєʟєᴛє ᴄσᴍᴍᴧηᴅ ᴍєssᴧɢєs ᴧғᴛєʀ ᴘʀσᴄєssɪηɢ ᴛʜєᴍ ᴛσ ᴋєєᴘ ᴛʜє ᴄʜᴧᴛ ᴄʟєᴧη.
+
+settings_btn_cleanduration: "⏱️ ᴄʟєᴧη ᴅєʟᴧʏ"
+
+settings_btn_cleanmode: "🧹 ᴄʟєᴧη ᴍσᴅє"
+
+settings_info_cleanduration: |
+  ᴄʏᴄʟєs ᴧᴜᴛσ-ᴅєʟєᴛє ᴅєʟᴧʏ: 15ᴍ → 30ᴍ → 60ᴍ → 5ᴍ.
+
+settings_info_cleanmode: |
+  ᴧᴜᴛσᴍᴧᴛɪᴄᴧʟʟʏ ʀєᴍσᴠєs ᴄσᴍᴍᴧηᴅ ᴧηᴅ ʙσᴛ sєʀᴠɪᴄє ᴍєssᴧɢєs ᴧғᴛєʀ ᴧ sʜσʀᴛ ᴅєʟᴧʏ.
+  ᴘʟᴧʏɪηɢ sᴛᴧᴛᴜs ᴍєssᴧɢєs ᴧʀє ᴋєᴘᴛ ᴜηᴛɪʟ ᴛʜєʏ ηᴧᴛᴜʀᴧʟʟʏ єxᴘɪʀє.
+cleanmode_status: "{emoji:🧹} <b>ᴄʟєᴧη ᴍσᴅє</b>\n\nᴧᴜᴛσ-ᴄʟєᴧηᴜᴘ σғ ᴄσᴍᴍᴧηᴅ ᴧηᴅ sєʀᴠɪᴄє ᴍєssᴧɢєs.\nᴄᴜʀʀєηᴛ sᴛᴧᴛє: {action}\nᴅєʟєᴛє ᴧғᴛєʀ: {duration}ᴍ"
+
+cleanmode_hint: "ᴜsє /settings ᴛσ ᴄʜᴧηɢє ᴧᴜᴛσ-ᴅєʟєᴛє ᴅᴜʀᴧᴛɪση."
+
+settings_info_lang: |
+  🌐 ᴡʜᴧᴛ ɪs ᴛʜɪs?
+
+  sєʟєᴄᴛ ᴛʜє ʟᴧηɢᴜᴧɢє ғσʀ ᴛʜє ʙσᴛ's ᴍєssᴧɢєs ᴧηᴅ ɪηᴛєʀғᴧᴄє ɪη ᴛʜɪs ɢʀσᴜᴘ.
+
+settings_info_nothumb: |
+  🖼️ ᴡʜᴧᴛ ɪs ᴛʜɪs?
+
+  ᴛσɢɢʟє ᴡʜєᴛʜєʀ ᴛσ sʜσᴡ ᴛʀᴧᴄᴋ ᴧʀᴛᴡσʀᴋ / ᴛʜᴜᴍʙηᴧɪʟs ɪη ᴘʟᴧʏʙᴧᴄᴋ ᴍєssᴧɢєs.
+
+settings_info_playmode: |
+  🎵 ᴡʜᴧᴛ ɪs ᴛʜɪs?
+
+  ᴄσηᴛʀσʟ ᴡʜσ ᴄᴧη ᴜsє ᴛʜє /play ᴄσᴍᴍᴧηᴅ. ɪғ єηᴧʙʟєᴅ, σηʟʏ ᴧᴅᴍɪηɪsᴛʀᴧᴛσʀs ᴧηᴅ ᴧᴜᴛʜσʀɪᴢєᴅ ᴜsєʀs ᴄᴧη sᴛᴧʀᴛ ᴘʟᴧʏʙᴧᴄᴋ.
+
+settings_main: |
+  {emoji:⚙️} <b>ᴄʜᴧᴛ sєᴛᴛɪηɢs</b>
+
+  <b>ɢʀσᴜᴘ:</b> {title}
+  <b>ɢʀσᴜᴘ ɪᴅ:</b> <code>{id}</code>
+
+  ᴄσηғɪɢᴜʀє ᴛʜє ʙσᴛ's ʙєʜᴧᴠɪσʀ ɪη ᴛʜɪs ɢʀσᴜᴘ ᴜsɪηɢ ᴛʜє ʙᴜᴛᴛσηs ʙєʟσᴡ.
+
+settings_updated: "✅ sєᴛᴛɪηɢs ᴜᴘᴅᴧᴛєᴅ!"
+
+autoplay_no_active: "⚠️ ʙσᴛ ɪs ησᴛ sᴛʀєᴧᴍɪηɢ ɪη ᴧ ᴠσɪᴄє ᴄʜᴧᴛ. sᴛᴧʀᴛ ᴘʟᴧʏɪηɢ ᴧ sσηɢ ғɪʀsᴛ."
+
+autoplay_menu: |
+  {emoji:🔁} <b>ᴧᴜᴛσᴘʟᴧʏ</b>
+
+  ᴡʜєη єηᴧʙʟєᴅ, σηᴄє ᴛʜє ǫᴜєᴜє єηᴅs ᴛʜє ʙσᴛ ᴡɪʟʟ ᴧᴜᴛσᴍᴧᴛɪᴄᴧʟʟʏ ᴋєєᴘ ᴘʟᴧʏɪηɢ ʀєᴄσᴍᴍєηᴅєᴅ sσηɢs sɪᴍɪʟᴧʀ ᴛσ ᴛʜє ʟᴧsᴛ ᴘʟᴧʏєᴅ ᴛʀᴧᴄᴋ.
+
+  <b>sᴛᴧᴛᴜs:</b> {state}
+
+autoplay_btn: "♫ ᴧᴜᴛσᴘʟᴧʏ: {state}"
+
+autoplay_enabled: "{emoji:✅} ᴧᴜᴛσᴘʟᴧʏ єηᴧʙʟєᴅ!"
+
+autoplay_disabled: "{emoji:❌} ᴧᴜᴛσᴘʟᴧʏ ᴅɪsᴧʙʟєᴅ!"
+
+autoplay_requester: "ᴧᴜᴛσᴘʟᴧʏ"
+askip_disabled: "{emoji:⚠️} ᴧᴜᴛσᴘʟᴧʏ ɪs ᴅɪsᴧʙʟєᴅ. ᴜsє /autoplay ᴛσ єηᴧʙʟє ɪᴛ."
+askip_no_recommendations: "{emoji:⚠️} ησ ᴧᴜᴛσᴘʟᴧʏ ʀєᴄσᴍᴍєηᴅᴧᴛɪσηs ғσᴜηᴅ ᴛσ sᴋɪᴘ ᴛσ."
+askip_success: "{emoji:⏭️} ᴧᴜᴛσᴘʟᴧʏ sᴋɪᴘᴘєᴅ ʙʏ {user}\n{emoji:🔁} ᴘʟᴧʏɪηɢ: <b>{title}</b>"
+
+speed_line: "{emoji:⚙️} sᴘєєᴅ: <b>{speed}x</b>"
+
+stats_overview: |
+  {emoji:🔧} <b>sʏsᴛєᴍ:</b><blockquote>
+  • σs: <code>{os}</code>, ᴧʀᴄʜ: <code>{arch}</code>
+  • ᴄᴘᴜs: <code>{cpus}</code>, ɢσʀσᴜᴛɪηєs: <code>{goroutines}</code></blockquote>
+
+  {emoji:📦} <b>ɪηᴛєʀηᴧʟ ᴍєᴍσʀʏ (ɢσ):</b><blockquote>
+  • ᴧʟʟσᴄ: <code>{alloc} MB</code>
+  • sʏs: <code>{sys} MB</code>
+  • ηᴜᴍɢᴄ: <code>{gc_count}</code> ({gc_emoji} {gc_rate} / ᴍɪη)</blockquote>
+
+  {emoji:💻} <b>sєʀᴠєʀ sᴛᴧᴛs:</b><blockquote>
+  • ᴄᴘᴜ ᴜsᴧɢє: {cpu_emoji} <code>{cpu}%</code>
+  • ʀᴧᴍ ᴜsᴧɢє: {ram_emoji} <code>{ram_used_gib} GiB</code> | <code>{ram_total_gib} GiB</code>
+  • sᴛσʀᴧɢє: <code>{storage_used_gib} GiB</code> | <code>{storage_total_gib} GiB</code></blockquote>
+
+  {emoji:🍃} <b>ᴍσηɢσᴅʙ sᴛᴧᴛs:</b><blockquote>
+  • sᴛσʀᴧɢє: <code>{db_data} / {db_storage} MB</code>
+  • ᴄσʟʟєᴄᴛɪσηs: <code>{db_collections}</code>
+  • σʙᴊєᴄᴛs: <code>{db_objects}</code></blockquote>
+
+  {emoji:📊} <b>sєʀᴠєᴅ:</b><blockquote>
+  • ᴄʜᴧᴛs: <code>{served_chats}</code>
+  • ᴜsєʀs: <code>{served_users}</code></blockquote>
+
+  {emoji:🧩} <b>ʀᴜηᴛɪᴍє ᴠєʀsɪσηs:</b><blockquote>
+  • ɢσ: <code>{go_version}</code>
+  • ɢσɢʀᴧᴍ ᴧᴘɪ ʟᴧʏєʀ: <code>{gogram_api_layer}</code>
+  • ɢσɢʀᴧᴍ ᴠєʀsɪση: <code>{gogram_version}</code>
+  • ηᴛɢᴄᴧʟʟs ᴠєʀsɪση: <code>{ntgcalls_version}</code></blockquote>
+
+# 👑 Sudo users
+
+sudo_owner_self: "{emoji:😂} ʜᴧʜᴧ, ʏσᴜ’ʀє ᴛʜє ʙσss ᴧʟʀєᴧᴅʏ! ᴡʜʏ ᴧʀє ʏσᴜ єᴠєη ᴛʀʏɪηɢ ᴛσ ᴧᴅᴅ ʏσᴜʀsєʟғ?"
+
+sudo_bot_self: "{emoji:🤖} ʜᴧʜᴧ, ɪ’ᴍ ᴛʜє ʙσᴛ! ɪ ᴄᴧη’ᴛ ᴧᴅᴅ ᴍʏsєʟғ ᴛσ ᴛʜє sᴜᴅσ ʟɪsᴛ — єᴠєη ᴛʜє σᴡηєʀ ᴄᴧη’ᴛ ᴄʜєᴧᴛ ᴍє {emoji:😎}"
+
+sudo_bot_user: "{emoji:🤖} ʏσᴜ ᴄᴧη’ᴛ ᴧᴅᴅ ᴧ ʙσᴛ ᴛσ ᴛʜє sᴜᴅσ ʟɪsᴛ — sᴜᴅσєʀs ᴍᴜsᴛ ʙє ʜᴜᴍᴧη!"
+
+sudo_fetch_user_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ғєᴛᴄʜ ᴜsєʀ ɪηғσ. ᴍᴧʏʙє ᴛʜє ᴜsєʀ ɪs ɪηᴧᴄᴄєssɪʙʟє.\n<i>{error}</i>"
+
+sudo_check_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴄʜєᴄᴋ sᴜᴅσ єxɪsᴛєηᴄє: <i>{error}</i>"
+
+sudo_already: "{emoji:⚠️} ᴜsєʀ {user} (ɪᴅ:<code>{id}</code>) ɪs ᴧʟʀєᴧᴅʏ ᴧ sᴜᴅσєʀ."
+
+sudo_add_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴧᴅᴅ sᴜᴅσ: <i>{error}</i>"
+
+sudo_add_success: "{emoji:✅} ᴧᴅᴅєᴅ {user} (<code>{id}</code>) ᴛσ sᴜᴅσєʀs."
+
+sudo_owner_remove_block: "{emoji:😎} ηɪᴄє ᴛʀʏ! ʏσᴜ ᴄᴧη’ᴛ ʀєᴍσᴠє ᴛʜє σᴡηєʀ — ᴛʜєʏ’ʀє ᴜηᴛσᴜᴄʜᴧʙʟє."
+
+sudo_not_exists: "{emoji:⚠️} ᴜsєʀ {user} (<code>{id}</code>) ɪs ησᴛ ᴧ sᴜᴅσєʀ."
+
+sudo_remove_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ʀєᴍσᴠє sᴜᴅσ: <i>{error}</i>"
+
+sudo_remove_success: "{emoji:🗑️} ʀєᴍσᴠєᴅ {user} (ɪᴅ: <code>{id}</code>) ғʀσᴍ sᴜᴅσєʀs."
+
+sudo_list_fetching: "{emoji:⏳} ғєᴛᴄʜɪηɢ sᴜᴅσєʀs ʟɪsᴛ..."
+
+sudo_list_fetch_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ɢєᴛ sᴜᴅσєʀs: <code>{error}</code>"
+
+sudo_list_header: "{emoji:👑} <b>ᴄᴜʀʀєηᴛ sᴜᴅσєʀs:</b>"
+
+sudo_list_owner: "{index}. {user} — <b>σᴡηєʀ</b>"
+
+sudo_list_entry: "{index}. {user}"
+
+sudo_list_no_extra: "{emoji:⚠️} ησ ᴧᴅᴅɪᴛɪσηᴧʟ sᴜᴅσєʀs ғσᴜηᴅ."
+
+seek_no_active: "{emoji:⚠️} <b>ησ ᴛʀᴧᴄᴋ ɪs ᴄᴜʀʀєηᴛʟʏ ᴘʟᴧʏɪηɢ.</b>"
+
+seek_usage: "{emoji:⚠️} ᴘʟєᴧsє ᴘʀσᴠɪᴅє sєᴄσηᴅs.\nєxᴧᴍᴘʟє: <code>{cmd} 40</code>"
+
+seek_invalid_seconds: "{emoji:⚠️} ɪηᴠᴧʟɪᴅ sєᴄσηᴅs ᴠᴧʟᴜє.\nєxᴧᴍᴘʟє: <code>{cmd} 40</code>"
+
+seek_too_close_start: "{emoji:⚠️} ᴄᴧηησᴛ sєєᴋ ʙᴧᴄᴋᴡᴧʀᴅ <b>{seconds}</b> sєᴄσηᴅs — ᴛʜᴧᴛ ᴡσᴜʟᴅ ʙє ᴛσσ ᴄʟσsє ᴛσ ᴛʜє ʙєɢɪηηɪηɢ σғ ᴛʜє ᴛʀᴧᴄᴋ."
+
+seek_too_close_end: "{emoji:⚠️} ᴄᴧηησᴛ sєєᴋ ғσʀᴡᴧʀᴅ <b>{seconds}</b> sєᴄσηᴅs — ᴛʜᴧᴛ ᴡσᴜʟᴅ ʙє ᴛσσ ᴄʟσsє ᴛσ ᴛʜє єηᴅ σғ ᴛʜє ᴛʀᴧᴄᴋ."
+
+seek_failed: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ sєєᴋ {direction} <b>{seconds}</b> sєᴄσηᴅs.\nєʀʀσʀ: <code>{error}</code>"
+
+seek_success: "{emoji} ᴊᴜᴍᴘєᴅ {direction} ᴛσ <b>{position}</b> σғ <b>{duration}</b>."
+
+stop_confirm_paused: |
+  {emoji:⏸️} <b>ᴘʟᴧʏʙᴧᴄᴋ ɪs ᴄᴜʀʀєηᴛʟʏ ᴘᴧᴜsєᴅ.</b>
+
+  ᴅσ ʏσᴜ ᴡᴧηᴛ ᴛσ ʀєsᴜᴍє ᴘʟᴧʏɪηɢ σʀ sᴛσᴘ ɪᴛ ᴄσᴍᴘʟєᴛєʟʏ?
+
+stop_confirm_muted: |
+  {emoji:🔇} <b>ᴘʟᴧʏʙᴧᴄᴋ ɪs ᴄᴜʀʀєηᴛʟʏ ᴍᴜᴛєᴅ.</b>
+
+  ᴅσ ʏσᴜ ᴡᴧηᴛ ᴛσ ᴜηᴍᴜᴛє σʀ sᴛσᴘ ɪᴛ ᴄσᴍᴘʟєᴛєʟʏ?
+
+stopped: "{emoji:⏹️} <b>ᴘʟᴧʏʙᴧᴄᴋ sᴛσᴘᴘєᴅ ᴧηᴅ ᴄʟєᴧʀєᴅ ʙʏ {user}.</b>"
+
+shuffle_current_state: "{emoji:🔀} ᴄᴜʀʀєηᴛʟʏ sʜᴜғғʟє ɪs <b>{state}</b> ғσʀ ᴛʜɪs ᴄʜᴧᴛ.\n\nᴜsє <code>{cmd}</code> ᴛσ ᴛσɢɢʟє ɪᴛ."
+
+shuffle_updated: "{emoji:🔀} sʜᴜғғʟє <b>{state}</b> ʙʏ {user}."
+
+skip_stopped: "{emoji:⏹️} ᴘʟᴧʏʙᴧᴄᴋ sᴛσᴘᴘєᴅ. ǫᴜєᴜє ɪs єᴍᴘᴛʏ.\nsᴋɪᴘᴘєᴅ ʙʏ: {user}"
+
+skip_invalid_number: "{emoji:⚠️} ᴘʟєᴧsє ᴘʀσᴠɪᴅє ᴧ ᴠᴧʟɪᴅ ηᴜᴍʙєʀ ᴧғᴛєʀ /skip.\nєxᴧᴍᴘʟє: <code>/skip 3</code>"
+
+skip_queue_empty_for_count: "{emoji:⚠️} ǫᴜєᴜє ʜᴧs ησ ᴜᴘᴄσᴍɪηɢ ᴛʀᴧᴄᴋs ᴛσ sᴋɪᴘ."
+
+skip_count_exceeds_queue: "{emoji:⚠️} ʏσᴜ ʀєǫᴜєsᴛєᴅ ᴛσ sᴋɪᴘ <code>{requested}</code> ǫᴜєᴜєᴅ ᴛʀᴧᴄᴋs, ʙᴜᴛ σηʟʏ <code>{available}</code> ᴛʀᴧᴄᴋ(s) ᴧʀє ɪη ǫᴜєᴜє."
+
+speed_usage: |
+  {emoji:💡} <b>ᴜsᴧɢє:</b>
+  <code>{cmd} [speed]</code> — ᴄʜᴧηɢє ᴘʟᴧʏʙᴧᴄᴋ sᴘєєᴅ
+  
+  ᴧʟʟσᴡєᴅ sᴘєєᴅ ʀᴧηɢє: <b>0.50x → 4.00x</b>
+  
+  єxᴧᴍᴘʟє:
+  <code>{cmd} 1.5</code> — ᴘʟᴧʏ ᴧᴛ 1.5x
+  <code>{cmd} normal</code> — ʀєsєᴛ ᴛσ ησʀᴍᴧʟ sᴘєєᴅ
+
+speed_current: "{emoji:🎧} <b>ᴄᴜʀʀєηᴛ sᴘєєᴅ:</b> <code>{speed}x</code> ғσʀ {emoji:🎵} <u>{title}</u>\n\n{emoji:💡} ᴜsє <code>{cmd} reset</code> ᴛσ ʀєsᴛσʀє ησʀᴍᴧʟ ᴘʟᴧʏʙᴧᴄᴋ."
+
+speed_invalid_value: "{emoji:❌} ɪηᴠᴧʟɪᴅ sᴘєєᴅ ᴠᴧʟᴜє.\nєxᴧᴍᴘʟє: <code>{cmd} 1.5</code> σʀ <code>{cmd} 2x</code>"
+
+speed_invalid_range: "{emoji:⚠️} sᴘєєᴅ ᴍᴜsᴛ ʙє ʙєᴛᴡєєη <b>0.50x</b> ᴧηᴅ <b>4.00x</b>."
+
+speed_already_set: "ℹ️ ᴘʟᴧʏʙᴧᴄᴋ sᴘєєᴅ ɪs ᴧʟʀєᴧᴅʏ <b>{speed}x</b> ғσʀ {emoji:🎵} <b>{title}</b>"
+
+speed_failed: |
+  {emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴄʜᴧηɢє sᴘєєᴅ ᴛσ <b>{speed}x</b>.
+  єʀʀσʀ: <code>{error}</code>
+
+speed_reset_success: "{emoji:✅} ᴘʟᴧʏʙᴧᴄᴋ sᴘєєᴅ ʀєsєᴛ ᴛσ <b>1.0x</b> ʙʏ {user}"
+
+speed_set: "{emoji:🚀} ᴘʟᴧʏʙᴧᴄᴋ sᴘєєᴅ sєᴛ ᴛσ <b>{speed}x</b> ʙʏ {user}."
+
+start_private: "<blockquote><b>sᴧʟᴜᴛᴧᴛɪσɴs</b> {user},</blockquote>\n<blockquote expandable><b>✧ ᴡᴇʟᴄσᴍᴇ ᴛσ {bot} — ᴧ ᴘσᴡᴇʀғᴜʟ ᴧɴᴅ ʜɪɢʜ-sᴘᴇᴇᴅ ᴛɢ ᴍᴜsɪᴄ ʙσᴛ</b>\n<b>✧ ʙᴜɪʟᴛ ғσʀ sᴍσσᴛʜ • sᴛᴧʙʟᴇ • ʟᴧɢ-ғʀᴇᴇ ᴍᴜsɪᴄ sᴛʀᴇᴧᴍɪɴɢ</b>\n<b>✧ ᴘσᴡᴇʀᴇᴅ ʙʏ ᴧɴ σᴘᴛɪᴍɪᴢᴇᴅ ʏσᴜᴛᴜʙᴇ ᴧᴘɪ ғσʀ ɪɴsᴛᴧɴᴛ ᴘʟᴧʏʙᴧᴄᴋ</b>\n<b>✧ ᴇɴᴊσʏ ʜɪɢʜ ǫᴜᴧʟɪᴛʏ ᴧᴜᴅɪσ ᴡɪᴛʜ sᴇᴧᴍʟᴇss ᴄσɴᴛʀσʟ</b>\n<b>•──────────────•</b>\n<b>✧ ᴜsᴇ ʜᴇʟᴘ ᴛσ ᴠɪᴇᴡ ᴧʟʟ ᴄσᴍᴍᴧɴᴅs ᴧɴᴅ ғᴇᴧᴛᴜʀᴇs</b></blockquote> "
+call_discarded: "📴 ᴛʜє ᴠσɪᴄє ᴄʜᴧᴛ ᴡᴧs єηᴅєᴅ, sσ ᴘʟᴧʏʙᴧᴄᴋ ʜᴧs sᴛσᴘᴘєᴅ.\n\n💐 sᴛᴧʀᴛ ᴧ ηєᴡ ᴠσɪᴄє ᴄʜᴧᴛ ᴧηᴅ ᴜsє /play ᴧɢᴧɪη."
+
+start_group: "<b>{emoji:💫} ɪ’ᴍ ʜєʀє!</b> ᴛʀʏ ᴧ ᴄσᴍᴍᴧηᴅ… ɪғ ʏσᴜ ᴛʜɪηᴋ ʏσᴜ ᴄᴧη ʜᴧηᴅʟє ᴍє {emoji:😉}"
+
+stream_queue_finished: "💮 ᴛʜє ǫᴜєᴜє ʜᴧs ғɪηɪsʜєᴅ.\n\n💐 ᴜsє /play ᴛσ ᴧᴅᴅ ᴍσꝛє sσηɢs..!"
+
+stream_downloading_next: "{emoji:📥} ᴅσᴡηʟσᴧᴅɪηɢ ʏσᴜʀ ηєxᴛ ᴛʀᴧᴄᴋ..."
+
+stream_autoplay_next: "{emoji:🔁} ᴧᴜᴛσᴘʟᴧʏ: <b>{title}</b>"
+
+stream_download_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴅσᴡηʟσᴧᴅ.\nєʀʀσʀ: <code>{error}</code>"
+
+download_progress: |
+  {emoji:📥} ᴅσᴡηʟσᴧᴅɪηɢ ʏσᴜʀ ᴛʀᴧᴄᴋ...
+
+  <b>ᴘʀσɢʀєss:</b> {percentage}%
+  <b>sᴘєєᴅ:</b> {speed}
+  <b>єᴛᴧ:</b> {eta}
+  <b>єʟᴧᴘsєᴅ:</b> {elapsed}
+stream_play_fail: "{emoji:❌} ғᴧɪʟєᴅ ᴛσ ᴘʟᴧʏ ᴛʜє sσηɢ."
+
+stream_now_playing: |
+  <blockquote><b>{emoji:💮} ᴘʟᴧʏʙᴧᴄᴋ ᴧᴄᴛɪᴠᴧᴛєᴅ. | єηᴊσʏ ᴛʜє ᴍᴜsɪᴄ |</b></blockquote>
+  <blockquote expandable>▫ <b>ᴍєʟσᴅʏ :</b> <a href="{url}">{title}</a>
+  ▫ <b>ʟєηɢᴛʜ :</b> {duration}
+  ▫ <b>ʀєǫᴜєsᴛєʀ :</b> {by}</blockquote>
+
+# 👑 Sudo / Owner Join Messages
+sudo_join_owner: "{emoji:👑} {user} — σᴡηєʀ σғ {bot} — ᴊᴜsᴛ єηᴛєʀєᴅ ᴛʜє ᴄʜᴧᴛ."
+
+sudo_join_sudo: "{emoji:🛡️} {user}, ᴧ sᴜᴅσ ᴜsєʀ σғ {bot}, ᴊᴜsᴛ ᴊσɪηєᴅ ᴛʜє ᴄʜᴧᴛ."
+
+supergroup_needed: |
+  ᴛʜɪs ᴄʜᴧᴛ (ɪᴅ: <code>{chat_id}</code>) ɪs ησᴛ ᴧ sᴜᴘєʀɢʀσᴜᴘ ʏєᴛ.
+
+  <i>{emoji:⚠️} ᴘʟєᴧsє ᴄσηᴠєʀᴛ ᴛʜɪs ɢʀσᴜᴘ ɪηᴛσ ᴧ sᴜᴘєʀɢʀσᴜᴘ, ᴛʜєη ᴧᴅᴅ ᴍє ᴧɢᴧɪη ᴧs ᴧη ᴧᴅᴍɪη.</i>
+
+  <b>ʜσᴡ ᴛσ ᴄσηᴠєʀᴛ?</b>
+  <a href="https://te.legra.ph/How-to-Convert-a-Group-to-a-Supergroup-01-02">{emoji:🔗} ɢσ ᴛσ ᴛʜє ɢᴜɪᴅє</a>
+
+  ɪғ ʏσᴜ sᴛɪʟʟ ғᴧᴄє ᴧηʏ ɪssᴜєs, ᴊσɪη σᴜʀ <a href="{support_group}">sᴜᴘᴘσʀᴛ ɢʀσᴜᴘ.</a>
+
+unmute_already: "ℹ️ <b>ᴧʟʀєᴧᴅʏ ᴜηᴍᴜᴛєᴅ</b>\nᴛʜє ᴍᴜsɪᴄ ɪs ησᴛ ᴍᴜᴛєᴅ ɪη ᴛʜɪs ᴄʜᴧᴛ."
+
+unmute_failed: "❌ <b>ᴘʟᴧʏʙᴧᴄᴋ ᴜηᴍᴜᴛє ғᴧɪʟєᴅ</b>\nєʀʀσʀ: <code>{error}</code>"
+
+unmute_success: |
+  {emoji:🔊} <b>ᴜηᴍᴜᴛєᴅ ᴘʟᴧʏʙᴧᴄᴋ</b>
+
+  {emoji:🎵} ᴛʀᴧᴄᴋ: {title}
+  {emoji:👤} ᴜηᴍᴜᴛєᴅ ʙʏ: {user}
+  {speed_line}
+
+# 🔊 Voice Chat Events
+voicechat_ended: "<b>{emoji:⚠️} ᴠɪᴅєσ ᴄʜᴧᴛ єηᴅєᴅ</b>\n\n<i>{emoji:⏰} ᴅᴜʀᴧᴛɪση: {duration}</i>"
+
+voicechat_started: "<b>{emoji:♻️} ᴠσɪᴄє ᴄʜᴧᴛ sᴛᴧʀᴛєᴅ!</b>\n\n<i>ᴜsє /play [sσηɢ ηᴧᴍє] ᴛσ ᴘʟᴧʏ ᴍᴜsɪᴄ.</i>"
+
+
+ # Playlist commands
+playlist_usage_create: "<b>ᴜsᴧɢє:</b> {cmd} [ᴘʟᴧʏʟɪsᴛ ηᴧᴍє]"
+playlist_limit_reached: "⚠️ ʏσᴜ ʜᴧᴠє ʀєᴧᴄʜєᴅ ᴛʜє ᴍᴧxɪᴍᴜᴍ ʟɪᴍɪᴛ σғ 10 ᴘʟᴧʏʟɪsᴛs."
+playlist_fetch_fail: "❌ ᴜηᴧʙʟє ᴛσ ғєᴛᴄʜ ʏσᴜʀ ᴘʟᴧʏʟɪsᴛs. ᴘʟєᴧsє ᴛʀʏ ᴧɢᴧɪη ʟᴧᴛєʀ."
+playlist_create_fail: "❌ ғᴧɪʟєᴅ ᴛσ ᴄʀєᴧᴛє ᴘʟᴧʏʟɪsᴛ: {error}"
+playlist_create_success: "✅ ᴘʟᴧʏʟɪsᴛ <b>{name}</b> ʜᴧs ʙєєη ᴄʀєᴧᴛєᴅ sᴜᴄᴄєssғᴜʟʟʏ.\nɪᴅ: <code>{id}</code>"
+playlist_usage_delete: "<b>ᴜsᴧɢє:</b> {cmd} [ᴘʟᴧʏʟɪsᴛ ɪᴅ]"
+playlist_not_found: "❌ ᴛʜє sᴘєᴄɪғɪєᴅ ᴘʟᴧʏʟɪsᴛ ᴄσᴜʟᴅ ησᴛ ʙє ғσᴜηᴅ. ᴘʟєᴧsє ᴄʜєᴄᴋ ᴛʜє ᴘʟᴧʏʟɪsᴛ ɪᴅ."
+playlist_not_owner: "⚠️ ʏσᴜ ᴄᴧη σηʟʏ ᴍᴧηᴧɢє ᴘʟᴧʏʟɪsᴛs ᴛʜᴧᴛ ʏσᴜ ᴄʀєᴧᴛєᴅ."
+playlist_delete_fail: "❌ ғᴧɪʟєᴅ ᴛσ ᴅєʟєᴛє ᴛʜє ᴘʟᴧʏʟɪsᴛ: {error}"
+playlist_delete_success: "🗑️ ᴘʟᴧʏʟɪsᴛ <b>{name}</b> ʜᴧs ʙєєη ᴅєʟєᴛєᴅ sᴜᴄᴄєssғᴜʟʟʏ."
+playlist_usage_add: "<b>ᴜsᴧɢє:</b> {cmd} [ᴘʟᴧʏʟɪsᴛ ɪᴅ] [sσηɢ ηᴧᴍє σʀ ᴜʀʟ]"
+playlist_invalid_query: "❌ ησ ᴘʟᴧʏᴧʙʟє ᴛʀᴧᴄᴋ ᴡᴧs ғσᴜηᴅ ғσʀ ᴛʜᴧᴛ ǫᴜєʀʏ."
+playlist_add_fail: "❌ ғᴧɪʟєᴅ ᴛσ ᴧᴅᴅ ᴛʜє ᴛʀᴧᴄᴋ ᴛσ ᴛʜє ᴘʟᴧʏʟɪsᴛ: {error}"
+playlist_add_success: "✅ ᴛʀᴧᴄᴋ <b>{song}</b> ʜᴧs ʙєєη ᴧᴅᴅєᴅ ᴛσ ᴘʟᴧʏʟɪsᴛ <b>{playlist}</b>."
+playlist_usage_remove: "<b>ᴜsᴧɢє:</b> {cmd} [ᴘʟᴧʏʟɪsᴛ ɪᴅ] [sσηɢ ηᴜᴍʙєʀ σʀ ᴜʀʟ]"
+playlist_invalid_song_number: "⚠️ ɪηᴠᴧʟɪᴅ sσηɢ ηᴜᴍʙєʀ."
+playlist_song_not_found: "❌ sσηɢ ησᴛ ғσᴜηᴅ ɪη ᴘʟᴧʏʟɪsᴛ."
+playlist_remove_fail: "❌ єʀʀσʀ ʀєᴍσᴠɪηɢ sσηɢ: {error}"
+playlist_remove_success: "🗑️ sσηɢ ʀєᴍσᴠєᴅ ғʀσᴍ ᴘʟᴧʏʟɪsᴛ <b>{name}</b>."
+playlist_usage_info: "<b>ᴜsᴧɢє:</b> {cmd} [ᴘʟᴧʏʟɪsᴛ ɪᴅ]"
+playlist_songs_empty: "<i>ᴛʜɪs ᴘʟᴧʏʟɪsᴛ ʜᴧs ησ sσηɢs ʏєᴛ.</i>"
+playlist_song_line: "{index}. {name} ({url})"
+playlist_info: "<b>ᴘʟᴧʏʟɪsᴛ ɪηғσ</b>\n\n<b>ηᴧᴍє:</b> {name}\n<b>σᴡηєʀ:</b> {owner}\n<b>sσηɢs:</b> {count}\n\n{songs}"
+playlist_none: "📭 ʏσᴜ ᴅσ ησᴛ ʜᴧᴠє ᴧηʏ ᴘʟᴧʏʟɪsᴛs ʏєᴛ. ᴜsє /createplaylist ᴛσ ᴍᴧᴋє σηє."
+playlist_list_line: "- {name} (<code>{id}</code>)"
+playlist_list: "<b>ᴍʏ ᴘʟᴧʏʟɪsᴛs</b>\n\n{playlists}"
+
+# Commands help
+help_admin: "⊚ <b><u>ᴧᴅᴍɪη ᴄσᴍᴍᴧηᴅs :</u></b>\n\n<blockquote>💮 <b>ᴊᴜsᴛ ᴧᴅᴅ ᴄ ᴧs ᴧ ᴘʀєғɪx ᴛσ ᴛʜє ᴄσᴍᴍᴧηᴅs ᴛσ ᴄσηᴛʀσʟ ᴄʜᴧηηєʟ sᴛʀєᴧᴍɪηɢ.</b></blockquote>\n\n<blockquote>➻ <b>/pause</b> : ʜᴧʟᴛ ᴛʜє ᴄᴜʀʀєηᴛʟʏ ᴧᴄᴛɪᴠє sᴛʀєᴧᴍ.\n➻ <b>/resume</b> : ʀєsᴛᴧʀᴛ ᴛʜє ᴘᴧᴜsєᴅ ᴘʟᴧʏʙᴧᴄᴋ.\n➻ <b>/skip</b> : ᴘʟᴧʏ ᴛʜє ηєxᴛ ᴛʀᴧᴄᴋ ɪη ᴛʜє ǫᴜєᴜє.\n➻ <b>/stop</b> : ᴄєᴧsє ᴛʜє sᴛʀєᴧᴍ ᴧηᴅ єᴍᴘᴛʏ ǫᴜєᴜє.\n➻ <b>/mute</b> : ᴍᴜᴛє ᴘʟᴧʏʙᴧᴄᴋ ɪη ᴠɪᴅєσᴄʜᴧᴛ.\n➻ <b>/unmute</b> : ᴜηᴍᴜᴛє ᴘʟᴧʏʙᴧᴄᴋ ɪη ᴠɪᴅєσᴄʜᴧᴛ.\n➻ <b>/queue</b> : ᴠɪєᴡ ᴛʜє ʟɪsᴛ σғ ᴜᴘᴄσᴍɪηɢ ᴛʀᴧᴄᴋs.\n➻ <b>/jump</b> : ᴊᴜᴍᴘ ᴛσ ᴧ ɢɪᴠєη ᴛɪᴍє ɪη ᴛʀᴧᴄᴋ.\n➻ <b>/move</b> : ᴍσᴠє ᴧ ǫᴜєᴜєᴅ ᴛʀᴧᴄᴋ ᴛσ ᴧησᴛʜєʀ ᴘσsɪᴛɪση.\n➻ <b>/clear</b> : ᴄʟєᴧʀ ᴧʟʟ sσηɢs ғʀσᴍ ǫᴜєᴜє.\n➻ <b>/remove</b> : ʀєᴍσᴠє ᴧ sᴘєᴄɪғɪᴄ ᴛʀᴧᴄᴋ ғʀσᴍ ǫᴜєᴜє.\n➻ <b>/loop [1-10]</b> : ʀєᴘєᴧᴛ ᴛʜє ᴄᴜʀʀєηᴛʟʏ ᴘʟᴧʏɪηɢ sσηɢ.\n➻ <b>/shuffle</b> : ʀᴧηᴅσᴍɪᴢє ᴛʜє ǫᴜєᴜєᴅ ᴘʟᴧʏʟɪsᴛ.\n➻ <b>/seek [sєᴄs]</b> : ғσʀᴡᴧʀᴅ sєєᴋ ᴛσ ᴧ sᴘєᴄɪғɪᴄ ᴛɪᴍє.\n➻ <b>/seekback [sєᴄs]</b> : ʀєᴠєʀsє sєєᴋ ᴛσ ᴧ sᴘєᴄɪғɪᴄ ᴛɪᴍє.\n➻ <b>/speed</b> : ᴍσᴅɪғʏ ᴘʟᴧʏʙᴧᴄᴋ sᴘєєᴅ (0.5x - 2.0x).\n➻ <b>/playmode</b> : ᴄσηᴛʀσʟ ᴡʜσ ᴄᴧη ᴜsє /play ᴄᴍᴅ.\n➻ <b>/cmddelete</b> : ᴛσɢɢʟє ᴧᴜᴛσᴍᴧᴛɪᴄ ᴅєʟєᴛɪση σғ ʙσᴛ ᴄσᴍᴍᴧηᴅs.</blockquote>\n"
+
+help_auth: "⊚ <b><u>ᴧᴜᴛʜ ᴜsєʀs :</u></b>\n\n<blockquote>💮 <b>ᴧᴜᴛʜ ᴜsєʀs ᴧʀє ɢʀᴧηᴛєᴅ ᴧᴅᴍɪη ᴘʀɪᴠɪʟєɢєs ᴡɪᴛʜσᴜᴛ ʀєǫᴜɪʀɪηɢ ɢʀσᴜᴘ ᴧᴅᴍɪη sᴛᴧᴛᴜs ᴛσ ᴍᴧηᴧɢє sᴛʀєᴧᴍs.</b></blockquote>\n\n<blockquote>➻ <b>/auth [ᴜsєʀ]</b> : ᴧᴅᴅ ᴜsєʀ ᴛσ ᴧᴜᴛʜσʀɪᴢєᴅ ʟɪsᴛ.\n➻ <b>/unauth [ᴜsєʀ]</b> : ʀєᴍσᴠє ᴜsєʀ ғʀσᴍ ᴧᴜᴛʜσʀɪᴢєᴅ ʟɪsᴛ.\n➻ <b>/authlist</b> : ᴅɪsᴘʟᴧʏ ᴧʟʟ ᴧᴜᴛʜσʀɪᴢєᴅ ᴍєᴍʙєʀs.</blockquote>\n"
+
+help_bcast: "⊚ <b><u>ʙʀσᴧᴅᴄᴧsᴛ [σᴡηєʀ σηʟʏ] :</u></b>\n\n<blockquote>➻ <b>ᴄσᴍᴍᴧηᴅs</b>\n<code>/broadcast</code>, <code>/bcast</code>, <code>/gcast</code> : ᴧʟʟ ᴛʜʀєє ᴡσʀᴋ ᴛʜє sᴧᴍє</blockquote>\n\n<blockquote>➻ <b>ʜσᴡ ᴛσ ᴜsє</b>\n<code>/broadcast your message</code> : sєηᴅ ᴧ ᴛєxᴛ ᴍєssᴧɢє\nʀєᴘʟʏ ᴛσ ᴧηʏ ᴍєssᴧɢє ᴡɪᴛʜ <code>/broadcast</code> : sєηᴅ ᴛʜᴧᴛ ᴍєssᴧɢє (ᴘʜσᴛσ, ᴠɪᴅєσ, ғσʀᴡᴧʀᴅ, єᴛᴄ.)</blockquote>\n\n<blockquote>➻ <b>ᴡʜσ ɢєᴛs ɪᴛ</b>\n<code>-user</code> : σηʟʏ ᴜsєʀs (ᴅᴍ)\n<code>-group</code> : σηʟʏ ɢʀσᴜᴘs\n<code>-all</code> : ᴜsєʀs + ɢʀσᴜᴘs (ᴅєғᴧᴜʟᴛ)\n<code>-nochat</code> : єxᴄʟᴜᴅє ɢʀσᴜᴘs\n<code>-nouser</code> : єxᴄʟᴜᴅє ᴜsєʀs</blockquote>\n\n<blockquote>➻ <b>σᴘᴛɪσηs</b>\n<code>-copy</code> : sєηᴅ ᴡɪᴛʜσᴜᴛ ғσʀᴡᴧʀᴅєᴅ ᴛᴧɢ (ʀєᴘʟʏ ᴍσᴅє). ᴜsєᴅ ᴧᴜᴛσᴍᴧᴛɪᴄᴧʟʟʏ ɪғ ᴛʜє ᴍєssᴧɢє ᴄᴧηησᴛ ʙє ғσʀᴡᴧʀᴅєᴅ\n<code>-pin</code> : ᴘɪη ᴛʜє ᴍєssᴧɢє sɪʟєηᴛʟʏ\n<code>-pinloud</code> : ᴘɪη ᴧηᴅ ησᴛɪғʏ ᴍєᴍʙєʀs\n<code>-limit N</code> : sᴛσᴘ ᴧғᴛєʀ η ᴛᴧʀɢєᴛs (ɢʀσᴜᴘs ғɪʀsᴛ)\n<code>-delay S</code> : sєᴄσηᴅs ʙєᴛᴡєєη sєηᴅs (ᴅєғᴧᴜʟᴛ 0.7)\n<code>-cancel</code> : sᴛσᴘ ᴧ ʀᴜηηɪηɢ ʙʀσᴧᴅᴄᴧsᴛ</blockquote>\n\n<blockquote>⊚ <b>єxᴧᴍᴘʟєs</b>\n<code>/broadcast -user hello everyone</code>\n<code>/bcast -group -pin</code> (ʀєᴘʟʏ ᴛσ ᴧ ᴍєssᴧɢє)\n<code>/gcast -all -copy -limit 50</code> (ʀєᴘʟʏ ᴛσ ᴧ ᴍєssᴧɢє)\n<code>/broadcast -cancel</code></blockquote>\n\n<blockquote>❏ <b>ησᴛєs</b>\n• ғʟᴧɢs ᴡσʀᴋ ᴡɪᴛʜ σηє σʀ ᴛᴡσ ᴅᴧsʜєs (-ᴄσᴘʏ σʀ --ᴄσᴘʏ).\n• σηʟʏ σηє ʙʀσᴧᴅᴄᴧsᴛ ʀᴜηs ᴧᴛ ᴧ ᴛɪᴍє.\n• ᴧᴜᴛσ ᴘᴧᴜsє σғ 7.5s ᴧғᴛєʀ єᴠєʀʏ 30 sєηᴅs.\n• ᴛєxᴛ ᴍσᴅє sєηᴅs ᴘʟᴧɪη ᴛєxᴛ. ғσʀ ᴍєᴅɪᴧ σʀ ғσʀᴍᴧᴛᴛɪηɢ, ʀєᴘʟʏ ᴛσ ᴛʜє ᴍєssᴧɢє.\n• ʙʟσᴄᴋєᴅ σʀ ᴅєʟєᴛєᴅ ᴜsєʀs ғᴧɪʟ, ᴛʜє ғɪηᴧʟ ʀєᴘσʀᴛ sʜσᴡs ᴛʜє ʀєᴧsσηs.</blockquote>\n" 
+
+help_play: "⊚ <b><u>ᴘʟᴧʏ & ᴄʜᴧηηєʟ ᴘʟᴧʏ :</u></b>\n\n<blockquote>➻ <b>/play</b> : sᴛᴧʀᴛ ᴧᴜᴅɪσ sᴛʀєᴧᴍɪηɢ ɪη ᴄʜᴧᴛ.\n➻ <b>/vplay</b> : sᴛᴧʀᴛ ᴠɪᴅєσ sᴛʀєᴧᴍɪηɢ ɪη ᴄʜᴧᴛ.\n➻ <b>/playforce</b> : ɪηsᴛᴧηᴛ ᴘʟᴧʏ (σᴠєʀʀɪᴅєs ǫᴜєᴜє).</blockquote>\n\n⊚ <b><u>ᴄʜᴧηηєʟ ᴘʟᴧʏ :</u></b>\n\n<blockquote>➻ <b>/cplay</b> : ᴧᴜᴅɪσ sᴛʀєᴧᴍ ɪη ʟɪηᴋєᴅ ᴄʜᴧηηєʟ.\n➻ <b>/cvplay</b> : ᴠɪᴅєσ sᴛʀєᴧᴍ ɪη ʟɪηᴋєᴅ ᴄʜᴧηηєʟ.\n➻ <b>/cplayforce</b> : ғσʀᴄє sᴛʀєᴧᴍ ɪη ʟɪηᴋєᴅ ᴄʜᴧηηєʟ.\n➻ <b>/channelplay [ɪᴅ]</b> : ᴄσηηєᴄᴛ ᴄʜᴧηηєʟ ᴛσ ᴛʜɪs ɢʀσᴜᴘ.</blockquote>\n"
+
+help_sudo: "⊚ <b><u>sʏsᴛєᴍ & sᴜᴅσ ᴍᴧηᴧɢєᴍєηᴛ :</u></b>\n\n<blockquote>💮 <b>ᴍᴧηᴧɢє ʟσɢs, ᴧηᴅ ᴧᴅᴍɪηɪsᴛʀᴧᴛɪᴠє ᴘʀɪᴠɪʟєɢєs σғ ʏσᴜʀ ʙσᴛ.</b></blockquote>\n\n<blockquote>➻ <b>ʙσᴛ ʟσɢs & ᴍᴧɪηᴛєηᴧηᴄє</b> :\n➻ <b>/logs</b> : ɢєᴛ ʀєᴧʟ-ᴛɪᴍє ʟσɢs σғ ᴛʜє ʙσᴛ.\n➻ <b>/logger</b> : [єηᴧʙʟє | ᴅɪsᴧʙʟє] ʙσᴛ ᴧᴄᴛɪᴠɪᴛʏ ʟσɢɢɪηɢ.\n➻ <b>/maintenance</b> : [єηᴧʙʟє | ᴅɪsᴧʙʟє] ᴍᴧɪηᴛєηᴧηᴄє ᴍσᴅє.\n➻ <b>/eval</b> : єxєᴄᴜᴛє ɢσ ᴄσᴅє sηɪᴘᴘєᴛs.\n➻ <b>/sh</b> : ʀᴜη sʜєʟʟ ᴄσᴍᴍᴧηᴅs.</blockquote>\n\n⊚ <b><u>ᴧᴄᴛɪᴠє sᴛʀєᴧᴍs :</u></b>\n\n<blockquote>➻ <b>/activevoice</b> : ᴠɪєᴡ σηɢσɪηɢ ᴧᴜᴅɪσ sєssɪσηs.\n➻ <b>/ac</b> : ᴠɪєᴡ ᴧʟʟ ᴄσᴍʙɪηєᴅ ᴧᴄᴛɪᴠє sᴛʀєᴧᴍs.</blockquote>\n\n<blockquote>➻ <b>sᴜᴅσ ʟɪsᴛ ᴍᴧηᴧɢєᴍєηᴛ</b> :\n➻ <b>/addsudo</b> : ᴧᴅᴅ ᴧ ηєᴡ sᴜᴅσ ᴜsєʀ ᴛσ ʙσᴛ.\n➻ <b>/rmsudo</b> : ʀєᴍσᴠє ᴧ ᴜsєʀ ғʀσᴍ sᴜᴅσ ʟɪsᴛ.\n➻ <b>/sudolist</b> : ᴄʜєᴄᴋ ᴧʟʟ ᴧᴜᴛʜσʀɪᴢєᴅ sᴜᴅσ ᴜsєʀs.\n\n❏ ᴛʜєsє ᴄσᴍᴍᴧηᴅs ᴧʀє ʜɪɢʜʟʏ sєηsɪᴛɪᴠє, ᴜsє ᴡɪᴛʜ ᴄᴧʀє.</blockquote>\n"
+
+help_restrict: "⊚ <b><u>ʙʟᴧᴄᴋʟɪsᴛ & ɢʟσʙᴧʟ ʙᴧη :</u></b>\n\n<blockquote>💮 <b>ʀєsᴛʀɪᴄᴛ sᴘєᴄɪғɪᴄ ᴄʜᴧᴛs σʀ ᴜsєʀs ғʀσᴍ ᴜsɪηɢ ᴛʜє ʙσᴛ ɢʟσʙᴧʟʟʏ.</b></blockquote>\n\n<blockquote>➻ <b>ᴄʜᴧᴛ ʙʟᴧᴄᴋʟɪsᴛ</b> :\n➻ <b>/blacklistchat [ᴄʜᴧᴛ ɪᴅ]</b> : ʙᴧη ᴧ ᴄʜᴧᴛ ғʀσᴍ ᴜsɪηɢ ʙσᴛ.\n➻ <b>/unblockchat [ᴄʜᴧᴛ ɪᴅ]</b> : ᴜηʙᴧη ᴧ ʙʟᴧᴄᴋʟɪsᴛєᴅ ᴄʜᴧᴛ.\n➻ <b>/blacklisted</b> : sʜσᴡ ᴧʟʟ ʙʟᴧᴄᴋʟɪsᴛєᴅ ɢʀσᴜᴘs & ᴜsєʀs.</blockquote>\n\n<blockquote>➻ <b>ᴜsєʀ ʙʟσᴄᴋ</b> :\n➻ <b>/blockuser [ᴜsєʀηᴧᴍє | ɪᴅ]</b> : sᴛσᴘ ᴜsєʀ ғʀσᴍ ᴜsɪηɢ ʙσᴛ.\n➻ <b>/unblockuser [ᴜsєʀηᴧᴍє | ɪᴅ]</b> : ᴧʟʟσᴡ ᴛʜє ʙʟσᴄᴋєᴅ ᴜsєʀ.\n➻ <b>/blacklisted</b> : ᴠɪєᴡ ᴛʜє ʟɪsᴛ σғ ᴧʟʟ ʙʟσᴄᴋєᴅ ᴜsєʀs.</blockquote>\n"
+
+help_thumb: "⊚ <b><u>ᴛʜᴜᴍʙηᴧɪʟ sєᴛᴛɪηɢs :</u></b>\n\n<blockquote>➻ <b>/nothumb</b> : ᴍᴧηᴧɢє sᴛʀєᴧᴍ ᴠɪsᴜᴧʟ sєᴛᴛɪηɢs.\n\n💮 <b>ᴛσɢɢʟє ᴧʟʙᴜᴍ ᴧʀᴛ ᴅɪsᴘʟᴧʏ. ᴅɪsᴧʙʟɪηɢ ɪᴛ ʀєᴅᴜᴄєs ᴅᴧᴛᴧ ʟσᴧᴅ ᴧηᴅ ᴍᴧɪηᴛᴧɪηs ᴧ ᴍɪηɪᴍᴧʟɪsᴛ ᴄʜᴧᴛ ʟσσᴋ.</b>\n\n➻ <b>σᴘᴛɪσηs</b> :\n• <b>єηᴧʙʟє</b> : ᴅɪsᴘʟᴧʏ ᴧʀᴛᴡσʀᴋ ᴡɪᴛʜ sᴛʀєᴧᴍ ɪηғσ.\n• <b>ᴅɪsᴧʙʟє</b> : sєηᴅ ᴘᴜʀє ᴛєxᴛ-ʙᴧsєᴅ ᴜᴘᴅᴧᴛєs.\n• <b>ᴄʟσsє</b> : ᴅɪsᴍɪss ᴛʜє ᴄσηғɪɢᴜʀᴧᴛɪση.\n\n❏ sєᴛᴛɪηɢs ᴧʀє sᴧᴠєᴅ ɪηᴅɪᴠɪᴅᴜᴧʟʟʏ ᴘєʀ ᴄʜᴧᴛ.</blockquote>\n"
+
+help_start: "⊚ <b><u>ʙᴧsɪᴄ ᴄσᴍᴍᴧηᴅs :</u></b>\n\n<blockquote>➻ <b>/start</b> : ɪηɪᴛɪᴧʟɪᴢє ᴛʜє ᴍᴜsɪᴄ sєʀᴠɪᴄє.\n➻ <b>/help</b> : ᴧᴄᴄєss ᴛʜє ᴄσᴍᴍᴧηᴅ ɢᴜɪᴅєʟɪηєs.\n➻ <b>/ping</b> : ᴍєᴧsᴜʀє sʏsᴛєᴍ ʟᴧᴛєηᴄʏ ᴧηᴅ ᴘɪηɢ.\n➻ <b>/repo</b> : ɢєᴛ ᴛʜє sσᴜʀᴄє ᴄσᴅє ʀєᴘσ.\n➻ <b>/position</b> : sʜσᴡ ᴄᴜʀʀєηᴛ ᴛʀᴧᴄᴋ's ᴛɪᴍєsᴛᴧᴍᴘ.\n➻ <b>/reload</b> : ʀєғʀєsʜ ᴧᴅᴍɪη ᴅᴧᴛᴧ ᴄᴧᴄʜє.\n➻ <b>/settings</b> : ᴧᴅᴊᴜsᴛ ᴄσηғɪɢᴜʀᴧᴛɪση σᴘᴛɪσηs.\n➻ <b>/lang</b> : sєʟєᴄᴛ ʏσᴜʀ ᴘʀєғєʀʀєᴅ ʟᴧηɢᴜᴧɢє.\n➻ <b>/bug</b> : ʀєᴘσʀᴛ ᴧη ɪssᴜє σʀ ᴘʀσʙʟєᴍ.\n➻ <b>/json</b> : sʜσᴡ ᴍєssᴧɢє ᴊsση sᴛʀᴜᴄᴛᴜʀє.\n➻ <b>/sudolist</b> : ᴠɪєᴡ ᴛʜє ʟɪsᴛ σғ sᴜᴅσ ᴧᴅᴍɪηs.\n➻ <b>/stats</b> : ᴠɪєᴡ ᴄσᴍᴘʀєʜєηsɪᴠє ʙσᴛ ᴍєᴛʀɪᴄs.</blockquote>\n"
+
+help_autoplay: "⊚ <b><u>ᴧᴜᴛσᴘʟᴧʏ ᴄσηᴛʀσʟ :</u></b>\n\n<blockquote>➻ <b>/autoplay</b> : ᴛσɢɢʟє ᴛʜє ᴧᴜᴛσᴘʟᴧʏ sєᴛᴛɪηɢs ᴘᴧηєʟ.\n➻ <b>/skip</b> : ᴘʟᴧʏ ᴛʜє ηєxᴛ ᴛʀᴧᴄᴋ ɪη ᴛʜє ᴧᴜᴛσᴘʟᴧʏ ǫᴜєᴜє.</blockquote>\n\n⊚ <b><u>ᴡʜᴧᴛ ɪs ᴧᴜᴛσᴘʟᴧʏ?</u></b>\n\n<blockquote>💮 <b>ᴧᴜᴛσᴘʟᴧʏ sєᴧᴍʟєssʟʏ ᴧᴅᴅs ʀєʟᴧᴛєᴅ ᴛʀᴧᴄᴋs ᴛσ ᴛʜє ǫᴜєᴜє ʙᴧsєᴅ ση ʏσᴜʀ ᴄᴜʀʀєηᴛ ᴘʟᴧʏʟɪsᴛ ғσʀ ηση-sᴛσᴘ ᴍᴜsɪᴄ.</b>\n\n➻ <b>ᴘᴧηєʟ σᴘᴛɪσηs</b> :\n• <b>єηᴧʙʟє</b> : ᴧᴄᴛɪᴠᴧᴛє sᴍᴧʀᴛ ʀєᴄσᴍᴍєηᴅᴧᴛɪσηs.\n• <b>ᴅɪsᴧʙʟє</b> : ᴅєᴧᴄᴛɪᴠᴧᴛє sᴍᴧʀᴛ ʀєᴄσᴍᴍєηᴅᴧᴛɪσηs.\n• <b>ᴄʟσsє</b> : єxɪᴛ ᴛʜє ᴄσηᴛʀσʟ ᴘᴧηєʟ.\n\n➻ <b>ησᴛє</b> : ʀєǫᴜɪʀєs ᴧᴛ ʟєᴧsᴛ σηє ᴧᴄᴛɪᴠє sσηɢ ᴛσ ғᴜηᴄᴛɪση.</blockquote>\n"
+
+help_playlist: "⊚ <b><u>ᴘʟᴧʏʟɪsᴛ ᴄσᴍᴍᴧηᴅs :</u></b>\n\n<blockquote>💮 <b>ᴄʀєᴧᴛє, σʀɢᴧηɪᴢє, ᴧηᴅ ᴍᴧηᴧɢє ʏσᴜʀ ᴘєʀsσηᴧʟ ᴘʟᴧʏʟɪsᴛs.</b></blockquote>\n\n<blockquote>➻ <b>/createplaylist</b> : ᴄʀєᴧᴛє ᴧ ηєᴡ ᴘʟᴧʏʟɪsᴛ.\n➻ <b>/deleteplaylist</b> : ᴅєʟєᴛє σηє σғ ʏσᴜʀ ᴘʟᴧʏʟɪsᴛs.\n➻ <b>/addtoplaylist</b> : ᴧᴅᴅ ᴧ ᴛʀᴧᴄᴋ ᴛσ ᴧ ᴘʟᴧʏʟɪsᴛ.\n➻ <b>/removefromplaylist</b> : ʀєᴍσᴠє ᴧ ᴛʀᴧᴄᴋ ғʀσᴍ ᴧ ᴘʟᴧʏʟɪsᴛ.\n➻ <b>/playlistinfo</b> : ᴅɪsᴘʟᴧʏ ɪηғσʀᴍᴧᴛɪση ᴧʙσᴜᴛ ᴧ ᴘʟᴧʏʟɪsᴛ.\n➻ <b>/myplaylists</b> : ʟɪsᴛ ᴧʟʟ σғ ʏσᴜʀ ᴘʟᴧʏʟɪsᴛs.</blockquote>\n"
+
+help_vclogs: "⊚ <b><u>ᴠᴄ ʟσɢɢєʀ ᴍσᴅᴜʟє :</u></b>\n\n<blockquote>➻ <b>/vclogger [ση|σғғ]</b> : ᴛσɢɢʟє ᴊσɪη / ʟєᴧᴠє ᴧʟєʀᴛs.\n➻ <b>/vcstatus</b> : ᴠєʀɪғʏ ᴛʜє ᴄᴜʀʀєηᴛ ʟσɢɢєʀ sᴛᴧᴛє.\n\n• ᴛʀᴧᴄᴋs ᴜsєʀ ɪᴅs ᴅᴜʀɪηɢ ᴠᴄ ᴧᴄᴛɪᴠɪᴛʏ.\n• ᴧʟєʀᴛs ᴧʀє ᴄʟєᴧηєᴅ ᴧᴜᴛσᴍᴧᴛɪᴄᴧʟʟʏ ᴧғᴛєʀ 𝟓 sєᴄ.</blockquote>\n"
+
+help_inline: "⊚ <b><u>ʙσᴛ ᴘʟᴧʏ ʙᴜᴛᴛση ᴅєᴛᴧɪʟs :</u></b>\n\n<blockquote>💮 <b>ᴍᴧηᴧɢє ʏσᴜʀ ᴍᴜsɪᴄ ᴘʟᴧʏʙᴧᴄᴋ ᴅɪʀєᴄᴛʟʏ ᴛʜʀσᴜɢʜ ɪηʟɪηє ʙᴜᴛᴛσηs ᴡɪᴛʜ єᴧsє.</b></blockquote>\n\n<blockquote>➻ <b>ᴘʟᴧʏʙᴧᴄᴋ ᴄσηᴛʀσʟs</b> :\n➻ <b>▷</b> : ʀєsᴜᴍє ᴛʜє ᴘᴧᴜsєᴅ sᴛʀєᴧᴍ.\n➻ <b>ɪɪ</b> : ᴘᴧᴜsє ᴛʜє σηɢσɪηɢ sᴛʀєᴧᴍ.\n➻ <b>↻</b> : ʀєᴘʟᴧʏ ᴛʜє ᴄᴜʀʀєηᴛ sσηɢ ғʀσᴍ sᴛᴧʀᴛ.\n➻ <b>‣‣ɪ</b> : sᴋɪᴘ ᴛʜє ᴄᴜʀʀєηᴛ ᴛʀᴧᴄᴋ ᴧηᴅ ᴘʟᴧʏ ηєxᴛ.\n➻ <b>▢</b> : sᴛσᴘ ᴛʜє ᴘʟᴧʏʙᴧᴄᴋ ᴧηᴅ ᴄʟєᴧʀ ǫᴜєᴜє.\n\n➻ <b>sєєᴋ ᴧηᴅ ηᴧᴠɪɢᴧᴛɪση</b> :\n➻ <b>-𝟣𝟧ˢ</b> : sєєᴋ ʙᴧᴄᴋᴡᴧʀᴅ ʙʏ 15 sєᴄσηᴅs.\n➻ <b>𝟣𝟧ˢ+</b> : sєєᴋ ғσʀᴡᴧʀᴅ ʙʏ 15 sєᴄσηᴅs.\n\n❏ ᴧʟʟ ʙᴜᴛᴛσηs σηʟʏ ғσʀ ɢʀσᴜᴘ ᴧᴅᴍɪηs.</blockquote>\n"
+
+repo_text: "<b>❖ ʜєʏ ᴛʜєʀє, ηɪᴄє ᴛσ ᴍєєᴛ ᴜʜʜ.</b>\n\n<b>● ɪ ᴧᴍ ➥ {bot}</b>\n\n<b>❖ ɪғ ʏσᴜ ᴡᴧηᴛ ᴍᴜsɪᴄ ʙσᴛ ʀєᴘσ, ᴛʜєη ᴄʟɪᴄᴋ ση ᴛʜє ʀєᴘσ ʙᴜᴛᴛση ᴛσ ɢєᴛ ᴍʏ sσᴜʀᴄє ᴄσᴅє.</b>\n"

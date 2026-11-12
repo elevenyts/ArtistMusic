@@ -1,0 +1,140 @@
+{
+    "name": "ArtistMusic",
+    "description": "A Telegram bot that streams music into group voice chats with seamless playback and control.",
+    "keywords": ["telegram", "bot", "music", "go", "voice-chat"],
+    "repository": "https://github.com/elevenyts/ArtistMusic",
+    "website": "https://github.com/elevenyts/ArtistMusic",
+    "stack": "container",
+    "env": {
+        "API_ID": {
+            "description": "Your Telegram API ID from my.telegram.org.",
+            "value": "37252222",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Your Telegram API Hash from my.telegram.org.",
+            "value": "7cde4cbc12392cdecd034e5e068657de",
+            "required": true
+        },
+        "TOKEN": {
+            "description": "Your Telegram bot token from @BotFather.",
+            "value": "",
+            "required": true
+        },
+        "MONGO_DB_URI": {
+            "description": "Your MongoDB connection string.",
+            "value": "",
+            "required": true
+        },
+        "DB_NAME": {
+            "description": "Database Name for MongoDB.",
+            "value": "MeowMusic",
+            "required": false
+        },
+        "STRING_SESSION": {
+            "description": "A Pyrogram string session for the assistant.",
+            "value": "",
+            "required": true
+        },
+        "MEOW_API_URL": {
+            "description": "Base URL for the Meow/Yuki Music Streaming API.",
+            "value": "https://music.yukiapi.site",
+            "required": false
+        },
+        "MEOW_API_KEY": {
+            "description": "API Key for the Meow/Yuki Music Streaming API.",
+            "value": "",
+            "required": false
+        },
+        "ARTISTBOTS_API_URL": {
+            "description": "Base URL of the Artistbots API (used as {URL}/download?url=VIDEO_ID&type=audio|video&api_key=KEY).",
+            "value": "https://api.artistbotsapi.bond",
+            "required": false
+        },
+        "ARTISTBOTS_API_KEY": {
+            "description": "API key for the Artistbots API. Leave empty to disable it.",
+            "value": "",
+            "required": false
+        },
+        "OWNER_ID": {
+            "description": "The Telegram user ID of the bot's owner.",
+            "value": "8617644501",
+            "required": true
+        },
+        "LOGGER_ID": {
+            "description": "(Optional) Telegram chat ID where logs/errors will be sent. Leave empty to disable chat logging.",
+            "value": "",
+            "required": false
+        },
+        "DURATION_LIMIT": {
+            "description": "The maximum duration of a track in seconds.",
+            "value": "4200",
+            "required": false
+        },
+        "LEAVE_ON_DEMOTED": {
+            "description": "Leave the group when the bot is demoted. Set to true to enable.",
+            "value": "false",
+            "required": false
+        },
+        "QUEUE_LIMIT": {
+            "description": "The maximum number of tracks allowed in the queue.",
+            "value": "24",
+            "required": false
+        },
+        "DISABLE_COLOUR": {
+            "description": "Disable coloured inline button styles in Telegram when set to true.",
+            "value": "false",
+            "required": false
+        },
+        "START_IMAGES": {
+            "description": "Optional list of /start image URLs separated by spaces, commas, or semicolons. A random image is used each time.",
+            "value": "https://artistbox.bond/f/bwifjv9e.mp4",
+            "required": false
+        },
+        "REPO_IMG_URL": {
+            "description": "Image URL displayed in the /repo command response.",
+            "value": "https://artistbox.bond/f/bwifjv9e.mp4",
+            "required": false
+        },
+        "PING_IMG_URL": {
+            "description": "Image URL displayed in the /ping command response.",
+            "value": "https://artistbox.bond/f/bwifjv9e.mp4",
+            "required": false
+        },
+        "EFFECT_IDS": {
+            "description": "List of Telegram message effect IDs separated by spaces, commas, or semicolons. A random effect is applied when the /start command is used. If unsure, try 5104841245755180586.",
+            "value": "",
+            "required": false
+        },
+        "SUPPORT_CHAT": {
+            "description": "The URL of your support chat.",
+            "value": "https://t.me/MeowClone",
+            "required": false
+        },
+        "SUPPORT_CHANNEL": {
+            "description": "The URL of your support channel.",
+            "value": "https://t.me/MeowCloner",
+            "required": false
+        },
+        "COOKIES_LINK": {
+            "description": "A space-separated list of batbin.me URLs for cookies.",
+            "required": false
+        },
+        "SET_CMDS": {
+            "description": "Set to 'true' to have the bot set its commands on startup.",
+            "value": "false",
+            "required": false
+        },
+        "MAX_AUTH_USERS": {
+            "description": "The maximum number of authorized users per chat.",
+            "value": "25",
+            "required": false
+        }
+    },
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "basic"
+        }
+    }
+}
