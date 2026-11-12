@@ -1,273 +1,245 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,19,26&height=220&section=header&text=ArtistMusic&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Next-Generation%20Telegram%20Voice%20Chat%20Music%20Engine&descAlignY=60&descAlign=50" width="100%"/>
-</p>
+<div align="center">
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=00E5FF&center=true&vCenter=true&width=620&lines=High-Performance+Go+Streaming+Engine;Ultra-Low+Latency+Voice+Chat+Audio;Multi-Assistant+Seamless+Load+Balancing;Custom+Lyrics%2C+Thumbnails+%26+Animations;Developed+%26+Maintained+by+ArtistMusic" alt="Typing SVG" />
-</p>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f0c29,50:302b63,100:24243e&height=150&section=header&text=ArtistMusic&fontSize=56&fontColor=ffffff&fontAlignY=50&desc=Telegram%20voice%20chat%20music%20engine%20%E2%80%A2%20written%20in%20Go&descSize=16&descAlignY=76&descColor=b8b5ff" width="100%" alt="ArtistMusic"/>
 
-<p align="center">
-  <a href="https://github.com/elevenyts/ArtistMusic/stargazers">
-    <img src="https://img.shields.io/badge/GitHub-Stars-FFD700?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Stars">
-  </a>
-  <a href="https://github.com/elevenyts/ArtistMusic/fork">
-    <img src="https://img.shields.io/badge/GitHub-Forks-00C853?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Forks">
-  </a>
-  <a href="https://go.dev/">
-    <img src="https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go Version">
-  </a>
-  <a href="https://github.com/elevenyts/ArtistMusic/releases">
-    <img src="https://img.shields.io/badge/Release-v1.0.0-FF6F00?style=for-the-badge&logo=semver&logoColor=white" alt="Latest Release">
-  </a>
-  <a href="https://github.com/elevenyts/ArtistMusic/blob/dev/LICENSE">
-    <img src="https://img.shields.io/badge/License-GPL--3.0-blue?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License">
-  </a>
-  <a href="https://t.me/Artistbots">
-    <img src="https://img.shields.io/badge/Telegram-Support-26A69A?style=for-the-badge&logo=telegram&logoColor=white" alt="Support Chat">
-  </a>
-</p>
+<br/>
 
----
+<a href="https://t.me/Artistbots"><img src="https://img.shields.io/badge/Updates-@Artistbots-229ED9?style=flat-square&logo=telegram&logoColor=white" alt="Updates"></a>
+<a href="https://t.me/Elevenytschats"><img src="https://img.shields.io/badge/Chat-@Elevenytschats-229ED9?style=flat-square&logo=telegram&logoColor=white" alt="Chat"></a>
+<img src="https://img.shields.io/badge/Go-1.26+-00ADD8?style=flat-square&logo=go&logoColor=white" alt="Go">
+<img src="https://img.shields.io/badge/MongoDB-required-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB">
+<a href="./LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue?style=flat-square" alt="License"></a>
 
-## ✨ Features & Highlights
+<br/><br/>
 
-- ⚡ **Ultra-Low Latency Streaming:** Powered by Go and native `ntgcalls` CGO bindings, ensuring crystal-clear playback without audio stutters or drops.
-- 🤖 **Multi-Assistant Architecture:** Distributes active voice calls across multiple userbot assistant accounts (Pyrogram, Telethon, or Gogram) with automatic load balancing.
-- 🎵 **Multi-Platform Provider:** Seamless stream resolution for YouTube, Spotify metadata matching, Telegram audio files, live streams, and direct HTTP audio URLs.
-- 🎛️ **Full Playback Controls:** Comprehensive command suite including seek (`/seek`), playback speed (`/speed`), loop (`/loop`), shuffle (`/shuffle`), and auto-play.
-- 🔄 **Smart Auto-Fallback:** Automatically retries and falls back to alternate stream sources if an endpoint fails or drops.
-- 🌐 **Multi-Language Engine:** Built-in localization support with seamless YAML translations (English, Hindi, Arabic, Turkish, and more).
-- 🎨 **Visual Aesthetics:** Dynamic audio thumbnails, customizable start animations, rich Telegram inline buttons, and animated message effect IDs.
-- 🛡️ **Admin & Security:** Granular sudo management, per-chat authorizations, smart anti-flood protection, and maintenance mode.
+**Stream music and video into Telegram group voice chats, with multi-assistant support, a full playback toolkit and one-click deploys.**
 
----
+[Features](#-features) · [Deploy](#-deploy) · [Setup](#-setup) · [Config](#-configuration) · [Commands](#-commands) · [Structure](#-project-structure)
 
-## 🚀 Quick Deploy
+</div>
 
-Deploy **ArtistMusic** in under 60 seconds on your favorite cloud provider:
+<br/>
 
-<p align="center">
-  <a href="https://heroku.com/deploy?template=https://github.com/elevenyts/ArtistMusic">
-    <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="38">
-  </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://railway.com/new/template?template=https://github.com/elevenyts/ArtistMusic">
-    <img src="https://railway.com/button.svg" alt="Deploy on Railway" height="38">
-  </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://render.com/deploy?repo=https://github.com/elevenyts/ArtistMusic">
-    <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" height="38">
-  </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://app.koyeb.com/deploy?type=git&repository=elevenyts/ArtistMusic&branch=dev&name=artistmusic&service_type=worker&env[API_ID]=&env[API_HASH]=&env[TOKEN]=&env[MONGO_DB_URI]=&env[STRING_SESSION]=&env[OWNER_ID]=">
-    <img src="https://www.koyeb.com/static/images/deploy/button.svg" alt="Deploy to Koyeb" height="38">
-  </a>
-</p>
+## ✨ Features
 
----
+|  |  |
+| :-- | :-- |
+| ⚡ **Fast streaming** | Go + native `ntgcalls` bindings for low-latency, stutter-free playback |
+| 🤖 **Multiple assistants** | Spread voice chats across several assistant accounts, auto balanced |
+| 🎬 **Audio & video** | `/play` for audio, `/vplay` for video, plus force-play variants |
+| 🎛️ **Full control** | Seek, speed, loop, shuffle, jump, move, replay, playlists, autoplay |
+| 📡 **Channel play** | Play into a linked channel's voice chat with the `c` commands (`/cplay`) |
+| 🔌 **Many sources** | YouTube, Telegram files, direct links, and the Artistbots / Artist APIs |
+| 🌍 **Localization** | English, with YAML locale files so more languages can be added |
+| 🛡️ **Admin tools** | Sudo users, per-chat auth, blacklists, maintenance mode, admin & clean mode |
+| 📝 **Logging** | Voice chat logger, start/add/remove logs and error reports to a log chat |
 
-## 🛠️ Deployment Methods
+<br/>
 
-<details>
-  <summary><b>🖥️ [Click to Expand] VPS / Linux Server Installation Guide</b></summary>
-  <br>
+## 🚀 Deploy
 
-  ### 📋 Prerequisites
-  Make sure your Linux VPS has basic dependencies installed:
-  ```bash
-  sudo apt-get update && sudo apt-get upgrade -y
-  sudo apt-get install -y git curl ffmpeg build-essential
-  ```
+<div align="center">
 
-  ### 🚀 Step-by-Step Setup
-  ```bash
-  # 1. Clone the repository
-  git clone https://github.com/elevenyts/ArtistMusic.git
-  cd ArtistMusic
+<a href="https://heroku.com/deploy?template=https://github.com/elevenyts/ArtistMusic"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="36"></a>
+&nbsp;
+<a href="https://railway.com/new/template?template=https://github.com/elevenyts/ArtistMusic"><img src="https://railway.com/button.svg" alt="Deploy on Railway" height="36"></a>
+&nbsp;
+<a href="https://render.com/deploy?repo=https://github.com/elevenyts/ArtistMusic"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" height="36"></a>
+&nbsp;
+<a href="https://app.koyeb.com/deploy?type=git&repository=elevenyts/ArtistMusic&branch=dev&name=artistmusic&service_type=worker&env[API_ID]=&env[API_HASH]=&env[TOKEN]=&env[MONGO_DB_URI]=&env[STRING_SESSIONS]=&env[OWNER_ID]="><img src="https://www.koyeb.com/static/images/deploy/button.svg" alt="Deploy to Koyeb" height="36"></a>
 
-  # 2. Run automated dependency installer
-  bash install.sh
+</div>
 
-  # 3. Setup configuration environment
-  cp sample.env .env  # Edit your API_ID, TOKEN, etc.
-  nano .env
+> [!IMPORTANT]
+> Set **`OWNER_ID`** to your own Telegram user ID before you deploy. It decides who can use owner-only commands such as `/broadcast`, `/addsudo` and `/sh`.
 
-  # 4. Tidy & Run
-  go mod tidy
-  go run ./cmd/app
-  ```
+<br/>
 
-  ### 🔄 Running 24/7 in Background
-  **Method 1: Using Automated Runner Script**
-  ```bash
-  # Auto-builds, exports library paths, and auto-restarts on crash
-  bash start.sh
-  ```
+## 🛠️ Setup
 
-  **Method 2: Using Automated Systemd Service**
-  ```bash
-  sudo bash setup_service.sh
-  sudo systemctl start artistmusic
-  sudo systemctl status artistmusic
-  ```
-
-  **Method 3: Using Tmux**
-  ```bash
-  tmux new -s artistmusic
-  go run ./cmd/app
-  # Press Ctrl+B then D to detach. Re-attach anytime with: tmux a -t artistmusic
-  ```
-</details>
-
-<details>
-  <summary><b>🐳 [Click to Expand] Docker & Docker Compose Deployment Guide</b></summary>
-  <br>
-
-  ### 🚀 Docker Compose Setup
-  ```bash
-  # 1. Clone repo
-  git clone https://github.com/elevenyts/ArtistMusic.git
-  cd ArtistMusic
-
-  # 2. Prepare environment variables
-  cp sample.env .env
-  nano .env  # Edit your configuration values
-
-  # 3. Build & start container
-  docker compose up -d --build
-  ```
-
-  ### 📜 Useful Docker Commands
-  ```bash
-  # View live real-time logs
-  docker compose logs -f artistmusic
-
-  # Restart the bot
-  docker compose restart artistmusic
-
-  # Stop the container
-  docker compose down
-
-  # Update to latest code & rebuild
-  git pull && docker compose up -d --build
-  ```
-</details>
-
----
-
-## ⚙️ Configuration Variables
+You need: **API ID/Hash** ([my.telegram.org](https://my.telegram.org)), a **bot token** ([@BotFather](https://t.me/BotFather)), a **MongoDB URI**, and at least one **assistant session string**.
 
 <details open>
-  <summary><b>🔑 Environment Variables Reference Table</b></summary>
-  <br>
+<summary><b>🐳 Docker (recommended)</b></summary>
 
-  | Variable | Required | Default | Description |
-  | :--- | :---: | :---: | :--- |
-  | `API_ID` | **Yes** | — | Telegram API ID from [my.telegram.org](https://my.telegram.org) |
-  | `API_HASH` | **Yes** | — | Telegram API Hash from [my.telegram.org](https://my.telegram.org) |
-  | `TOKEN` | **Yes** | — | Telegram Bot Token from [@BotFather](https://t.me/BotFather) |
-  | `MONGO_DB_URI` | **Yes** | — | MongoDB Connection String (`mongodb+srv://...`) |
-  | `STRING_SESSIONS` | **Yes** | — | Assistant account session strings (separated by spaces or commas) |
-  | `OWNER_ID` | **Yes** | — | Telegram User ID of the bot owner |
-  | `SESSION_TYPE` | No | `pyrogram` | Session string library: `pyrogram`, `telethon`, or `gogram` |
-  | `DB_NAME` | No | `ArtistMusic` | MongoDB database name |
-  | `LOGGER_ID` | No | `0` | Telegram Chat ID for logs and error reports |
-  | `DURATION_LIMIT`| No | `4200` | Max track duration in seconds (70 minutes) |
-  | `QUEUE_LIMIT` | No | `24` | Max tracks allowed in queue per chat |
-  | `DEFAULT_LANG` | No | `en` | Default language code (`en`, `hi`, `ar`, `tr`) |
-  | `SUPPORT_CHAT` | No | `https://t.me/Artistbots` | Link to your Telegram support chat |
-  | `SUPPORT_CHANNEL`| No | `https://t.me/Artistbots` | Link to your Telegram announcement channel |
-  | `SPOTIFY_CLIENT_ID` | No | — | Spotify Client ID for track resolution |
-  | `SPOTIFY_CLIENT_SECRET` | No | — | Spotify Client Secret for track resolution |
-  | `COOKIES_LINK` | No | — | batbin URL to YouTube cookies file for `yt-dlp` |
-</details>
+```bash
+git clone https://github.com/elevenyts/ArtistMusic.git
+cd ArtistMusic
 
----
-
-## 🎮 Bot Commands Reference
-
-<details>
-  <summary><b>🎵 [Click to Expand] Playback & Stream Commands</b></summary>
-  <br>
-
-  | Command | Description |
-  | :--- | :--- |
-  | `/play <query/url>` | Streams requested song into group voice chat |
-  | `/fplay <query/url>` | Force plays track, skipping the current playing track immediately |
-  | `/pause` | Pauses active playback stream |
-  | `/resume` | Resumes paused audio stream |
-  | `/skip` | Skips current track to the next item in queue |
-  | `/stop` | Stops playback and clears the entire playlist queue |
-  | `/queue` | Displays the current playlist and upcoming tracks |
-  | `/seek <seconds>` | Seeks playback to a specific timestamp |
-  | `/speed <0.5-2.0>` | Changes audio playback speed dynamically |
-  | `/loop <1-10>` | Loops the current track specified number of times |
-  | `/shuffle` | Shuffles queued songs randomly |
-  | `/replay` | Replays the current playing song from beginning |
-</details>
-
-<details>
-  <summary><b>👥 [Click to Expand] Group Admin & Settings Commands</b></summary>
-  <br>
-
-  | Command | Description |
-  | :--- | :--- |
-  | `/auth <user>` | Authorizes non-admin user to use bot playback commands |
-  | `/unauth <user>` | Revokes bot access authorization from a user |
-  | `/authusers` | Lists all authorized users in the current group |
-  | `/language` | Changes bot language for current chat (Multi-language) |
-  | `/settings` | Opens the interactive visual settings control panel |
-  | `/reload` | Refreshes admin cache and reconnects the assistant account |
-  | `/cplay <channel>` | Streams audio directly linked to a Telegram channel |
-</details>
-
-<details>
-  <summary><b>🛡️ [Click to Expand] Bot Owner & Sudo Commands</b></summary>
-  <br>
-
-  | Command | Description |
-  | :--- | :--- |
-  | `/addsudo <user>` | Adds a new user to sudoers list |
-  | `/delsudo <user>` | Removes a user from sudoers list |
-  | `/sudolist` | Shows list of all current bot sudoers |
-  | `/stats` | Shows server performance, memory, and database metrics |
-  | `/broadcast <msg>` | Broadcasts announcements to all served chats and users |
-  | `/maintenance` | Toggles global bot maintenance mode |
-  | `/eval <code>` | Executes internal runtime evaluation (Owner only) |
-</details>
-
----
-
-## 📁 Project Architecture
-
+cp sample.env .env && nano .env     # fill in your values
+docker compose up -d --build
 ```
+
+```bash
+docker compose logs -f artistmusic      # live logs
+docker compose restart artistmusic      # restart
+git pull && docker compose up -d --build   # update
+```
+
+</details>
+
+<details>
+<summary><b>🖥️ VPS / Linux</b></summary>
+
+```bash
+sudo apt-get update && sudo apt-get install -y git curl ffmpeg build-essential
+
+git clone https://github.com/elevenyts/ArtistMusic.git
+cd ArtistMusic
+
+bash install.sh                     # installs dependencies
+cp sample.env .env && nano .env     # fill in your values
+```
+
+Run it 24/7, pick one:
+
+```bash
+bash start.sh                       # builds, sets library paths, auto-restarts on crash
+```
+
+```bash
+sudo bash setup_service.sh          # systemd service
+sudo systemctl start artistmusic
+sudo systemctl status artistmusic
+```
+
+</details>
+
+<br/>
+
+## ⚙️ Configuration
+
+Copy `sample.env` to `.env`. Variables marked ✅ are required.
+
+| Variable | | Default | Description |
+| :-- | :-: | :-- | :-- |
+| `API_ID` | ✅ | | Telegram API ID |
+| `API_HASH` | ✅ | | Telegram API hash |
+| `TOKEN` | ✅ | | Bot token from @BotFather |
+| `MONGO_DB_URI` | ✅ | | MongoDB connection string |
+| `STRING_SESSIONS` | ✅ | | Assistant session strings, separated by space or comma |
+| `OWNER_ID` | ✅ | | Telegram user ID of the owner |
+| `SESSION_TYPE` | | `pyrogram` | Session string library: `pyrogram`, `telethon`, `gogram` |
+| `DB_NAME` | | `ArtistMusic` | MongoDB database name |
+| `LOGGER_ID` | | `0` | Chat ID for logs and error reports (`0` turns it off) |
+| `OWNER_USERNAME` | | | Used for the developer button |
+| `DEV_URL` | | | Custom developer link |
+| `DURATION_LIMIT` | | `4200` | Max track length in seconds |
+| `QUEUE_LIMIT` | | `24` | Max tracks per chat queue |
+| `MAX_AUTH_USERS` | | `25` | Max authorized users per chat |
+| `DEFAULT_LANG` | | `en` | Default language (only `en` is included) |
+| `LEAVE_ON_DEMOTED` | | `false` | Leave a group when the bot is demoted |
+| `SET_CMDS` | | `false` | Register the command list with BotFather on start |
+| `START_IMAGES` | | | Start media URLs |
+| `SUPPORT_CHAT` | | `https://t.me/Artistbots` | Support chat link |
+| `SUPPORT_CHANNEL` | | `https://t.me/Artistbots` | Updates channel link |
+| `COOKIES_LINK` | | | batbin link(s) to YouTube cookies for `yt-dlp` |
+| `ARTIST_API_URL` / `ARTIST_API_KEY` | | | Artist streaming API |
+| `ARTISTBOTS_API_URL` / `ARTISTBOTS_API_KEY` | | `https://api.artistbotsapi.bond` | Artistbots API (leave the key empty to disable) |
+| `PORT` | | `8000` | Health-check HTTP port |
+
+> [!NOTE]
+> On startup every assistant account joins **@Elevenytschats** and **@Artistbots**. To change this, edit `autoJoinChannels` in `artistmusic/core/clients.go`.
+
+<br/>
+
+## 🎮 Commands
+
+<details open>
+<summary><b>🎵 Playback</b></summary>
+
+| Command | What it does |
+| :-- | :-- |
+| `/play <query or link>` | Play audio in the voice chat |
+| `/vplay <query or link>` | Play video |
+| `/playforce` · `/vplayforce` | Play now, skipping the current track |
+| `/pause` · `/resume` | Pause or resume |
+| `/skip` | Next track |
+| `/stop` · `/end` | Stop and clear the queue |
+| `/seek <s>` · `/seekback <s>` | Jump forward or back |
+| `/speed <0.5-2.0>` | Change playback speed |
+| `/loop <1-10>` | Repeat the current track |
+| `/shuffle` · `/replay` · `/jump <n>` | Shuffle, replay, or jump to a track |
+| `/queue` · `/remove` · `/move` · `/clear` | Manage the queue |
+| `/position` | Show current position |
+| `/cplay` and other `c` commands | Same as above, for the linked channel |
+
+</details>
+
+<details>
+<summary><b>📚 Playlists</b></summary>
+
+`/createplaylist` · `/deleteplaylist` · `/addtoplaylist` · `/removefromplaylist` · `/playlistinfo` · `/myplaylists`
+
+</details>
+
+<details>
+<summary><b>👥 Group settings</b></summary>
+
+| Command | What it does |
+| :-- | :-- |
+| `/settings` | Interactive settings panel |
+| `/auth` · `/unauth` · `/authusers` | Let non-admins control playback |
+| `/language` | Set the chat language |
+| `/playmode` · `/adminmode` · `/cleanmode` | Behaviour of play commands and message cleanup |
+| `/autoplay` | Keep playing related tracks |
+| `/channelplay` | Link a channel for channel play |
+| `/vclogger` · `/vcstatus` | Voice chat join/leave logging |
+| `/reload` | Refresh admin cache and reconnect the assistant |
+| `/ping` · `/help` · `/repo` · `/privacy` · `/bug` | Utilities |
+
+</details>
+
+<details>
+<summary><b>🛡️ Owner & sudo</b></summary>
+
+| Command | What it does |
+| :-- | :-- |
+| `/addsudo` · `/delsudo` · `/sudoers` | Manage sudo users |
+| `/broadcast` (`/gcast`, `/bcast`) | Broadcast to chats and users, owner only |
+| `/blockuser` · `/blockchat` · `/blocked` | Blacklist users and chats (and their `un` versions) |
+| `/maintenance` | Toggle maintenance mode |
+| `/autoleave` | Assistants leave inactive chats |
+| `/logger` | Toggle log-chat messages |
+| `/stats` | Server and database stats |
+| `/restart` | Restart the bot |
+| `/eval` · `/sh` · `/logs` | Owner debugging tools |
+
+</details>
+
+<br/>
+
+## 📁 Project structure
+
+```text
 ArtistMusic/
-├── cmd/app/              # Application entry point & dependencies verification
-├── config/               # Flexible configuration loader & cookies system
+├── cmd/app/            entry point and dependency checks
+├── config/             env loader and cookies handling
 ├── artistmusic/
-│   ├── core/             # State machine, room controllers, & assistant pooling
-│   ├── database/         # MongoDB schemas, caching layers, & automated migrations
-│   ├── locales/          # YAML-based multi-language translation packs
-│   ├── artist/             # High-performance Telegram MTProto client engine
-│   ├── modules/          # Command modules (play, skip, pause, settings, etc.)
-│   ├── platforms/        # Media stream resolvers (YouTube, Spotify, Telegram)
-│   └── utils/            # Admin checks, parsing, formatters, and helpers
-├── Dockerfile            # Multi-stage production container build
-├── docker-compose.yml    # Docker Compose orchestration recipe
-├── install.sh            # Automated server setup and dependency script
-└── sample.env            # Template environment variables file
+│   ├── core/           rooms, chat state, assistant pool
+│   ├── modules/        command handlers (play, queue, broadcast, settings ...)
+│   ├── platforms/      stream resolvers (YouTube, Telegram, APIs, direct links)
+│   ├── database/       MongoDB access and migrations
+│   ├── locales/        translation files (en)
+│   ├── artist/         Telegram client library (TDLib)
+│   └── utils/          helpers
+├── ntgcalls/           voice chat call bindings
+├── ubot/               assistant userbot call handling
+├── Dockerfile · docker-compose.yml
+├── start.sh · install.sh · setup_service.sh
+└── sample.env
 ```
 
----
+<br/>
 
 ## 📜 License
 
-Distributed under the **GNU General Public License v3.0**. See the [`LICENSE`](./LICENSE) file for full details.
+Released under the **GNU GPL v3.0**. See [`LICENSE`](./LICENSE).
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,19,26&height=100&section=footer" width="100%"/>
-</p>
+<div align="center">
 
-<p align="center">
-  <b>Developed & Maintained with ❤️ by <a href="https://github.com/elevenyts">ArtistMusic</a></b>
-</p>
+<br/>
+
+Made with ❤️ by [@Artistbots](https://t.me/Artistbots) · [@Elevenytschats](https://t.me/Elevenytschats)
+
+</div>

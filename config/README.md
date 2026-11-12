@@ -39,8 +39,8 @@ These must be set for the bot to start.
 | :--- | :--- | :--- |
 | `SPOTIFY_CLIENT_ID` | `None` | Spotify API Client ID for metadata resolution. |
 | `SPOTIFY_CLIENT_SECRET` | `None` | Spotify API Client Secret for metadata resolution. |
-| `FALLEN_API_KEY` | `""` | API Key for [Fallen API](https://beta.fallenapi.fun) YouTube downloader. |
-| `FALLEN_API_URL` | `https://beta.fallenapi.fun` | Base URL for Fallen API. |
+| `ARTISTBOTS_API_URL` | `https://api.artistbotsapi.bond` | Base URL of the Artistbots API (`/download?url=VIDEO_ID&type=audio\|video&api_key=KEY`). |
+| `ARTISTBOTS_API_KEY` | `""` | API key for the Artistbots API. Leave empty to disable it. |
 
 ## 🛠️ Bot Behavior & Limits
 

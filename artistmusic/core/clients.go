@@ -2,7 +2,6 @@
  * ● ArtistMusic
  * ○ A high-performance engine for streaming music in Telegram voicechats.
  *
- * Copyright (C) 2026 Kanha
  * Copyright (C) 2026 ArtistMusic
  *
  * This program is free software: you can redistribute it and/or modify it under the
@@ -201,6 +200,9 @@ func sendErrorReportFile(c *td.Client, text string) {
 	}, nil)
 }
 
+// autoJoinChannels are joined by every assistant on startup.
+var autoJoinChannels = []string{"Elevenytschats", "Artistbots"}
+
 func initAssistants() error {
 	assistantList := make([]*Assistant, 0, len(config.StringSessions))
 
@@ -225,7 +227,11 @@ func initAssistants() error {
 		if m != nil {
 			_, _ = m.Delete()
 		}
-		assistant.Client.JoinChannel("ArtistMusic")
+		for _, ch := range autoJoinChannels {
+			if _, err := assistant.Client.JoinChannel(ch); err != nil {
+				logger.Warnf("Assistant[%d] failed to join %s: %v", i, ch, err)
+			}
+		}
 
 		if assistant.Self.Username != "" {
 			logger.Infof(

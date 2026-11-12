@@ -2,7 +2,6 @@
  * ● ArtistMusic
  * ○ A high-performance engine for streaming music in Telegram voicechats.
  *
- * Copyright (C) 2026 Kanha
  * Copyright (C) 2026 ArtistMusic
  *
  * This program is free software: you can redistribute it and/or modify it under the

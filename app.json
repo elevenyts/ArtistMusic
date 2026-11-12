@@ -8,12 +8,12 @@
     "env": {
         "API_ID": {
             "description": "Your Telegram API ID from my.telegram.org.",
-            "value": "37252222",
+            "value": "",
             "required": true
         },
         "API_HASH": {
             "description": "Your Telegram API Hash from my.telegram.org.",
-            "value": "7cde4cbc12392cdecd034e5e068657de",
+            "value": "",
             "required": true
         },
         "TOKEN": {
@@ -38,7 +38,7 @@
         },
         "ARTIST_API_URL": {
             "description": "Base URL for the Artist Music Streaming API.",
-            "value": "https://music.yukiapi.site",
+            "value": "",
             "required": false
         },
         "ARTIST_API_KEY": {

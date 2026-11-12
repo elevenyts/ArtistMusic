@@ -26,9 +26,6 @@ Use these helpers instead of calling the loader directly:
 
 | Language | Code | Contributor |
 | :--- | :--- | :--- |
-| 🇺🇸 English | `en` | [@Oyekanhaa](https://github.com/Oyekanhaa) |
-| 🇮🇳 Hindi | `hi` | [@Oyekanhaa](https://github.com/Oyekanhaa) |
-| 🇸🇦 Arabic | `ar` | [@Oyekanhaa](https://github.com/Oyekanhaa) |
-| 🇹🇷 Turkish | `tr` | [@Oyekanhaa](https://github.com/Oyekanhaa) |
+| 🇺🇸 English | `en` | [@Artistbots](https://t.me/Artistbots) |
 ---
 *All YAML files in `artistmusic/locales/` are automatically embedded into the binary during compilation.*

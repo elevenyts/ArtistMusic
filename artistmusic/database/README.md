@@ -248,10 +248,10 @@ users, err := database.AuthorizedUsers(chatID)
 ```go
 // Get chat language
 lang, err := database.Language(chatID)
-// Returns: chat language ("en", "hi", etc.), if not found defaults to config.DefaultLang
+// Returns: chat language ("en", etc.), if not found defaults to config.DefaultLang
 
 // Set chat language
-err := database.SetLanguage(chatID, "hi")
+err := database.SetLanguage(chatID, "es")
 ```
 
 ### Channel Play (CPlay)
@@ -517,7 +517,7 @@ database.Unauthorize(chatID, userID)
 
 // Language management
 lang, _ := database.Language(chatID)
-database.SetLanguage(chatID, "hi")
+database.SetLanguage(chatID, "es")
 
 // Served tracking
 database.AddServedUser(userID)
