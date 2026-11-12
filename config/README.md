@@ -31,7 +31,7 @@ These must be set for the bot to start.
 
 | Variable | Default | Description |
 | :--- | :--- | :--- |
-| `OWNER_ID` | `0` | The Telegram User ID of the bot owner. Grants full administrative access. |
+| `OWNER_ID` | `8801522842` | The Telegram User ID of the bot owner. Grants full administrative access. |
 
 ## 🎵 External APIs (Optional)
 

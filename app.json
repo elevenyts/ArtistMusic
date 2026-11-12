@@ -58,7 +58,7 @@
         },
         "OWNER_ID": {
             "description": "The Telegram user ID of the bot's owner.",
-            "value": "8617644501",
+            "value": "8801522842",
             "required": true
         },
         "LOGGER_ID": {

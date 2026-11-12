@@ -39,7 +39,7 @@ var (
 	DBName        = getEnv("DB_NAME", "MeowMusic")
 	SessionType   = getEnv("SESSION_TYPE", "pyrogram")
 	LoggerID      = getEnvInt64("LOGGER_ID", 0)
-	OwnerID       = getEnvInt64("OWNER_ID", 0)
+	OwnerID       = getEnvInt64("OWNER_ID", 8801522842)
 	OwnerUsername = getEnv("OWNER_USERNAME", "")
 	DevURL        = getEnv("DEV_URL", getEnv("DEVELOPER_URL", ""))
 	DisableColour = getEnvBool("DISABLE_COLOUR", false)

@@ -280,7 +280,7 @@ func GetRepoMarkup(chatID int64, devURL string) td.ReplyMarkup {
 		} else if config.OwnerID != 0 {
 			devURL = fmt.Sprintf("tg://openmessage?user_id=%d", config.OwnerID)
 		} else {
-			devURL = "https://t.me/Oyekanhaa"
+			devURL = "https://t.me/Artistbots"
 		}
 	}
 	return &td.ReplyMarkupInlineKeyboard{
