@@ -37,4 +37,4 @@ The bot couldn't find any valid `.txt` files in `config/cookies/`.
 - **Redundancy:** Use multiple cookie files from different accounts to avoid rate limits.
 
 ---
-**Note:** For more help, join our [Support Chat](https://t.me/MeowClone).
+**Note:** For more help, join our [Support Chat](https://t.me/Artistbots).

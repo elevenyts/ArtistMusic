@@ -8,7 +8,7 @@ import (
 
 	tg "github.com/amarnathcjd/gogram/telegram"
 
-	"KanhaMusic/ntgcalls"
+	"ArtistMusic/ntgcalls"
 )
 
 type participantUpdate struct {

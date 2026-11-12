@@ -6,7 +6,7 @@ import (
 
 	tg "github.com/amarnathcjd/gogram/telegram"
 
-	"KanhaMusic/ntgcalls"
+	"ArtistMusic/ntgcalls"
 )
 
 func (ctx *Context) connectCall(

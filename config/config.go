@@ -1,8 +1,9 @@
 /*
- * ● KanhaMusic
+ * ● ArtistMusic
  * ○ A high-performance engine for streaming music in Telegram voicechats.
  *
  * Copyright (C) 2026 Kanha
+ * Copyright (C) 2026 ArtistMusic
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software Foundation,
@@ -12,7 +13,7 @@
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
- * Repository: https://github.com/Oyekanhaa/KanhaMusic
+ * Repository: https://github.com/elevenyts/ArtistMusic
  */
 
 package config
@@ -22,7 +23,7 @@ import (
 	"math/rand/v2"
 	"time"
 
-	"KanhaMusic/kanha/logger"
+	"ArtistMusic/artistmusic/logger"
 
 	_ "github.com/joho/godotenv/autoload"
 )
@@ -36,15 +37,15 @@ var (
 	StringSessions = getEnvStrings("STRING_SESSIONS")
 
 	// Optional
-	DBName        = getEnv("DB_NAME", "MeowMusic")
+	DBName        = getEnv("DB_NAME", "ArtistMusic")
 	SessionType   = getEnv("SESSION_TYPE", "pyrogram")
 	LoggerID      = getEnvInt64("LOGGER_ID", 0)
 	OwnerID       = getEnvInt64("OWNER_ID", 8801522842)
 	OwnerUsername = getEnv("OWNER_USERNAME", "")
 	DevURL        = getEnv("DEV_URL", getEnv("DEVELOPER_URL", ""))
 	DisableColour = getEnvBool("DISABLE_COLOUR", false)
-	MeowAPIURL    = getEnv("MEOW_API_URL", "https://music.yukiapi.site")
-	MeowAPIKey    = getEnv("MEOW_API_KEY")
+	ArtistAPIURL    = getEnv("ARTIST_API_URL", "https://music.yukiapi.site")
+	ArtistAPIKey    = getEnv("ARTIST_API_KEY")
 
 	// Artistbots API: GET {URL}/download?url=VIDEO_ID&type=audio|video&api_key=KEY
 	ArtistbotsAPIURL = getEnv(
@@ -58,8 +59,8 @@ var (
 	LeaveOnDemoted = getEnvBool("LEAVE_ON_DEMOTED", false)
 	QueueLimit     = getEnvInt("QUEUE_LIMIT", 24)
 
-	SupportChat    = getEnv("SUPPORT_CHAT", "https://t.me/MeowClone")
-	SupportChannel = getEnv("SUPPORT_CHANNEL", "https://t.me/Meowcloner")
+	SupportChat    = getEnv("SUPPORT_CHAT", "https://t.me/Artistbots")
+	SupportChannel = getEnv("SUPPORT_CHANNEL", "https://t.me/Artistbots")
 	CookiesLink    = getEnv("COOKIES_LINK", "")
 	SetCmds        = getEnvBool("SET_CMDS", false)
 	MaxAuthUsers   = getEnvInt("MAX_AUTH_USERS", 25)

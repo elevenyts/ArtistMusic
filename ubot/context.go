@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"sync"
 
-	"KanhaMusic/kanha/logger"
+	"ArtistMusic/artistmusic/logger"
 
 	tg "github.com/amarnathcjd/gogram/telegram"
 
-	"KanhaMusic/ntgcalls"
+	"ArtistMusic/ntgcalls"
 )
 
 type Context struct {

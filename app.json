@@ -28,7 +28,7 @@
         },
         "DB_NAME": {
             "description": "Database Name for MongoDB.",
-            "value": "MeowMusic",
+            "value": "ArtistMusic",
             "required": false
         },
         "STRING_SESSION": {
@@ -36,13 +36,13 @@
             "value": "",
             "required": true
         },
-        "MEOW_API_URL": {
-            "description": "Base URL for the Meow/Yuki Music Streaming API.",
+        "ARTIST_API_URL": {
+            "description": "Base URL for the Artist Music Streaming API.",
             "value": "https://music.yukiapi.site",
             "required": false
         },
-        "MEOW_API_KEY": {
-            "description": "API Key for the Meow/Yuki Music Streaming API.",
+        "ARTIST_API_KEY": {
+            "description": "API Key for the Artist Music Streaming API.",
             "value": "",
             "required": false
         },
@@ -108,12 +108,12 @@
         },
         "SUPPORT_CHAT": {
             "description": "The URL of your support chat.",
-            "value": "https://t.me/MeowClone",
+            "value": "https://t.me/Artistbots",
             "required": false
         },
         "SUPPORT_CHANNEL": {
             "description": "The URL of your support channel.",
-            "value": "https://t.me/MeowCloner",
+            "value": "https://t.me/Artistbots",
             "required": false
         },
         "COOKIES_LINK": {

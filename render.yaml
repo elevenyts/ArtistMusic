@@ -19,7 +19,7 @@ services:
       - key: OWNER_ID
         sync: false
       - key: DB_NAME
-        value: MeowMusic
+        value: ArtistMusic
       - key: DURATION_LIMIT
         value: "4200"
       - key: QUEUE_LIMIT

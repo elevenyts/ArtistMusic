@@ -1,8 +1,9 @@
 /*
- * ● KanhaMusic
+ * ● ArtistMusic
  * ○ A high-performance engine for streaming music in Telegram voicechats.
  *
  * Copyright (C) 2026 Kanha
+ * Copyright (C) 2026 ArtistMusic
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software Foundation,
@@ -12,7 +13,7 @@
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
- * Repository: https://github.com/Oyekanhaa/KanhaMusic
+ * Repository: https://github.com/elevenyts/ArtistMusic
  */
 
 package cookies
@@ -25,11 +26,11 @@ import (
 	"sync"
 	"time"
 
-	"KanhaMusic/kanha/logger"
+	"ArtistMusic/artistmusic/logger"
 
 	"resty.dev/v3"
 
-	"KanhaMusic/config"
+	"ArtistMusic/config"
 )
 
 const cookieDir = "config/cookies"

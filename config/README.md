@@ -46,7 +46,7 @@ These must be set for the bot to start.
 
 | Variable | Default | Description |
 | :--- | :--- | :--- |
-| `DEFAULT_LANG` | `en` | Default language for bot responses (see `kanha/locales/`). |
+| `DEFAULT_LANG` | `en` | Default language for bot responses (see `artistmusic/locales/`). |
 | `DURATION_LIMIT` | `4200` | Maximum track duration in seconds (70 minutes). |
 | `QUEUE_LIMIT` | `24` | Maximum number of tracks in queue per chat. |
 | `MAX_AUTH_USERS` | `25` | Max number of non-admin users allowed to control playback. |
@@ -63,8 +63,8 @@ These must be set for the bot to start.
 |`EFFECT_IDS`| `""` | List of Telegram message effect IDs (space/comma/semicolon separated). One random effect ID is selected and applied when the `/start` command is used. These effects are shown visually by Telegram (e.g., animations). If you're unsure what to use, try `5104841245755180586` and run `/start` to see an example effect.|
 | `START_IMAGES` | `""` | Start images list (space/comma/semicolon separated URLs). If multiple URLs are provided, one is chosen randomly for each `/start`. |
 | `PING_IMG_URL` | `https://...` | Image URL displayed in the `/ping` command response. |
-| `SUPPORT_CHAT` | `https://t.me/MeowClone` | **Full URL** to the support group. |
-| `SUPPORT_CHANNEL`| `https://t.me/Meowcloner` | **Full URL** to the announcement channel. |
+| `SUPPORT_CHAT` | `https://t.me/Artistbots` | **Full URL** to the support group. |
+| `SUPPORT_CHANNEL`| `https://t.me/Artistbots` | **Full URL** to the announcement channel. |
 
 ## 🖥️ System Settings
 

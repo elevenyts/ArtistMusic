@@ -22,7 +22,7 @@
   <a href="https://github.com/elevenyts/ArtistMusic/blob/dev/LICENSE">
     <img src="https://img.shields.io/badge/License-GPL--3.0-blue?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License">
   </a>
-  <a href="https://t.me/MeowClone">
+  <a href="https://t.me/Artistbots">
     <img src="https://img.shields.io/badge/Telegram-Support-26A69A?style=for-the-badge&logo=telegram&logoColor=white" alt="Support Chat">
   </a>
 </p>
@@ -170,13 +170,13 @@ Deploy **ArtistMusic** in under 60 seconds on your favorite cloud provider:
   | `STRING_SESSIONS` | **Yes** | — | Assistant account session strings (separated by spaces or commas) |
   | `OWNER_ID` | **Yes** | — | Telegram User ID of the bot owner |
   | `SESSION_TYPE` | No | `pyrogram` | Session string library: `pyrogram`, `telethon`, or `gogram` |
-  | `DB_NAME` | No | `MeowMusic` | MongoDB database name |
+  | `DB_NAME` | No | `ArtistMusic` | MongoDB database name |
   | `LOGGER_ID` | No | `0` | Telegram Chat ID for logs and error reports |
   | `DURATION_LIMIT`| No | `4200` | Max track duration in seconds (70 minutes) |
   | `QUEUE_LIMIT` | No | `24` | Max tracks allowed in queue per chat |
   | `DEFAULT_LANG` | No | `en` | Default language code (`en`, `hi`, `ar`, `tr`) |
-  | `SUPPORT_CHAT` | No | `https://t.me/MeowClone` | Link to your Telegram support chat |
-  | `SUPPORT_CHANNEL`| No | `https://t.me/Meowcloner` | Link to your Telegram announcement channel |
+  | `SUPPORT_CHAT` | No | `https://t.me/Artistbots` | Link to your Telegram support chat |
+  | `SUPPORT_CHANNEL`| No | `https://t.me/Artistbots` | Link to your Telegram announcement channel |
   | `SPOTIFY_CLIENT_ID` | No | — | Spotify Client ID for track resolution |
   | `SPOTIFY_CLIENT_SECRET` | No | — | Spotify Client Secret for track resolution |
   | `COOKIES_LINK` | No | — | batbin URL to YouTube cookies file for `yt-dlp` |
@@ -244,11 +244,11 @@ Deploy **ArtistMusic** in under 60 seconds on your favorite cloud provider:
 ArtistMusic/
 ├── cmd/app/              # Application entry point & dependencies verification
 ├── config/               # Flexible configuration loader & cookies system
-├── kanha/
+├── artistmusic/
 │   ├── core/             # State machine, room controllers, & assistant pooling
 │   ├── database/         # MongoDB schemas, caching layers, & automated migrations
 │   ├── locales/          # YAML-based multi-language translation packs
-│   ├── meow/             # High-performance Telegram MTProto client engine
+│   ├── artist/             # High-performance Telegram MTProto client engine
 │   ├── modules/          # Command modules (play, skip, pause, settings, etc.)
 │   ├── platforms/        # Media stream resolvers (YouTube, Spotify, Telegram)
 │   └── utils/            # Admin checks, parsing, formatters, and helpers

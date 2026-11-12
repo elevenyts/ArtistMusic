@@ -19,7 +19,7 @@ import (
 	"sync"
 	"unsafe"
 
-	"KanhaMusic/kanha/logger"
+	"ArtistMusic/artistmusic/logger"
 )
 
 var clientRegistry = struct {

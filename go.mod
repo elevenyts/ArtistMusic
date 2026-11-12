@@ -1,9 +1,9 @@
-module KanhaMusic
+module ArtistMusic
 
 go 1.26.0
 
 require (
-	github.com/Kanha/Meow v0.0.0
+	github.com/ArtistMusic/Artist v0.0.0
 	github.com/amarnathcjd/gogram v1.7.71
 	github.com/joho/godotenv v1.5.1
 	github.com/shirou/gopsutil/v3 v3.24.5
@@ -36,4 +36,4 @@ require (
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 )
 
-replace github.com/Kanha/Meow => ./kanha/meow
+replace github.com/ArtistMusic/Artist => ./artistmusic/artist
