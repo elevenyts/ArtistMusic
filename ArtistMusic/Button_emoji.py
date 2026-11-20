@@ -40,14 +40,14 @@ REMOVE_DEFAULT_BUTTON_EMOJI = True
 BUTTON_EMOJI = {
     # ---- start / navigation ----
     "back": "",            # ♫ Back ♫
-    "help": "",            # ♫ Help ♫ / ✦ Help
-    "langs": "",           # 🌐 Langs  (language list kholne wala)
-    "add_to_group": "",    # Add To Group
-    "add_me": "",          # ♡ + Add Me
+    "help": "5972055534352733289",            # ♫ Help ♫ / ✦ Help
+    "langs": "6325837556801868339",           # 🌐 Langs  (language list kholne wala)
+    "add_to_group": "6325454162251223334",    # Add To Group
+    "add_me": "6325454162251223334",          # ♡ + Add Me
     "owner": "",           # ♛ Owner ♛
-    "support": "",         # 🦋 Support
-    "channel": "",         # Channel
-    "updates": "",         # 🌙 Updates
+    "support": "5971801057540443125",         # 🦋 Support
+    "channel": "5852830669599674051",         # Channel
+    "updates": "5971944878815317190",         # 🌙 Updates
 
     # ---- player controls (neeche ki row) ----
     "toggle": "",          # ▷  (play / pause toggle)
