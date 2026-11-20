@@ -61,36 +61,36 @@ BUTTON_EMOJI = {
     "cancel": "",          # ✗ Cancel (download cancel)
 
     # ---- settings ----
-    "admin_play": "",      # 🛡 Admin Play   (left button)
-    "force_mode": "",      # ⚡ Force Mode   (left button)
-    "playmode": "",        # Everyone / Admin Only (play mode value)
-    "forcemode": "",       # Everyone / Admin Only (force mode value)
+    "admin_play": "6325413811033477368",      # 🛡 Admin Play   (left button)
+    "force_mode": "6325415120998502570",      # ⚡ Force Mode   (left button)
+    "playmode": "6325587147323609800",        # Everyone / Admin Only (play mode value)
+    "forcemode": "6325814248014353377",       # Everyone / Admin Only (force mode value)
 
     # ---- YouTube link buttons ----
     "copy_link": "",
     "open_in_yt": "",
 
     # ---- help menu category buttons ----
-    "admins": "",
-    "auth": "",
-    "broadcast": "",
-    "blacklist": "",
-    "ban": "",
-    "control": "",
-    "loop": "",
+    "admins": "4967667085606912536",
+    "auth": "4967797089971995307",
+    "broadcast": "4967957395331351254",
+    "blacklist": "5032973497861669622",
+    "ban": "5852812849780362931",
+    "control": "4965290516993278759",
+    "loop": "4969971262546772590",
     "play": "4970133401857163956",
     "queue": "4970086827231806362",
-    "seek": "",
-    "shuffle": "",
-    "ping": "",
-    "sudo": "",
-    "group": "",
-    "clean": "",
-    "extra": "",
-    "sticker": "",
-    "tag": "",             # Tag All
-    "restart": "",
-    "calls": "",
+    "seek": "4967525849902350972",
+    "shuffle": "5974235702701853774",
+    "ping": "4969746438188696430",
+    "sudo": "4970181191958266458",
+    "group": "4967667085606912536",
+    "clean": "5033287275287413303",
+    "extra": "5030749344752468962",
+    "sticker": "5033108527338488459",
+    "tag": "4967853603151676186",             # Tag All
+    "restart": "4969971262546772590",
+    "calls": "4969971262546772590",
 
     # ---- sticker / kang buttons ----
     "stk_add": "",         # ➕ Save Pack
