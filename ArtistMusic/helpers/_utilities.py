@@ -15,10 +15,10 @@
 # ==========================================================
 
 import re
-from urllib.parse import urlparse
 
 from pyrogram import enums, errors, types
 from ArtistMusic import app, config
+from config import media_kind as config_media_kind
 
 
 class Utilities:
@@ -111,32 +111,74 @@ class Utilities:
             ),
         )
 
-    # ---- media type detection (photo / gif / mp4 etc.) ----
-    _ANIMATION_EXT = (".gif", ".mp4")
-    _VIDEO_EXT = (".webm", ".mov", ".mkv", ".avi", ".m4v")
+    # ---- media type detection (photo / gif / mp4 / svg etc.) ----
+    # Fallback order tried when Telegram rejects the guessed type
+    # (e.g. link has no extension, or a CDN serves a different format).
+    _KIND_ORDER = {
+        "photo": ("photo", "animation", "video", "document"),
+        "animation": ("animation", "video", "photo", "document"),
+        "video": ("video", "animation", "document"),
+        "svg": ("svg_photo", "document"),
+    }
 
     def media_kind(self, media) -> str:
-        """Return "animation", "video" or "photo" based on the link's extension."""
-        if not isinstance(media, str):
-            return "photo"
+        """Return "photo", "animation", "video" or "svg" based on the link."""
+        return config_media_kind(media)
+
+    @staticmethod
+    async def _svg_to_png(url: str):
+        """Rasterise an svg link to PNG (needs optional ``cairosvg``). None on failure."""
         try:
-            path = urlparse(media).path.lower()
+            import io
+            import aiohttp
+            import cairosvg  # optional dependency
+
+            if url.startswith(("http://", "https://")):
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(url, timeout=aiohttp.ClientTimeout(total=20)) as r:
+                        r.raise_for_status()
+                        data = await r.read()
+            else:
+                with open(url, "rb") as f:
+                    data = f.read()
+            png = cairosvg.svg2png(bytestring=data, output_width=1280)
+            bio = io.BytesIO(png)
+            bio.name = "image.png"
+            return bio
         except Exception:
-            path = media.lower()
-        if path.endswith(self._ANIMATION_EXT):
-            return "animation"
-        if path.endswith(self._VIDEO_EXT):
-            return "video"
-        return "photo"
+            return None
+
+    def input_media_candidates(self, media, caption: str | None = None) -> list:
+        """InputMedia* objects to try (in order) for ``edit_media``."""
+        out = []
+        for kind in self._KIND_ORDER[self.media_kind(media)]:
+            if kind == "animation":
+                out.append(types.InputMediaAnimation(media=media, caption=caption))
+            elif kind == "video":
+                out.append(types.InputMediaVideo(media=media, caption=caption))
+            elif kind == "document":
+                out.append(types.InputMediaDocument(media=media, caption=caption))
+            elif kind == "photo":
+                out.append(types.InputMediaPhoto(media=media, caption=caption))
+        return out
 
     def input_media(self, media, caption: str | None = None):
-        """InputMedia* object matching the link type (for edit_media)."""
-        kind = self.media_kind(media)
-        if kind == "animation":
-            return types.InputMediaAnimation(media=media, caption=caption)
-        if kind == "video":
-            return types.InputMediaVideo(media=media, caption=caption)
-        return types.InputMediaPhoto(media=media, caption=caption)
+        """Best-guess InputMedia* object matching the link type (for edit_media)."""
+        cands = self.input_media_candidates(media, caption)
+        return cands[0] if cands else types.InputMediaPhoto(media=media, caption=caption)
+
+    async def edit_media_safe(self, message, media, caption: str | None = None, **kwargs):
+        """edit_media that tries every compatible media type before giving up."""
+        first_err = None
+        for cand in self.input_media_candidates(media, caption):
+            try:
+                return await message.edit_media(media=cand, **kwargs)
+            except (errors.FloodWait, errors.Forbidden, errors.MessageNotModified):
+                raise
+            except Exception as e:
+                first_err = first_err or e
+        if first_err:
+            raise first_err
 
     async def send_media(
         self,
@@ -147,34 +189,39 @@ class Utilities:
         reply_parameters=None,
         **kwargs,
     ) -> types.Message:
-        """Send jpg/png/webp as photo, gif/mp4 as animation, other videos as video."""
-        kind = self.media_kind(media)
-        if kind == "animation":
-            return await app.send_animation(
-                chat_id=chat_id,
-                animation=media,
-                caption=caption,
-                reply_markup=reply_markup,
-                reply_parameters=reply_parameters,
-                **kwargs,
-            )
-        if kind == "video":
-            return await app.send_video(
-                chat_id=chat_id,
-                video=media,
-                caption=caption,
-                reply_markup=reply_markup,
-                reply_parameters=reply_parameters,
-                **kwargs,
-            )
-        return await app.send_photo(
+        """Send any supported link: jpg/png/webp -> photo, gif/mp4 -> animation,
+        webm/mov/mkv -> video, svg -> png (or file). If Telegram rejects the guessed
+        type, the other types are tried automatically."""
+        common = dict(
             chat_id=chat_id,
-            photo=media,
             caption=caption,
             reply_markup=reply_markup,
             reply_parameters=reply_parameters,
-            **kwargs,
         )
+        first_err = None
+        for kind in self._KIND_ORDER[self.media_kind(media)]:
+            try:
+                if kind == "animation":
+                    return await app.send_animation(animation=media, **common, **kwargs)
+                if kind == "video":
+                    return await app.send_video(video=media, **common, **kwargs)
+                if kind == "photo":
+                    return await app.send_photo(photo=media, **common, **kwargs)
+                if kind == "svg_photo":
+                    png = await self._svg_to_png(media)
+                    if png is None:
+                        continue
+                    return await app.send_photo(photo=png, **common, **kwargs)
+                # document: no spoiler support
+                doc_kwargs = {k: v for k, v in kwargs.items() if k != "has_spoiler"}
+                return await app.send_document(document=media, **common, **doc_kwargs)
+            except (errors.FloodWait, errors.Forbidden):
+                raise  # not a media-type problem -> let caller handle
+            except Exception as e:
+                first_err = first_err or e
+        if first_err:
+            raise first_err
+        raise ValueError(f"Unsupported media link: {media}")
 
     async def reply(
         self,

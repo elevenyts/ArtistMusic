@@ -25,3 +25,5 @@ py-yt-search~=0.5.5
 python-dotenv~=1.2.1
 yt-dlp[default]>=2026.3.3
 imageio-ffmpeg
+# optional: lets .svg links in START_IMG/PING_IMG/ADD_IMG be shown as a picture (otherwise sent as a file)
+# cairosvg>=2.7.1

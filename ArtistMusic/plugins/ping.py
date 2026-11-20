@@ -59,8 +59,10 @@ async def _ping(_, m: types.Message):
     
     # Try to send with media, fallback to text if it fails
     try:
-        await sent.edit_media(
-            media=utils.input_media(config.PING_IMG, caption_text),
+        await utils.edit_media_safe(
+            sent,
+            config.PING_IMG,
+            caption_text,
             reply_markup=buttons.ping_markup(m.lang["support"]),
         )
     except Exception:

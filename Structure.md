@@ -115,7 +115,7 @@ Every `.py` file here is also loaded automatically.
 | `mass_actions.py` | Group-owner / sudo mass actions (`/kickall`, `/banall`, …) with a Yes/No confirmation button |
 | `zombie.py` | `/zombies` cleaner, `/admins`, `/staff` |
 | `info.py` | `/info` `/userinfo` `/whois` |
-| `tagall.py` | `/tagall` `/all` `@all` `/utag` `/mention` and tag-stop commands |
+| `tagall.py` | `/all` `/tagall` `/tag` `/alltag` (+ `@` prefix) and `/cancel` `/stop` `/cancelall` `/canceltagall` |
 | `funtag_messages.py` | Message pool for fun tags (GM / GN / Hi / life / shayari) |
 | `welcome.py` | Welcome card for new members (`/welcome`) |
 | `vclog.py` | Voice-chat join/leave alerts (`/vclog`) |

@@ -142,7 +142,7 @@
 
 ### 📣 Tag & 🎴 Stickers
 ```
-✦ /tagall — 6 hidden emoji mentions
+✦ /tagall — 5 clickable mentions per message
   per message, FloodWait safe
 ✦ Fun Tags (GM / GN / Hi / Quotes)
 ✦ /kang — copy a whole sticker pack
@@ -194,8 +194,8 @@
 | `ARTISTBOTS_KEY` | ⚙️ | API key — log in at [artistbotsapi.bond](https://artistbotsapi.bond) to get your key |
 | `SUPPORT_CHAT` | 🔵 | Support group link (optional) |
 | `SUPPORT_CHANNEL` | 🔵 | Updates channel link (optional) |
-| `START_IMG` | 🔵 | Start message image URL (optional) |
-| `PING_IMG` | 🔵 | Ping message image URL (optional) |
+| `START_IMG` | 🔵 | Start message media URL – jpg/png/webp/svg/gif/mp4/webm (optional) |
+| `PING_IMG` | 🔵 | Ping message media URL – jpg/png/webp/svg/gif/mp4/webm (optional) |
 | `STRING_SESSION2` | 🔵 | Second assistant session (optional) |
 | `STRING_SESSION3` | 🔵 | Third assistant session (optional) |
 
@@ -408,9 +408,9 @@ docker run -d --env-file .env --name artistmusic artistmusic
 
 **📣 Tag Everyone** *(admins)*
 ```
-/tagall  /all  @all  /utag  /mention [text]
+/all  /tagall  /tag  /alltag [text]   (@ prefix also works)
 ```
-One command, five aliases. Every message carries **6 emojis** — each emoji is a hidden mention of one member, tap it to open that profile. FloodWait is handled automatically: the bot waits, **resends the same batch** (nobody is skipped) and slows down afterwards.
+Four aliases, one command. Every message carries **5 mentions** — each emoji is a hidden mention of one member, tap it to open that profile. FloodWait is handled automatically: the bot waits, **resends the same batch** (nobody is skipped) and slows down afterwards.
 
 ```
 /gmtag  /gntag  /hitag
@@ -419,7 +419,7 @@ One command, five aliases. Every message carries **6 emojis** — each emoji is 
 Fun tags — one member per message with a random line.
 
 ```
-/tagstop  /tagoff  /ustop
+/cancel  /stop  /cancelall  /canceltagall
 /gmstop /gnstop /histop
 /lifestop /shayarioff
 ```

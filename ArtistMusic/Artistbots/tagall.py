@@ -10,13 +10,14 @@
 # Location     : ArtistMusic/Artistbots/tagall.py
 #
 # Commands (group admins & sudoers only):
-#   /tagall | /all | @all | /utag | /mention [text]
-#                                    - ONE command: tag everyone, 6 emojis per message,
-#                                      every emoji is a hidden mention of one member
+#   /all | /tagall | /tag | /alltag [text]   (also with @ prefix: @all @tag ...)
+#                                    - ONE command: tag everyone, 5 mentions per message,
+#                                      every emoji is a hidden (clickable) mention
 #   /gmtag /gntag /hitag /lifetag /shayari
 #                                    - tag one member per message with a random line
-#   /ustop /tagstop /tagoff /gmstop /gnstop /histop /lifestop /shayarioff
-#                                    - stop the running tag session
+#   /cancel | /stop | /cancelall | /canceltagall   (also with @ prefix)
+#   /gmstop /gnstop /histop /lifestop /shayarioff
+#                                    - stop the running tag session (instantly, between batches)
 # ==========================================================
 
 import asyncio
@@ -47,7 +48,7 @@ from .funtag_messages import (
 
 PREFIXES = ["/", "!", "."]
 
-BATCH_SIZE = 6        # members (emojis) per message for tagall
+BATCH_SIZE = 5        # members (mentions) per message for tagall
 BATCH_DELAY = 3       # seconds between batches (grows automatically after a FloodWait)
 MAX_RETRIES = 5       # resend attempts for one batch when FloodWait hits
 
@@ -62,10 +63,18 @@ FUN_DELAY = 4         # seconds between single fun-tag messages
 # chat_id -> name of the running session ("utag" | "tagall" | "gmtag" ...)
 active_tags: dict[int, str] = {}
 
-STOP_COMMANDS = [
-    "ustop", "tagstop", "tagoff",
-    "gmstop", "gnstop", "histop", "lifestop", "shayarioff",
-]
+# tag commands / cancel commands (all of them also work with the @ prefix)
+TAG_PREFIXES = ["/", "!", ".", "@"]
+TAG_COMMANDS = ["all", "tagall", "tag", "alltag"]
+CANCEL_COMMANDS = ["cancel", "stop", "cancelall", "canceltagall"]
+FUN_STOP_COMMANDS = ["gmstop", "gnstop", "histop", "lifestop", "shayarioff"]
+
+
+async def _wait(chat_id: int, seconds: float) -> None:
+    """Sleep in small steps so a cancel takes effect instantly (not after the full delay)."""
+    end = asyncio.get_event_loop().time() + seconds
+    while chat_id in active_tags and asyncio.get_event_loop().time() < end:
+        await asyncio.sleep(0.25)
 
 _MD_BAD = re.compile(r"[\[\]\(\)\*_`~|\\]")
 
@@ -108,7 +117,7 @@ async def _guard(client: Client, message: Message) -> bool:
         running = active_tags[message.chat.id]
         await message.reply_text(
             f"⚠️ <b>ᴧ ᴛᴧɢɢɪηɢ sєssɪση ɪs ᴧʟʀєᴧᴅʏ ʀυηηɪηɢ</b> (<code>{running}</code>).\n"
-            "➤ υsє <code>/tagstop</code> ᴛσ sᴛσᴘ ɪᴛ."
+            "➤ υsє <code>/cancel</code> ᴛσ sᴛσᴘ ɪᴛ."
         )
         return False
     return True
@@ -153,7 +162,7 @@ def _emoji_mention(user, emoji: str, real: bool) -> str:
     return f'<a href="tg://openmessage?user_id={user.id}">{emoji}</a>'
 
 
-async def _send_batch(target: Message, text: str, state: dict):
+async def _send_batch(target: Message, text: str, state: dict, chat_id: int | None = None):
     """Send one batch FROM THE BOT ONLY. On FloodWait wait and RETRY the same batch."""
     for _ in range(MAX_RETRIES):
         try:
@@ -166,7 +175,12 @@ async def _send_batch(target: Message, text: str, state: dict):
             wait = int(e.value) + 1
             logger.warning(f"tagall FloodWait {wait}s")
             state["delay"] = min(state["delay"] + 2, 15)
-            await asyncio.sleep(wait)
+            if chat_id is None:
+                await asyncio.sleep(wait)
+            else:
+                await _wait(chat_id, wait)
+                if chat_id not in active_tags:
+                    return None
         except Exception as e:
             logger.warning(f"tagall send failed ({type(e).__name__}): {e}")
             state["fails"] = state.get("fails", 0) + 1
@@ -349,7 +363,8 @@ async def _tag_batches(client: Client, message: Message, session: str):
 
     async def flush():
         nonlocal batch
-        if not batch:
+        if not batch or chat_id not in active_tags:
+            batch = []
             return
         emojis = random.sample(TAG_EMOJIS, len(batch))
         reals = [await _known(client, u.id) for u in batch]
@@ -358,7 +373,7 @@ async def _tag_batches(client: Client, message: Message, session: str):
             _emoji_mention(u, e, r) for u, e, r in zip(batch, emojis, reals)
         )
         head = f"{text}\n\n" if text else ""
-        await _send_batch(target, f"{head}{line}", state)
+        await _send_batch(target, f"{head}{line}", state, chat_id)
         batch = []
 
     try:
@@ -372,7 +387,7 @@ async def _tag_batches(client: Client, message: Message, session: str):
             total += 1
             if len(batch) == BATCH_SIZE:
                 await flush()
-                await asyncio.sleep(state["delay"])
+                await _wait(chat_id, state["delay"])
 
         if chat_id in active_tags:
             await flush()
@@ -399,12 +414,8 @@ async def _tag_batches(client: Client, message: Message, session: str):
             pass
 
 
-# "@all" is plain text (not a /command), so it needs a regex filter
-_ATALL = filters.regex(r"(?i)^@all(\s|$)")
-
-
 @app.on_message(
-    (filters.command(["tagall", "all", "utag", "mention"], prefixes=PREFIXES) | _ATALL)
+    filters.command(TAG_COMMANDS, prefixes=TAG_PREFIXES)
     & filters.group
     & ~app.bl_users
 )
@@ -441,7 +452,7 @@ async def _fun_tag(client: Client, message: Message, session: str, pool: list):
             except Exception as e:
                 logger.warning(f"{session} send failed: {e}")
                 continue
-            await asyncio.sleep(FUN_DELAY)
+            await _wait(chat_id, FUN_DELAY)
     except Exception as e:
         logger.warning(f"{session} failed in {chat_id}: {e}")
     finally:
@@ -472,17 +483,32 @@ async def fun_tag_cmd(client: Client, message: Message):
 # ═══════════════════════════════════════════════════════════
 #  Stop
 # ═══════════════════════════════════════════════════════════
+# group=-5 -> runs BEFORE the music /stop handler (group 0). A plain /stop is only
+# taken over while a tag session is running in that chat, otherwise it falls through
+# to the normal music "stop" command.
 @app.on_message(
-    filters.command(STOP_COMMANDS, prefixes=PREFIXES) & filters.group & ~app.bl_users
+    filters.command(CANCEL_COMMANDS + FUN_STOP_COMMANDS, prefixes=TAG_PREFIXES)
+    & filters.group
+    & ~app.bl_users,
+    group=-5,
 )
 async def stop_tagging(client: Client, message: Message):
     chat_id = message.chat.id
+    cmd = message.command[0].lower().split("@")[0]
+    running = chat_id in active_tags
 
-    if chat_id not in active_tags:
-        return await message.reply_text("⚠️ <b>ησ ᴧᴄᴛɪᴠє ᴛᴧɢɢɪηɢ sєssɪση ғσυηᴅ.</b>")
+    # /stop shares its name with the music command: only handle it during tagging
+    if cmd == "stop" and not running:
+        return message.continue_propagation()
 
     if not await _is_admin(client, message):
+        if cmd == "stop":
+            return message.continue_propagation()
         return await message.reply_text("🚫 <b>σηʟʏ ᴧᴅϻɪηs ᴄᴧη sᴛσᴘ ᴛᴧɢɢɪηɢ.</b>")
+
+    if not running:
+        return await message.reply_text("⚠️ <b>ησ ᴧᴄᴛɪᴠє ᴛᴧɢɢɪηɢ sєssɪση ғσυηᴅ.</b>")
 
     active_tags.pop(chat_id, None)
     await message.reply_text("🚫 <b>ᴛᴧɢɢɪηɢ ᴄᴧηᴄєʟʟєᴅ sυᴄᴄєssғυʟʟʏ.</b>")
+    message.stop_propagation()  # don't also run the music /stop
