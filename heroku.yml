@@ -1,0 +1,7 @@
+# Heroku container deploy (stack = container) - installs ffmpeg through the Dockerfile
+build:
+  docker:
+    worker: Dockerfile
+run:
+  worker: bash start
+

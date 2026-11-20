@@ -1,0 +1,90 @@
+MIT License  
+
+Copyright (c) 2025 ArtistMusic
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+==============================================================================
+PROJECT DETAILS
+==============================================================================
+
+Project      : ArtistMusic (ArtistBots API Telegram Music Bot)
+Version      : 3.0.1
+Author       : Artist
+Brand        : ArtistBots
+GitHub       : https://github.com/elevenyts
+Repository   : https://github.com/elevenyts/ArtistxMusic
+Bot          : @ArtistApibot
+Channel      : https://t.me/Artistbots
+Support      : https://t.me/Elevenytschats
+
+What the MIT License lets you do
+--------------------------------
+  - Use the bot for personal or commercial purposes.
+  - Modify, fork, and redistribute the source code.
+  - Host your own copy of the bot.
+
+What you must do
+----------------
+  - Keep the copyright notice and this license text in every copy or
+    substantial portion of the software.
+  - Keep the credit to the original author (Artist / ArtistBots).
+    Removing or replacing the author credit in a redistributed copy is a
+    violation of the license.
+
+What you get in return
+----------------------
+  - Nothing beyond the software itself. It is provided "as is", without
+    warranty of any kind. The author is not liable for how you run the bot,
+    for Telegram account limits or bans, or for any data loss.
+
+Trademarks and services
+-----------------------
+  The names "ArtistBots", "ArtistMusic", "Artistbots API" and the bot/channel
+  names above identify the original author's work and services. This license
+  covers the source code only. It does not grant rights to the ArtistBots API
+  service (api.artistbotsapi.bond), its keys, or its uptime — those are
+  governed by the terms of that service.
+
+==============================================================================
+THIRD-PARTY SOFTWARE & ASSETS
+==============================================================================
+
+ArtistMusic is built on top of open-source work by other people. Each of these
+stays under its own license, which is not changed by the MIT License above.
+Please read the license of each project before redistributing a bundled copy.
+
+  Python packages (see requirements.txt):
+    aiohttp, kurigram (Pyrogram fork), pillow, fonttools, psutil, pymongo,
+    pytgcrypto, py-tgcalls, py-yt-search, python-dotenv, yt-dlp,
+    imageio-ffmpeg
+
+  External programs installed by the Dockerfile / setup script:
+    FFmpeg, Node.js, Deno (optional)
+
+  Fonts bundled in ArtistMusic/Artistbots/assets/fonts/:
+    GNU Unifont, WenQuanYi Zen Hei — each under its own font license.
+
+  Fonts in ArtistMusic/helpers/fonts/ (artistbots_*.ttf) are used for
+  thumbnails and welcome cards.
+
+Telegram is a trademark of Telegram FZ-LLC. YouTube is a trademark of
+Google LLC. ArtistMusic is not affiliated with, endorsed by, or sponsored by
+either company. You are responsible for using the bot in line with Telegram's
+Terms of Service and the terms of any content source you stream from.

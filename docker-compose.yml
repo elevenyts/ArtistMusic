@@ -1,0 +1,7 @@
+# VPS / local:   cp Artist.env .env   (fill it)   then:   docker compose up -d --build
+services:
+  artistmusic:
+    build: .
+    container_name: artistmusic
+    restart: unless-stopped
+    env_file: .env
