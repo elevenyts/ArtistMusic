@@ -39,15 +39,15 @@ REMOVE_DEFAULT_BUTTON_EMOJI = True
 # ==========================================================
 BUTTON_EMOJI = {
     # ---- start / navigation ----
-    "back": "",            # ♫ Back ♫
-    "help": "5972055534352733289",            # ♫ Help ♫ / ✦ Help
+    "back": "5805434498602506971",            # ♫ Back ♫
+    "help": "5030653042995757810",            # ♫ Help ♫ / ✦ Help
     "langs": "6325837556801868339",           # 🌐 Langs  (language list kholne wala)
     "add_to_group": "6325454162251223334",    # Add To Group
     "add_me": "6325454162251223334",          # ♡ + Add Me
     "owner": "",           # ♛ Owner ♛
-    "support": "5971801057540443125",         # 🦋 Support
-    "channel": "5852830669599674051",         # Channel
-    "updates": "5971944878815317190",         # 🌙 Updates
+    "support": "6026306335715365949",         # 🦋 Support
+    "channel": "6325774639825948896",         # Channel
+    "updates": "6088954841818732889",         # 🌙 Updates
 
     # ---- player controls (neeche ki row) ----
     "toggle": "",          # ▷  (play / pause toggle)
@@ -56,7 +56,7 @@ BUTTON_EMOJI = {
     "skip": "",            # Ⅱ / ‣‣I
     "replay": "",          # ↻
     "stop": "",            # ▢
-    "autoplay": "",        # ♫ Autoplay: On/Off ♫
+    "autoplay": "5206605457837270461",        # ♫ Autoplay: On/Off ♫
     "status": "",          # status / timer wali button
     "cancel": "",          # ✗ Cancel (download cancel)
 
@@ -78,8 +78,8 @@ BUTTON_EMOJI = {
     "ban": "",
     "control": "",
     "loop": "",
-    "play": "",
-    "queue": "",
+    "play": "4970133401857163956",
+    "queue": "4970086827231806362",
     "seek": "",
     "shuffle": "",
     "ping": "",
