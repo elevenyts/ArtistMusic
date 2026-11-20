@@ -51,11 +51,11 @@ BUTTON_EMOJI = {
 
     # ---- player controls (neeche ki row) ----
     "toggle": "",          # ▷  (play / pause toggle)
-    "resume": "",          # ▷  (queue wala resume)
-    "pause": "",           # II
+    "resume": "6055445949356973995",          # ▷  (queue wala resume)
+    "pause": "6055449428280486490",           # II
     "skip": "",            # Ⅱ / ‣‣I
-    "replay": "",          # ↻
-    "stop": "",            # ▢
+    "replay": "6053258595527566537",          # ↻
+    "stop": "6055261630835466552",            # ▢
     "autoplay": "5206605457837270461",        # ♫ Autoplay: On/Off ♫
     "status": "",          # status / timer wali button
     "cancel": "",          # ✗ Cancel (download cancel)
