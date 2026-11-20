@@ -116,12 +116,12 @@ class Config:
 
         # Images (jpg / png / webp / svg / gif / mp4 / webm ... links all supported)
         _default_media = "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4"
-        self.DEFAULT_THUMB: str = normalize_media(getenv("DEFAULT_THUMB", "https://artistbox.bond/f/odklxlnu.svg") or _default_media)
-        self.PING_IMG: str = normalize_media(getenv("PING_IMG", "https://artistbox.bond/f/odklxlnu.svg") or _default_media)
-        self.START_IMG: str = normalize_media(getenv("START_IMG", "https://artistbox.bond/f/odklxlnu.svg") or _default_media)
+        self.DEFAULT_THUMB: str = normalize_media(getenv("DEFAULT_THUMB", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4") or _default_media)
+        self.PING_IMG: str = normalize_media(getenv("PING_IMG", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4") or _default_media)
+        self.START_IMG: str = normalize_media(getenv("START_IMG", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4") or _default_media)
         # Image/GIF/MP4 sent when the bot is added to a group (default: START_IMG)
-        self.ADD_IMG: str = normalize_media(getenv("ADD_IMG", "https://artistbox.bond/f/odklxlnu.svg")) or self.START_IMG
-        self.RADIO_IMG: str = normalize_media(getenv("RADIO_IMG", "https://artistbox.bond/f/odklxlnu.svg") or _default_media)
+        self.ADD_IMG: str = normalize_media(getenv("ADD_IMG", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4")) or self.START_IMG
+        self.RADIO_IMG: str = normalize_media(getenv("RADIO_IMG", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4") or _default_media)
 
         # Moderation
         self.EXCLUDED_USERNAMES: List[str] = getenv("EXCLUDED_USERNAMES", "").split()
