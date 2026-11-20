@@ -48,6 +48,9 @@ from config import Config
 config = Config()
 config.check()
 
+# Premium emojis for inline buttons / texts (edit ArtistMusic/Button_emoji.py)
+import ArtistMusic.Button_emoji  # noqa: F401
+
 # Global task list for background tasks
 tasks: List = []
 boot: float = time.time()

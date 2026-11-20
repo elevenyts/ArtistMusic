@@ -46,6 +46,10 @@ lang_codes = {
 }
 
 
+# premium / default emoji handling lives in ArtistMusic/Button_emoji.py
+from ArtistMusic.Button_emoji import process_text as _clean_emoji
+
+
 class Language:
     """
     Language class for managing multilingual support using JSON language files.
@@ -64,7 +68,9 @@ class Language:
             lang_file = self.lang_dir / f"{lang_code}.json"
             if lang_file.exists():
                 with open(lang_file, "r", encoding="utf-8") as file:
-                    languages[lang_code] = json.load(file)
+                    languages[lang_code] = {
+                        k: _clean_emoji(v) for k, v in json.load(file).items()
+                    }
         logger.info(f"🌐 Loaded languages: {', '.join(languages.keys())}")
         return languages
 
