@@ -156,6 +156,43 @@ _TAG = r"<tg-emoji\s+emoji-id=(['\"])(.*?)\1\s*>(.*?)</tg-emoji>"
 _TAG_RE = re.compile(_TAG, re.DOTALL)
 _BARE_RE = re.compile(r"(<[^>]*>)|" + _EM)
 
+# Telegram custom emoji (<tg-emoji>) ke andar sirf ASSLI emoji hi chal sakta hai.
+# "♡ ➲ ✦ ✧ ◈ ✗ ♫ ▷" jaise symbols emoji nahi hain -> ENTITY_TEXT_INVALID aata hai.
+_BMP_REAL_EMOJI = set(
+    "\u203c\u2049\u2122\u2139\u2194\u2195\u2196\u2197\u2198\u2199\u21a9\u21aa"
+    "\u231a\u231b\u2328\u23cf\u23e9\u23ea\u23eb\u23ec\u23ed\u23ee\u23ef\u23f0"
+    "\u23f1\u23f2\u23f3\u23f8\u23f9\u23fa\u24c2\u25aa\u25ab\u25b6\u25c0\u25fb"
+    "\u25fc\u25fd\u25fe\u2600\u2601\u2602\u2603\u2604\u260e\u2611\u2614\u2615"
+    "\u2618\u261d\u2620\u2622\u2623\u2626\u262a\u262e\u262f\u2638\u2639\u263a"
+    "\u2640\u2642\u2648\u2649\u264a\u264b\u264c\u264d\u264e\u264f\u2650\u2651"
+    "\u2652\u2653\u265f\u2660\u2663\u2665\u2666\u2668\u267b\u267e\u267f\u2692"
+    "\u2693\u2694\u2695\u2696\u2697\u2699\u269b\u269c\u26a0\u26a1\u26a7\u26aa"
+    "\u26ab\u26b0\u26b1\u26bd\u26be\u26c4\u26c5\u26c8\u26ce\u26cf\u26d1\u26d3"
+    "\u26d4\u26e9\u26ea\u26f0\u26f1\u26f2\u26f3\u26f4\u26f5\u26f7\u26f8\u26f9"
+    "\u26fa\u26fd\u2702\u2705\u2708\u2709\u270a\u270b\u270c\u270d\u270f\u2712"
+    "\u2714\u2716\u271d\u2721\u2728\u2733\u2734\u2744\u2747\u274c\u274e\u2753"
+    "\u2754\u2755\u2757\u2763\u2764\u2795\u2796\u2797\u27a1\u27b0\u27bf\u2934"
+    "\u2935\u2b05\u2b06\u2b07\u2b1b\u2b1c\u2b50\u2b55\u3030\u303d\u3297\u3299"
+)
+
+
+def _is_real_emoji(text: str) -> bool:
+    """True agar text Telegram custom-emoji ke liye valid (asli) emoji hai."""
+    t = (text or "").replace(_VS16, "").replace("\u200d", "")
+    if not t:
+        return False
+    for ch in t:
+        cp = ord(ch)
+        if 0x1F000 <= cp <= 0x1FAFF or 0x1F1E6 <= cp <= 0x1F1FF or ch in _BMP_REAL_EMOJI:
+            continue
+        return False
+    return True
+
+
+def strip_custom_emoji(text: str) -> str:
+    """<tg-emoji ...>X</tg-emoji> -> X  (plain text fallback)."""
+    return _TAG_RE.sub(lambda m: m.group(3), text) if isinstance(text, str) else text
+
 
 def _is_id(value) -> bool:
     return str(value).strip().isdigit()
@@ -178,14 +215,16 @@ def process_text(value):
 
     def wrap(emoji: str):
         eid = ids.get(emoji.replace(_VS16, ""))
-        return f"<tg-emoji emoji-id='{eid}'>{emoji}</tg-emoji>" if eid else emoji
+        if eid and _is_real_emoji(emoji):
+            return f"<tg-emoji emoji-id='{eid}'>{emoji}</tg-emoji>"
+        return emoji
 
     out = []
     pos = 0
     for m in _TAG_RE.finditer(value):
         out.append(_BARE_RE.sub(lambda x: x.group(1) or wrap(x.group(0)), value[pos:m.start()]))
         eid, inner = m.group(2).strip(), m.group(3)
-        if PREMIUM_TEXT and _is_id(eid):
+        if PREMIUM_TEXT and _is_id(eid) and _is_real_emoji(inner):
             out.append(f"<tg-emoji emoji-id='{eid}'>{inner}</tg-emoji>")
         else:
             out.append(wrap(inner))   # khali ID -> map se ID ya default emoji

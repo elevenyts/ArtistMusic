@@ -66,8 +66,15 @@ async def _ping(_, m: types.Message):
             reply_markup=buttons.ping_markup(m.lang["support"]),
         )
     except Exception:
-        # Fallback to text if media fails
-        await sent.edit_text(
-            text=caption_text,
-            reply_markup=buttons.ping_markup(m.lang["support"]),
-        )
+        # Fallback to text if media fails (premium emoji tags hata ke bhi try karo)
+        try:
+            await sent.edit_text(
+                text=caption_text,
+                reply_markup=buttons.ping_markup(m.lang["support"]),
+            )
+        except Exception:
+            from ArtistMusic.Button_emoji import strip_custom_emoji
+            await sent.edit_text(
+                text=strip_custom_emoji(caption_text),
+                reply_markup=buttons.ping_markup(m.lang["support"]),
+            )

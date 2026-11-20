@@ -178,6 +178,11 @@ class Utilities:
             except Exception as e:
                 first_err = first_err or e
         if first_err:
+            if caption and "ENTITY_TEXT_INVALID" in str(first_err):
+                from ArtistMusic.Button_emoji import strip_custom_emoji
+                plain = strip_custom_emoji(caption)
+                if plain != caption:
+                    return await self.edit_media_safe(message, media, plain, **kwargs)
             raise first_err
 
     async def send_media(
@@ -220,6 +225,16 @@ class Utilities:
             except Exception as e:
                 first_err = first_err or e
         if first_err:
+            if caption and "ENTITY_TEXT_INVALID" in str(first_err):
+                from ArtistMusic.Button_emoji import strip_custom_emoji
+                plain = strip_custom_emoji(caption)
+                if plain != caption:
+                    return await self.send_media(
+                        chat_id, media, plain,
+                        reply_markup=reply_markup,
+                        reply_parameters=reply_parameters,
+                        **kwargs,
+                    )
             raise first_err
         raise ValueError(f"Unsupported media link: {media}")
 
