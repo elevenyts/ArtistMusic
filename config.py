@@ -49,10 +49,32 @@ def normalize_media(url: str) -> str:
     return url
 
 
-def pick_media(urls: List[str], fallback: str = "") -> str:
-    """Return a random media link from ``urls`` (called every time it is used)."""
+_media_state: dict = {}
+
+
+def pick_media(urls: List[str], fallback: str = "", key: str = "default") -> str:
+    """Random media link, but NO repeats until all links have been shown.
+
+    Har variable (key) ka apna shuffled round chalta hai: saare URL ek baar
+    aa jaayen uske baad hi dobara shuffle hota hai, aur naye round ka pehla URL
+    pichhle round ke aakhri URL se alag hota hai (back-to-back repeat nahi).
+    """
     urls = [normalize_media(u) for u in urls if u and u.strip()]
-    return random.choice(urls) if urls else fallback
+    if not urls:
+        return fallback
+    if len(urls) == 1:
+        return urls[0]
+    state = _media_state.setdefault(key, {"queue": [], "last": None, "src": None})
+    if state["src"] != urls:  # URL list badli ho to round reset
+        state.update(queue=[], src=list(urls))
+    if not state["queue"]:
+        queue = list(urls)
+        random.shuffle(queue)
+        if queue[0] == state["last"]:
+            queue.append(queue.pop(0))
+        state["queue"] = queue
+    state["last"] = state["queue"].pop(0)
+    return state["last"]
 
 
 def env_media_list(name: str, defaults: List[str]) -> List[str]:
@@ -143,26 +165,26 @@ class Config:
         # Moderation
         self.EXCLUDED_USERNAMES: List[str] = getenv("EXCLUDED_USERNAMES", "").split()
 
-    # Random media: har baar access par naya random URL milta hai
+    # Random media: har baar naya URL, jab tak saare 4 na aa jaayen repeat nahi hota
     @property
     def DEFAULT_THUMB(self) -> str:
-        return pick_media(self.MEDIA_URLS)
+        return pick_media(self.MEDIA_URLS, key="DEFAULT_THUMB")
 
     @property
     def PING_IMG(self) -> str:
-        return pick_media(self.MEDIA_URLS)
+        return pick_media(self.MEDIA_URLS, key="PING_IMG")
 
     @property
     def START_IMG(self) -> str:
-        return pick_media(self.MEDIA_URLS)
+        return pick_media(self.MEDIA_URLS, key="START_IMG")
 
     @property
     def ADD_IMG(self) -> str:
-        return pick_media(self.MEDIA_URLS)
+        return pick_media(self.MEDIA_URLS, key="ADD_IMG")
 
     @property
     def RADIO_IMG(self) -> str:
-        return pick_media(self.MEDIA_URLS)
+        return pick_media(self.MEDIA_URLS, key="RADIO_IMG")
 
     def _parse_video_height(self) -> int:
         default_height = 1080
