@@ -137,7 +137,7 @@ class Config:
             "https://artistbox.bond/f/uj4enj66.png",  # URL 1
             "https://artistbox.bond/f/37z4213f.png",  # URL 2  <- apna URL dalo
             "https://artistbox.bond/f/98q3faxn.png",  # URL 3  <- apna URL dalo
-            "https://artistbox.bond/f/4er89skf.mp4",  # URL 4  <- apna URL dalo
+            "https://artistbox.bond/f/yctsplb0.png",  # URL 4  <- apna URL dalo
         ])
 
         # Moderation
