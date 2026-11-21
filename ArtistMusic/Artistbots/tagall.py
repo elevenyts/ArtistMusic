@@ -398,7 +398,7 @@ async def _tag_batches(client: Client, message: Message, session: str):
         active_tags.pop(chat_id, None)
 
     if not was_stopped:
-        msg = f"✅ <b>ᴛᴧɢɢɪηɢ ᴄσϻᴘʟєᴛєᴅ. ᴛσᴛᴧʟ:</b> <code>{total}</code> <b>υsєʀs.</b>"
+        msg = f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>ᴛᴧɢɢɪηɢ ᴄσϻᴘʟєᴛєᴅ. ᴛσᴛᴧʟ:</b> <code>{total}</code> <b>υsєʀs.</b>"
         if state.get("fails"):
             msg += (
                 f"\n⚠️ <b>Failed batches:</b> <code>{state['fails']}</code>\n"
@@ -458,7 +458,7 @@ async def _fun_tag(client: Client, message: Message, session: str, pool: list):
     finally:
         active_tags.pop(chat_id, None)
         try:
-            await client.send_message(chat_id, "✅ <b>ᴛᴧɢɢɪηɢ sєssɪση єηᴅєᴅ.</b>")
+            await client.send_message(chat_id, "<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>ᴛᴧɢɢɪηɢ sєssɪση єηᴅєᴅ.</b>")
         except Exception:
             pass
 

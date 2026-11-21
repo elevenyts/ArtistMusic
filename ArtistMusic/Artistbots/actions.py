@@ -58,7 +58,7 @@ def _usage(cmd: str) -> str:
 
 def _done(action: str, msg: Message, uid: int, name: str, reason: Optional[str] = None) -> str:
     text = (
-        f"<blockquote>✅  <b>{esc(action)}</b>  ɪη  {esc(msg.chat.title)}\n\n"
+        f"<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>  <b>{esc(action)}</b>  ɪη  {esc(msg.chat.title)}\n\n"
         f"▸  υsєʀ  : {mention(uid, name)}\n"
         f"▸  ᴧᴅϻɪη : {mention(msg.from_user.id, msg.from_user.first_name)}"
     )

@@ -141,6 +141,6 @@ async def group_data_handler(client: Client, message: Message):
         
     except Exception as e:
         await message.reply_text(
-            f"<blockquote>❌ <b>ᴇʀʀᴏʀ ɢᴇᴛᴛɪɴɢ ɢʀᴏᴜᴘ ᴅᴀᴛᴀ:</b>\n<code>{str(e)}</code></blockquote>",
+            f"<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ᴇʀʀᴏʀ ɢᴇᴛᴛɪɴɢ ɢʀᴏᴜᴘ ᴅᴀᴛᴀ:</b>\n<code>{str(e)}</code></blockquote>",
             parse_mode=ParseMode.HTML
         )

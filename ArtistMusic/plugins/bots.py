@@ -43,7 +43,7 @@ async def list_bots(client, message: Message):
             bot_list.append(f"{bot_count}. <a href='tg://user?id={member.user.id}'>{member.user.first_name}</a> - {bot_username}")
         
         if bot_count == 0:
-            await status_msg.edit_text("❌ <b>No bots found in this group.</b>", parse_mode=ParseMode.HTML)
+            await status_msg.edit_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>No bots found in this group.</b>", parse_mode=ParseMode.HTML)
             return
         
         # Format the response

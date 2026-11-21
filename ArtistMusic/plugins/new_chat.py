@@ -53,11 +53,11 @@ async def new_chat_member(_, message: types.Message):
                     if bot_member.privileges and bot_member.privileges.can_invite_users:
                         chat_link = await app.export_chat_invite_link(chat_id)
                     else:
-                        chat_link = "❌ ɴᴏ ɪɴᴠɪᴛᴇ ᴘᴇʀᴍɪssɪᴏɴ"
+                        chat_link = "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> ɴᴏ ɪɴᴠɪᴛᴇ ᴘᴇʀᴍɪssɪᴏɴ"
             except ChatAdminRequired:
-                chat_link = "❌ ʙᴏᴛ ɴᴏᴛ ᴀᴅᴍɪɴ"
+                chat_link = "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> ʙᴏᴛ ɴᴏᴛ ᴀᴅᴍɪɴ"
             except Exception:
-                chat_link = "❌ ᴜɴᴀʙʟᴇ ᴛᴏ ɢᴇᴛ ʟɪɴᴋ"
+                chat_link = "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> ᴜɴᴀʙʟᴇ ᴛᴏ ɢᴇᴛ ʟɪɴᴋ"
 
             text = f"""<blockquote>🟢 <b>˹˹𝐄𝐥𝐞𝐯𝐞𝐧𝐲𝐭𝐬 ꭙ ᴍᴜꜱɪᴄ˼ ᴀᴅᴅᴇᴅ ɪɴ ᴀ ɴᴇᴡ ɢʀᴏᴜᴘ</b></blockquote>
 
@@ -146,9 +146,9 @@ async def left_chat_member(_, message: types.Message):
                 if bot_member.privileges and bot_member.privileges.can_invite_users:
                     chat_link = await app.export_chat_invite_link(chat_id)
                 else:
-                    chat_link = "❌ ɴᴏ ɪɴᴠɪᴛᴇ ᴘᴇʀᴍɪssɪᴏɴ"
+                    chat_link = "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> ɴᴏ ɪɴᴠɪᴛᴇ ᴘᴇʀᴍɪssɪᴏɴ"
         except:
-            chat_link = "❌ ᴜɴᴀʙʟᴇ ᴛᴏ ɢᴇᴛ ʟɪɴᴋ"
+            chat_link = "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> ᴜɴᴀʙʟᴇ ᴛᴏ ɢᴇᴛ ʟɪɴᴋ"
 
         text = f"""<blockquote>🔴 <b>˹𝐄𝐥𝐞𝐯𝐞𝐧𝐲𝐭𝐬 ꭙ ᴍᴜꜱɪᴄ˼ ʀᴇᴍᴏᴠᴇᴅ ꜰʀᴏᴍ ᴀ ɢʀᴏᴜᴘ</b></blockquote>
 
@@ -179,7 +179,7 @@ async def get_group_link(_, message: types.Message):
 
     # OWNER CHECK
     if message.from_user.id != config.OWNER_ID:
-        return await message.reply_text("❌ You are not authorized.")
+        return await message.reply_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> You are not authorized.")
 
     if len(message.command) < 2:
         return await message.reply_text("⚠️ Usage:\n/link <group_id>")
@@ -187,7 +187,7 @@ async def get_group_link(_, message: types.Message):
     try:
         chat_id = int(message.command[1])
     except:
-        return await message.reply_text("❌ Invalid group ID")
+        return await message.reply_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Invalid group ID")
 
     try:
         chat = await app.get_chat(chat_id)
@@ -200,7 +200,7 @@ async def get_group_link(_, message: types.Message):
             if bot_member.privileges and bot_member.privileges.can_invite_users:
                 link = await app.export_chat_invite_link(chat_id)
             else:
-                return await message.reply_text("❌ No invite permission")
+                return await message.reply_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> No invite permission")
 
         await message.reply_text(
             f"🔗 <b>Group Link:</b>\n{link}",
@@ -208,10 +208,10 @@ async def get_group_link(_, message: types.Message):
         )
 
     except ChannelPrivate:
-        await message.reply_text("❌ Bot is not in that group")
+        await message.reply_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Bot is not in that group")
 
     except ChatAdminRequired:
-        await message.reply_text("❌ Bot is not admin")
+        await message.reply_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Bot is not admin")
 
     except Exception as e:
-        await message.reply_text(f"❌ Error:\n{e}")
+        await message.reply_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Error:\n{e}")

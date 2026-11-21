@@ -247,7 +247,7 @@ class TgCall(PyTgCalls):
             if chat.type not in [enums.ChatType.SUPERGROUP, enums.ChatType.GROUP, enums.ChatType.CHANNEL]:
                 logger.error(f"Invalid chat type for {chat_id}: {chat.type}")
                 if message:
-                    await message.edit_text("❌ Can only play in groups/channels.")
+                    await message.edit_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Can only play in groups/channels.")
                 return
             # For channels, verify assistant is member
             if chat.type == enums.ChatType.CHANNEL:
@@ -256,7 +256,7 @@ class TgCall(PyTgCalls):
                 if not userbot_client:
                     logger.error(f"No userbot client available for {chat_id}")
                     if message:
-                        await message.edit_text("❌ No assistant available.")
+                        await message.edit_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> No assistant available.")
                     return
 
                 try:
@@ -264,7 +264,7 @@ class TgCall(PyTgCalls):
                     if assistant_member.status == enums.ChatMemberStatus.BANNED:
                         logger.error(f"Assistant banned in channel {chat_id}")
                         if message:
-                            await message.edit_text("❌ Assistant is banned in this channel.")
+                            await message.edit_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Assistant is banned in this channel.")
                         # Disable channel play
                         await db.set_cmode(chat_id, None)
                         return
@@ -274,7 +274,7 @@ class TgCall(PyTgCalls):
                             f"Assistant not in channel {chat_id}: {e}")
                         if message:
                             await message.edit_text(
-                                "❌ <b>Assistant not in channel!</b>\n\n"
+                                "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>Assistant not in channel!</b>\n\n"
                                 f"<blockquote>Please add @{userbot_client.me.username} to the channel as admin with voice chat permissions.</blockquote>"
                             )
                         # Disable channel play
@@ -284,7 +284,7 @@ class TgCall(PyTgCalls):
             if "CHANNEL_INVALID" in str(e):
                 logger.error(f"Invalid channel {chat_id}: {e}")
                 if message:
-                    await message.edit_text("❌ Invalid channel. Disabling channel play.")
+                    await message.edit_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Invalid channel. Disabling channel play.")
                 await db.set_cmode(chat_id, None)  # Disable channel play
                 return
             raise
@@ -491,7 +491,7 @@ class TgCall(PyTgCalls):
             await self.stop(chat_id)
             if message:
                 try:
-                    await message.edit_text(f"❌ Playback error: {str(e)[:100]}")
+                    await message.edit_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Playback error: {str(e)[:100]}")
                 except Exception:
                     pass
 
@@ -652,7 +652,7 @@ class TgCall(PyTgCalls):
                             await app.send_message(
                                 chat_id=chat_id,
                                 text=_lang.get(
-                                    "auto_end", "✅ Queue finished. Stream ended automatically.")
+                                    "auto_end", "<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> Queue finished. Stream ended automatically.")
                             )
                         except Exception as e:
                             logger.debug(
@@ -770,12 +770,12 @@ class TgCall(PyTgCalls):
 
             track = await autoplay.find_next(chat_id, finished)
             if not track:
-                return await _fail("❌ Autoplay: no similar song found.")
+                return await _fail("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Autoplay: no similar song found.")
 
             track.video = getattr(finished, "video", False)
             track.file_path = await yt.get_play_source(track)
             if not track.file_path:
-                return await _fail("❌ Autoplay: failed to fetch the next song.")
+                return await _fail("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Autoplay: failed to fetch the next song.")
 
             track.message_id = msg.id if msg else 0
             queue.add(chat_id, track)

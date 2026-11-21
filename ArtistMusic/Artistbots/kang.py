@@ -302,11 +302,11 @@ async def kang_cmd(client, message: Message):
         sset = await _fetch_set(client, sticker.set_name)
     except Exception as e:
         logger.warning(f"kang get set failed: {e}")
-        return await status.edit_text(f"❌ <b>ᴄσυʟᴅη'ᴛ ʀєᴧᴅ ᴛʜє ᴘᴧᴄᴋ.</b>\n{friendly_error(e)}")
+        return await status.edit_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ᴄσυʟᴅη'ᴛ ʀєᴧᴅ ᴛʜє ᴘᴧᴄᴋ.</b>\n{friendly_error(e)}")
 
     docs = list(sset.documents or [])
     if not docs:
-        return await status.edit_text("❌ <b>ᴛʜᴧᴛ ᴘᴧᴄᴋ ɪs єϻᴘᴛʏ.</b>")
+        return await status.edit_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ᴛʜᴧᴛ ᴘᴧᴄᴋ ɪs єϻᴘᴛʏ.</b>")
 
     emoji_of = _emoji_map(sset)
     items = [
@@ -339,13 +339,13 @@ async def kang_cmd(client, message: Message):
         )
     except Exception as e:
         logger.warning(f"kang create failed for {user.id}: {e}")
-        return await status.edit_text(f"❌ <b>ғᴧɪʟєᴅ ᴛσ ᴄʀєᴧᴛє ᴘᴧᴄᴋ.</b>\n{friendly_error(e)}")
+        return await status.edit_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ғᴧɪʟєᴅ ᴛσ ᴄʀєᴧᴛє ᴘᴧᴄᴋ.</b>\n{friendly_error(e)}")
 
     total = min(len(items), MAX_STICKERS)
     await save_pack(user.id, short_name, title, "kang", sticker_type(sticker), total)
 
     text = (
-        "✅ <b>ᴘᴧᴄᴋ ᴋᴧηɢєᴅ sυᴄᴄєssғυʟʟʏ!</b>\n\n"
+        "<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>ᴘᴧᴄᴋ ᴋᴧηɢєᴅ sυᴄᴄєssғυʟʟʏ!</b>\n\n"
         f"▸ <b>ᴛɪᴛʟє :</b> {esc(title)}\n"
         f"▸ <b>sᴛɪᴄᴋєʀs :</b> <code>{total}</code>"
     )

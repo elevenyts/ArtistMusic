@@ -39,7 +39,7 @@ async def _autoplay(_, m: types.Message):
     if is_explicit_channel:
         if channel_id is None:
             return await m.reply_text(
-                "<blockquote>❌ Channel play is not enabled.\n\n"
+                "<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Channel play is not enabled.\n\n"
                 "Use /channelplay to enable it first.</blockquote>"
             )
         chat_id = channel_id

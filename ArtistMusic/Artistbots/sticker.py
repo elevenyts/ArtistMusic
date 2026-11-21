@@ -93,11 +93,11 @@ async def _create_single(client, user, doc, emoji: str, stype: str, msg: Message
         short_name = await create_set(client, user, title, [set_item(doc, emoji)])
     except Exception as e:
         logger.warning(f"sticker create failed for {user.id}: {e}")
-        return await msg.edit_text(f"❌ <b>ғᴧɪʟєᴅ ᴛσ ᴄʀєᴧᴛє ᴘᴧᴄᴋ.</b>\n{friendly_error(e)}")
+        return await msg.edit_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ғᴧɪʟєᴅ ᴛσ ᴄʀєᴧᴛє ᴘᴧᴄᴋ.</b>\n{friendly_error(e)}")
 
     await save_pack(user.id, short_name, title, "sticker", stype, 1)
     await msg.edit_text(
-        "✅ <b>ηєᴡ ᴘᴧᴄᴋ ᴄʀєᴧᴛєᴅ!</b>\n\n"
+        "<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>ηєᴡ ᴘᴧᴄᴋ ᴄʀєᴧᴛєᴅ!</b>\n\n"
         f"▸ <b>ᴛɪᴛʟє :</b> {esc(title)}\n"
         "▸ <b>sᴛɪᴄᴋєʀs :</b> <code>1</code>" + note,
         reply_markup=link_markup(short_name),
@@ -113,7 +113,7 @@ async def sticker_cmd(client, message: Message):
     except Exception as e:
         logger.error(f"/sticker crashed: {e}", exc_info=True)
         try:
-            await message.reply_text(f"❌ <b>/sticker ᴇʀʀᴏʀ:</b> <code>{esc(str(e)[:200])}</code>")
+            await message.reply_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>/sticker ᴇʀʀᴏʀ:</b> <code>{esc(str(e)[:200])}</code>")
         except Exception:
             pass
 
@@ -187,7 +187,7 @@ async def sticker_choice(client, cb: CallbackQuery):
     except Exception as e:
         logger.error(f"sticker callback crashed: {e}", exc_info=True)
         try:
-            await cb.message.edit_text(f"❌ <b>ᴇʀʀᴏʀ:</b> <code>{esc(str(e)[:200])}</code>")
+            await cb.message.edit_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ᴇʀʀᴏʀ:</b> <code>{esc(str(e)[:200])}</code>")
         except Exception:
             pass
 
@@ -240,10 +240,10 @@ async def _sticker_choice(client, cb: CallbackQuery):
             await cb.message.edit_text("⚠️ <b>ʏσυʀ ᴏʟᴅ ᴘᴧᴄᴋ ᴡᴧs ᴅєʟєᴛєᴅ. ᴄʀєᴧᴛɪηɢ ᴧ ηєᴡ ᴏηє...</b>")
             return await _create_single(client, user, doc, emoji, stype, cb.message)
         logger.warning(f"sticker add failed for {user.id}: {e}")
-        return await cb.message.edit_text(f"❌ <b>ᴄσυʟᴅη'ᴛ ᴧᴅᴅ sᴛɪᴄᴋєʀ.</b>\n{friendly_error(e)}")
+        return await cb.message.edit_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ᴄσυʟᴅη'ᴛ ᴧᴅᴅ sᴛɪᴄᴋєʀ.</b>\n{friendly_error(e)}")
     except Exception as e:
         logger.warning(f"sticker add failed for {user.id}: {e}")
-        return await cb.message.edit_text(f"❌ <b>ᴄσυʟᴅη'ᴛ ᴧᴅᴅ sᴛɪᴄᴋєʀ.</b>\n{friendly_error(e)}")
+        return await cb.message.edit_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ᴄσυʟᴅη'ᴛ ᴧᴅᴅ sᴛɪᴄᴋєʀ.</b>\n{friendly_error(e)}")
 
     count = data["count"] + 1
     try:
@@ -254,7 +254,7 @@ async def _sticker_choice(client, cb: CallbackQuery):
         logger.warning(f"count update failed: {e}")
 
     await cb.message.edit_text(
-        "✅ <b>sᴛɪᴄᴋєʀ ᴧᴅᴅєᴅ ᴛσ ʏσυʀ ᴘᴧᴄᴋ!</b>\n\n"
+        "<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>sᴛɪᴄᴋєʀ ᴧᴅᴅєᴅ ᴛσ ʏσυʀ ᴘᴧᴄᴋ!</b>\n\n"
         f"▸ <b>ᴛɪᴛʟє :</b> {esc(data['title'])}\n"
         f"▸ <b>sᴛɪᴄᴋєʀs :</b> <code>{count}</code>",
         reply_markup=link_markup(short_name),

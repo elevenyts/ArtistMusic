@@ -40,9 +40,9 @@ async def _blacklist_chat(_, m: types.Message):
         chat_id = int(m.command[1])
         chat = await app.get_chat(chat_id)
     except ValueError:
-        return await m.reply_text("<blockquote>❌ Invalid chat ID</blockquote>")
+        return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Invalid chat ID</blockquote>")
     except Exception:
-        return await m.reply_text("<blockquote>❌ Chat not found</blockquote>")
+        return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Chat not found</blockquote>")
 
     if chat_id in db.blacklisted:
         return await m.reply_text(
@@ -51,7 +51,7 @@ async def _blacklist_chat(_, m: types.Message):
 
     await db.add_blacklist(chat_id)
     await m.reply_text(
-        f"<blockquote><u><b>✅ ᴄʜᴀᴛ ʙʟᴀᴄᴋʟɪꜱᴛᴇᴅ</b></u>\n\n"
+        f"<blockquote><u><b><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> ᴄʜᴀᴛ ʙʟᴀᴄᴋʟɪꜱᴛᴇᴅ</b></u>\n\n"
         f"<b>ᴄʜᴀᴛ:</b> {chat.title}\n"
         f"<b>ɪᴅ:</b> <code>{chat_id}</code></blockquote>"
     )
@@ -81,7 +81,7 @@ async def _whitelist_chat(_, m: types.Message):
         except:
             chat_name = f"Chat {chat_id}"
     except ValueError:
-        return await m.reply_text("<blockquote>❌ Invalid chat ID</blockquote>")
+        return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Invalid chat ID</blockquote>")
 
     if chat_id not in db.blacklisted:
         return await m.reply_text(
@@ -90,7 +90,7 @@ async def _whitelist_chat(_, m: types.Message):
 
     await db.del_blacklist(chat_id)
     await m.reply_text(
-        f"<blockquote><u><b>✅ ᴄʜᴀᴛ ᴡʜɪᴛᴇʟɪꜱᴛᴇᴅ</b></u>\n\n"
+        f"<blockquote><u><b><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> ᴄʜᴀᴛ ᴡʜɪᴛᴇʟɪꜱᴛᴇᴅ</b></u>\n\n"
         f"<b>ᴄʜᴀᴛ:</b> {chat_name}\n"
         f"<b>ɪᴅ:</b> <code>{chat_id}</code></blockquote>"
     )
@@ -114,7 +114,7 @@ async def _blacklisted_chats(_, m: types.Message):
     chats_list = [chat_id for chat_id in blacklisted if chat_id < 0]
     
     if not chats_list:
-        return await sent.edit_text("<blockquote>✅ No chats are blacklisted</blockquote>")
+        return await sent.edit_text("<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> No chats are blacklisted</blockquote>")
     
     text = "<u><b>🚫 ʙʟᴀᴄᴋʟɪꜱᴛᴇᴅ ᴄʜᴀᴛꜱ:</b></u>\n<blockquote>"
     
@@ -153,9 +153,9 @@ async def _block_user(_, m: types.Message):
             user = await app.get_users(user_id)
             user_mention = user.mention
         except ValueError:
-            return await m.reply_text("<blockquote>❌ Invalid user ID</blockquote>")
+            return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Invalid user ID</blockquote>")
         except Exception:
-            return await m.reply_text("<blockquote>❌ User not found</blockquote>")
+            return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> User not found</blockquote>")
     else:
         return await m.reply_text(
             "<blockquote><b>ᴜꜱᴀɢᴇ:</b>\n"
@@ -165,7 +165,7 @@ async def _block_user(_, m: types.Message):
     
     # Don't allow blocking sudo users
     if user_id in app.sudoers:
-        return await m.reply_text("<blockquote>❌ Cannot block sudo users</blockquote>")
+        return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Cannot block sudo users</blockquote>")
     
     if user_id in app.bl_users:
         return await m.reply_text(
@@ -176,7 +176,7 @@ async def _block_user(_, m: types.Message):
     await db.add_blacklist(user_id)
     app.bl_users.add(user_id)
     await m.reply_text(
-        f"<blockquote><u><b>✅ ᴜꜱᴇʀ ʙʟᴏᴄᴋᴇᴅ</b></u>\n\n"
+        f"<blockquote><u><b><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> ᴜꜱᴇʀ ʙʟᴏᴄᴋᴇᴅ</b></u>\n\n"
         f"<b>ᴜꜱᴇʀ:</b> {user_mention}\n"
         f"<b>ɪᴅ:</b> <code>{user_id}</code></blockquote>"
     )
@@ -204,7 +204,7 @@ async def _unblock_user(_, m: types.Message):
             user = await app.get_users(user_id)
             user_mention = user.mention
         except ValueError:
-            return await m.reply_text("<blockquote>❌ Invalid user ID</blockquote>")
+            return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Invalid user ID</blockquote>")
         except Exception:
             user_mention = f"User {user_id}"
     else:
@@ -222,7 +222,7 @@ async def _unblock_user(_, m: types.Message):
     app.bl_users.discard(user_id)
     await db.del_blacklist(user_id)
     await m.reply_text(
-        f"<blockquote><u><b>✅ ᴜꜱᴇʀ ᴜɴʙʟᴏᴄᴋᴇᴅ</b></u>\n\n"
+        f"<blockquote><u><b><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> ᴜꜱᴇʀ ᴜɴʙʟᴏᴄᴋᴇᴅ</b></u>\n\n"
         f"<b>ᴜꜱᴇʀ:</b> {user_mention}\n"
         f"<b>ɪᴅ:</b> <code>{user_id}</code></blockquote>"
     )
@@ -243,7 +243,7 @@ async def _blocked_users(_, m: types.Message):
     blacklisted = await db.get_blacklisted()
     
     if not blacklisted:
-        return await sent.edit_text("<blockquote>✅ No users are blocked</blockquote>")
+        return await sent.edit_text("<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> No users are blocked</blockquote>")
     
     text = "<u><b>🚫 ʙʟᴏᴄᴋᴇᴅ ᴜꜱᴇʀꜱ:</b></u>\n<blockquote>"
     

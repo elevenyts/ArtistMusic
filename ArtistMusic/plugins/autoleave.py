@@ -30,7 +30,7 @@ async def autoleave_command(_, m: Message) -> None:
     # Check if user is sudo user
     if m.from_user.id not in app.sudoers:
         return await m.reply_text(
-            "❌ ᴏɴʟʏ ꜱᴜᴅᴏ ᴜꜱᴇʀꜱ ᴄᴀɴ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ."
+            "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> ᴏɴʟʏ ꜱᴜᴅᴏ ᴜꜱᴇʀꜱ ᴄᴀɴ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ."
         )
     
     # Check if subcommand is provided
@@ -51,19 +51,19 @@ async def autoleave_command(_, m: Message) -> None:
     if subcommand == "enable":
         await db.set_autoleave(m.chat.id, True)
         await m.reply_text(
-            "✅ <blockquote>ᴀᴜᴛᴏ ʟᴇᴀᴠᴇ ᴇɴᴀʙʟᴇᴅ!</blockquote>\n\n"
+            "<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <blockquote>ᴀᴜᴛᴏ ʟᴇᴀᴠᴇ ᴇɴᴀʙʟᴇᴅ!</blockquote>\n\n"
             "<blockquote>ᴀꜱꜱɪꜱᴛᴀɴᴛ ᴡɪʟʟ ʟᴇᴀᴠᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴀꜰᴛᴇʀ <b>5 ᴍɪɴᴜᴛᴇꜱ</b> "
             "ɪꜰ ɴᴏ ᴜꜱᴇʀꜱ ᴀʀᴇ ʟɪꜱᴛᴇɴɪɴɢ.</blockquote>"
         )
     elif subcommand == "disable":
         await db.set_autoleave(m.chat.id, False)
         await m.reply_text(
-            "✅ <blockquote>ᴀᴜᴛᴏ ʟᴇᴀᴠᴇ ᴅɪꜱᴀʙʟᴇᴅ!</blockquote>\n\n"
+            "<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <blockquote>ᴀᴜᴛᴏ ʟᴇᴀᴠᴇ ᴅɪꜱᴀʙʟᴇᴅ!</blockquote>\n\n"
             "<blockquote>ᴀꜱꜱɪꜱᴛᴀɴᴛ ᴡɪʟʟ ꜱᴛᴀʏ ɪɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴇᴠᴇɴ ᴡʜᴇɴ ɴᴏ ᴏɴᴇ ɪꜱ ʟɪꜱᴛᴇɴɪɴɢ.</blockquote>"
         )
     else:
         await m.reply_text(
-            "❌ <blockquote>ɪɴᴠᴀʟɪᴅ ꜱᴜʙᴄᴏᴍᴍᴀɴᴅ!</blockquote>\n\n"
+            "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <blockquote>ɪɴᴠᴀʟɪᴅ ꜱᴜʙᴄᴏᴍᴍᴀɴᴅ!</blockquote>\n\n"
             "<blockquote><b>ᴜꜱᴀɢᴇ:</b>\n"
             "• `/autoleave enable`\n"
             "• `/autoleave disable`</blockquote>"

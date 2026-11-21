@@ -48,7 +48,7 @@ async def pin_message(client, message: Message):
         return await message.reply_text("<b>ʀєᴘʟʏ ᴛσ ᴧ ϻєssᴧɢє ᴛσ ᴘɪη ɪᴛ.</b>")
     try:
         await client.pin_chat_message(message.chat.id, message.reply_to_message.id)
-        await message.reply_text("<b>ᴘɪηηєᴅ! ✅</b>")
+        await message.reply_text("<b>ᴘɪηηєᴅ! <tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji></b>")
     except RPCError as e:
         await _fail(message, e)
 
@@ -61,7 +61,7 @@ async def unpin_message(client, message: Message):
         return await message.reply_text("<b>ʀєᴘʟʏ ᴛσ ᴧ ϻєssᴧɢє ᴛσ υηᴘɪη ɪᴛ.</b>")
     try:
         await client.unpin_chat_message(message.chat.id, message.reply_to_message.id)
-        await message.reply_text("<b>υηᴘɪηηєᴅ! ✅</b>")
+        await message.reply_text("<b>υηᴘɪηηєᴅ! <tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji></b>")
     except RPCError as e:
         await _fail(message, e)
 
@@ -75,7 +75,7 @@ async def set_group_photo(client, message: Message):
         return await message.reply_text("<b>ʀєᴘʟʏ ᴛσ ᴧ ᴘʜσᴛσ ᴛσ sєᴛ ɪᴛ ᴧs ɢʀσυᴘ ᴘʜσᴛσ.</b>")
     try:
         await client.set_chat_photo(message.chat.id, photo=reply.photo.file_id)
-        await message.reply_text("<b>ɢʀσυᴘ ᴘʜσᴛσ υᴘᴅᴧᴛєᴅ! ✅</b>")
+        await message.reply_text("<b>ɢʀσυᴘ ᴘʜσᴛσ υᴘᴅᴧᴛєᴅ! <tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji></b>")
     except RPCError as e:
         await _fail(message, e)
 
@@ -86,7 +86,7 @@ async def remove_group_photo(client, message: Message):
         return
     try:
         await client.delete_chat_photo(message.chat.id)
-        await message.reply_text("<b>ɢʀσυᴘ ᴘʜσᴛσ ʀєϻσᴠєᴅ! ✅</b>")
+        await message.reply_text("<b>ɢʀσυᴘ ᴘʜσᴛσ ʀєϻσᴠєᴅ! <tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji></b>")
     except RPCError as e:
         await _fail(message, e)
 
@@ -114,6 +114,6 @@ async def set_group_description(client, message: Message):
     desc = message.text.split(None, 1)[1]
     try:
         await client.set_chat_description(message.chat.id, desc)
-        await message.reply_text("<b>ᴅєsᴄʀɪᴘᴛɪση υᴘᴅᴧᴛєᴅ! ✅</b>")
+        await message.reply_text("<b>ᴅєsᴄʀɪᴘᴛɪση υᴘᴅᴧᴛєᴅ! <tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji></b>")
     except RPCError as e:
         await _fail(message, e)

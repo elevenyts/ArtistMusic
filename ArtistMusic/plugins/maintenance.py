@@ -61,7 +61,7 @@ async def _maintenance(_, m: types.Message):
         
     else:
         await m.reply_text(
-            "<blockquote>❌ <b>ɪɴᴠᴀʟɪᴅ ᴏᴘᴛɪᴏɴ</b>\n\n"
+            "<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ɪɴᴠᴀʟɪᴅ ᴏᴘᴛɪᴏɴ</b>\n\n"
             "<b>ᴜꜱᴀɢᴇ:</b>\n"
             "<code>/maintenance enable</code>\n"
             "<code>/maintenance disable</code></blockquote>"

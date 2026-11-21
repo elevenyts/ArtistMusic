@@ -21,7 +21,7 @@ from ArtistMusic import app
 from ._common import esc, mention
 
 _STATUS = {
-    enums.ChatMemberStatus.OWNER: "👑  σᴡηєʀ",
+    enums.ChatMemberStatus.OWNER: "<tg-emoji emoji-id='6325564362522104416'>👑</tg-emoji>  σᴡηєʀ",
     enums.ChatMemberStatus.ADMINISTRATOR: "🛡  ᴧᴅϻɪη",
     enums.ChatMemberStatus.MEMBER: "👤  ϻєϻʙєʀ",
     enums.ChatMemberStatus.RESTRICTED: "🔇  ʀєsᴛʀɪᴄᴛєᴅ",

@@ -184,7 +184,7 @@ async def play_hndlr(
         channel_id = await db.get_cmode(m.chat.id)
         if channel_id is None:
             return await safe_reply(m,
-                "<blockquote>❌ Channel play is not enabled.\n\n"
+                "<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Channel play is not enabled.\n\n"
                 "To enable for linked channel:\n"
                 "`/channelplay linked`\n\n"
                 "To enable for any channel:\n"
@@ -196,7 +196,7 @@ async def play_hndlr(
         except:
             await db.set_cmode(m.chat.id, None)
             return await safe_reply(m,
-                "<blockquote>❌ Cannot find channel!\n\n"
+                "<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Cannot find channel!\n\n"
                 "Please make sure I'm admin in the channel and channel exists.</blockquote>"
             )
         
@@ -219,7 +219,7 @@ async def play_hndlr(
                             invite_link = await app.export_chat_invite_link(channel_id)
                     except Exception:
                         return await safe_reply(m,
-                            f"<blockquote>❌ Assistant cannot join channel!\n\n"
+                            f"<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Assistant cannot join channel!\n\n"
                             f"Please add @{client.username if client.username else client.mention} "
                             f"to the channel as an admin with permission to join.</blockquote>"
                         )
@@ -242,7 +242,7 @@ async def play_hndlr(
             except Exception as e:
                 error_str = str(e)
                 return await safe_reply(m,
-                    f"<blockquote>❌ Failed to join assistant to channel!\n\n"
+                    f"<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Failed to join assistant to channel!\n\n"
                     f"Please manually add @{client.username if client.username else client.mention} "
                     f"to the channel as an admin with permission to join.\n\n"
                     f"Error: {error_str}</blockquote>"
@@ -295,7 +295,7 @@ async def play_hndlr(
             except Exception as e:
                 await safe_edit(
                     sent,
-                    f"<blockquote>❌ Failed to fetch playlist.\n\n"
+                    f"<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Failed to fetch playlist.\n\n"
                     f"YouTube playlists are currently experiencing issues. "
                     f"Please try a single track instead.</blockquote>"
                 )
@@ -416,7 +416,7 @@ async def play_hndlr(
         if not file.file_path:
             await safe_edit(
                 sent,
-                "<blockquote>❌ Failed to stream media.\n\n"
+                "<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Failed to stream media.\n\n"
                 "Possible reasons:\n"
                 "• YouTube bot detection (try again in a moment)\n"
                 "• Video is region-blocked or private\n"
@@ -445,7 +445,7 @@ async def play_hndlr(
         if "bot" in error_msg.lower() or "sign in" in error_msg.lower():
             await safe_edit(
                 sent,
-                "<blockquote>❌ YouTube bot detection triggered.\n\n"
+                "<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> YouTube bot detection triggered.\n\n"
                 "Solution:\n"
                 "• Wait a few minutes and try again\n"
                 "• Try /radio for uninterrupted music\n\n"
@@ -454,7 +454,7 @@ async def play_hndlr(
         else:
             await safe_edit(
                 sent,
-                f"<blockquote>❌ Playback error:\n{error_msg}\n\n"
+                f"<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Playback error:\n{error_msg}\n\n"
                 f"Support: {config.SUPPORT_CHAT}</blockquote>"
             )
         return

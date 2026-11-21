@@ -84,7 +84,7 @@ async def broadcast_message(_, message: types.Message) -> None:
 
     if not all_chats:
         return await message.reply_text(
-            "❌ No recipients found. Make sure the bot is added to groups or has users."
+            "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> No recipients found. Make sure the bot is added to groups or has users."
         )
 
     # Set broadcasting flag
@@ -357,8 +357,8 @@ async def _send_broadcast(
                 await status_message.edit_text(
                     f"📤 Broadcasting...\n\n"
                     f"Progress: {index}/{total_chats}\n"
-                    f"✅ Groups: {success_groups}\n"
-                    f"✅ Users: {success_users}"
+                    f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> Groups: {success_groups}\n"
+                    f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> Users: {success_users}"
                 )
             except:
                 pass

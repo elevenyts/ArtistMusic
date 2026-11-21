@@ -29,6 +29,7 @@ from pyrogram.types import (
 )
 
 from ArtistMusic import app, config, db, logger
+from ArtistMusic.Button_emoji import process_text as _pe
 
 from ._textimg import draw_text
 
@@ -41,17 +42,18 @@ FALLBACK_PIC = str(_BASE / "upic.png")
 BTN_VIEW = "ᴠɪєᴡ ϻєϻʙєʀ"
 BTN_ADD = "ᴧᴅᴅ ϻє ᴛσ ʏσυʀ ɢʀσυᴘ"
 
-CAPTION_TXT = """✨❄───✧ <b>ᴡᴇʟᴄᴏᴍᴇ</b> ✧───❄✨
-🥀 <b>{chat_title}</b> 🥀
+CAPTION_TXT = """<tg-emoji emoji-id=''>✨</tg-emoji><tg-emoji emoji-id=''>❄</tg-emoji>───✧ <b>ᴡᴇʟᴄᴏᴍᴇ</b> ✧───<tg-emoji emoji-id=''>❄</tg-emoji><tg-emoji emoji-id=''>✨</tg-emoji>
+<tg-emoji emoji-id='5875204537224008462'>🥀</tg-emoji> <b>{chat_title}</b> <tg-emoji emoji-id='5875204537224008462'>🥀</tg-emoji>
 
 ╔═══════════════════╗
-║ 👤 <b>Nᴀᴍᴇ</b> : {mention}
-║ 🆔 <b>Iᴅ</b> : <code>{uid}</code>
-║ 🔗 <b>Usᴇʀɴᴀᴍᴇ</b> : @{uname}
-║ 🌐 <b>Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs</b> : {count}
+║ <tg-emoji emoji-id=''>👤</tg-emoji> <b>Nᴀᴍᴇ</b> : {mention}
+║ <tg-emoji emoji-id=''>🆔</tg-emoji> <b>Iᴅ</b> : <code>{uid}</code>
+║ <tg-emoji emoji-id=''>🔗</tg-emoji> <b>Usᴇʀɴᴀᴍᴇ</b> : @{uname}
+║ <tg-emoji emoji-id=''>🌐</tg-emoji> <b>Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs</b> : {count}
 ╚═══════════════════╝
 
-❄✦─────❅💖💖✦─────✦❄"""
+<tg-emoji emoji-id=''>❄</tg-emoji>✦─────❅<tg-emoji emoji-id=''>💖</tg-emoji><tg-emoji emoji-id=''>💖</tg-emoji>✦─────✦<tg-emoji emoji-id=''>❄</tg-emoji>"""
+CAPTION_TXT = _pe(CAPTION_TXT)   # empty emoji-id='' -> default emoji / Button_emoji.py map
 
 # ─────────────────────── ANTI-SPAM SETTINGS ───────────────────────
 JOIN_THRESHOLD = 20   # joins inside TIME_WINDOW => treated as a raid
@@ -300,23 +302,24 @@ async def welcome_toggle(_, m: Message):
 
     admins = await db.get_admins(m.chat.id)
     if m.from_user.id not in app.sudoers and m.from_user.id not in admins:
-        return await m.reply_text("<blockquote>❌  σηʟʏ ᴧᴅϻɪηs ᴄᴧη υsє ᴛʜɪs ᴄσϻϻᴧηᴅ.</blockquote>")
+        return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji>  σηʟʏ ᴧᴅϻɪηs ᴄᴧη υsє ᴛʜɪs ᴄσϻϻᴧηᴅ.</blockquote>")
 
     state = "єηᴧʙʟєᴅ" if await is_on(m.chat.id) else "ᴅɪsᴧʙʟєᴅ"
     if len(m.command) < 2 or m.command[1].lower() not in ("on", "off", "enable", "disable"):
         return await m.reply_text(
-            f"<blockquote>👋  ᴡєʟᴄσϻє ϻєssᴧɢєs: <b>{state}</b></blockquote>\n\n"
+            _pe(
+            f"<blockquote><tg-emoji emoji-id=''>👋</tg-emoji>  ᴡєʟᴄσϻє ϻєssᴧɢєs: <b>{state}</b></blockquote>\n\n"
             "<blockquote><b>υsᴧɢє:</b>\n"
             "▸  <code>/welcome on</code>\n"
-            "▸  <code>/welcome off</code></blockquote>"
+            "▸  <code>/welcome off</code></blockquote>")
         )
 
     flag = "on" if m.command[1].lower() in ("on", "enable") else "off"
     await set_state(m.chat.id, flag)
     await m.reply_text(
-        "<blockquote>✅  ᴡєʟᴄσϻє ϻєssᴧɢєs єηᴧʙʟєᴅ.</blockquote>"
+        "<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>  ᴡєʟᴄσϻє ϻєssᴧɢєs єηᴧʙʟєᴅ.</blockquote>"
         if flag == "on"
-        else "<blockquote>✅  ᴡєʟᴄσϻє ϻєssᴧɢєs ᴅɪsᴧʙʟєєᴅ.</blockquote>"
+        else "<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>  ᴡєʟᴄσϻє ϻєssᴧɢєs ᴅɪsᴧʙʟєєᴅ.</blockquote>"
     )
 
 
@@ -447,7 +450,7 @@ async def _send_welcome(client, update: ChatMemberUpdated, user) -> None:
     except Exception as e:
         logger.warning(f"Welcome card failed in {cid}: {e}")
         try:
-            await client.send_message(cid, f"🎉  ᴡєʟᴄσϻє, {user.mention}!")
+            await client.send_message(cid, _pe("<tg-emoji emoji-id=''>🎉</tg-emoji>  ᴡєʟᴄσϻє, ") + f"{user.mention}!")
         except Exception:
             return
     finally:

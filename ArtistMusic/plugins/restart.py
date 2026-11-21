@@ -152,7 +152,7 @@ async def _update(_, m: types.Message):
         
         if result.returncode != 0:
             return await sent.edit_text(
-                f"<blockquote><b>❌ Update Failed</b></blockquote>\n\n"
+                f"<blockquote><b><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Update Failed</b></blockquote>\n\n"
                 f"<blockquote>Git error: {result.stderr}</blockquote>"
             )
         
@@ -161,7 +161,7 @@ async def _update(_, m: types.Message):
         # Check if there are any changes
         if "Already up to date" in output or "Already up-to-date" in output:
             return await sent.edit_text(
-                "<blockquote><b>✅ Already Updated</b></blockquote>\n\n"
+                "<blockquote><b><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> Already Updated</b></blockquote>\n\n"
                 "<blockquote>Bot is already running the latest version.</blockquote>"
             )
         
@@ -193,11 +193,11 @@ async def _update(_, m: types.Message):
         
     except FileNotFoundError:
         await sent.edit_text(
-            "<blockquote><b>❌ Git Not Found</b></blockquote>\n\n"
+            "<blockquote><b><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Git Not Found</b></blockquote>\n\n"
             "<blockquote>Git is not installed on this system. Use /restart instead.</blockquote>"
         )
     except Exception as e:
         await sent.edit_text(
-            f"<blockquote><b>❌ Update Error</b></blockquote>\n\n"
+            f"<blockquote><b><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Update Error</b></blockquote>\n\n"
             f"<blockquote>{str(e)}</blockquote>"
         )

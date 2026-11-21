@@ -129,10 +129,10 @@ async def deleteall_callback(client, cb: CallbackQuery):
             logger.warning(f"delete_chat_history failed: {e}")
 
         if deleted is not None:
-            await _edit(cb, f"✅  ᴅєʟєᴛєᴅ {deleted} ϻєssᴧɢєs sυᴄᴄєssғυʟʟʏ.")
+            await _edit(cb, f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>  ᴅєʟєᴛєᴅ {deleted} ϻєssᴧɢєs sυᴄᴄєssғυʟʟʏ.")
         else:
             count = await _batch_delete(assistant, chat_id, cb.message.id)
-            await _edit(cb, f"✅  ғᴧʟʟʙᴧᴄᴋ ᴅєʟєᴛєᴅ ᴧᴘᴘʀσx. {count} ϻєssᴧɢєs.")
+            await _edit(cb, f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>  ғᴧʟʟʙᴧᴄᴋ ᴅєʟєᴛєᴅ ᴧᴘᴘʀσx. {count} ϻєssᴧɢєs.")
 
         # 4) clean up: demote + leave
         try:

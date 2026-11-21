@@ -72,7 +72,7 @@ async def ask_mass_confirm(client: Client, message: Message):
     ok, owner = await is_owner_or_sudoer(client, message.chat.id, message.from_user.id)
     if not ok:
         owner_m = mention(owner.id, owner.first_name) if owner else "ᴛʜє σᴡηєʀ"
-        return await message.reply_text(f"<blockquote>❌  σηʟʏ {owner_m} ϻᴧʏ ʀυη <code>{cmd}</code>.</blockquote>")
+        return await message.reply_text(f"<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji>  σηʟʏ {owner_m} ϻᴧʏ ʀυη <code>{cmd}</code>.</blockquote>")
 
     await send_message_colored(
         message.chat.id,
@@ -91,7 +91,7 @@ async def handle_mass_confirm(client: Client, cb: CallbackQuery):
         return await cb.answer("σηʟʏ ᴛʜє ɢʀσυᴘ σᴡηєʀ ᴄᴧη ᴄσηғɪʀϻ.", show_alert=True)
 
     if answer == "no":
-        return await cb.message.edit(f"❌ <code>{cmd}</code> canceled.")
+        return await cb.message.edit(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <code>{cmd}</code> canceled.")
 
     if chat_id in _running:
         return await cb.answer("ᴧησᴛʜєʀ ϻᴧss ᴧᴄᴛɪση ɪs ᴧʟʀєᴧᴅʏ ʀυηηɪηɢ ʜєʀє.", show_alert=True)
@@ -101,17 +101,17 @@ async def handle_mass_confirm(client: Client, cb: CallbackQuery):
     need_pin = cmd == "unpinall"
     allowed = bool(priv and (priv.can_pin_messages if need_pin else priv.can_restrict_members))
     if not allowed:
-        return await cb.message.edit("❌  ɪ ʟᴧᴄᴋ ᴛʜє ηєᴄєssᴧʀʏ ᴧᴅϻɪη ᴘєʀϻɪssɪση.")
+        return await cb.message.edit("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji>  ɪ ʟᴧᴄᴋ ᴛʜє ηєᴄєssᴧʀʏ ᴧᴅϻɪη ᴘєʀϻɪssɪση.")
 
     _running.add(chat_id)
     await cb.message.edit(f"⏳  <code>{cmd}</code> ɪη ᴘʀσɢʀєss…")
     try:
         report = await _RUNNERS[cmd](client, chat_id)
         await client.send_message(chat_id, report)
-        await cb.message.edit(f"✅ <code>{cmd}</code> completed.")
+        await cb.message.edit(f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <code>{cmd}</code> completed.")
     except Exception as e:
         logger.warning(f"{cmd} failed in {chat_id}: {e}")
-        await cb.message.edit(f"❌  єʀʀσʀ ᴅυʀɪηɢ <code>{cmd}</code>:\n<code>{esc(str(e))}</code>")
+        await cb.message.edit(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji>  єʀʀσʀ ᴅυʀɪηɢ <code>{cmd}</code>:\n<code>{esc(str(e))}</code>")
     finally:
         _running.discard(chat_id)
 

@@ -47,6 +47,12 @@ _names: dict[int, str] = {}             # user_id -> first name cache
 
 
 # ─────────────────────────── settings ───────────────────────────
+def _icon_html(icon: str) -> str:
+    if icon == "🥀":
+        return "<tg-emoji emoji-id='5875204537224008462'>🥀</tg-emoji>"
+    return icon
+
+
 async def is_enabled(chat_id: int) -> bool:
     if chat_id in _enabled:
         return _enabled[chat_id]
@@ -82,12 +88,12 @@ async def vclog_cmd(client, message: Message):
 
     if arg in ("on", "enable", "yes"):
         await set_enabled(chat_id, True)
-        return await message.reply_text("✅ <b>ᴠᴄ ᴊᴏɪη / ʟєᴧᴠє ᴀʟєʀᴛs: ση</b>")
+        return await message.reply_text("<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>ᴠᴄ ᴊᴏɪη / ʟєᴧᴠє ᴀʟєʀᴛs: ση</b>")
     if arg in ("off", "disable", "no"):
         await set_enabled(chat_id, False)
         return await message.reply_text("🚫 <b>ᴠᴄ ᴊᴏɪη / ʟєᴧᴠє ᴀʟєʀᴛs: σғғ</b>")
 
-    state = "ση ✅" if await is_enabled(chat_id) else "σғғ 🚫"
+    state = "ση <tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>" if await is_enabled(chat_id) else "σғғ 🚫"
     await message.reply_text(
         f"🎙 <b>ᴠᴄ ᴊᴏɪη / ʟєᴧᴠє ᴀʟєʀᴛs:</b> {state}\n"
         "➤ <code>/vclog on</code> · <code>/vclog off</code>"
@@ -191,7 +197,7 @@ async def handle_participant(update) -> None:
 
         name = await _user_name(user_id)
         text = (
-            f"<b>{icon} {label}</b>\n"
+            f"<b>{_icon_html(icon)} {label}</b>\n"
             f"━━━━━━━━━━━\n"
             f"✧ <b>ηᴧϻє</b> : {mention(user_id, name)}\n"
             f"✧ <b>υsєʀ ɪᴅ</b> : <code>{user_id}</code>"

@@ -62,7 +62,7 @@ async def _leave(_, m: types.Message):
     except Exception as e:
         # If bot can't leave, inform the sudo user
         await sent.edit_text(
-            f"<blockquote><b>❌ Error</b></blockquote>\n\n"
+            f"<blockquote><b><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Error</b></blockquote>\n\n"
             f"<blockquote>Failed to leave chat: {str(e)}</blockquote>"
         )
 
@@ -116,6 +116,6 @@ async def _leaveall(_, m: types.Message):
             continue
     
     await sent.edit_text(
-        f"<blockquote><b>✅ Cleanup Complete</b></blockquote>\n\n"
+        f"<blockquote><b><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> Cleanup Complete</b></blockquote>\n\n"
         f"<blockquote>Assistants left <b>{total_left}</b> inactive groups.</blockquote>"
     )

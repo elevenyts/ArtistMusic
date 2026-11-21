@@ -86,7 +86,7 @@ async def mention_admins(_, message: types.Message):
                         f"<a href='tg://user?id={user.id}'>{user.first_name}</a>")
         except Exception as e:
             await message.reply_text(
-                "<blockquote>❌ Failed to fetch administrators. Make sure the bot has proper permissions.</blockquote>"
+                "<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Failed to fetch administrators. Make sure the bot has proper permissions.</blockquote>"
             )
             return
 
@@ -100,11 +100,11 @@ async def mention_admins(_, message: types.Message):
             await message.reply_text(reply_msg, disable_web_page_preview=True)
         except Exception as e:
             await message.reply_text(
-                "<blockquote>❌ Failed to send admin notification.</blockquote>"
+                "<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Failed to send admin notification.</blockquote>"
             )
     except Exception as e:
         # Catch all exceptions to prevent bot crashes
         try:
-            await message.reply_text("<blockquote>❌ An error occurred while processing admin mention.</blockquote>")
+            await message.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> An error occurred while processing admin mention.</blockquote>")
         except:
             pass  # Silent failure if reply fails

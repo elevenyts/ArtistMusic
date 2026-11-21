@@ -50,9 +50,9 @@ async def _gban(_, m: types.Message):
             if len(m.command) > 2:
                 reason = " ".join(m.command[2:])
         except ValueError:
-            return await m.reply_text("<blockquote>❌ Invalid user ID</blockquote>")
+            return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Invalid user ID</blockquote>")
         except Exception:
-            return await m.reply_text("<blockquote>❌ User not found</blockquote>")
+            return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> User not found</blockquote>")
     else:
         return await m.reply_text(
             "<blockquote><b>ᴜꜱᴀɢᴇ:</b>\n"
@@ -62,7 +62,7 @@ async def _gban(_, m: types.Message):
     
     # Don't allow banning sudo users or owner
     if user_id in app.sudoers:
-        return await m.reply_text("<blockquote>❌ Cannot ban sudo users</blockquote>")
+        return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Cannot ban sudo users</blockquote>")
     
     # Check if already gbanned
     if await db.is_gbanned(user_id):
@@ -99,7 +99,7 @@ async def _gban(_, m: types.Message):
             continue
     
     await sent.edit_text(
-        f"<blockquote><u><b>✅ ɢʟᴏʙᴀʟ ʙᴀɴ ᴄᴏᴍᴘʟᴇᴛᴇ</b></u>\n\n"
+        f"<blockquote><u><b><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> ɢʟᴏʙᴀʟ ʙᴀɴ ᴄᴏᴍᴘʟᴇᴛᴇ</b></u>\n\n"
         f"<b>ᴜꜱᴇʀ:</b> {user_mention}\n"
         f"<b>ɪᴅ:</b> <code>{user_id}</code>\n"
         f"<b>ʀᴇᴀꜱᴏɴ:</b> {reason}\n\n"
@@ -133,7 +133,7 @@ async def _ungban(_, m: types.Message):
             user = await app.get_users(user_id)
             user_mention = user.mention
         except ValueError:
-            return await m.reply_text("<blockquote>❌ Invalid user ID</blockquote>")
+            return await m.reply_text("<blockquote><tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> Invalid user ID</blockquote>")
         except Exception:
             user_mention = f"User {user_id}"
     else:
@@ -153,7 +153,7 @@ async def _ungban(_, m: types.Message):
     await db.del_gban(user_id)
     
     await m.reply_text(
-        f"<blockquote><u><b>✅ ɢʟᴏʙᴀʟ ʙᴀɴ ʀᴇᴍᴏᴠᴇᴅ</b></u>\n\n"
+        f"<blockquote><u><b><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> ɢʟᴏʙᴀʟ ʙᴀɴ ʀᴇᴍᴏᴠᴇᴅ</b></u>\n\n"
         f"<b>ᴜꜱᴇʀ:</b> {user_mention}\n"
         f"<b>ɪᴅ:</b> <code>{user_id}</code></blockquote>"
     )
@@ -174,7 +174,7 @@ async def _gbanlist(_, m: types.Message):
     gbanned = await db.get_gbanned()
     
     if not gbanned:
-        return await sent.edit_text("<blockquote>✅ No users are globally banned</blockquote>")
+        return await sent.edit_text("<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> No users are globally banned</blockquote>")
     
     text = "<u><b>🚫 ɢʟᴏʙᴀʟʟʏ ʙᴀɴɴᴇᴅ ᴜꜱᴇʀꜱ:</b></u>\n<blockquote>"
     

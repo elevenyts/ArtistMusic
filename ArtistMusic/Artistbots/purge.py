@@ -64,7 +64,7 @@ async def _do_purge(client, msg: Message, silent: bool):
             await asyncio.sleep(0.5)
         await msg.delete()
         if not silent:
-            done = await client.send_message(msg.chat.id, f"✅ <b>ᴘυʀɢєᴅ</b> <code>{len(ids)}</code> <b>ϻєssᴧɢєs.</b>")
+            done = await client.send_message(msg.chat.id, f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>ᴘυʀɢєᴅ</b> <code>{len(ids)}</code> <b>ϻєssᴧɢєs.</b>")
             await asyncio.sleep(3)
             await done.delete()
     except MessageDeleteForbidden:

@@ -81,7 +81,7 @@ async def prompt_zombie_cleanup(client, message: Message):
 
     total = len(await _scan_deleted(client, message.chat.id))
     if total == 0:
-        return await message.reply_text("<blockquote>✅  <b>ησ ᴢσϻʙɪє (ᴅєʟєᴛєᴅ) ᴧᴄᴄσυηᴛs ғσυηᴅ ɪη ᴛʜɪs ᴄʜᴧᴛ.</b></blockquote>")
+        return await message.reply_text("<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>  <b>ησ ᴢσϻʙɪє (ᴅєʟєᴛєᴅ) ᴧᴄᴄσυηᴛs ғσυηᴅ ɪη ᴛʜɪs ᴄʜᴧᴛ.</b></blockquote>")
 
     await send_message_colored(
         message.chat.id,
@@ -119,7 +119,7 @@ async def execute_zombie_cleanup(client, cq: CallbackQuery):
         total = len(deleted)
         await _safe_edit(
             cq.message,
-            f"🧭  <b>ғσυηᴅ <code>{total}</code> ᴅєʟєᴛєᴅ ᴧᴄᴄσυηᴛs.</b>\n🥀 | <b>sᴛᴧʀᴛɪηɢ ᴄʟєᴧηυᴘ...</b>",
+            f"🧭  <b>ғσυηᴅ <code>{total}</code> ᴅєʟєᴛєᴅ ᴧᴄᴄσυηᴛs.</b>\n<tg-emoji emoji-id='5875204537224008462'>🥀</tg-emoji> | <b>sᴛᴧʀᴛɪηɢ ᴄʟєᴧηυᴘ...</b>",
         )
 
         async def ban(user_id: int) -> bool:
@@ -143,7 +143,7 @@ async def execute_zombie_cleanup(client, cq: CallbackQuery):
 
         await _safe_edit(
             cq.message,
-            f"✅  <b>sυᴄᴄєssғυʟʟʏ ʀєϻσᴠєᴅ <code>{removed}</code> συᴛ σғ <code>{total}</code> ᴢσϻʙɪєs.</b>",
+            f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>  <b>sυᴄᴄєssғυʟʟʏ ʀєϻσᴠєᴅ <code>{removed}</code> συᴛ σғ <code>{total}</code> ᴢσϻʙɪєs.</b>",
         )
     finally:
         _cleaning.discard(chat_id)
@@ -153,14 +153,14 @@ async def execute_zombie_cleanup(client, cq: CallbackQuery):
 async def cancel_zombie_cleanup(client, cq: CallbackQuery):
     if not await is_admin(client, cq):
         return await cq.answer("👮🏻  σηʟʏ ᴧᴅϻɪηs ᴄᴧη ᴄᴧηᴄєʟ ᴛʜɪs.", show_alert=True)
-    await _safe_edit(cq.message, "❌  <b>ᴄʟєᴧηυᴘ ᴄᴧηᴄєʟʟєᴅ.</b>")
+    await _safe_edit(cq.message, "<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji>  <b>ᴄʟєᴧηυᴘ ᴄᴧηᴄєʟʟєᴅ.</b>")
 
 
 # group=-1 + StopPropagation: ArtistMusic's /admin mention plugin matches any text
 # containing "/admin" (so it would also fire on /admins and /adminlist).
 @app.on_message(filters.command(["admins", "staff", "adminlist"]) & filters.group & ~app.bl_users, group=-1)
 async def list_admins(client, message: Message):
-    text = f"<b>👑  ᴧᴅϻɪηs σғ {html.escape(message.chat.title or 'ᴛʜɪs ᴄʜᴧᴛ')}:</b>\n\n"
+    text = f"<b><tg-emoji emoji-id='6325564362522104416'>👑</tg-emoji>  ᴧᴅϻɪηs σғ {html.escape(message.chat.title or 'ᴛʜɪs ᴄʜᴧᴛ')}:</b>\n\n"
     try:
         async for m in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
             if not m.user or m.user.is_bot:
@@ -169,7 +169,7 @@ async def list_admins(client, message: Message):
             if m.custom_title:
                 line += f" — <code>{html.escape(m.custom_title)}</code>"
             if m.status == ChatMemberStatus.OWNER:
-                line = "👑 " + line
+                line = "<tg-emoji emoji-id='6325564362522104416'>👑</tg-emoji> " + line
             text += line + "\n"
         await message.reply_text(text)
     except FloodWait as e:
