@@ -42,7 +42,7 @@ FALLBACK_PIC = str(_BASE / "upic.png")
 BTN_VIEW = "ᴠɪєᴡ ϻєϻʙєʀ"
 BTN_ADD = "ᴧᴅᴅ ϻє ᴛσ ʏσυʀ ɢʀσυᴘ"
 
-CAPTION_TXT = """<tg-emoji emoji-id='6325413811033477368'>✨</tg-emoji><tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>───✧ <b>ᴡᴇʟᴄᴏᴍᴇ</b> ✧───<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji><tg-emoji emoji-id='6325413811033477368'>✨</tg-emoji>
+CAPTION_TXT = """<tg-emoji emoji-id='6325413811033477368'>✨</tg-emoji><tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>──✧ <b>ᴡᴇʟᴄᴏᴍᴇ</b> ✧──<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji><tg-emoji emoji-id='6325413811033477368'>✨</tg-emoji>
 <tg-emoji emoji-id='5875204537224008462'>🥀</tg-emoji> <b>{chat_title}</b> <tg-emoji emoji-id='5875204537224008462'>🥀</tg-emoji>
 
 ╔═══════════════════╗
@@ -52,7 +52,7 @@ CAPTION_TXT = """<tg-emoji emoji-id='6325413811033477368'>✨</tg-emoji><tg-emoj
 ║ <tg-emoji emoji-id='5447410659077661506'>🌐</tg-emoji> <b>Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs</b> : {count}
 ╚═══════════════════╝
 
-<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>✦─────❅<tg-emoji emoji-id='5875224599016247920'>💖</tg-emoji><tg-emoji emoji-id='5875224599016247920'>💖</tg-emoji>✦─────✦<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>"""
+<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>✦────❅<tg-emoji emoji-id='5875224599016247920'>💖</tg-emoji><tg-emoji emoji-id='5875224599016247920'>💖</tg-emoji>✦────✦<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>"""
 CAPTION_TXT = _pe(CAPTION_TXT)   # empty emoji-id='' -> default emoji / Button_emoji.py map
 
 # ─────────────────────── ANTI-SPAM SETTINGS ───────────────────────
