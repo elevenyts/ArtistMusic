@@ -91,7 +91,7 @@ class Config:
         self.SUPPORT_CHANNEL: str = getenv("SUPPORT_CHANNEL", "https://t.me/Elevenytschats")
         self.SUPPORT_CHAT: str = getenv("SUPPORT_CHAT", "https://t.me/Artistbots")
         # Owner button link (default: owner's profile via OWNER_ID)
-        self.OWNER_LINK: str = getenv("OWNER_LINK", "") or f"tg://user?id={self.OWNER_ID}"
+        self.OWNER_LINK: str = getenv("OWNER_LINK", "") or f"tg://openmessage?user_id={self.OWNER_ID}"
 
         # Excluded Chats
         self.EXCLUDED_CHATS: List[int] = self._parse_excluded_chats()
