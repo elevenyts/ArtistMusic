@@ -13,6 +13,7 @@
 # Unauthorized copying, modification, or redistribution
 # of this source code without permission is prohibited.
 # ==========================================================
+import random
 from os import getenv
 from typing import List
 from urllib.parse import urlparse
@@ -46,6 +47,19 @@ def normalize_media(url: str) -> str:
     except Exception:
         pass
     return url
+
+
+def pick_media(urls: List[str], fallback: str = "") -> str:
+    """Return a random media link from ``urls`` (called every time it is used)."""
+    urls = [normalize_media(u) for u in urls if u and u.strip()]
+    return random.choice(urls) if urls else fallback
+
+
+def env_media_list(name: str, defaults: List[str]) -> List[str]:
+    """Read comma/space separated URLs from env var ``name`` or use ``defaults``."""
+    raw = getenv(name, "")
+    items = [u for u in raw.replace(",", " ").split() if u]
+    return items or list(defaults)
 
 
 def media_kind(media) -> str:
@@ -116,15 +130,39 @@ class Config:
 
         # Images (jpg / png / webp / svg / gif / mp4 / webm ... links all supported)
         _default_media = "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4"
-        self.DEFAULT_THUMB: str = normalize_media(getenv("DEFAULT_THUMB", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4") or _default_media)
-        self.PING_IMG: str = normalize_media(getenv("PING_IMG", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4") or _default_media)
-        self.START_IMG: str = normalize_media(getenv("START_IMG", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4") or _default_media)
-        # Image/GIF/MP4 sent when the bot is added to a group (default: START_IMG)
-        self.ADD_IMG: str = normalize_media(getenv("ADD_IMG", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4")) or self.START_IMG
-        self.RADIO_IMG: str = normalize_media(getenv("RADIO_IMG", "https://graph.org/file/e9b9081be519f0e1413dd-a0fd9c7fc36c010a1c.mp4") or _default_media)
+        # SIRF YAHI 4 URL DALO -> DEFAULT_THUMB, PING_IMG, START_IMG, ADD_IMG, RADIO_IMG
+        # sab me yahi use honge, aur har baar inme se RANDOM ek chunega.
+        # Env se bhi de sakte ho: MEDIA_URLS="url1,url2,url3,url4"
+        self.MEDIA_URLS: List[str] = env_media_list("MEDIA_URLS", [
+            "https://artistbox.bond/f/uj4enj66.png",  # URL 1
+            "https://artistbox.bond/f/37z4213f.png",  # URL 2  <- apna URL dalo
+            "https://artistbox.bond/f/98q3faxn.png",  # URL 3  <- apna URL dalo
+            "https://artistbox.bond/f/4er89skf.mp4",  # URL 4  <- apna URL dalo
+        ])
 
         # Moderation
         self.EXCLUDED_USERNAMES: List[str] = getenv("EXCLUDED_USERNAMES", "").split()
+
+    # Random media: har baar access par naya random URL milta hai
+    @property
+    def DEFAULT_THUMB(self) -> str:
+        return pick_media(self.MEDIA_URLS)
+
+    @property
+    def PING_IMG(self) -> str:
+        return pick_media(self.MEDIA_URLS)
+
+    @property
+    def START_IMG(self) -> str:
+        return pick_media(self.MEDIA_URLS)
+
+    @property
+    def ADD_IMG(self) -> str:
+        return pick_media(self.MEDIA_URLS)
+
+    @property
+    def RADIO_IMG(self) -> str:
+        return pick_media(self.MEDIA_URLS)
 
     def _parse_video_height(self) -> int:
         default_height = 1080
