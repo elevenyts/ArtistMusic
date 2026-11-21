@@ -124,7 +124,7 @@ async def deleteall_callback(client, cb: CallbackQuery):
         try:
             deleted = await assistant.delete_chat_history(chat_id, revoke=True)
         except ChatAdminRequired:
-            await _edit(cb, "⚠️  ᴄᴧηησᴛ ᴄʟєᴧʀ ғυʟʟ ʜɪsᴛσʀʏ ɪη σηє ɢσ. ғᴧʟʟɪηɢ ʙᴧᴄᴋ ᴛσ ʙᴧᴛᴄʜ ᴅєʟєᴛɪση...")
+            await _edit(cb, "<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji>  ᴄᴧηησᴛ ᴄʟєᴧʀ ғυʟʟ ʜɪsᴛσʀʏ ɪη σηє ɢσ. ғᴧʟʟɪηɢ ʙᴧᴄᴋ ᴛσ ʙᴧᴛᴄʜ ᴅєʟєᴛɪση...")
         except Exception as e:
             logger.warning(f"delete_chat_history failed: {e}")
 

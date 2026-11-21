@@ -76,7 +76,7 @@ async def ask_mass_confirm(client: Client, message: Message):
 
     await send_message_colored(
         message.chat.id,
-        f"⚠️  {message.from_user.mention}, ᴄσηғɪʀϻ <code>{cmd}</code> ғσʀ ᴛʜɪs ɢʀσυᴘ?",
+        f"<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji>  {message.from_user.mention}, ᴄσηғɪʀϻ <code>{cmd}</code> ғσʀ ᴛʜɪs ɢʀσυᴘ?",
         confirm_buttons(cmd),
     )
 

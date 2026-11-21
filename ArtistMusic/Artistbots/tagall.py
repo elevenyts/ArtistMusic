@@ -110,13 +110,13 @@ async def _is_admin(client: Client, message: Message) -> bool:
 async def _guard(client: Client, message: Message) -> bool:
     """Common checks. Returns True when the command may run."""
     if not await _is_admin(client, message):
-        await message.reply_text("🚫 <b>σηʟʏ ᴧᴅϻɪηs ᴄᴧη υsє ᴛʜɪs ᴄσϻϻᴧηᴅ.</b>")
+        await message.reply_text("<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> <b>σηʟʏ ᴧᴅϻɪηs ᴄᴧη υsє ᴛʜɪs ᴄσϻϻᴧηᴅ.</b>")
         return False
 
     if message.chat.id in active_tags:
         running = active_tags[message.chat.id]
         await message.reply_text(
-            f"⚠️ <b>ᴧ ᴛᴧɢɢɪηɢ sєssɪση ɪs ᴧʟʀєᴧᴅʏ ʀυηηɪηɢ</b> (<code>{running}</code>).\n"
+            f"<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> <b>ᴧ ᴛᴧɢɢɪηɢ sєssɪση ɪs ᴧʟʀєᴧᴅʏ ʀυηηɪηɢ</b> (<code>{running}</code>).\n"
             "➤ υsє <code>/cancel</code> ᴛσ sᴛσᴘ ɪᴛ."
         )
         return False
@@ -351,7 +351,7 @@ async def _tag_batches(client: Client, message: Message, session: str):
     reader, reader_err = await _ensure_assistant(client, message)
     if reader is None:
         await message.reply_text(
-            "⚠️ <b>ᴧssɪsᴛᴧηᴛ ᴄᴧη'ᴛ ʟɪsᴛ ᴧʟʟ ϻєϻʙєʀs:</b> "
+            "<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> <b>ᴧssɪsᴛᴧηᴛ ᴄᴧη'ᴛ ʟɪsᴛ ᴧʟʟ ϻєϻʙєʀs:</b> "
             f"<code>{html.escape(reader_err or 'unknown')}</code>\n"
             "➤ ᴛᴧɢɢɪηɢ ᴏηʟʏ ᴧᴅϻɪηs + ᴀᴄᴛɪᴠє ϻєϻʙєʀs."
         )
@@ -401,7 +401,7 @@ async def _tag_batches(client: Client, message: Message, session: str):
         msg = f"<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>ᴛᴧɢɢɪηɢ ᴄσϻᴘʟєᴛєᴅ. ᴛσᴛᴧʟ:</b> <code>{total}</code> <b>υsєʀs.</b>"
         if state.get("fails"):
             msg += (
-                f"\n⚠️ <b>Failed batches:</b> <code>{state['fails']}</code>\n"
+                f"\n<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> <b>Failed batches:</b> <code>{state['fails']}</code>\n"
                 f"<code>{html.escape(state.get('last_error', ''))[:300]}</code>"
             )
         if state.get("link_only"):
@@ -504,11 +504,11 @@ async def stop_tagging(client: Client, message: Message):
     if not await _is_admin(client, message):
         if cmd == "stop":
             return message.continue_propagation()
-        return await message.reply_text("🚫 <b>σηʟʏ ᴧᴅϻɪηs ᴄᴧη sᴛσᴘ ᴛᴧɢɢɪηɢ.</b>")
+        return await message.reply_text("<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> <b>σηʟʏ ᴧᴅϻɪηs ᴄᴧη sᴛσᴘ ᴛᴧɢɢɪηɢ.</b>")
 
     if not running:
-        return await message.reply_text("⚠️ <b>ησ ᴧᴄᴛɪᴠє ᴛᴧɢɢɪηɢ sєssɪση ғσυηᴅ.</b>")
+        return await message.reply_text("<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> <b>ησ ᴧᴄᴛɪᴠє ᴛᴧɢɢɪηɢ sєssɪση ғσυηᴅ.</b>")
 
     active_tags.pop(chat_id, None)
-    await message.reply_text("🚫 <b>ᴛᴧɢɢɪηɢ ᴄᴧηᴄєʟʟєᴅ sυᴄᴄєssғυʟʟʏ.</b>")
+    await message.reply_text("<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> <b>ᴛᴧɢɢɪηɢ ᴄᴧηᴄєʟʟєᴅ sυᴄᴄєssғυʟʟʏ.</b>")
     message.stop_propagation()  # don't also run the music /stop

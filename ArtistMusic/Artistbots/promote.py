@@ -111,7 +111,7 @@ async def _promote(client, message: Message, uid: int, name: str, privileges, la
         try:
             await client.set_administrator_title(message.chat.id, uid, title[:16])
         except Exception:
-            title = "⚠️  ᴄσυʟᴅη'ᴛ sєᴛ ᴄυsᴛσϻ ᴛɪᴛʟє"
+            title = "<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji>  ᴄσυʟᴅη'ᴛ sєᴛ ᴄυsᴛσϻ ᴛɪᴛʟє"
     await message.reply_text(_done(label, message, uid, name, title))
     return True
 

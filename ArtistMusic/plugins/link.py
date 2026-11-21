@@ -14,7 +14,7 @@ async def group_link(_, message: Message):
         invite = await app.create_chat_invite_link(chat_id)
 
         await message.reply_text(
-            f"🔗 Group Link:\n{invite.invite_link}"
+            f"<tg-emoji emoji-id='5271604874419647061'>🔗</tg-emoji> Group Link:\n{invite.invite_link}"
         )
     except Exception as e:
         await message.reply_text(f"Error: {e}")

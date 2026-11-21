@@ -211,7 +211,7 @@ async def _sticker_choice(client, cb: CallbackQuery):
     await cb.answer()
 
     if action == "stk_no":
-        return await cb.message.edit_text("🚫 <b>ᴄᴧηᴄєʟʟєᴅ.</b>")
+        return await cb.message.edit_text("<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> <b>ᴄᴧηᴄєʟʟєᴅ.</b>")
 
     await cb.message.edit_text("⏳ <b>ᴘʀᴏᴄєssɪηɢ...</b>")
     user, doc, emoji, stype = data["user"], data["doc"], data["emoji"], data["stype"]
@@ -237,7 +237,7 @@ async def _sticker_choice(client, cb: CallbackQuery):
                 await pack_collection().delete_one({"short_name": short_name})
             except Exception:
                 pass
-            await cb.message.edit_text("⚠️ <b>ʏσυʀ ᴏʟᴅ ᴘᴧᴄᴋ ᴡᴧs ᴅєʟєᴛєᴅ. ᴄʀєᴧᴛɪηɢ ᴧ ηєᴡ ᴏηє...</b>")
+            await cb.message.edit_text("<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> <b>ʏσυʀ ᴏʟᴅ ᴘᴧᴄᴋ ᴡᴧs ᴅєʟєᴛєᴅ. ᴄʀєᴧᴛɪηɢ ᴧ ηєᴡ ᴏηє...</b>")
             return await _create_single(client, user, doc, emoji, stype, cb.message)
         logger.warning(f"sticker add failed for {user.id}: {e}")
         return await cb.message.edit_text(f"<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> <b>ᴄσυʟᴅη'ᴛ ᴧᴅᴅ sᴛɪᴄᴋєʀ.</b>\n{friendly_error(e)}")

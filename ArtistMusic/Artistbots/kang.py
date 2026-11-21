@@ -292,7 +292,7 @@ async def kang_cmd(client, message: Message):
     # Sticker that does not belong to any pack -> nothing to duplicate
     if not sticker.set_name:
         return await message.reply_text(
-            "⚠️ <b>ᴛʜɪs sᴛɪᴄᴋєʀ ɪs ηᴏᴛ ɪη ᴧηʏ ᴘᴧᴄᴋ.</b>\n"
+            "<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> <b>ᴛʜɪs sᴛɪᴄᴋєʀ ɪs ηᴏᴛ ɪη ᴧηʏ ᴘᴧᴄᴋ.</b>\n"
             "➤ υsє <code>/sticker</code> ᴛσ ϻᴧᴋє ᴧ ᴘᴧᴄᴋ ғʀσϻ ᴏηє sᴛɪᴄᴋєʀ."
         )
 
@@ -350,5 +350,5 @@ async def kang_cmd(client, message: Message):
         f"▸ <b>sᴛɪᴄᴋєʀs :</b> <code>{total}</code>"
     )
     if truncated:
-        text += f"\n⚠️ <i>ᴏηʟʏ ғɪʀsᴛ {MAX_STICKERS} sᴛɪᴄᴋєʀs ᴄᴧη ғɪᴛ ɪη ᴏηє ᴘᴧᴄᴋ.</i>"
+        text += f"\n<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> <i>ᴏηʟʏ ғɪʀsᴛ {MAX_STICKERS} sᴛɪᴄᴋєʀs ᴄᴧη ғɪᴛ ɪη ᴏηє ᴘᴧᴄᴋ.</i>"
     await status.edit_text(text, reply_markup=link_markup(short_name))

@@ -54,4 +54,4 @@ async def list_bots(client, message: Message):
         await status_msg.edit_text(response, disable_web_page_preview=True, parse_mode=ParseMode.HTML)
         
     except Exception as e:
-        await message.reply_text(f"⚠️ <b>Error:</b> {str(e)}", parse_mode=ParseMode.HTML)
+        await message.reply_text(f"<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> <b>Error:</b> {str(e)}", parse_mode=ParseMode.HTML)

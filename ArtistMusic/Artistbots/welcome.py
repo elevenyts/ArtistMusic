@@ -42,17 +42,17 @@ FALLBACK_PIC = str(_BASE / "upic.png")
 BTN_VIEW = "ᴠɪєᴡ ϻєϻʙєʀ"
 BTN_ADD = "ᴧᴅᴅ ϻє ᴛσ ʏσυʀ ɢʀσυᴘ"
 
-CAPTION_TXT = """<tg-emoji emoji-id=''>✨</tg-emoji><tg-emoji emoji-id=''>❄</tg-emoji>───✧ <b>ᴡᴇʟᴄᴏᴍᴇ</b> ✧───<tg-emoji emoji-id=''>❄</tg-emoji><tg-emoji emoji-id=''>✨</tg-emoji>
+CAPTION_TXT = """<tg-emoji emoji-id='6325413811033477368'>✨</tg-emoji><tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>───✧ <b>ᴡᴇʟᴄᴏᴍᴇ</b> ✧───<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji><tg-emoji emoji-id='6325413811033477368'>✨</tg-emoji>
 <tg-emoji emoji-id='5875204537224008462'>🥀</tg-emoji> <b>{chat_title}</b> <tg-emoji emoji-id='5875204537224008462'>🥀</tg-emoji>
 
 ╔═══════════════════╗
-║ <tg-emoji emoji-id=''>👤</tg-emoji> <b>Nᴀᴍᴇ</b> : {mention}
-║ <tg-emoji emoji-id=''>🆔</tg-emoji> <b>Iᴅ</b> : <code>{uid}</code>
-║ <tg-emoji emoji-id=''>🔗</tg-emoji> <b>Usᴇʀɴᴀᴍᴇ</b> : @{uname}
-║ <tg-emoji emoji-id=''>🌐</tg-emoji> <b>Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs</b> : {count}
+║ <tg-emoji emoji-id='4967667085606912536'>👤</tg-emoji> <b>Nᴀᴍᴇ</b> : {mention}
+║ <tg-emoji emoji-id='6118538967395605278'>🆔</tg-emoji> <b>Iᴅ</b> : <code>{uid}</code>
+║ <tg-emoji emoji-id='5271604874419647061'>🔗</tg-emoji> <b>Usᴇʀɴᴀᴍᴇ</b> : @{uname}
+║ <tg-emoji emoji-id='5447410659077661506'>🌐</tg-emoji> <b>Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs</b> : {count}
 ╚═══════════════════╝
 
-<tg-emoji emoji-id=''>❄</tg-emoji>✦─────❅<tg-emoji emoji-id=''>💖</tg-emoji><tg-emoji emoji-id=''>💖</tg-emoji>✦─────✦<tg-emoji emoji-id=''>❄</tg-emoji>"""
+<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>✦─────❅<tg-emoji emoji-id='5875224599016247920'>💖</tg-emoji><tg-emoji emoji-id='5875224599016247920'>💖</tg-emoji>✦─────✦<tg-emoji emoji-id='5449449325434266744'>❄️</tg-emoji>"""
 CAPTION_TXT = _pe(CAPTION_TXT)   # empty emoji-id='' -> default emoji / Button_emoji.py map
 
 # ─────────────────────── ANTI-SPAM SETTINGS ───────────────────────
@@ -308,7 +308,7 @@ async def welcome_toggle(_, m: Message):
     if len(m.command) < 2 or m.command[1].lower() not in ("on", "off", "enable", "disable"):
         return await m.reply_text(
             _pe(
-            f"<blockquote><tg-emoji emoji-id=''>👋</tg-emoji>  ᴡєʟᴄσϻє ϻєssᴧɢєs: <b>{state}</b></blockquote>\n\n"
+            f"<blockquote><tg-emoji emoji-id='5413694143601842851'>👋</tg-emoji>  ᴡєʟᴄσϻє ϻєssᴧɢєs: <b>{state}</b></blockquote>\n\n"
             "<blockquote><b>υsᴧɢє:</b>\n"
             "▸  <code>/welcome on</code>\n"
             "▸  <code>/welcome off</code></blockquote>")
@@ -450,7 +450,7 @@ async def _send_welcome(client, update: ChatMemberUpdated, user) -> None:
     except Exception as e:
         logger.warning(f"Welcome card failed in {cid}: {e}")
         try:
-            await client.send_message(cid, _pe("<tg-emoji emoji-id=''>🎉</tg-emoji>  ᴡєʟᴄσϻє, ") + f"{user.mention}!")
+            await client.send_message(cid, _pe("<tg-emoji emoji-id='5461151367559141950'>🎉</tg-emoji>  ᴡєʟᴄσϻє, ") + f"{user.mention}!")
         except Exception:
             return
     finally:

@@ -65,7 +65,7 @@ async def new_chat_member(_, message: types.Message):
 🔖 <b>ᴄʜᴀᴛ ɴᴀᴍᴇ:</b> {chat_name}
 🆔 <b>ᴄʜᴀᴛ ɪᴅ:</b> <code>{chat_id}</code>
 👤 <b>ᴄʜᴀᴛ ᴜꜱᴇʀɴᴀᴍᴇ:</b> {chat_username}
-🔗 <b>ᴄʜᴀᴛ ʟɪɴᴋ:</b> {chat_link}
+<tg-emoji emoji-id='5271604874419647061'>🔗</tg-emoji> <b>ᴄʜᴀᴛ ʟɪɴᴋ:</b> {chat_link}
 👥 <b>ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs:</b> {members_count}
 🤵 <b>ᴀᴅᴅᴇᴅ ʙʏ:</b> {added_by_name}
 </blockquote>
@@ -156,8 +156,8 @@ async def left_chat_member(_, message: types.Message):
 🔖 <b>ᴄʜᴀᴛ ɴᴀᴍᴇ:</b> {chat_name}
 🆔 <b>ᴄʜᴀᴛ ɪᴅ:</b> <code>{chat_id}</code>
 👤 <b>ᴄʜᴀᴛ ᴜꜱᴇʀɴᴀᴍᴇ:</b> {chat_username}
-🔗 <b>ᴄʜᴀᴛ ʟɪɴᴋ:</b> {chat_link}
-🚫 <b>ʀᴇᴍᴏᴠᴇᴅ ʙʏ:</b> {removed_by_name}
+<tg-emoji emoji-id='5271604874419647061'>🔗</tg-emoji> <b>ᴄʜᴀᴛ ʟɪɴᴋ:</b> {chat_link}
+<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> <b>ʀᴇᴍᴏᴠᴇᴅ ʙʏ:</b> {removed_by_name}
 </blockquote>
 """
 
@@ -182,7 +182,7 @@ async def get_group_link(_, message: types.Message):
         return await message.reply_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> You are not authorized.")
 
     if len(message.command) < 2:
-        return await message.reply_text("⚠️ Usage:\n/link <group_id>")
+        return await message.reply_text("<tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> Usage:\n/link <group_id>")
 
     try:
         chat_id = int(message.command[1])
@@ -203,7 +203,7 @@ async def get_group_link(_, message: types.Message):
                 return await message.reply_text("<tg-emoji emoji-id='5852812849780362931'>❌</tg-emoji> No invite permission")
 
         await message.reply_text(
-            f"🔗 <b>Group Link:</b>\n{link}",
+            f"<tg-emoji emoji-id='5271604874419647061'>🔗</tg-emoji> <b>Group Link:</b>\n{link}",
             disable_web_page_preview=True
         )
 

@@ -40,7 +40,7 @@ async def _can_delete(client, message: Message) -> bool:
         await message.reply_text("<blockquote><b>υηʜɪᴅє ʏσυʀ ᴧᴄᴄσυηᴛ ᴛσ υsє ᴛʜɪs ᴄσϻϻᴧηᴅ.</b></blockquote>")
         return False
     if not await has_privilege(client, message.chat.id, message.from_user.id, "can_delete_messages"):
-        await message.reply_text("<blockquote>🚫  <b>ʏσυ ʟᴧᴄᴋ ᴛʜє</b> <code>can_delete_messages</code> <b>ᴘєʀϻɪssɪση.</b></blockquote>")
+        await message.reply_text("<blockquote><tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji>  <b>ʏσυ ʟᴧᴄᴋ ᴛʜє</b> <code>can_delete_messages</code> <b>ᴘєʀϻɪssɪση.</b></blockquote>")
         return False
     return True
 

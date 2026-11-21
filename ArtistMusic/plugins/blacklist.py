@@ -46,7 +46,7 @@ async def _blacklist_chat(_, m: types.Message):
 
     if chat_id in db.blacklisted:
         return await m.reply_text(
-            f"<blockquote>⚠️ {chat.title} is already blacklisted</blockquote>"
+            f"<blockquote><tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> {chat.title} is already blacklisted</blockquote>"
         )
 
     await db.add_blacklist(chat_id)
@@ -85,7 +85,7 @@ async def _whitelist_chat(_, m: types.Message):
 
     if chat_id not in db.blacklisted:
         return await m.reply_text(
-            f"<blockquote>⚠️ {chat_name} is not blacklisted</blockquote>"
+            f"<blockquote><tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> {chat_name} is not blacklisted</blockquote>"
         )
 
     await db.del_blacklist(chat_id)
@@ -116,7 +116,7 @@ async def _blacklisted_chats(_, m: types.Message):
     if not chats_list:
         return await sent.edit_text("<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> No chats are blacklisted</blockquote>")
     
-    text = "<u><b>🚫 ʙʟᴀᴄᴋʟɪꜱᴛᴇᴅ ᴄʜᴀᴛꜱ:</b></u>\n<blockquote>"
+    text = "<u><b><tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> ʙʟᴀᴄᴋʟɪꜱᴛᴇᴅ ᴄʜᴀᴛꜱ:</b></u>\n<blockquote>"
     
     for chat_id in chats_list:
         try:
@@ -169,7 +169,7 @@ async def _block_user(_, m: types.Message):
     
     if user_id in app.bl_users:
         return await m.reply_text(
-            f"<blockquote>⚠️ {user_mention} is already blocked</blockquote>"
+            f"<blockquote><tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> {user_mention} is already blocked</blockquote>"
         )
 
     # DB first — if it fails, in-memory stays consistent
@@ -216,7 +216,7 @@ async def _unblock_user(_, m: types.Message):
     
     if user_id not in app.bl_users:
         return await m.reply_text(
-            f"<blockquote>⚠️ {user_mention} is not blocked</blockquote>"
+            f"<blockquote><tg-emoji emoji-id='5420323339723881652'>⚠️</tg-emoji> {user_mention} is not blocked</blockquote>"
         )
 
     app.bl_users.discard(user_id)
@@ -245,7 +245,7 @@ async def _blocked_users(_, m: types.Message):
     if not blacklisted:
         return await sent.edit_text("<blockquote><tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> No users are blocked</blockquote>")
     
-    text = "<u><b>🚫 ʙʟᴏᴄᴋᴇᴅ ᴜꜱᴇʀꜱ:</b></u>\n<blockquote>"
+    text = "<u><b><tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> ʙʟᴏᴄᴋᴇᴅ ᴜꜱᴇʀꜱ:</b></u>\n<blockquote>"
     
     for user_id in blacklisted:
         try:

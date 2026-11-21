@@ -31,7 +31,7 @@ async def _allowed(client, message: Message, right: str) -> bool:
         await message.reply_text("<blockquote><b>υηʜɪᴅє ʏσυʀ ᴧᴄᴄσυηᴛ ᴛσ υsє ᴛʜɪs ᴄσϻϻᴧηᴅ.</b></blockquote>")
         return False
     if not await has_privilege(client, message.chat.id, message.from_user.id, right):
-        await message.reply_text(f"<blockquote>🚫  <b>ʏσυ ʟᴧᴄᴋ ᴛʜє</b> <code>{right}</code> <b>ᴘєʀϻɪssɪση.</b></blockquote>")
+        await message.reply_text(f"<blockquote><tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji>  <b>ʏσυ ʟᴧᴄᴋ ᴛʜє</b> <code>{right}</code> <b>ᴘєʀϻɪssɪση.</b></blockquote>")
         return False
     return True
 

@@ -86,7 +86,7 @@ async def group_data_handler(client: Client, message: Message):
         info_lines.append(f"<b>🆔 ɪᴅ:</b> <code>{chat_id}</code>")
         
         if chat_info.username:
-            info_lines.append(f"<b>🔗 ᴜꜱᴇʀɴᴀᴍᴇ:</b> @{chat_info.username}")
+            info_lines.append(f"<b><tg-emoji emoji-id='5271604874419647061'>🔗</tg-emoji> ᴜꜱᴇʀɴᴀᴍᴇ:</b> @{chat_info.username}")
         
         # Chat type
         chat_type_str = "ɢʀᴏᴜᴘ" if chat.type == ChatType.GROUP else "ꜱᴜᴘᴇʀɢʀᴏᴜᴘ"
@@ -98,7 +98,7 @@ async def group_data_handler(client: Client, message: Message):
         info_lines.append(f"<b>🤖 ʙᴏᴛꜱ:</b> {bot_count}")
         
         if banned_count > 0:
-            info_lines.append(f"<b>🚫 ʙᴀɴɴᴇᴅ:</b> {banned_count}")
+            info_lines.append(f"<b><tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> ʙᴀɴɴᴇᴅ:</b> {banned_count}")
         
         if deleted_count > 0:
             info_lines.append(f"<b>👻 ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛꜱ:</b> {deleted_count}")
@@ -115,12 +115,12 @@ async def group_data_handler(client: Client, message: Message):
         
         # Linked chat if available
         if chat_info.linked_chat:
-            info_lines.append(f"\n<b>🔗 ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ:</b> {chat_info.linked_chat.title}")
+            info_lines.append(f"\n<b><tg-emoji emoji-id='5271604874419647061'>🔗</tg-emoji> ʟɪɴᴋᴇᴅ ᴄʜᴀɴɴᴇʟ:</b> {chat_info.linked_chat.title}")
             info_lines.append(f"<b>🆔 ᴄʜᴀɴɴᴇʟ ɪᴅ:</b> <code>{chat_info.linked_chat.id}</code>")
         
         # Invite link if available
         if hasattr(chat_info, 'invite_link') and chat_info.invite_link:
-            info_lines.append(f"\n<b>🔗 ɪɴᴠɪᴛᴇ ʟɪɴᴋ:</b> {chat_info.invite_link}")
+            info_lines.append(f"\n<b><tg-emoji emoji-id='5271604874419647061'>🔗</tg-emoji> ɪɴᴠɪᴛᴇ ʟɪɴᴋ:</b> {chat_info.invite_link}")
         
         # Check user's admin status
         try:

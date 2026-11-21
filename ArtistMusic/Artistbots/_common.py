@@ -158,7 +158,7 @@ def admin_required(*privileges: str):
             if not await has_privilege(client, message.chat.id, message.from_user.id, *privileges):
                 missing = ", ".join(privileges) or "admin"
                 return await message.reply_text(
-                    f"<blockquote>🚫  <b>ʏσυ ʟᴧᴄᴋ ᴛʜє</b> <code>{missing}</code> <b>ᴘєʀϻɪssɪση.</b></blockquote>"
+                    f"<blockquote><tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji>  <b>ʏσυ ʟᴧᴄᴋ ᴛʜє</b> <code>{missing}</code> <b>ᴘєʀϻɪssɪση.</b></blockquote>"
                 )
             return await func(client, message, *a, **kw)
 

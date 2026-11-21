@@ -81,7 +81,7 @@ async def set_enabled(chat_id: int, value: bool) -> None:
 )
 async def vclog_cmd(client, message: Message):
     if not await _is_admin(client, message):
-        return await message.reply_text("🚫 <b>σηʟʏ ᴧᴅϻɪηs ᴄᴧη υsє ᴛʜɪs ᴄσϻϻᴧηᴅ.</b>")
+        return await message.reply_text("<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> <b>σηʟʏ ᴧᴅϻɪηs ᴄᴧη υsє ᴛʜɪs ᴄσϻϻᴧηᴅ.</b>")
 
     chat_id = message.chat.id
     arg = message.command[1].lower() if len(message.command) > 1 else ""
@@ -91,9 +91,9 @@ async def vclog_cmd(client, message: Message):
         return await message.reply_text("<tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji> <b>ᴠᴄ ᴊᴏɪη / ʟєᴧᴠє ᴀʟєʀᴛs: ση</b>")
     if arg in ("off", "disable", "no"):
         await set_enabled(chat_id, False)
-        return await message.reply_text("🚫 <b>ᴠᴄ ᴊᴏɪη / ʟєᴧᴠє ᴀʟєʀᴛs: σғғ</b>")
+        return await message.reply_text("<tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji> <b>ᴠᴄ ᴊᴏɪη / ʟєᴧᴠє ᴀʟєʀᴛs: σғғ</b>")
 
-    state = "ση <tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>" if await is_enabled(chat_id) else "σғғ 🚫"
+    state = "ση <tg-emoji emoji-id='5852871561983299073'>✅</tg-emoji>" if await is_enabled(chat_id) else "σғғ <tg-emoji emoji-id='5240241223632954241'>🚫</tg-emoji>"
     await message.reply_text(
         f"🎙 <b>ᴠᴄ ᴊᴏɪη / ʟєᴧᴠє ᴀʟєʀᴛs:</b> {state}\n"
         "➤ <code>/vclog on</code> · <code>/vclog off</code>"
