@@ -193,10 +193,10 @@ async def handle_participant(update) -> None:
 
         name = await _user_name(user_id)
         text = (
-            f"<blockquote><b>{icon} {label}</b>\n"
+            f"<b>{icon} {label}</b>\n"
             f"━━━━━━━━━━━\n"
             f"✧ <b>ηᴧϻє</b> : {mention(user_id, name)}\n"
-            f"✧ <b>υsєʀ ɪᴅ</b> : <code>{user_id}</code></blockquote>"
+            f"✧ <b>υsєʀ ɪᴅ</b> : <code>{user_id}</code>"
         )
 
         lock = _locks.setdefault(target, asyncio.Lock())

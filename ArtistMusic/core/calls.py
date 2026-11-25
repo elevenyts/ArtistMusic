@@ -19,7 +19,7 @@ import logging
 from ntgcalls import ConnectionNotFound, TelegramServerError
 from pyrogram import enums, errors
 from pyrogram.errors import MessageIdInvalid
-from pyrogram.types import InputMediaPhoto, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls import PyTgCalls, exceptions, types
 from pytgcalls.pytgcalls_session import PyTgCallsSession
 
@@ -352,13 +352,14 @@ class TgCall(PyTgCalls):
                     import time as time_module
                     played = media.time
                     duration = media.duration_sec
-                    bar_length = 9
+                    bar_length = 10
                     if duration == 0:
                         percentage = 0
                     else:
                         percentage = min((played / duration) * 100, 100)
                     filled = int(round(bar_length * percentage / 100))
-                    timer_bar = "▰" * filled + "▱" * (bar_length - filled)
+                    _pos = min(int(percentage / 100 * bar_length), bar_length - 1)
+                    timer_bar = "━" * _pos + "●" + "─" * (bar_length - 1 - _pos)
                     if duration >= 3600:
                         played_time = time_module.strftime(
                             '%H:%M:%S', time_module.gmtime(played))
@@ -647,18 +648,29 @@ class TgCall(PyTgCalls):
                     return
 
                 if not media:
-                    if config.AUTO_END:
+                    await self.stop(chat_id)
+                    # Queue finished -> tell the group + Add me / Close buttons
+                    try:
                         _lang = await lang.get_lang(chat_id)
-                        try:
-                            await app.send_message(
-                                chat_id=chat_id,
-                                text=_lang.get(
-                                    "auto_end", "✅ Queue finished. Stream ended automatically.")
-                            )
-                        except Exception as e:
-                            logger.debug(
-                                f"Could not send auto_end message in {chat_id}: {e}")
-                    return await self.stop(chat_id)
+                        await app.send_message(
+                            chat_id=target_chat,
+                            text=_lang.get("queue_end", "✅ All songs finished, bot left the voice chat."),
+                            reply_markup=InlineKeyboardMarkup([[
+                                InlineKeyboardButton(
+                                    text=_lang.get("add_me", "➕ Add me"),
+                                    url=f"https://t.me/{app.username}?startgroup=true",
+                                ),
+                                InlineKeyboardButton(
+                                    text="• ᴄʟσsє •",
+                                    callback_data=f"controls close {chat_id}",
+                                    style=enums.ButtonStyle.DANGER,
+                                ),
+                            ]]),
+                        )
+                    except Exception as e:
+                        logger.debug(
+                            f"Could not send queue_end message in {chat_id}: {e}")
+                    return
 
                 _lang = await lang.get_lang_for(getattr(media, "user_id", None), chat_id)
                 msg = None

@@ -11,6 +11,7 @@
   "auth_is_admin": "<blockquote>⚠️  यह उपयोगकर्ता पहले से ही एक <b>एडमिन</b> है — अधिकृत सूची में नहीं जोड़ा जा सकता।</blockquote>",
   "auto_left": "<blockquote>🚶  वॉइस चैट छोड़ दिया\n\n◈  कोई सुन नहीं रहा है।</blockquote>",
   "auto_end": "<blockquote>✅  कतार समाप्त\n\n◈  स्ट्रीम स्वचालित रूप से समाप्त हो गई।</blockquote>",
+  "queue_end": "<blockquote>✅  सभी गाने समाप्त\n\n◈  बॉट वॉइस चैट से बाहर आ गया  ⚡~!\n◈  फिर से बजाएँ और गानों का मज़ा लें  ⚡~!</blockquote>",
   "bl_usage": "<blockquote>📋  <b>उपयोग:</b>\n\n/{0} [chat_id | user_id]</blockquote>",
   "bl_invalid": "<blockquote>❌  केवल <b>चैट आईडी</b> और <b>उपयोगकर्ता आईडी</b> समर्थित हैं।</blockquote>",
   "bl_already": "<blockquote>⚠️  यह चैट पहले से ही <b>ब्लैकलिस्टेड</b> है।</blockquote>",
