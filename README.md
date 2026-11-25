@@ -142,7 +142,7 @@
 
 ### 📣 Tag & 🎴 Stickers
 ```
-✦ /tagall — 5 clickable mentions per message
+✦ /tagall — 6 hidden emoji mentions
   per message, FloodWait safe
 ✦ Fun Tags (GM / GN / Hi / Quotes)
 ✦ /kang — copy a whole sticker pack
@@ -194,8 +194,7 @@
 | `ARTISTBOTS_KEY` | ⚙️ | API key — log in at [artistbotsapi.bond](https://artistbotsapi.bond) to get your key |
 | `SUPPORT_CHAT` | 🔵 | Support group link (optional) |
 | `SUPPORT_CHANNEL` | 🔵 | Updates channel link (optional) |
-| `START_IMG` | 🔵 | Start message media URL – jpg/png/webp/svg/gif/mp4/webm (optional) |
-| `PING_IMG` | 🔵 | Ping message media URL – jpg/png/webp/svg/gif/mp4/webm (optional) |
+| `MEDIA_URLS` | 🔵 | Comma/space separated image/gif/mp4 links; one is picked at random (no repeat until all shown) for START, PING, ADD, RADIO and DEFAULT_THUMB (optional) |
 | `STRING_SESSION2` | 🔵 | Second assistant session (optional) |
 | `STRING_SESSION3` | 🔵 | Third assistant session (optional) |
 
@@ -408,9 +407,9 @@ docker run -d --env-file .env --name artistmusic artistmusic
 
 **📣 Tag Everyone** *(admins)*
 ```
-/all  /tagall  /tag  /alltag [text]   (@ prefix also works)
+/tagall  /all  @all  /utag  /mention [text]
 ```
-Four aliases, one command. Every message carries **5 mentions** — each emoji is a hidden mention of one member, tap it to open that profile. FloodWait is handled automatically: the bot waits, **resends the same batch** (nobody is skipped) and slows down afterwards.
+One command, five aliases. Every message carries **6 emojis** — each emoji is a hidden mention of one member, tap it to open that profile. FloodWait is handled automatically: the bot waits, **resends the same batch** (nobody is skipped) and slows down afterwards.
 
 ```
 /gmtag  /gntag  /hitag
@@ -419,7 +418,7 @@ Four aliases, one command. Every message carries **5 mentions** — each emoji i
 Fun tags — one member per message with a random line.
 
 ```
-/cancel  /stop  /cancelall  /canceltagall
+/tagstop  /tagoff  /ustop
 /gmstop /gnstop /histop
 /lifestop /shayarioff
 ```

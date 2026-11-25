@@ -1,0 +1,27 @@
+# Render Blueprint  ->  Dashboard > New > Blueprint > select this repo
+# Docker is used so ffmpeg is installed (needed for music + animated welcome card).
+services:
+  - type: web                # bot opens a tiny health-check server on $PORT
+    name: ArtistMusic
+    runtime: docker
+    plan: free               # change to "starter" for 24x7 without sleeping
+    healthCheckPath: /
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: STRING_SESSION
+        sync: false
+      - key: MONGO_DB_URI
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: LOGGER_ID
+        sync: false
+      - key: ARTISTBOTS_KEY
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: ARTISTBOTS_API_URL
+        value: https://api.artistbotsapi.bond

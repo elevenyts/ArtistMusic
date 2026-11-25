@@ -1,0 +1,154 @@
+# ==========================================================
+# CI & Deploy — ArtistMusic
+# Made by Artist · GitHub: @elevenyts · ArtistBots
+#
+# Pipeline:
+#   1. check   → syntax check + locale JSON validation   (every push / PR)
+#   2. docker  → build image, push to GHCR               (push to main only)
+#   3. deploy  → trigger Render hook and/or Fly.io       (push to main only)
+#
+# Optional repository secrets (Settings → Secrets and variables → Actions):
+#   RENDER_DEPLOY_HOOK_URL  Render → Service → Settings → Deploy Hook
+#   FLY_API_TOKEN           `fly tokens create deploy`
+#
+# Railway auto-deploys from GitHub on its own, so it needs no step here.
+# Heroku users: deploy with `git push heroku main` (see DEPLOY.md).
+# If a secret is not set, its deploy step is skipped — nothing fails.
+# ==========================================================
+name: CI & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Syntax check (compileall)
+        run: python -m compileall -q config.py ArtistMusic
+
+      - name: Validate locale JSON files
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          bad = 0
+          for f in sorted(pathlib.Path("ArtistMusic/locales").glob("*.json")):
+              try:
+                  json.loads(f.read_text(encoding="utf-8"))
+              except Exception as e:
+                  bad += 1
+                  print(f"::error file={f}::{e}")
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Make sure no real secrets are tracked
+        run: |
+          if git ls-files | grep -E '(^|/)\.env$|\.session$'; then
+            echo "::error::A secret file (.env / *.session) is tracked by git."
+            exit 1
+          fi
+
+  docker:
+    name: Build & push Docker image
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Image tags & labels
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,format=short
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy
+    needs: docker
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── Render ────────────────────────────────────────────
+      - name: Trigger Render deploy
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$RENDER_DEPLOY_HOOK_URL" ]; then
+            echo "RENDER_DEPLOY_HOOK_URL not set — skipping Render."
+            exit 0
+          fi
+          curl -fsS -X POST "$RENDER_DEPLOY_HOOK_URL" > /dev/null
+          echo "Render deploy triggered."
+
+      # ── Fly.io ────────────────────────────────────────────
+      - name: Check Fly.io token
+        id: fly
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: |
+          if [ -n "$FLY_API_TOKEN" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "FLY_API_TOKEN not set — skipping Fly.io."
+          fi
+
+      - name: Set up flyctl
+        if: steps.fly.outputs.enabled == 'true'
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy to Fly.io
+        if: steps.fly.outputs.enabled == 'true'
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

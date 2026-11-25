@@ -1,0 +1,22 @@
+{
+  "name": "ArtistMusic",
+  "description": "ArtistBots Telegram voice chat music bot",
+  "repository": "https://github.com/your-username/your-repo",
+  "keywords": ["telegram", "music", "bot", "voice-chat"],
+  "stack": "container",
+  "formation": {
+    "worker": { "quantity": 1, "size": "basic" }
+  },
+  "env": {
+    "BOT_TOKEN":        { "description": "Bot token from @BotFather" },
+    "STRING_SESSION":   { "description": "Pyrogram v2 string session of the assistant account" },
+    "MONGO_DB_URI":     { "description": "MongoDB connection string" },
+    "OWNER_ID":         { "description": "Your Telegram user id" },
+    "LOGGER_ID":        { "description": "Logger group id (also used as song cache), e.g. -100123456789" },
+    "ARTISTBOTS_KEY":   { "description": "ArtistBots API key (log in at https://artistbotsapi.bond to get it)" },
+    "API_ID":           { "description": "Telegram API ID from my.telegram.org" },
+    "API_HASH":         { "description": "Telegram API HASH from my.telegram.org" },
+    "ARTISTBOTS_API_URL": { "description": "ArtistBots API url", "value": "https://api.artistbotsapi.bond", "required": false }
+  }
+}
+
