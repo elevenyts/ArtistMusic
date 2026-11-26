@@ -103,7 +103,7 @@ While a song plays, the next one or two tracks are downloaded in the background 
 When the queue is empty and autoplay is on for the chat, it finds a related track based on what just played and queues it.
 
 ### Thumbnails — `helpers/_thumbnails.py`
-Pillow draws the now-playing image (cover, title, dominant-colour accent, fonts from `helpers/fonts/`). Controlled by `THUMB_GEN`.
+Pillow draws the now-playing image (cover, title, dominant-colour accent, fonts from `Artist_assets/fonts/`). Controlled by `THUMB_GEN`.
 
 ---
 

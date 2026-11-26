@@ -33,7 +33,7 @@ from ArtistMusic import app, config, db, logger
 from ._textimg import draw_text
 
 # ─────────────────────────── PATHS ───────────────────────────
-_BASE = Path(__file__).parent / "assets"
+_BASE = Path(__file__).resolve().parent.parent / "Artist_assets"
 CARD_PATH = str(_BASE / "welcome_card.png")  # blank 1672x941 template (avatar/name/id/username filled in code)
 FALLBACK_PIC = str(_BASE / "upic.png")
 

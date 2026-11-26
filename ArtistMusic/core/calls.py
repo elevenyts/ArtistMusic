@@ -649,27 +649,7 @@ class TgCall(PyTgCalls):
 
                 if not media:
                     await self.stop(chat_id)
-                    # Queue finished -> tell the group + Add me / Close buttons
-                    try:
-                        _lang = await lang.get_lang(chat_id)
-                        await app.send_message(
-                            chat_id=target_chat,
-                            text=_lang.get("queue_end", "✅ All songs finished, bot left the voice chat."),
-                            reply_markup=InlineKeyboardMarkup([[
-                                InlineKeyboardButton(
-                                    text=_lang.get("add_me", "➕ Add me"),
-                                    url=f"https://t.me/{app.username}?startgroup=true",
-                                ),
-                                InlineKeyboardButton(
-                                    text="• ᴄʟσsє •",
-                                    callback_data=f"controls close {chat_id}",
-                                    style=enums.ButtonStyle.DANGER,
-                                ),
-                            ]]),
-                        )
-                    except Exception as e:
-                        logger.debug(
-                            f"Could not send queue_end message in {chat_id}: {e}")
+                    # Queue finished: bot just leaves the VC silently (no message).
                     return
 
                 _lang = await lang.get_lang_for(getattr(media, "user_id", None), chat_id)

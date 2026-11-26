@@ -23,7 +23,7 @@ from typing import Optional
 
 from PIL import Image, ImageDraw, ImageFont
 
-FONT_DIR = Path(__file__).parent / "assets" / "fonts"
+FONT_DIR = Path(__file__).resolve().parent.parent / "Artist_assets" / "fonts"
 
 # Order = priority.  First font that has the character wins.
 _TEXT_FONTS = [

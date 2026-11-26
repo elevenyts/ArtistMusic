@@ -88,7 +88,6 @@ ArtistMusic/
 | `_preload.py` | Next-track download manager |
 | `_utilities.py` | Time/size formatting, user extraction, safe send/edit/reply, logging helpers |
 | `_exec.py` | Code runner used by the owner-only `/eval` and `/exec` |
-| `fonts/` | `artistbots_regular.ttf`, `artistbots_bold.ttf` for thumbnails |
 
 ### `plugins/` — music & bot management
 
@@ -121,7 +120,14 @@ Every `.py` file here is also loaded automatically.
 | `vclog.py` | Voice-chat join/leave alerts (`/vclog`) |
 | `kang.py`, `sticker.py` | Sticker pack tools (`/kang`, `/sticker`) |
 | `_common.py`, `_textimg.py` | Shared helpers, text-to-image rendering for cards |
-| `assets/fonts/` | Large Unicode fonts (Unifont, WenQuanYi) so names in any script render correctly |
+| *(assets)* | Moved to `ArtistMusic/Artist_assets/` — see below |
+
+### `Artist_assets/` — all bundled assets
+
+| Path | Purpose |
+|---|---|
+| `Artist_assets/*.png` | Welcome-card template, fallback avatar and welcome images |
+| `Artist_assets/fonts/` | Every bundled font: thumbnail fonts (Raleway, Inter, FreeSansBold for Hindi), welcome-card fonts (Poppins) and large Unicode fonts (Unifont, WenQuanYi) |
 
 ### `locales/` — translations
 

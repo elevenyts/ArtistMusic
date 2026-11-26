@@ -35,23 +35,29 @@ SOFT_WHITE = (255, 255, 255, 190)
 RED_COLOR = (230, 57, 53, 255)
 ACCENT_COLOR = (255, 196, 61, 255)
 
+# all bundled assets live in ArtistMusic/Artist_assets/
+ASSETS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "Artist_assets")
+FONT_DIR = os.path.join(ASSETS_DIR, "fonts")
+
 # fonts (bundled first, system fallbacks after)
 BOLD_FONTS = [
-    "ArtistMusic/helpers/Raleway-Bold.ttf",
-    "ArtistMusic/helpers/DejaVuSans-Bold.ttf",
+    os.path.join(FONT_DIR, "Raleway-Bold.ttf"),
+    os.path.join(FONT_DIR, "DejaVuSans-Bold.ttf"),
 ]
 LIGHT_FONTS = [
-    "ArtistMusic/helpers/Inter-Light.ttf",
-    "ArtistMusic/helpers/DejaVuSans-Bold.ttf",
+    os.path.join(FONT_DIR, "Inter-Light.ttf"),
+    os.path.join(FONT_DIR, "DejaVuSans-Bold.ttf"),
 ]
 # used when title has Hindi / CJK / other non-latin characters
 UNICODE_FONTS = [
+    # bundled Hindi / Devanagari-capable font (works even if the server has no system fonts)
+    os.path.join(FONT_DIR, "FreeSansBold.ttf"),
     "/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf",
     "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
     "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
     "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf",
     "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-    "ArtistMusic/helpers/DejaVuSans-Bold.ttf",
+    os.path.join(FONT_DIR, "DejaVuSans-Bold.ttf"),
 ]
 
 
@@ -129,6 +135,10 @@ class Thumbnail:
         self.small_font = _load_font(BOLD_FONTS, 26)
         self.brand_font = _load_font(BOLD_FONTS, 28)
         self.tag_font = _load_font(BOLD_FONTS, 22)
+        self.info_font = _load_font(BOLD_FONTS, 30)
+        self.line_font = _load_font(LIGHT_FONTS, 27)
+        self.time_font = _load_font(BOLD_FONTS, 28)
+        self.uni_small = _load_font(UNICODE_FONTS, 28)
 
     async def save_thumb(self, output_path: str, url: str):
         async with aiohttp.ClientSession() as session:
@@ -140,7 +150,7 @@ class Thumbnail:
     async def generate(self, song: Track, size=SIZE) -> str:
         try:
             temp = f"cache/temp_{song.id}.jpg"
-            output = f"cache/{song.id}_v2.png"
+            output = f"cache/{song.id}_v3.png"
             if os.path.exists(output):
                 return output
             await self.save_thumb(temp, song.thumbnail)
@@ -157,178 +167,105 @@ class Thumbnail:
 
     # ------------------------------------------------------------------ helpers
     def _background(self, cover: Image.Image, size):
-        """Blurred, darkened, colour-rich version of the cover as backdrop."""
+        """Blurred, darkened backdrop built from the cover itself."""
         w, h = size
         ratio = max(w / cover.width, h / cover.height)
         bg = cover.resize((int(cover.width * ratio), int(cover.height * ratio)), Image.LANCZOS)
         left, top = (bg.width - w) // 2, (bg.height - h) // 2
         bg = bg.crop((left, top, left + w, top + h)).convert("RGB")
-        bg = bg.filter(ImageFilter.GaussianBlur(38))
-        bg = ImageEnhance.Color(bg).enhance(1.35)
-        bg = ImageEnhance.Brightness(bg).enhance(0.55)
+        bg = bg.filter(ImageFilter.GaussianBlur(30))
+        bg = ImageEnhance.Color(bg).enhance(1.3)
+        bg = ImageEnhance.Brightness(bg).enhance(0.6)
         bg = bg.convert("RGBA")
 
-        # left-to-right dark vignette so the text side stays readable
-        grad = Image.new("L", (w, 1), 0)
-        for x in range(w):
-            grad.putpixel((x, 0), int(40 + 90 * (x / w)))
+        # bottom fade so the text/progress area is always readable
+        fade = Image.new("L", (1, h), 0)
+        start = int(h * 0.68)
+        for y in range(start, h):
+            fade.putpixel((0, y), int(185 * ((y - start) / (h - start))))
         shade = Image.new("RGBA", size, (0, 0, 0, 0))
-        shade.putalpha(grad.resize(size))
+        shade.putalpha(fade.resize(size))
         bg.alpha_composite(shade)
         return bg
 
     def _draw_cover(self, bg: Image.Image, cover: Image.Image, accent):
-        # show the WHOLE thumbnail (no crop): fit inside a max box, keep aspect ratio
-        max_w, max_h = 590, 420
+        # whole thumbnail (no crop), fitted into the big top box
+        max_w, max_h = 740, 400
         scale = min(max_w / cover.width, max_h / cover.height)
         aw, ah = int(cover.width * scale), int(cover.height * scale)
-        x, y = 60, (SIZE[1] - ah) // 2 + 10
-        radius = 32
+        x, y = (SIZE[0] - (aw + 250)) // 2, 30 + (max_h - ah) // 2
+        radius = 44
 
-        # coloured glow behind the art
-        glow = Image.new("RGBA", bg.size, (0, 0, 0, 0))
-        ImageDraw.Draw(glow).rounded_rectangle(
-            (x - 6, y - 6, x + aw + 6, y + ah + 6), radius=radius + 6, fill=accent + (170,)
-        )
-        glow = glow.filter(ImageFilter.GaussianBlur(40))
-        bg.alpha_composite(glow)
-
-        # drop shadow
         shadow = Image.new("RGBA", bg.size, (0, 0, 0, 0))
         ImageDraw.Draw(shadow).rounded_rectangle(
-            (x + 8, y + 18, x + aw + 8, y + ah + 18), radius=radius, fill=(0, 0, 0, 170)
-        )
-        shadow = shadow.filter(ImageFilter.GaussianBlur(22))
-        bg.alpha_composite(shadow)
+            (x + 4, y + 16, x + aw + 4, y + ah + 16), radius=radius, fill=(0, 0, 0, 150))
+        bg.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(24)))
 
         art = cover.resize((aw, ah), Image.LANCZOS).convert("RGBA")
         bg.paste(art, (x, y), _rounded_mask((aw, ah), radius))
+        return x, y, aw, ah
 
-        # thin glass border
-        border = Image.new("RGBA", bg.size, (0, 0, 0, 0))
-        ImageDraw.Draw(border).rounded_rectangle(
-            (x, y, x + aw, y + ah), radius=radius, outline=(255, 255, 255, 90), width=2
-        )
-        bg.alpha_composite(border)
-        return x + aw
-
-    def _draw_brand(self, bg: Image.Image):
-        """Small glass pill with the bot name, top-right."""
-        draw = ImageDraw.Draw(bg, "RGBA")
+    def _draw_brand(self, bg: Image.Image, cy, x0=900):
+        """Bot-name watermark pill (red dot + name), right of the cover."""
         text = BRAND_TEXT
-        tw = draw.textlength(text, font=self.brand_font)
-        pad_x, h = 26, 52
-        dot = 14
-        pw = int(tw + pad_x * 2 + dot + 12)
-        x1 = SIZE[0] - 50
-        x0 = x1 - pw
-        y0 = 40
-
-        layer = Image.new("RGBA", bg.size, (0, 0, 0, 0))
-        ld = ImageDraw.Draw(layer)
-        ld.rounded_rectangle((x0, y0, x1, y0 + h), radius=h // 2, fill=(255, 255, 255, 38),
-                             outline=(255, 255, 255, 80), width=2)
-        bg.alpha_composite(layer)
-
         draw = ImageDraw.Draw(bg, "RGBA")
-        cy = y0 + h // 2
+        tw = draw.textlength(text, font=self.brand_font)
+        pad_x, h, dot = 24, 52, 14
+        pw = int(tw + pad_x * 2 + dot + 12)
+        y0 = int(cy - h / 2)
+        layer = Image.new("RGBA", bg.size, (0, 0, 0, 0))
+        ImageDraw.Draw(layer).rounded_rectangle((x0, y0, x0 + pw, y0 + h), radius=h // 2,
+                                                fill=(255, 255, 255, 38), outline=(255, 255, 255, 80), width=2)
+        bg.alpha_composite(layer)
+        draw = ImageDraw.Draw(bg, "RGBA")
         draw.ellipse((x0 + pad_x, cy - dot // 2, x0 + pad_x + dot, cy + dot // 2), fill=RED_COLOR)
         draw.text((x0 + pad_x + dot + 12, cy), text, font=self.brand_font, fill=WHITE, anchor="lm")
-        return bg
-
-    def _draw_controls(self, draw, cx, cy, accent):
-        """prev / play / next icons drawn with shapes (no emoji fonts needed)."""
-        r = 38
-        # play button (filled circle + triangle)
-        draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=WHITE)
-        draw.polygon([(cx - 12, cy - 20), (cx - 12, cy + 20), (cx + 22, cy)], fill=(20, 20, 20, 255))
-        # previous
-        px = cx - 120
-        draw.polygon([(px + 18, cy - 18), (px + 18, cy + 18), (px - 8, cy)], fill=WHITE)
-        draw.rectangle((px - 14, cy - 18, px - 9, cy + 18), fill=WHITE)
-        # next
-        nx = cx + 120
-        draw.polygon([(nx - 18, cy - 18), (nx - 18, cy + 18), (nx + 8, cy)], fill=WHITE)
-        draw.rectangle((nx + 9, cy - 18, nx + 14, cy + 18), fill=WHITE)
 
     # --------------------------------------------------------------- main
-    def _generate_sync(
-        self,
-        temp: str,
-        output: str,
-        song: Track,
-        size=SIZE
-    ) -> str:
+    def _generate_sync(self, temp: str, output: str, song: Track, size=SIZE) -> str:
         try:
             with Image.open(temp) as temp_img:
                 cover = temp_img.convert("RGB")
 
             accent = _dominant_accent(cover)
             bg = self._background(cover, size)
-            art_right = self._draw_cover(bg, cover, accent)
-            bg = self._draw_brand(bg)
-
+            x, y, aw, ah = self._draw_cover(bg, cover, accent)
+            self._draw_brand(bg, y + ah // 2, x + aw + 40)
+            bg = bg.convert("RGB")
             draw = ImageDraw.Draw(bg, "RGBA")
-            tx = art_right + 60
-            max_w = size[0] - tx - 50
-            title = (song.title or "Unknown Title").strip()
-            title = re.sub(r"\s+", " ", title)
 
-            # "NOW PLAYING" tag
-            tag = "NOW PLAYING"
-            tag_w = int(draw.textlength(tag, font=self.tag_font)) + 44
-            ty = 150
-            tag_layer = Image.new("RGBA", bg.size, (0, 0, 0, 0))
-            ImageDraw.Draw(tag_layer).rounded_rectangle(
-                (tx, ty, tx + tag_w, ty + 42), radius=21, fill=accent + (235,)
-            )
-            bg.alpha_composite(tag_layer)
-            bg = bg.convert("RGB")  # RGB so semi-transparent fills blend properly
-            draw = ImageDraw.Draw(bg, "RGBA")
-            lum = 0.299 * accent[0] + 0.587 * accent[1] + 0.114 * accent[2]
-            tag_color = (15, 15, 15, 255) if lum > 140 else WHITE
-            draw.text((tx + tag_w // 2, ty + 21), tag, font=self.tag_font, fill=tag_color, anchor="mm")
+            left, right = 50, size[0] - 67
+            full_w = right - left
 
-            # title (max 2 lines)
+            channel = re.sub(r"\s+", " ", (song.channel_name or "Unknown Artist").strip())
+            title = re.sub(r"\s+", " ", (song.title or "Unknown Title").strip())
+            info = f"{channel} | {song.view_count}" if song.view_count else channel
+            ifont = self.info_font if _is_latin(info) else self.uni_small
             tfont = self.title_font if _is_latin(title) else self.title_font_uni
-            lines = _wrap_two_lines(draw, title, tfont, max_w)
-            y = ty + 76
-            for ln in lines:
-                draw.text((tx + 3, y + 3), ln, font=tfont, fill=(0, 0, 0, 120))
-                draw.text((tx, y), ln, font=tfont, fill=WHITE)
-                y += 68
+            tfont = _load_font(BOLD_FONTS if _is_latin(title) else UNICODE_FONTS, 38)
 
-            # artist / channel
-            artist = _fit_text(draw, (song.channel_name or "Unknown Artist").strip(),
-                               self.artist_font if _is_latin(song.channel_name or "") else self.title_font_uni,
-                               max_w)
-            y += 6
-            draw.text((tx, y), artist,
-                      font=self.artist_font if _is_latin(artist) else self.title_font_uni,
-                      fill=SOFT_WHITE)
+            # title (single line, centred) + channel right under the thumbnail
+            mid = size[0] // 2
+            title = _fit_text(draw, title, tfont, full_w)
+            draw.text((mid + 2, 487), title, font=tfont, fill=(0, 0, 0, 130), anchor="mm")
+            draw.text((mid, 485), title, font=tfont, fill=WHITE, anchor="mm")
 
-            # views (optional)
-            if song.view_count:
-                y += 46
-                draw.text((tx, y), f"{song.view_count}", font=self.small_font, fill=(255, 255, 255, 140))
+            # controls: prev / pause / next
+            cx, cy = size[0] // 2, 568
+            px = cx - 120
+            draw.polygon([(px + 18, cy - 21), (px + 18, cy + 21), (px - 17, cy)], fill=WHITE)
+            draw.rounded_rectangle((cx - 17, cy - 24, cx - 4, cy + 24), radius=6, fill=WHITE)
+            draw.rounded_rectangle((cx + 4, cy - 24, cx + 17, cy + 24), radius=6, fill=WHITE)
+            nx = cx + 120
+            draw.polygon([(nx - 18, cy - 21), (nx - 18, cy + 21), (nx + 17, cy)], fill=WHITE)
 
-            # progress bar
-            bar_y = 535
-            bar_h = 8
-            draw.rounded_rectangle((tx, bar_y, tx + max_w, bar_y + bar_h), radius=4, fill=(255, 255, 255, 70))
-            fill_w = int(max_w * 0.08)
-            draw.rounded_rectangle((tx, bar_y, tx + fill_w, bar_y + bar_h), radius=4, fill=accent + (255,))
-            draw.ellipse((tx + fill_w - 10, bar_y + bar_h // 2 - 10, tx + fill_w + 10, bar_y + bar_h // 2 + 10),
-                         fill=WHITE)
-
-            # timestamps
-            draw.text((tx, bar_y + 26), "00:00", font=self.small_font, fill=(255, 255, 255, 170))
-            dur = "LIVE" if song.is_live else (song.duration or "--:--")
-            draw.text((tx + max_w, bar_y + 26), str(dur), font=self.small_font,
-                      fill=(255, 255, 255, 170), anchor="ra")
-
-            # controls
-            self._draw_controls(draw, tx + max_w // 2, 640, accent)
+            # times + thin full-width progress line
+            dur = "LIVE" if song.is_live else str(song.duration or "--:--")
+            draw.text((left, 628), "00:00", font=self.time_font, fill=(255, 255, 255, 235), anchor="lm")
+            draw.text((right, 628), dur, font=self.time_font, fill=(255, 255, 255, 235), anchor="rm")
+            by = 665
+            draw.rounded_rectangle((left, by - 2, right, by + 2), radius=2, fill=(255, 255, 255, 235))
+            draw.rounded_rectangle((left, by - 2, left + 14, by + 2), radius=2, fill=accent + (255,))
 
             bg.convert("RGB").save(output, quality=95)
             try:

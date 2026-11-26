@@ -78,10 +78,10 @@ Please read the license of each project before redistributing a bundled copy.
   External programs installed by the Dockerfile / setup script:
     FFmpeg, Node.js, Deno (optional)
 
-  Fonts bundled in ArtistMusic/Artistbots/assets/fonts/:
+  Fonts bundled in ArtistMusic/Artist_assets/fonts/:
     GNU Unifont, WenQuanYi Zen Hei — each under its own font license.
 
-  Fonts in ArtistMusic/helpers/fonts/ (artistbots_*.ttf) are used for
+  Fonts in ArtistMusic/Artist_assets/fonts/ (artistbots_*.ttf) are used for
   thumbnails and welcome cards.
 
 Telegram is a trademark of Telegram FZ-LLC. YouTube is a trademark of
