@@ -152,10 +152,10 @@ class Config:
         # ADD_IMG, RADIO_IMG. A RANDOM one is picked each time.
         # Env override: MEDIA_URLS="url1,url2,url3,url4"
         self.MEDIA_URLS: List[str] = env_media_list("MEDIA_URLS", [
-            "https://artistbox.bond/f/uj4enj66.png",  # URL 1
-            "https://artistbox.bond/f/37z4213f.png",  # URL 2
-            "https://artistbox.bond/f/98q3faxn.png",  # URL 3
-            "https://artistbox.bond/f/yctsplb0.png",  # URL 4
+            "https://PurviBox.vercel.app/1795722729793.jpg",  # URL 1
+            "https://PurviBox.vercel.app/1795722729793.jpg",  # URL 2
+            "https://PurviBox.vercel.app/1795722729793.jpg",  # URL 3
+            "https://PurviBox.vercel.app/1795722729793.jpg",  # URL 4
         ])
 
         # Moderation
