@@ -18,7 +18,7 @@ import re
 from urllib.parse import urlparse
 
 from pyrogram import enums, errors, types
-from ArtistMusic import app, config
+from ArtistMusic import app, config, db
 
 
 class Utilities:
@@ -99,6 +99,45 @@ class Utilities:
             duration,
         )
         await app.send_message(chat_id=app.logger, text=_text)
+
+    async def autoplay_log(
+        self,
+        chat,
+        user,
+        enabled: bool,
+        source: str = "command",
+        target_chat_id: int | None = None,
+        link: str | None = None,
+    ) -> None:
+        """Send an autoplay ON/OFF event to the logger group.
+
+        chat   : the chat where the command/button was used (message.chat)
+        user   : the user who toggled it (from_user)
+        source : "command" or "button"
+        target_chat_id : chat whose autoplay actually changed (channel-play case)
+        """
+        try:
+            if not await db.is_logger():
+                return
+            if chat.id == app.logger:
+                return
+            state = "ON ✅" if enabled else "OFF ⏹"
+            _text = (
+                f"<blockquote>🔁  {app.name} ᴀυᴛσᴘʟᴧʏ ʟσɢ\n\n"
+                f"🏠  ᴄʜᴧᴛ: <code>{chat.id}</code>  ┊  {chat.title}\n"
+                f"👤  υsєʀ: <code>{user.id}</code>  ┊  {user.mention}\n"
+            )
+            if target_chat_id and target_chat_id != chat.id:
+                _text += f"📡  ᴛᴧʀɢєᴛ ᴄʜᴧηηєʟ: <code>{target_chat_id}</code>\n"
+            if link:
+                _text += f"🔗  {link}\n"
+            _text += (
+                f"\n⚙️  ᴀυᴛσᴘʟᴧʏ: <b>{state}</b>\n"
+                f"🕹  ᴠɪᴧ: {source}</blockquote>"
+            )
+            await app.send_message(chat_id=app.logger, text=_text)
+        except Exception:
+            pass
 
     async def send_log(self, m: types.Message) -> None:
         """Log new user to logger group when they start the bot in private chat."""

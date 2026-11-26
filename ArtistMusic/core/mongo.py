@@ -70,6 +70,7 @@ class MongoDB:
         self.notified = []
         self.cache = self.db.cache
         self.logger = False
+        self.logger_cache = False  # audio/video cache in logger group (default OFF)
         self.maintenance = False  # Maintenance mode status
         self.gbanned_users = []  # Globally banned users
         self.vplay_enabled = config.VIDEO_PLAY
@@ -420,6 +421,23 @@ class MongoDB:
             upsert=True,
         )
 
+    # LOGGER CACHE TOGGLE (audio/video upload + reuse via logger group)
+    def is_logger_cache(self) -> bool:
+        return bool(self.logger_cache)
+
+    async def get_logger_cache(self) -> bool:
+        doc = await self.cache.find_one({"_id": "logger_cache"})
+        self.logger_cache = bool(doc["status"]) if doc else False  # default OFF
+        return self.logger_cache
+
+    async def set_logger_cache(self, status: bool) -> None:
+        self.logger_cache = status
+        await self.cache.update_one(
+            {"_id": "logger_cache"},
+            {"$set": {"status": status}},
+            upsert=True,
+        )
+
     # SONG CACHE METHODS (instant replay via logger group)
     def _song_cache_id(self, video_id: str, video: bool = False) -> str:
         """Build a unique cache key for a video/audio track."""
@@ -711,6 +729,7 @@ class MongoDB:
         await self.get_users()
         await self.get_blacklisted(chat=True)  # Load blacklisted chats
         await self.get_logger()
+        await self.get_logger_cache()
         await self.get_vplay_enabled()
         
         # Preload sudoers list

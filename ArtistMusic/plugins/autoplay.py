@@ -17,7 +17,7 @@
 from pyrogram import filters, types
 
 from ArtistMusic import app, db
-from ArtistMusic.helpers import can_manage_vc
+from ArtistMusic.helpers import can_manage_vc, utils
 
 
 @app.on_message(filters.command(["autoplay", "cautoplay"]) & filters.group & ~app.bl_users)
@@ -52,6 +52,12 @@ async def _autoplay(_, m: types.Message):
     # Toggle autoplay
     new_state = not current
     await db.set_autoplay(chat_id, new_state)
+
+    # Send this event to the logger group too
+    await utils.autoplay_log(
+        m.chat, m.from_user, new_state, source=f"/{m.command[0].lower()}",
+        target_chat_id=chat_id, link=m.link,
+    )
 
     if new_state:
         text = (

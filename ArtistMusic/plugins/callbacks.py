@@ -139,6 +139,10 @@ async def _controls(_, query: types.CallbackQuery):
         new_state = not await db.get_autoplay(chat_id)
         await db.set_autoplay(chat_id, new_state)
         await query.answer("🔁 Autoplay: ON" if new_state else "⏹ Autoplay: OFF")
+        await utils.autoplay_log(
+            query.message.chat, query.from_user, new_state,
+            source="button", target_chat_id=chat_id, link=query.message.link,
+        )
         # keep the existing status/timer row, rebuild the rest
         status = None
         try:

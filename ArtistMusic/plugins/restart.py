@@ -100,6 +100,36 @@ async def _logger(_, m: types.Message):
         await m.reply_text(m.lang["logger_off"])
 
 
+@app.on_message(filters.command(["loggercache"]) & app.sudo_filter)
+@lang.language()
+async def _logger_cache(_, m: types.Message):
+    """Turn the audio/video cache in the logger group ON/OFF (default OFF)."""
+    try:
+        await m.delete()
+    except Exception:
+        pass
+
+    state = "ON ✅" if db.is_logger_cache() else "OFF ⏹"
+    if len(m.command) < 2 or m.command[1].lower() not in ("on", "off"):
+        return await m.reply_text(
+            f"<blockquote>📋 <b>Usage:</b>\n\n/{m.command[0]} [on | off]\n\n"
+            f"Logger audio/video cache: <b>{state}</b></blockquote>"
+        )
+
+    if m.command[1].lower() == "on":
+        await db.set_logger_cache(True)
+        await m.reply_text(
+            "<blockquote>✅ Logger audio/video cache <b>enabled</b>.\n"
+            "New tracks will be uploaded to the logger group and reused.</blockquote>"
+        )
+    else:
+        await db.set_logger_cache(False)
+        await m.reply_text(
+            "<blockquote>⏹ Logger audio/video cache <b>disabled</b>.\n"
+            "Nothing will be uploaded to or served from the logger group.</blockquote>"
+        )
+
+
 @app.on_message(filters.command(["restart"]) & app.sudo_filter)
 @lang.language()
 async def _restart(_, m: types.Message):

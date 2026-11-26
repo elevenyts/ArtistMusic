@@ -718,7 +718,8 @@ class YouTube:
         Returns:
             Path to the downloaded file, or None if there's no valid cache.
         """
-        if not config.LOGGER_ID:
+        # Logger cache is OFF by default (toggle with /loggercache on)
+        if not config.LOGGER_ID or not db.is_logger_cache():
             return None
 
         cached = await db.get_song_cache(video_id, video=video)
@@ -811,7 +812,8 @@ class YouTube:
 
         Runs as a fire-and-forget background task so it never delays playback.
         """
-        if not config.LOGGER_ID:
+        # Logger cache is OFF by default (toggle with /loggercache on)
+        if not config.LOGGER_ID or not db.is_logger_cache():
             return
 
         # Same track ka upload already chal raha ho toh dobara mat karo
