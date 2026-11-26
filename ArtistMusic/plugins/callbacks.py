@@ -200,6 +200,20 @@ async def _controls(_, query: types.CallbackQuery):
 
     elif action == "skip":
         await tune.play_next(chat_id)
+
+        # play_next() plays the next queued song, or (if the queue is empty and
+        # autoplay is ON) finds a similar song. If it did, the call is still
+        # active and the new "now playing" message is already out, so just
+        # remove the old message - no "skipped" notice needed.
+        if await db.get_call(chat_id):
+            try:
+                await query.message.delete()
+            except Exception:
+                pass
+            return
+
+        # Nothing left to play (queue empty and autoplay OFF / failed):
+        # fall through and show the usual "skipped" message.
         status = query.lang["skipped"]
         reply = query.lang["play_skipped"].format(user)
 
