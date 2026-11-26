@@ -69,7 +69,7 @@
   "logger_usage": "<blockquote>📋  <b>υsᴧɢє:</b>\n\n/{0} [ση | σғғ]</blockquote>",
   "not_playing": "<blockquote>🔇  ησᴛ  ᴘʟᴧʏɪηɢ\n\n◈  ʙσᴛ ɪsη'ᴛ sᴛʀєᴧϻɪηɢ ɪη ᴠσɪᴄє ᴄʜᴧᴛ.</blockquote>",
   "pinging": "🏓  ᴘɪɴɢɪɴɢ  ▰▰▱▱▱  ᴡᴀɪᴛ...",
-  "ping_pong": "🏓  <b>ᴘᴏɴɢ !</b>   ˹ ᴀʀᴛɪsᴛ ˼\n\n<blockquote>╭━━━━  ⚡ <b>ᴘᴇʀғᴏʀᴍᴀɴᴄᴇ</b>  ━━━━╮\n\n◉  <b>ʟᴀᴛᴇɴᴄʏ</b>  ➜  <code>{0} ms</code>\n◉  <b>ᴜᴘᴛɪᴍᴇ</b>    ➜  <code>{1}</code>\n◉  <b>ᴘʏᴛɢᴄᴀʟʟs</b> ➜  <code>{2} ms</code>\n◉  <b>ʀᴀᴍ</b>       ➜  <code>{3}</code>\n◉  <b>ᴄᴘᴜ</b>       ➜  <code>{4}%</code>\n\n╰━━━━━━━━━━━━━━━━━━━━╯</blockquote>\n\n<i>🎧 ᴍᴜsɪᴄ ɪs ʟɪғᴇ — ᴇɴᴊᴏʏ ᴛʜᴇ ᴠɪʙᴇ ✨</i>",
+  "ping_pong": "🏓  <b>ᴘᴏɴɢ !</b>   ˹ ᴀʀᴛɪsᴛ ˼\n\n<blockquote>⚡  <b>ʟᴀᴛᴇɴᴄʏ</b>  ➜  <code>{0} ms</code>\n⏳  <b>ᴜᴘᴛɪᴍᴇ</b>  ➜  <code>{1}</code>\n📞  <b>ᴄᴀʟʟs</b>  ➜  <code>{2} ms</code>\n💾  <b>ʀᴀᴍ</b>  ➜  <code>{3}</code>\n🖥  <b>ᴄᴘᴜ</b>  ➜  <code>{4}%</code></blockquote>\n\n<i>🎧 ᴍᴜsɪᴄ ɪs ʟɪғᴇ ✨</i>",
   "play_admin": "<blockquote>🛡  ᴧᴅϻɪη σηʟʏ\n\nσηʟʏ ᴧᴅϻɪηs ᴧʀє ᴧʟʟσᴡєᴅ ᴛσ ᴘʟᴧʏ ϻυsɪᴄ ɪη ᴛʜɪs ᴄʜᴧᴛ.</blockquote>",
   "play_banned": "<blockquote>🚫  ᴧssɪsᴛᴧηᴛ ʙᴧηηєᴅ\n\n{0} ᴧssɪsᴛᴧηᴛ ɪs ʙᴧηηєᴅ ғʀσϻ ʏσυʀ ᴄʜᴧᴛ.\n\n🆔  <code>{1}</code>\n📛  {2}\n🔗  {3}</blockquote>",
   "play_media": "➲ 𝗡𝗢𝗪  𝗦𝗧𝗥𝗘𝗔𝗠𝗜𝗡𝗚   \n\n🎧  <a href={0}><b>{1}</b></a>\n🕔  {2}  |  👤  {3}\n\n<i>❤️  ᴘσᴡєʀєᴅ ʙʏ  <a href=\"https://t.me/ArtistBots\">˹ ᴀʀᴛɪsᴛ ˼</a></i>",

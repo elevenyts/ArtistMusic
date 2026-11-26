@@ -17,8 +17,16 @@ import time
 import psutil
 
 from pyrogram import filters, types
+from pyrogram.enums import ButtonStyle
 from ArtistMusic import app, tune, boot, config, lang
 from ArtistMusic.helpers import buttons, utils
+
+
+def _support_markup(text: str) -> types.InlineKeyboardMarkup:
+    """Ping message carries only one button: Support."""
+    return types.InlineKeyboardMarkup([[
+        types.InlineKeyboardButton(text=text, url=config.SUPPORT_CHAT, style=ButtonStyle.PRIMARY)
+    ]])
 
 
 @app.on_message(filters.command(["alive", "ping"]) & ~app.bl_users)
@@ -40,7 +48,7 @@ async def _ping(_, m: types.Message):
     
     # Get system stats
     mem = psutil.virtual_memory()
-    ram_usage = f"{round(mem.used / (1024 ** 3), 1)}GB / {round(mem.total / (1024 ** 3), 1)}GB"
+    ram_usage = f"{round(mem.used / (1024 ** 3), 1)}/{round(mem.total / (1024 ** 3), 1)}GB"
     cpu_percent = psutil.cpu_percent(interval=0.5)
     
     # Get active chats count
@@ -60,11 +68,11 @@ async def _ping(_, m: types.Message):
     try:
         await sent.edit_media(
             media=utils.input_media(config.PING_IMG, caption_text),
-            reply_markup=buttons.ping_markup(m.lang["support"]),
+            reply_markup=_support_markup(m.lang["support"]),
         )
     except Exception:
         # Fallback to text if media fails
         await sent.edit_text(
             text=caption_text,
-            reply_markup=buttons.ping_markup(m.lang["support"]),
+            reply_markup=_support_markup(m.lang["support"]),
         )
