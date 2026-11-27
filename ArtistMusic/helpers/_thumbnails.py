@@ -29,7 +29,7 @@ from ArtistMusic import config
 from ArtistMusic.helpers import Track
 
 SIZE = (1280, 720)
-BRAND_TEXT = "𝚂𝙼𝙰𝚁𝚃 𝚇 𝙼𝚄𝚂𝙸𝙲"
+BRAND_TEXT = "SMARTXMUSIC"
 WHITE = (255, 255, 255, 255)
 SOFT_WHITE = (255, 255, 255, 190)
 RED_COLOR = (230, 57, 53, 255)
