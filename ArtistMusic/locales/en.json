@@ -72,7 +72,7 @@
   "ping_pong": "🏓  <b>ᴘᴏɴɢ !</b>   ˹ ᴀʀᴛɪsᴛ ˼\n\n<blockquote>⚡  <b>ʟᴀᴛᴇɴᴄʏ</b>  ➜  <code>{0} ms</code>\n⏳  <b>ᴜᴘᴛɪᴍᴇ</b>  ➜  <code>{1}</code>\n📞  <b>ᴄᴀʟʟs</b>  ➜  <code>{2} ms</code>\n💾  <b>ʀᴀᴍ</b>  ➜  <code>{3}</code>\n🖥  <b>ᴄᴘᴜ</b>  ➜  <code>{4}%</code></blockquote>\n\n<i>🎧 ᴍᴜsɪᴄ ɪs ʟɪғᴇ ✨</i>",
   "play_admin": "<blockquote>🛡  ᴧᴅϻɪη σηʟʏ\n\nσηʟʏ ᴧᴅϻɪηs ᴧʀє ᴧʟʟσᴡєᴅ ᴛσ ᴘʟᴧʏ ϻυsɪᴄ ɪη ᴛʜɪs ᴄʜᴧᴛ.</blockquote>",
   "play_banned": "<blockquote>🚫  ᴧssɪsᴛᴧηᴛ ʙᴧηηєᴅ\n\n{0} ᴧssɪsᴛᴧηᴛ ɪs ʙᴧηηєᴅ ғʀσϻ ʏσυʀ ᴄʜᴧᴛ.\n\n🆔  <code>{1}</code>\n📛  {2}\n🔗  {3}</blockquote>",
-  "play_media": "➲ 𝗡𝗢𝗪  𝗦𝗧𝗥𝗘𝗔𝗠𝗜𝗡𝗚   \n\n🎧  <a href={0}><b>{1}</b></a>\n🕔  {2}  |  👤  {3}\n\n<i>❤️  ᴘσᴡєʀєᴅ ʙʏ  <a href=\"https://t.me/ArtistBots\">˹ ᴀʀᴛɪsᴛ ˼</a></i>",
+  "play_media": "➲ 𝗡𝗢𝗪  𝗦𝗧𝗥𝗘𝗔𝗠𝗜𝗡𝗚   \n\n🎧  <a href={0}><b>{1}</b></a>\n🕔  {2}  |  👤  {3}\n\n<i>❤️  ᴘσᴡєʀєᴅ ʙʏ  <a href=\"https://t.me/SMART_OPll\">˹ 𝚂𝙼𝙰𝚁𝚃 ˼</a></i>",
   "play_log": "<blockquote>🎵  {0} ᴘʟᴧʏ ʟσɢ\n\n🏠  ᴄʜᴧᴛ: <code>{1}</code>  ┊  {2}\n👤  υsєʀ: <code>{3}</code>  ┊  {4}\n🔗  {5}\n\n🎶  ᴛɪᴛʟє: {6}\n⏱  ᴅυʀᴧᴛɪση: {7} ϻɪη</blockquote>",
   "play_queued": "<u>ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ:</u> {0}\nᴛɪᴛʟᴇ: <a href={1}>{2}</a>\nᴅᴜʀᴀᴛɪᴏɴ: {3} ᴍɪɴ\nʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ: {4}",
   "play_usage": "<blockquote>📋  <b>υsᴧɢє:</b>\n\n<code>/play [sσηɢ ηᴧϻє / ʏσυᴛυʙє υʀʟ / ʀєᴘʟʏ ᴛσ ᴧυᴅɪσ]</code></blockquote>",

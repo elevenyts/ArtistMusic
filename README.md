@@ -1,19 +1,15 @@
 <div align="center">
-
-<img src="https://artistbox.bond/f/odklxlnu.svg" width="100%" height="500">
-
+<img src="https://raw.githubusercontent.com/smartop9082/ArtistMusic/main/navya_x_music.png" width="100%" alt="NAVYA X MUSIC">
 <br>
 <br><br>
 
-[![Stars](https://img.shields.io/github/stars/elevenyts/ArtistMusic?style=for-the-badge&logo=starship&logoColor=white&color=A960FF&labelColor=0D1117)](https://github.com/elevenyts/ArtistMusic)
-[![Forks](https://img.shields.io/github/forks/elevenyts/ArtistMusic?style=for-the-badge&logo=git&logoColor=white&color=7C3AED&labelColor=0D1117)](https://github.com/elevenyts/ArtistMusic)
-[![Issues](https://img.shields.io/github/issues/elevenyts/ArtistMusic?style=for-the-badge&logo=github&logoColor=white&color=FF6B6B&labelColor=0D1117)](https://github.com/elevenyts/ArtistMusic/issues)
-[![License](https://img.shields.io/badge/License-MIT-A960FF?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0D1117)](LICENSE)
+[![🤖 BOT - NAVYA X MUSIC](https://img.shields.io/badge/🤖_BOT-NAVYA_X_MUSIC-A960FF?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)](https://t.me/navya_x_musicbot)
 
-<br>
+[![📢 Telegram Channel](https://img.shields.io/badge/📢_CHANNEL-GIRLS_BOYS_DP_STYLISH-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)](https://t.me/GIRLS_BOYS_DP_STYLISH)
 
-[![Telegram Channel](https://img.shields.io/badge/📢_Channel-Artistbots-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)](https://t.me/Artistbots)
-[![Support Group](https://img.shields.io/badge/💬_Support-ArtistMusic-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)](https://t.me/Elevenytschats)
+[![💬 Support Group](https://img.shields.io/badge/💬_SUPPORT-SMART_MUSIC_SUPPORT-7C3AED?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)](https://t.me/SMART_MUSIC_SUPPORT)
+
+[![GitHub](https://img.shields.io/badge/POWERED_BY-NAVYA_X_MUSIC-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/smartop9082/ArtistMusic)
 
 </div>
 
