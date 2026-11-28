@@ -1,7 +1,5 @@
 <div align="center">
-
-<img src="https://artistbox.bond/f/odklxlnu.svg" width="100%" height="500">
-
+<img src="https://raw.githubusercontent.com/smartop9082/ArtistMusic/main/navya_x_music.png" width="100%" alt="NAVYA X MUSIC">
 <br>
 <br><br>
 
