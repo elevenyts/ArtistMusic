@@ -5,13 +5,14 @@
 <br>
 <br><br>
 
-""Bot" (https://img.shields.io/badge/🤖_BOT-NAVYA_X_MUSIC-A960FF?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)" (https://t.me/navya_x_musicbot)
+[![🤖 BOT - NAVYA X MUSIC](https://img.shields.io/badge/🤖_BOT-NAVYA_X_MUSIC-A960FF?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)](https://t.me/navya_x_musicbot)
 
-""Telegram Channel" (https://img.shields.io/badge/📢_CHANNEL-GIRLS_BOYS_DP_STYLISH-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)" (https://t.me/GIRLS_BOYS_DP_STYLISH)
+[![📢 Telegram Channel](https://img.shields.io/badge/📢_CHANNEL-GIRLS_BOYS_DP_STYLISH-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)](https://t.me/GIRLS_BOYS_DP_STYLISH)
 
-""Support Group" (https://img.shields.io/badge/💬_SUPPORT-SMART_MUSIC_SUPPORT-7C3AED?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)" (https://t.me/SMART_MUSIC_SUPPORT)
+[![💬 Support Group](https://img.shields.io/badge/💬_SUPPORT-SMART_MUSIC_SUPPORT-7C3AED?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0D1117)](https://t.me/SMART_MUSIC_SUPPORT)
 
-""GitHub" (https://img.shields.io/badge/POWERED_BY-NAVYA_X_MUSIC-black?style=for-the-badge&logo=github&logoColor=white)" (https://github.com/)
+[![GitHub](https://img.shields.io/badge/POWERED_BY-NAVYA_X_MUSIC-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/smartop9082/ArtistMusic)
+
 </div>
 
 <br>
